@@ -6,7 +6,11 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import model.Car;
 import model.Driver;
+import org.junit.Assert;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by cba62 on 15/03/17.
@@ -16,6 +20,12 @@ import model.Driver;
 public class registerCarSteps {
 
     Driver jo;
+    int seatNum;
+    String plateNum;
+    String colour;
+    int year;
+    String type;
+    String model;
 
     @Given("^Jo is a driver$")
     public void jo_is_a_driver() throws Throwable {
@@ -23,42 +33,46 @@ public class registerCarSteps {
         jo = new Driver("Jo");
     }
 
-    @Given("^Jo has a car with (\\d+) seats$")
-    public void jo_has_a_car_with_seats(int seats) throws Throwable {
 
-        int seatNum = seats;
+    @Given("^Jo has a car with (\\d+) seats and type is \"([^\"]*)\"$")
+    public void jo_has_a_car_with_seats_and_type_is(int seatNum, String type) throws Throwable {
+        this.seatNum = seatNum;
+        this.type = type;
+    }
+
+    @Given("^the car colour is \"([^\"]*)\", model is \"([^\"]*)\"$")
+    public void the_car_colour_is_model_is(String colour, String model) throws Throwable {
+        this.colour = colour;
+        this.model = model;
     }
 
 
     @Given("^license plate \"([^\"]*)\"$")
     public void license_plate(String plate) throws Throwable {
 
-        System.out.println(plate);
+        plateNum = plate;
     }
 
-    @Given("^the car colour is \"([^\"]*)\"$")
-    public void the_car_colour_is(String colour) throws Throwable {
-
-        System.out.println(colour);
-    }
 
 
     @Given("^year (\\d+)$")
     public void year(int year) throws Throwable {
 
-        System.out.println(year);
+        this.year = year;
     }
 
 
     @When("^the car is registered$")
     public void the_car_is_registered() throws Throwable {
 
-        //throw new PendingException();
+        Car car = new Car(type, colour, model, plateNum, year, seatNum);
+        jo.addCar(car);
     }
 
     @Then("^the car's attributes of year (\\d+), license plate \"([^\"]*)\", colour \"([^\"]*)\" and (\\d+) seats are stored\\.$")
     public void the_car_s_attributes_of_year_license_plate_colour_and_seats_are_stored(int year, String plate, String colour, int seats) throws Throwable {
-        System.out.println(year + plate + colour + seats);
+        Car car = new Car(type, colour, model, plateNum, year, seatNum);
+        assertEquals(car, jo.getCars().get(0));
     }
 
 

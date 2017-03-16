@@ -14,5 +14,11 @@ public class Driver {
         this.name = name;
     }
 
+    public void addCar(Car car){
+        cars.add(car);
+    }
 
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
 }
