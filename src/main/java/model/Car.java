@@ -71,4 +71,10 @@ public class Car {
         result = 31 * result + numSeats;
         return result;
     }
+
+    @Override
+    public String toString(){
+        String str = plates + " : " + year + " " + colour + " " + model + " of type" + type + " with " + numSeats;
+        return str;
+    }
 }

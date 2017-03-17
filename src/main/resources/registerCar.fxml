@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="registerCarController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterCarController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -58,7 +58,7 @@
             <TextField fx:id="numSeats" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" text="Cancel" GridPane.rowIndex="4" />
+      <Button fx:id="register" defaultButton="true" mnemonicParsing="false" onAction="#registerCar" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button fx:id="cancel" cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.rowIndex="4" />
    </children>
 </GridPane>
