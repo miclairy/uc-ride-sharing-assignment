@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import model.Car;
 import model.Driver;
 
@@ -32,8 +33,13 @@ public class MainController implements Initializable {
 
     public static Driver driverUser;
 
+    private static Window mainStage;
+    private static FXMLLoader controllerLoader;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        controllerLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
 
     }
 
@@ -52,16 +58,34 @@ public class MainController implements Initializable {
     public void registerCar(){
 
         try {
-
+            mainStage = registerCar.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/registerCar.fxml"));
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Stage stage = (Stage) registerCar.getScene().getWindow();
             stage.setResizable(false);
-            stage.setScene(new Scene(root, 443, 429));
+            stage.setScene(new Scene(root, 500, 400));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void createStopPoint(){
+
+    }
+
+    public static void mainScene() {
+        //TODO set state of scene back to what it was
+        Stage stage = (Stage) mainStage;
+        stage.setResizable(false);
+        Parent root = null;
+        try {
+            root = controllerLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root, 500, 400));
+        stage.show();
 
     }
 }

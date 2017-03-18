@@ -50,6 +50,6 @@ public class RegisterCarController {
 
     public void cancel(){
         Stage stage = (Stage) cancel.getScene().getWindow();
-        stage.close();
+        MainController.mainScene();
     }
 }

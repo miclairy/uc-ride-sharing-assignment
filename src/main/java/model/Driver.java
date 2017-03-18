@@ -21,4 +21,9 @@ public class Driver {
     public ArrayList<Car> getCars() {
         return cars;
     }
+
+    public void createStopPoint(int number, String address){
+        StopPoint stopPoint = new StopPoint(number, address);
+        Data.stopPoints.add(stopPoint);
+    }
 }

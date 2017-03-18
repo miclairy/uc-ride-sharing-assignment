@@ -9,3 +9,11 @@ Feature: Register Car
       And the car colour is "green", model is "Subaru"
       When the car is registered
       Then the car's attributes of year 2001, license plate "YTZ235", colour "green" and 5 seats are stored.
+
+
+  Scenario: Jo registers 2 cars
+    Given Jo is a driver
+    And Jo has a car registered a car
+    When jo registers a new car
+    Then the car's is registered and jo has add the car to his account
+
