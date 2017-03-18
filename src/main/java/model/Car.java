@@ -74,7 +74,7 @@ public class Car {
 
     @Override
     public String toString(){
-        String str = plates + " : " + year + " " + colour + " " + model + " of type" + type + " with " + numSeats;
+        String str = plates + " : " + year + " " + colour + " " + model + " of type " + type + " with " + numSeats + " seats.";
         return str;
     }
 }

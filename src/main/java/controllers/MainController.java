@@ -30,6 +30,8 @@ public class MainController implements Initializable {
     private Text userTypeText;
     @FXML
     private Text registeredCars;
+    @FXML
+    private Button createStopPoint;
 
     public static Driver driverUser;
 
@@ -40,6 +42,17 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         controllerLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
+        if (driverUser != null) {
+            registerCar.setVisible(true);
+            userTypeText.setText("You are a Driver");
+            driver.setVisible(false);
+            createStopPoint.setVisible(true);
+            String cars = "";
+            for (Car car : driverUser.getCars()) {
+                cars += car.toString();
+            }
+            registeredCars.setText(cars);
+        }
 
     }
 
@@ -48,11 +61,7 @@ public class MainController implements Initializable {
         registerCar.setVisible(true);
         userTypeText.setText("You are a Driver");
         driver.setVisible(false);
-        String cars = "";
-        for (Car car : driverUser.getCars()) {
-            cars += car.toString();
-        }
-        registeredCars.setText(cars);
+        createStopPoint.setVisible(true);
     }
 
     public void registerCar(){
@@ -71,6 +80,16 @@ public class MainController implements Initializable {
     }
 
     public void createStopPoint(){
+        try {
+            mainStage = registerCar.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/createStopPoint.fxml"));
+            Stage stage = (Stage) registerCar.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setScene(new Scene(root, 500, 400));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -85,6 +104,7 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
         stage.setScene(new Scene(root, 500, 400));
+
         stage.show();
 
     }

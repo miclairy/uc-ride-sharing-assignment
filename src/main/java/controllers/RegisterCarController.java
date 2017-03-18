@@ -37,7 +37,7 @@ public class RegisterCarController {
             Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
                     Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
             MainController.driverUser.addCar(newCar);
-            stage.close();
+            MainController.mainScene();
         } catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly");
