@@ -14,7 +14,7 @@ public class StopPoint {
         this.streetName = streetName;
     }
 
-    public StopPoint(int streetNumber, String suburb, String streetName) {
+    public StopPoint(int streetNumber, String streetName, String suburb) {
         this.streetNumber = streetNumber;
         this.suburb = suburb;
         this.streetName = streetName;
@@ -39,5 +39,15 @@ public class StopPoint {
         result = 31 * result + (suburb != null ? suburb.hashCode() : 0);
         result = 31 * result + (streetName != null ? streetName.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        String str = streetNumber + " " +
+                streetName + " \n";
+        if (!(suburb == null)) {
+            str += " " + suburb;
+        }
+        return str;
     }
 }

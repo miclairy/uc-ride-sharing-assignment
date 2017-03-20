@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import model.Data;
 
 
 /**
@@ -24,6 +25,7 @@ public class Main extends Application {
 
     public static void main( String[] args )
     {
+        Data.setDataListeners();
         launch(args);
 
     }

@@ -1,5 +1,8 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 /**
@@ -8,7 +11,7 @@ import java.util.ArrayList;
 public class Driver {
 
     private String name;
-    private ArrayList<Car> cars = new ArrayList<>();
+    private ObservableList<Car> cars = FXCollections.observableArrayList();
 
     public Driver(String name) {
         this.name = name;
@@ -18,12 +21,17 @@ public class Driver {
         cars.add(car);
     }
 
-    public ArrayList<Car> getCars() {
+    public ObservableList<Car> getCars() {
         return cars;
     }
 
     public void createStopPoint(int number, String address){
         StopPoint stopPoint = new StopPoint(number, address);
+        Data.stopPoints.add(stopPoint);
+    }
+
+    public void createStopPoint(int number, String address, String suburb){
+        StopPoint stopPoint = new StopPoint(number, address, suburb);
         Data.stopPoints.add(stopPoint);
     }
 }

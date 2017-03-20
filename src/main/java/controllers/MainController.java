@@ -1,17 +1,21 @@
 package controllers;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import model.Car;
+import model.Data;
 import model.Driver;
+import model.StopPoint;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,9 +33,13 @@ public class MainController implements Initializable {
     @FXML
     private Text userTypeText;
     @FXML
-    private Text registeredCars;
+    private ListView<Car> registeredCars;
     @FXML
     private Button createStopPoint;
+    @FXML
+    private ListView<StopPoint> stopPoints;
+    //@FXML
+    //private ListView<Route> routes;
 
     public static Driver driverUser;
 
@@ -51,8 +59,9 @@ public class MainController implements Initializable {
             for (Car car : driverUser.getCars()) {
                 cars += car.toString();
             }
-            registeredCars.setText(cars);
+            registeredCars.setItems(driverUser.getCars());
         }
+        stopPoints.setItems(Data.stopPointsList);
 
     }
 

@@ -1,5 +1,10 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableSet;
+import javafx.collections.SetChangeListener;
+
 import java.util.HashSet;
 
 /**
@@ -7,6 +12,14 @@ import java.util.HashSet;
  */
 public class Data {
 
-    public static HashSet<StopPoint> stopPoints = new HashSet<>();
+    public static ObservableSet<StopPoint> stopPoints = FXCollections.observableSet();
+    public static ObservableList<StopPoint> stopPointsList = FXCollections.observableArrayList(stopPoints);
 
+    public static void setDataListeners(){
+        SetChangeListener<StopPoint> listner = change -> {
+            stopPointsList.clear();
+            stopPointsList.addAll(stopPoints);
+        };
+        stopPoints.addListener(listner);
+    }
 }

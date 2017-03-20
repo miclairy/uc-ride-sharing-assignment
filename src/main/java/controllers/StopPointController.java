@@ -17,7 +17,11 @@ public class StopPointController {
     private TextField suburb;
 
     public void makeStopPoint(){
-        MainController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText());
+        if (suburb.getText().isEmpty()) {
+            MainController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText());
+        } else {
+            MainController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText(), suburb.getText());
+        }
         MainController.mainScene();
     }
 
