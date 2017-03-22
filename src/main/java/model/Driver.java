@@ -13,7 +13,7 @@ public class Driver {
 
     private String name;
     private ObservableList<Car> cars = FXCollections.observableArrayList();
-    private HashSet<Route> routes = new HashSet<>();
+    private ObservableList<Route> routes = FXCollections.observableArrayList();
 
     public Driver(String name) {
         this.name = name;
@@ -37,12 +37,18 @@ public class Driver {
         Data.stopPoints.add(stopPoint);
     }
 
-    public void createRoute(ArrayList<StopPoint> stopPoints) {
-        Route route = new Route(stopPoints);
-        routes.add(route);
+    public void createRoute(ObservableList<StopPoint> stopPoints) {
+        ArrayList<StopPoint> stops = new ArrayList<>();
+        stops.addAll(stopPoints);
+        Route route = new Route(stops);
+        if (!routes.contains(route)) {
+            routes.add(route);
+        } else {
+            return;
+        }
     }
 
-    public HashSet<Route> getRoutes() {
+    public ObservableList<Route> getRoutes() {
         return routes;
     }
 }

@@ -1,24 +1,26 @@
 package controllers;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxListCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import model.Car;
-import model.Data;
-import model.Driver;
-import model.StopPoint;
+import javafx.util.Callback;
+import model.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -38,8 +40,12 @@ public class MainController implements Initializable {
     private Button createStopPoint;
     @FXML
     private ListView<StopPoint> stopPoints;
-    //@FXML
-    //private ListView<Route> routes;
+    @FXML
+    private Button createRoute;
+    @FXML
+    private Button clearSelection;
+    @FXML
+    private AnchorPane routesHolder;
 
     public static Driver driverUser;
 
@@ -50,27 +56,31 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         controllerLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
+        stopPoints.setItems(Data.stopPointsList);
+        stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         if (driverUser != null) {
-            registerCar.setVisible(true);
-            userTypeText.setText("You are a Driver");
-            driver.setVisible(false);
-            createStopPoint.setVisible(true);
+            becomeDriver();
             String cars = "";
             for (Car car : driverUser.getCars()) {
                 cars += car.toString();
             }
             registeredCars.setItems(driverUser.getCars());
         }
-        stopPoints.setItems(Data.stopPointsList);
 
     }
 
     public void becomeDriver(){
-        driverUser = new Driver("");
+        if (driverUser == null) {
+            driverUser = new Driver("");
+        }
         registerCar.setVisible(true);
         userTypeText.setText("You are a Driver");
         driver.setVisible(false);
         createStopPoint.setVisible(true);
+        if (Data.stopPointsList.size() > 0) {
+            createRoute.setVisible(true);
+        }
+
     }
 
     public void registerCar(){
@@ -100,6 +110,35 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+    public void createRoute(){
+        ObservableList<StopPoint> selectedStops = stopPoints.getSelectionModel().getSelectedItems();
+        if (selectedStops.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Select 1 or more stop point");
+            alert.setHeaderText("You have not selected any stop points");
+            alert.setContentText("Please select one or more stop points from the list");
+            alert.showAndWait();
+        } else {
+            driverUser.createRoute(selectedStops);
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Name Route");
+            dialog.setHeaderText("Enter Name for Route");
+            dialog.setContentText("Please enter a name for new route:");
+            Optional<String> result = dialog.showAndWait();
+            TitledPane routePane = new TitledPane();
+            result.ifPresent(name -> routePane.setText(name));
+
+            ListView<StopPoint> routeStops = new ListView<>();
+            routeStops.setItems(selectedStops);
+            routePane.setContent(routeStops);
+            routesHolder.getChildren().add(routePane);
+        }
+    }
+
+    public void clearSelection(){
+        stopPoints.getSelectionModel().clearSelection();
     }
 
     public static void mainScene() {

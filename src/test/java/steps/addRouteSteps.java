@@ -3,6 +3,8 @@ package steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import model.Data;
 import model.Driver;
@@ -46,7 +48,9 @@ public class addRouteSteps {
     @When("^jo creates route by adding stop points$")
     public void joCreatesRouteByAddingStopPoints() {
         when(data.getStopPoints()).thenReturn(stops);
-        jo.createRoute(data.getStopPoints());
+        ObservableList<StopPoint> stops = FXCollections.observableArrayList();
+        stops.addAll(data.getStopPoints());
+        jo.createRoute(stops);
     }
 
     @Then("^a new route is stored with the stop points\\.$")
