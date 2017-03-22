@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Driver user class that can register cars and driver passengers around
@@ -12,6 +13,7 @@ public class Driver {
 
     private String name;
     private ObservableList<Car> cars = FXCollections.observableArrayList();
+    private HashSet<Route> routes = new HashSet<>();
 
     public Driver(String name) {
         this.name = name;
@@ -33,5 +35,14 @@ public class Driver {
     public void createStopPoint(int number, String address, String suburb){
         StopPoint stopPoint = new StopPoint(number, address, suburb);
         Data.stopPoints.add(stopPoint);
+    }
+
+    public void createRoute(ArrayList<StopPoint> stopPoints) {
+        Route route = new Route(stopPoints);
+        routes.add(route);
+    }
+
+    public HashSet<Route> getRoutes() {
+        return routes;
     }
 }
