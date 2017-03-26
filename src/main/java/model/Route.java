@@ -7,7 +7,8 @@ import java.util.ArrayList;
  */
 public class Route {
 
-    ArrayList<StopPoint> stops = new ArrayList<>();
+    private ArrayList<StopPoint> stops = new ArrayList<>();
+    private String name;
 
     public Route(ArrayList<StopPoint> stops) {
         this.stops = stops;
@@ -26,5 +27,17 @@ public class Route {
     @Override
     public int hashCode() {
         return stops != null ? stops.hashCode() : 0;
+    }
+
+    public ArrayList<StopPoint> getStops() {
+        return stops;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -14,6 +14,7 @@ public class Driver {
     private String name;
     private ObservableList<Car> cars = FXCollections.observableArrayList();
     private ObservableList<Route> routes = FXCollections.observableArrayList();
+    private ObservableList<Trip> trips = FXCollections.observableArrayList();
 
     public Driver(String name) {
         this.name = name;
@@ -50,5 +51,13 @@ public class Driver {
 
     public ObservableList<Route> getRoutes() {
         return routes;
+    }
+
+    public ObservableList<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(ObservableList<Trip> trips) {
+        this.trips = trips;
     }
 }

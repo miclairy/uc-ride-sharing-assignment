@@ -46,6 +46,8 @@ public class MainController implements Initializable {
     private Button clearSelection;
     @FXML
     private AnchorPane routesHolder;
+    @FXML
+    private Button makeTrip;
 
     public static Driver driverUser;
 
@@ -77,39 +79,35 @@ public class MainController implements Initializable {
         userTypeText.setText("You are a Driver");
         driver.setVisible(false);
         createStopPoint.setVisible(true);
+        makeTrip.setVisible(true);
         if (Data.stopPointsList.size() > 0) {
             createRoute.setVisible(true);
         }
 
     }
 
-    public void registerCar(){
-
+    private void newScene(String fxml){
         try {
             mainStage = registerCar.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/registerCar.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = (Stage) registerCar.getScene().getWindow();
             stage.setResizable(false);
             stage.setScene(new Scene(root, 500, 400));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }    }
 
+    public void registerCar(){
+        newScene("/registerCar.fxml");
     }
 
     public void createStopPoint(){
-        try {
-            mainStage = registerCar.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/createStopPoint.fxml"));
-            Stage stage = (Stage) registerCar.getScene().getWindow();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, 500, 400));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        newScene("/createStopPoint.fxml");
+    }
 
+    public void makeTrip(){
+        newScene("/createTrip.fxml");
     }
 
     public void createRoute(){
