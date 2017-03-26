@@ -10,8 +10,9 @@ public class Route {
     private ArrayList<StopPoint> stops = new ArrayList<>();
     private String name;
 
-    public Route(ArrayList<StopPoint> stops) {
+    public Route(ArrayList<StopPoint> stops, String name) {
         this.stops = stops;
+        this.name = name;
     }
 
     @Override

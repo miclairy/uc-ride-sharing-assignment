@@ -43,7 +43,7 @@ public class makeTripSteps {
         stops.add(stopPoint1);
         stops.add(stopPoint2);
         stops.add(stopPoint3);
-        jo.createRoute(stops);
+        jo.createRoute(stops, "1");
     }
 
     @Given("^Jo registered a car\\.$")

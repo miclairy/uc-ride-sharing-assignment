@@ -1,8 +1,10 @@
 package controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
@@ -20,7 +22,7 @@ import java.util.ResourceBundle;
 public class MakeTripController implements Initializable {
 
     @FXML
-    private AnchorPane routesAnchor;
+    private Accordion routesAnchor;
     @FXML
     private ComboBox<Integer> timesCombo;
     @FXML
@@ -33,9 +35,12 @@ public class MakeTripController implements Initializable {
 
         for (Route route: driver.getRoutes()) {
             ListView<StopPoint> routeStops = new ListView<>();
-            routeStops.setItems((ObservableList<StopPoint>) route.getStops());
+            ObservableList<StopPoint> stopPoints = FXCollections.observableArrayList();
+            stopPoints.addAll(route.getStops());
+            routeStops.setItems(stopPoints);
             routePane.setContent(routeStops);
-            routesAnchor.getChildren().add(routePane);
+            routePane.setText(route.getName());
+            routesAnchor.getPanes().add(routePane);
         }
     }
 

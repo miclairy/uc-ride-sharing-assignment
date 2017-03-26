@@ -38,10 +38,10 @@ public class Driver {
         Data.stopPoints.add(stopPoint);
     }
 
-    public void createRoute(ObservableList<StopPoint> stopPoints) {
+    public void createRoute(ObservableList<StopPoint> stopPoints, String name) {
         ArrayList<StopPoint> stops = new ArrayList<>();
         stops.addAll(stopPoints);
-        Route route = new Route(stops);
+        Route route = new Route(stops, name);
         if (!routes.contains(route)) {
             routes.add(route);
         } else {

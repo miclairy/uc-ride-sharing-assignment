@@ -1,6 +1,7 @@
 package controllers;
 
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,7 +47,7 @@ public class MainController implements Initializable {
     @FXML
     private Button clearSelection;
     @FXML
-    private AnchorPane routesHolder;
+    private Accordion routesHolder;
     @FXML
     private Button makeTrip;
 
@@ -68,6 +70,8 @@ public class MainController implements Initializable {
             }
             registeredCars.setItems(driverUser.getCars());
         }
+
+        populateRoutes();
 
     }
 
@@ -119,19 +123,23 @@ public class MainController implements Initializable {
             alert.setContentText("Please select one or more stop points from the list");
             alert.showAndWait();
         } else {
-            driverUser.createRoute(selectedStops);
+
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("Name Route");
             dialog.setHeaderText("Enter Name for Route");
             dialog.setContentText("Please enter a name for new route:");
             Optional<String> result = dialog.showAndWait();
-            TitledPane routePane = new TitledPane();
-            result.ifPresent(name -> routePane.setText(name));
 
-            ListView<StopPoint> routeStops = new ListView<>();
-            routeStops.setItems(selectedStops);
-            routePane.setContent(routeStops);
-            routesHolder.getChildren().add(routePane);
+            if (result.isPresent()){
+                TitledPane routePane = new TitledPane();
+                String value = result.get();
+                routePane.setText(value);
+                driverUser.createRoute(selectedStops, value);
+                ListView<StopPoint> routeStops = new ListView<>();
+                routeStops.setItems(selectedStops);
+                routePane.setContent(routeStops);
+                routesHolder.getPanes().add(routePane);
+            }
         }
     }
 
@@ -153,5 +161,21 @@ public class MainController implements Initializable {
 
         stage.show();
 
+    }
+
+    public void populateRoutes(){
+
+        if (driverUser != null) {
+            for (Route route : driverUser.getRoutes()) {
+                TitledPane routePane = new TitledPane();
+                routePane.setText(route.getName());
+                ListView<StopPoint> routeStops = new ListView<>();
+                ObservableList<StopPoint> stopPoints = FXCollections.observableArrayList();
+                stopPoints.addAll(route.getStops());
+                routeStops.setItems(stopPoints);
+                routePane.setContent(routeStops);
+                routesHolder.getPanes().add(routePane);
+            }
+        }
     }
 }

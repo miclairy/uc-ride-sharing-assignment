@@ -50,14 +50,14 @@ public class addRouteSteps {
         when(data.getStopPoints()).thenReturn(stops);
         ObservableList<StopPoint> stops = FXCollections.observableArrayList();
         stops.addAll(data.getStopPoints());
-        jo.createRoute(stops);
+        jo.createRoute(stops, "");
     }
 
     @Then("^a new route is stored with the stop points\\.$")
     public void aNewRouteIsStoredWithTheStopPoints() {
 
         when(data.getStopPoints()).thenReturn(stops);
-        Route route = new Route(data.getStopPoints());
+        Route route = new Route(data.getStopPoints(), "");
         assertTrue(jo.getRoutes().contains(route));
     }
 
