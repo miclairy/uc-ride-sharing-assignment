@@ -95,7 +95,7 @@ public class MainController implements Initializable {
             mainStage = registerCar.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = (Stage) registerCar.getScene().getWindow();
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.setScene(new Scene(root, 500, 400));
             stage.show();
         } catch (IOException e) {
