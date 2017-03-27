@@ -57,14 +57,15 @@ public class makeTripSteps {
         Route route = jo.getRoutes().get(0);
         trip = new Trip(jo.getRoutes().get(0), direction, true, jo.getCars().get(0));
         for (StopPoint stop : route.getStops()) {
-            trip.setTimeForStopPoint(stop, time);
+            Time timeT = new Time(15, time);
+            trip.setTimeForStopPoint(stop, timeT);
             time += timeInterval;
         }
     }
 
     @When("^that the trip is recurrent so it repeats every \"([^\"]*)\" until (\\d+)th \"([^\"]*)\"\\.$")
-    public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(DayOfWeek weekday, int day, String month) {
-        ArrayList<DayOfWeek> days = new ArrayList<>();
+    public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) {
+        ArrayList<String> days = new ArrayList<>();
         days.add(weekday);
         trip.setDays(days);
         trip.setExpirationDate(new GregorianCalendar(Calendar.YEAR, Time.monthToInt(month), day));
@@ -76,7 +77,8 @@ public class makeTripSteps {
         Trip joTrip = jo.getTrips().get(0);
         assertEquals(jo.getTrips().get(0), trip);
         StopPoint stop = joTrip.getRoute().getStops().get(2);
-        assertEquals(1530,(int) joTrip.getStopTimes().get(stop));
+        Time time = new Time(15, 30);
+        assertEquals(time, joTrip.getStopTimes().get(stop));
     }
 
 }

@@ -50,6 +50,8 @@ public class MainController implements Initializable {
     private Accordion routesHolder;
     @FXML
     private Button makeTrip;
+    @FXML
+    private ListView<Trip> tripsList;
 
     public static Driver driverUser;
 
@@ -69,9 +71,11 @@ public class MainController implements Initializable {
                 cars += car.toString();
             }
             registeredCars.setItems(driverUser.getCars());
+            tripsList.setItems(FXCollections.observableArrayList(driverUser.getTrips()));
         }
 
         populateRoutes();
+
 
     }
 
@@ -87,6 +91,7 @@ public class MainController implements Initializable {
         if (Data.stopPointsList.size() > 0) {
             createRoute.setVisible(true);
         }
+
 
     }
 

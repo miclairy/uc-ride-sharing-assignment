@@ -13,10 +13,11 @@ public class Trip {
     Route route;
     String direction;
     Boolean recurrent;
-    ArrayList<DayOfWeek> days;
+    ArrayList<String> days;
     Car car;
-    HashMap<StopPoint, Integer> stopTimes = new HashMap<>();
+    HashMap<StopPoint, Time> stopTimes = new HashMap<>();
     GregorianCalendar expirationDate;
+    String name;
 
     public Trip(Route route, String direction, Boolean recurrent, Car car) {
         this.route = route;
@@ -25,13 +26,13 @@ public class Trip {
         this.car = car;
     }
 
-    public void setDays(ArrayList<DayOfWeek> days) {
+    public void setDays(ArrayList<String> days) {
         if (recurrent) {
             this.days = days;
         }
     }
 
-    public void setTimeForStopPoint(StopPoint stopPoint, int time) {
+    public void setTimeForStopPoint(StopPoint stopPoint, Time time) {
         stopTimes.put(stopPoint, time);
     }
 
@@ -43,15 +44,28 @@ public class Trip {
         return route;
     }
 
-    public ArrayList<DayOfWeek> getDays() {
+    public ArrayList<String> getDays() {
         return days;
     }
 
-    public HashMap<StopPoint, Integer> getStopTimes() {
+    public HashMap<StopPoint, Time> getStopTimes() {
         return stopTimes;
     }
 
     public GregorianCalendar getExpirationDate() {
         return expirationDate;
+    }
+
+    public void setStopTimes(HashMap<StopPoint, Time> stopTimes) {
+        this.stopTimes = stopTimes;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return  name;
     }
 }

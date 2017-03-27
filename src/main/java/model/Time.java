@@ -10,6 +10,14 @@ import java.util.Date;
  */
 public class Time {
 
+    int hours;
+    int minutes;
+
+    public Time(int hours, int minutes) {
+        this.hours = hours;
+        this.minutes = minutes;
+    }
+
     public static int monthToInt(String month){
         Date date = null;
         try {
@@ -20,5 +28,10 @@ public class Time {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         return cal.get(Calendar.MONTH) + 1;
+    }
+
+    @Override
+    public String toString() {
+        return hours + " : " + minutes ;
     }
 }
