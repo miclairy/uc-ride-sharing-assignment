@@ -10,14 +10,14 @@ import java.util.HashMap;
  */
 public class Trip {
 
-    Route route;
-    String direction;
-    Boolean recurrent;
-    ArrayList<String> days;
-    Car car;
-    HashMap<StopPoint, Time> stopTimes = new HashMap<>();
-    GregorianCalendar expirationDate;
-    String name;
+    private Route route;
+    private String direction;
+    private Boolean recurrent;
+    private ArrayList<String> days;
+    private Car car;
+    private HashMap<StopPoint, Time> stopTimes = new HashMap<>();
+    private GregorianCalendar expirationDate;
+    private String name;
 
     public Trip(Route route, String direction, Boolean recurrent, Car car) {
         this.route = route;
@@ -63,6 +63,23 @@ public class Trip {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public Boolean getRecurrent() {
+        return recurrent;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
 
     @Override
     public String toString() {

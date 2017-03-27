@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="552.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MakeTripController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="698.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MakeTripController">
    <children>
       <VBox layoutX="158.0" layoutY="27.0" prefHeight="327.0" prefWidth="484.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox>
-               <children>
-                  <Label text="Name: " />
-                  <TextField fx:id="nameTxt" text="Name1" />
-               </children>
-            </HBox>
             <HBox>
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Make a Trip" textAlignment="CENTER" HBox.hgrow="ALWAYS">
@@ -33,64 +28,128 @@
                   </Label>
                </children>
             </HBox>
+             <HBox>
+                 <children>
+                     <Label text="Name: ">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+                     <TextField fx:id="nameTxt">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></TextField>
+                 </children>
+             </HBox>
             <HBox prefHeight="32.0" prefWidth="484.0">
                <children>
-                  <Label text="Car:" />
-                  <ChoiceBox fx:id="carCombo" prefWidth="150.0" />
+                  <Label text="Car:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="carCombo" prefHeight="25.0" prefWidth="173.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></ChoiceBox>
                </children>
             </HBox>
             <HBox prefHeight="32.0" prefWidth="484.0">
                <children>
-                  <Label text="Route:" />
-                  <ChoiceBox fx:id="routeCombo" onAction="#selectedRoute" prefWidth="150.0" />
+                  <Label text="Route:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="routeCombo" onAction="#selectedRoute" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></ChoiceBox>
                </children>
             </HBox>
             <HBox prefHeight="29.0" prefWidth="484.0">
                <children>
-                  <Label text="Direction: " />
-                  <ChoiceBox fx:id="driectionPicker" prefWidth="150.0" />
+                  <Label text="Direction: ">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="driectionPicker" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></ChoiceBox>
                </children>
             </HBox>
             <HBox prefHeight="107.0" prefWidth="635.0">
                <children>
-                  <ListView fx:id="stopPointsList" disable="true" prefHeight="116.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Label text="Time:">
+                  <ListView fx:id="stopPointsList" disable="true" prefHeight="116.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></ListView>
+                  <Label alignment="TOP_CENTER" prefHeight="6.0" prefWidth="39.0" text="Time:">
                      <padding>
                         <Insets left="10.0" top="15.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="2.0" top="5.0" />
+                     </HBox.margin>
                   </Label>
-                   <Spinner fx:id="hoursSpinner">
-                   </Spinner>
-                   <Spinner fx:id="minutesSpinner">
-                   </Spinner>
-                  <ChoiceBox fx:id="amPm" disable="true" prefHeight="25.0" prefWidth="55.0" />
-                  <Button fx:id="setTime" disable="true" mnemonicParsing="false" onAction="#setTime" text="ok" />
+                   <Spinner fx:id="hoursSpinner" prefHeight="25.0" prefWidth="73.0">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="2.0" right="2.0" top="15.0" />
+                     </HBox.margin></Spinner>
+                   <Spinner fx:id="minutesSpinner" prefHeight="25.0" prefWidth="65.0">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="2.0" right="2.0" top="15.0" />
+                     </HBox.margin></Spinner>
+                  <ChoiceBox fx:id="amPm" disable="true" prefHeight="25.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="2.0" right="2.0" top="15.0" />
+                     </HBox.margin></ChoiceBox>
+                  <Button fx:id="setTime" disable="true" mnemonicParsing="false" onAction="#setTime" text="ok">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
             <HBox>
                <children>
-                  <ListView fx:id="doneStopPoints" prefHeight="200.0" prefWidth="200.0" />
-                  <ListView fx:id="times" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="doneStopPoints" prefHeight="200.0" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </HBox.margin></ListView>
+                  <ListView fx:id="times" prefHeight="200.0" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                     </HBox.margin></ListView>
                </children>
             </HBox>
-            <CheckBox fx:id="recurrency" mnemonicParsing="false" onAction="#recurrent" text="Recurrent" />
+            <CheckBox fx:id="recurrency" mnemonicParsing="false" onAction="#recurrent" text="Recurrent">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin></CheckBox>
             <HBox prefHeight="32.0" prefWidth="484.0">
                <children>
-                  <Label fx:id="textDay" disable="true" text="Recurring Day:" />
-                  <ComboBox fx:id="daysCombo" disable="true" prefHeight="25.0" prefWidth="62.0" />
+                  <Label fx:id="textDay" disable="true" text="Recurring Day:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
+                  <ComboBox fx:id="daysCombo" disable="true" prefHeight="25.0" prefWidth="165.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></ComboBox>
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="484.0">
                <children>
-                  <Label fx:id="txtExpiration" disable="true" text="Expiration:" />
+                  <Label fx:id="txtExpiration" disable="true" text="Expiration:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Label>
                   <DatePicker fx:id="expiration" disable="true" />
                </children>
             </HBox>
             <HBox>
                <children>
-                  <Button fx:id="createTrip" alignment="CENTER" defaultButton="true" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#createTrip" text="Create" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                  <Button fx:id="createTrip" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#createTrip" text="Create" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />
@@ -100,6 +159,9 @@
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>

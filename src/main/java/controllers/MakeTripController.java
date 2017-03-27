@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 import model.*;
 
 import java.net.URL;
-import java.time.DayOfWeek;
 import java.util.*;
 
 /**
@@ -49,10 +48,11 @@ public class MakeTripController implements Initializable {
     private TextField nameTxt;
 
     private HashMap<StopPoint, Time> stopTimes = new HashMap<StopPoint, Time>();
+    private Driver driver;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Driver driver = MainController.driverUser;
+        driver = MainController.driverUser;
 
         routeCombo.getItems().addAll(driver.getRoutes());
         hoursSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12));
@@ -64,7 +64,9 @@ public class MakeTripController implements Initializable {
         List<String> daysList = Arrays.asList("Monday", "Tuesday","Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
         daysCombo.getItems().setAll(daysList);
         carCombo.getItems().addAll(driver.getCars());
-
+        carCombo.setValue(driver.getCars().get(0));
+        routeCombo.setValue(driver.getRoutes().get(0));
+        driectionPicker.setValue("To University");
 
     }
 
@@ -80,7 +82,7 @@ public class MakeTripController implements Initializable {
     public void setTime(){
         int minutes = minutesSpinner.getValue();
         int hours = hoursSpinner.getValue();
-        Time time = new Time(hours, minutes);
+        Time time = new Time(hours, minutes, amPm.getValue());
         StopPoint stop = stopPointsList.getSelectionModel().getSelectedItem();
         stopTimes.put(stop, time);
         stopPointsList.getItems().remove(stop);
@@ -89,11 +91,16 @@ public class MakeTripController implements Initializable {
     }
 
     public void recurrent(){
-        if (recurrency.isFocused()){
+        if (recurrency.isSelected()){
             textDay.setDisable(false);
             txtExpiration.setDisable(false);
             daysCombo.setDisable(false);
             expiration.setDisable(false);
+        } else {
+            textDay.setDisable(true);
+            txtExpiration.setDisable(true);
+            daysCombo.setDisable(true);
+            expiration.setDisable(true);
         }
     }
 
@@ -104,16 +111,33 @@ public class MakeTripController implements Initializable {
 
     @FXML
     private void createTrip(){
-        Trip trip = new Trip(routeCombo.getValue(), driectionPicker.getValue(), recurrency.isFocused(), carCombo.getValue());
-        ArrayList<String> days = new ArrayList<>();
-        days.add(daysCombo.getValue());
-        trip.setDays(days);
-        trip.setExpirationDate(new GregorianCalendar(expiration.getValue().getYear(), expiration.getValue().getMonthValue(),
-                                                     expiration.getValue().getDayOfMonth()));
-        trip.setStopTimes(stopTimes);
-        trip.setName(nameTxt.getText());
+        if (nameTxt.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Enter Name for trip");
+            alert.setHeaderText("Please enter a name for the trip");
+            alert.setContentText("Fill in all boxes.");
+            alert.showAndWait();
+        } else if (stopPointsList.getItems().size() > 0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Some stops have no times");
+            alert.setHeaderText("Please add times to remaining stops");
+            alert.setContentText("Select the remaining stop points and give them stop times");
+            alert.showAndWait();
+        } else {
+            Trip trip = new Trip(routeCombo.getValue(), driectionPicker.getValue(), recurrency.isSelected(), carCombo.getValue());
+            ArrayList<String> days = new ArrayList<>();
+            if (trip.getRecurrent()) {
+                days.add(daysCombo.getValue());
+                trip.setDays(days);
+                trip.setExpirationDate(new GregorianCalendar(expiration.getValue().getYear(), expiration.getValue().getMonthValue(),
+                        expiration.getValue().getDayOfMonth()));
+            }
+            trip.setStopTimes(stopTimes);
+            trip.setName(nameTxt.getText());
+            driver.getTrips().add(trip);
 
-        MainController.mainScene();
+            MainController.mainScene();
+        }
 
     }
 

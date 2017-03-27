@@ -57,7 +57,7 @@ public class makeTripSteps {
         Route route = jo.getRoutes().get(0);
         trip = new Trip(jo.getRoutes().get(0), direction, true, jo.getCars().get(0));
         for (StopPoint stop : route.getStops()) {
-            Time timeT = new Time(15, time);
+            Time timeT = new Time(3, time, "pm");
             trip.setTimeForStopPoint(stop, timeT);
             time += timeInterval;
         }
@@ -77,7 +77,7 @@ public class makeTripSteps {
         Trip joTrip = jo.getTrips().get(0);
         assertEquals(jo.getTrips().get(0), trip);
         StopPoint stop = joTrip.getRoute().getStops().get(2);
-        Time time = new Time(15, 30);
+        Time time = new Time(3, 30, "pm");
         assertEquals(time, joTrip.getStopTimes().get(stop));
     }
 

@@ -21,6 +21,7 @@ import model.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -51,7 +52,7 @@ public class MainController implements Initializable {
     @FXML
     private Button makeTrip;
     @FXML
-    private ListView<Trip> tripsList;
+    private Accordion tripsHolder;
 
     public static Driver driverUser;
 
@@ -71,11 +72,10 @@ public class MainController implements Initializable {
                 cars += car.toString();
             }
             registeredCars.setItems(driverUser.getCars());
-            tripsList.setItems(FXCollections.observableArrayList(driverUser.getTrips()));
         }
 
         populateRoutes();
-
+        populateTrips();
 
     }
 
@@ -101,7 +101,7 @@ public class MainController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = (Stage) registerCar.getScene().getWindow();
             stage.setResizable(true);
-            stage.setScene(new Scene(root, 500, 400));
+            stage.setScene(new Scene(root, 1000, 700));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -116,7 +116,21 @@ public class MainController implements Initializable {
     }
 
     public void makeTrip(){
-        newScene("/createTrip.fxml");
+        if (driverUser.getCars().size() <= 0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("You need a car to make a trip");
+            alert.setHeaderText("You must register a car to make a trip");
+            alert.setContentText("Click register car then make a route so you can make a trip");
+            alert.showAndWait();
+        } else if (driverUser.getRoutes().size() <= 0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("You need a route to make a trip");
+            alert.setHeaderText("You must make a route to make a trip");
+            alert.setContentText("Click create route to make a route so you can make a trip");
+            alert.showAndWait();
+        } else {
+            newScene("/createTrip.fxml");
+        }
     }
 
     public void createRoute(){
@@ -162,7 +176,7 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root, 500, 400));
+        stage.setScene(new Scene(root, 1000, 700));
 
         stage.show();
 
@@ -180,6 +194,39 @@ public class MainController implements Initializable {
                 routeStops.setItems(stopPoints);
                 routePane.setContent(routeStops);
                 routesHolder.getPanes().add(routePane);
+            }
+        }
+    }
+
+    public void populateTrips(){
+        if (driverUser != null){
+            for (Trip trip : driverUser.getTrips()){
+                TitledPane tripPane = new TitledPane();
+                tripPane.setText(trip.getName());
+
+                VBox infoHolder = new VBox();
+                infoHolder.getChildren().add(new Label("Car: " + trip.getCar()));
+                infoHolder.getChildren().add(new Label("Direction: " + trip.getDirection()));
+                if (trip.getRecurrent()) {
+                    SimpleDateFormat formatter=new SimpleDateFormat("dd MMMM yyyy");
+                    infoHolder.getChildren().add(new Label("Occurs every: " + trip.getDays().toString()));
+                    infoHolder.getChildren().add(new Label("Expires: " + formatter.format(trip.getExpirationDate().getTime())));
+                }
+
+                tripPane.setContent(infoHolder);
+
+                TitledPane routePane = new TitledPane();
+                routePane.setText(trip.getRoute().getName());
+                ListView<String> routeStops = new ListView<>();
+                ObservableList<String> stopPoints = FXCollections.observableArrayList();
+                for (StopPoint stop : trip.getRoute().getStops()){
+                    stopPoints.add(stop + " " + trip.getStopTimes().get(stop).toString());
+                }
+                routeStops.setItems(stopPoints);
+                routePane.setContent(routeStops);
+
+                infoHolder.getChildren().add(routePane);
+                tripsHolder.getPanes().add(tripPane);
             }
         }
     }
