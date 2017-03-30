@@ -77,4 +77,6 @@ public class Car {
         String str = plates + " : " + year + " " + colour + " " + model + " of type " + type + " with " + numSeats + " seats.";
         return str;
     }
+
+
 }
