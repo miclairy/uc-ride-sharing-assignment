@@ -14,7 +14,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pickDriverPassenger.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 700);
         stage.setTitle("UC RSS");

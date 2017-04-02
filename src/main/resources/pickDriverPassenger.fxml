@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.pickDriverPassengerController">
+   <children>
+      <Button layoutX="211.0" layoutY="174.0" mnemonicParsing="false" onAction="#becomeDriver" prefHeight="53.0" prefWidth="144.0" text="Driver">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="211.0" layoutY="256.0" mnemonicParsing="false" onAction="#becomePassenger" prefHeight="53.0" prefWidth="144.0" text="Passenger">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text layoutX="128.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to UC Ride Sharing">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="become" layoutX="251.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Become:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

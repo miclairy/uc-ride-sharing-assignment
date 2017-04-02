@@ -3,7 +3,6 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import model.StopPoint;
 
 /**
  * Created by clbmi on 18/03/2017.
@@ -20,11 +19,11 @@ public class StopPointController {
     public void makeStopPoint(){
         try {
             if (suburb.getText().isEmpty()) {
-                MainController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText());
+                DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText());
             } else {
-                MainController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText(), suburb.getText());
+                DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText(), suburb.getText());
             }
-            MainController.mainScene();
+            DriverController.mainScene();
         } catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly");
@@ -36,7 +35,7 @@ public class StopPointController {
     }
 
     public void cancel(){
-        MainController.mainScene();
+        DriverController.mainScene();
     }
 
 }

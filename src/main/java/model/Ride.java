@@ -31,4 +31,8 @@ public class Ride {
         }
 
     }
+
+    public Trip getTrip() {
+        return trip;
+    }
 }

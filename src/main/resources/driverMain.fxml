@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DriverController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="218.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="307.0" minWidth="10.0" prefWidth="304.0" />
@@ -27,17 +27,16 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-      <Button fx:id="registerCar" mnemonicParsing="false" onAction="#registerCar" text="Register a car" visible="false" GridPane.columnIndex="2" />
+      <Button fx:id="registerCar" mnemonicParsing="false" onAction="#registerCar" text="Register a car" GridPane.columnIndex="2" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Text fx:id="userTypeText" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <Button fx:id="driver" mnemonicParsing="false" onAction="#becomeDriver" text="Become Driver" />
+            <Text fx:id="userTypeText" strokeType="OUTSIDE" strokeWidth="0.0" text="You are a Driver" />
          </children>
       </HBox>
-      <Button fx:id="createStopPoint" mnemonicParsing="false" onAction="#createStopPoint" text="Create Stop Point" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <Button fx:id="createStopPoint" mnemonicParsing="false" onAction="#createStopPoint" text="Create Stop Point" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="createRoute" mnemonicParsing="false" onAction="#createRoute" text="Create Route" visible="false" />
+            <Button fx:id="createRoute" mnemonicParsing="false" onAction="#createRoute" text="Create Route" />
             <Button fx:id="clearSelection" mnemonicParsing="false" onAction="#clearSelection" text="Clear Selection" />
          </children>
       </VBox>
@@ -89,6 +88,7 @@
             </TitledPane>
         </panes>
       </Accordion>
-      <Button fx:id="makeTrip" mnemonicParsing="false" onAction="#makeTrip" text="Make Trip" visible="false" GridPane.rowIndex="3" />
+      <Button fx:id="makeTrip" mnemonicParsing="false" onAction="#makeTrip" text="Make Trip" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" onAction="#becomePassenger" text="Switch to passenger" GridPane.rowIndex="3" />
     </children>
 </GridPane>

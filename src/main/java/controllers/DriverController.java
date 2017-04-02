@@ -1,38 +1,29 @@
 package controllers;
 
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxListCell;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.util.Callback;
 import model.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class MainController implements Initializable {
+public class DriverController implements Initializable {
 
-    @FXML
-    private Button driver;
+
     @FXML
     private Button registerCar;
     @FXML
@@ -64,17 +55,16 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        controllerLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
+        controllerLoader = new FXMLLoader(getClass().getResource("/driverMain.fxml"));
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        if (driverUser != null) {
-            becomeDriver();
-            String cars = "";
-            for (Car car : driverUser.getCars()) {
-                cars += car.toString();
-            }
-            registeredCars.setItems(driverUser.getCars());
+        becomeDriver();
+        String cars = "";
+        for (Car car : driverUser.getCars()) {
+            cars += car.toString();
         }
+        registeredCars.setItems(driverUser.getCars());
+
 
         populateRoutes();
         populateTrips();
@@ -87,7 +77,6 @@ public class MainController implements Initializable {
         }
         registerCar.setVisible(true);
         userTypeText.setText("You are a Driver");
-        driver.setVisible(false);
         createStopPoint.setVisible(true);
         makeTrip.setVisible(true);
         if (Data.stopPointsList.size() > 0) {
@@ -247,5 +236,9 @@ public class MainController implements Initializable {
 
     public void stopPointsSearch(){
         stopPoints.setItems(Data.stopPointsSearch(stopPointSearch.getText()));
+    }
+
+    public void becomePassenger(){
+        newScene("/passengerMain.fxml");
     }
 }

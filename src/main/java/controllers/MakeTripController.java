@@ -52,7 +52,7 @@ public class MakeTripController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        driver = MainController.driverUser;
+        driver = DriverController.driverUser;
 
         routeCombo.getItems().addAll(driver.getRoutes());
         hoursSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12));
@@ -106,7 +106,7 @@ public class MakeTripController implements Initializable {
 
     @FXML
     private void cancel(){
-        MainController.mainScene();
+        DriverController.mainScene();
     }
 
     @FXML
@@ -136,7 +136,7 @@ public class MakeTripController implements Initializable {
             trip.setName(nameTxt.getText());
             driver.getTrips().add(trip);
 
-            MainController.mainScene();
+            DriverController.mainScene();
         }
 
     }
