@@ -9,19 +9,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Stop;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Data;
 import model.Ride;
 import model.StopPoint;
+import model.Trip;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 
@@ -70,8 +69,32 @@ public class PassengerController implements Initializable{
     }
 
     private void setRideDetails(Ride ride){
-        Text details = new Text(ride.toString());
-        rideDetails.getChildren().add(details);
+
+        if (ride != null) {
+            Trip trip = ride.getTrip();
+            rideDetails.getChildren().clear();
+
+            rideDetails.getChildren().add(new Label("Car: " + trip.getCar()));
+            rideDetails.getChildren().add(new Label("Direction: " + trip.getDirection()));
+            if (trip.getRecurrent()) {
+                SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
+                rideDetails.getChildren().add(new Label("Occurs every: " + trip.getDays().toString()));
+                rideDetails.getChildren().add(new Label("Expires: " + formatter.format(trip.getExpirationDate().getTime())));
+                rideDetails.getChildren().add(new Label("Available Seats: " + ride.getAvailableSeats()));
+            }
+
+            TitledPane routePane = new TitledPane();
+            routePane.setText(trip.getRoute().getName());
+            ListView<String> routeStops = new ListView<>();
+            ObservableList<String> stopPoints = FXCollections.observableArrayList();
+            for (StopPoint stop : trip.getRoute().getStops()) {
+                stopPoints.add(stop + " " + trip.getStopTimes().get(stop).toString());
+            }
+            routeStops.setItems(stopPoints);
+            routePane.setContent(routeStops);
+
+            rideDetails.getChildren().add(routePane);
+        }
     }
 
     public void becomeDriver(){
@@ -87,6 +110,7 @@ public class PassengerController implements Initializable{
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-        }    }
+        }
+    }
 
 }

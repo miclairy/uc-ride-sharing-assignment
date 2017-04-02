@@ -1,6 +1,5 @@
 package model;
 
-import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,5 +33,9 @@ public class Ride {
 
     public Trip getTrip() {
         return trip;
+    }
+
+    public String toString() {
+        return trip.getName();
     }
 }
