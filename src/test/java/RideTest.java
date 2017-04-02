@@ -1,31 +1,35 @@
-import model.Car;
-import model.Passenger;
-import model.Ride;
-import model.Trip;
+import model.*;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import java.util.GregorianCalendar;
 
-/**
- * Created by clbmi on 26/03/2017.
- */
+import static org.mockito.Mockito.mock;
+
+
 public class RideTest {
+
+    private Ride ride;
+    private Car car;
+
+    @Before
+    public void setUp(){
+        Route route = mock(Route.class);
+        car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
+        ride = new Ride(new Trip(route, "To Uni", false, car), 15);
+    }
 
     @Test
     public void testNumSeats(){
-
+        assert(ride.getAvailableSeats() <= car.getNumSeats() );
     }
 
     @Test
     public void passengerBookTest(){
-        Car car = mock(Car.class);
-        when(car.getNumSeats()).thenReturn(5);
         Passenger passenger = mock(Passenger.class);
-
-        Ride ride = new Ride(new Trip(), );
-        when(car.getNumSeats()).thenReturn(5);
-        assert(ride.getAvailableSeats() <= car.getNumSeats());
+        int previousAvailableSeats = ride.getAvailableSeats();
+        ride.addPassenger(passenger);
+        assert(ride.getAvailableSeats() < previousAvailableSeats);
     }
 
 }

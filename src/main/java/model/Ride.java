@@ -1,23 +1,34 @@
 package model;
 
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.Set;
 
-/**
- * Created by cba62 on 31/03/17.
- */
+
 public class Ride {
 
     private Trip trip;
-    private GregorianCalendar time;
     private int availableSeats;
+    private Set<Passenger> passengers = new HashSet<>();
 
-    public Ride(Trip trip, GregorianCalendar time, int availableSeats) {
+    public Ride(Trip trip, int availableSeats) {
         this.trip = trip;
-        this.time = time;
-        this.availableSeats = availableSeats;
+        if (availableSeats > trip.getCar().getNumSeats()){
+            this.availableSeats = trip.getCar().getNumSeats();
+        } else {
+            this.availableSeats = availableSeats;
+        }
     }
 
     public int getAvailableSeats() {
         return availableSeats;
+    }
+
+    public void addPassenger(Passenger passenger) {
+        if (availableSeats > 0){
+            availableSeats -= 1;
+            passengers.add(passenger);
+        }
+
     }
 }

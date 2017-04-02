@@ -3,6 +3,8 @@ package controllers;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,9 +28,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/**
- * Created by samschofield on 15/03/17.
- */
+
 public class MainController implements Initializable {
 
     @FXML
@@ -53,8 +53,10 @@ public class MainController implements Initializable {
     private Button makeTrip;
     @FXML
     private Accordion tripsHolder;
+    @FXML
+    private TextField stopPointSearch;
 
-    public static Driver driverUser;
+    static Driver driverUser;
 
     private static Window mainStage;
     private static FXMLLoader controllerLoader;
@@ -63,7 +65,7 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         controllerLoader = new FXMLLoader(getClass().getResource("/main.fxml"));
-        stopPoints.setItems(Data.stopPointsList);
+        stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         if (driverUser != null) {
             becomeDriver();
@@ -166,8 +168,7 @@ public class MainController implements Initializable {
         stopPoints.getSelectionModel().clearSelection();
     }
 
-    public static void mainScene() {
-        //TODO set state of scene back to what it was
+    static void mainScene() {
         Stage stage = (Stage) mainStage;
         stage.setResizable(false);
         Parent root = null;
@@ -182,7 +183,7 @@ public class MainController implements Initializable {
 
     }
 
-    public void populateRoutes(){
+    private void populateRoutes(){
 
         if (driverUser != null) {
             for (Route route : driverUser.getRoutes()) {
@@ -198,7 +199,7 @@ public class MainController implements Initializable {
         }
     }
 
-    public void populateTrips(){
+    private void populateTrips(){
         if (driverUser != null){
             for (Trip trip : driverUser.getTrips()){
                 TitledPane tripPane = new TitledPane();
@@ -215,6 +216,10 @@ public class MainController implements Initializable {
 
                 tripPane.setContent(infoHolder);
 
+                Button share = new Button("Share");
+                infoHolder.getChildren().add(share);
+                share.setOnAction(event -> shareRide(trip));
+
                 TitledPane routePane = new TitledPane();
                 routePane.setText(trip.getRoute().getName());
                 ListView<String> routeStops = new ListView<>();
@@ -229,5 +234,18 @@ public class MainController implements Initializable {
                 tripsHolder.getPanes().add(tripPane);
             }
         }
+    }
+
+    private void shareRide(Trip trip){
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Share Trip");
+        dialog.setHeaderText("Enter number of available seats");
+        dialog.setContentText("Please enter the number of available seats:");
+        Optional<String> seats = dialog.showAndWait();
+        trip.share(Integer.parseInt(seats.get()));
+    }
+
+    public void stopPointsSearch(){
+        stopPoints.setItems(Data.stopPointsSearch(stopPointSearch.getText()));
     }
 }

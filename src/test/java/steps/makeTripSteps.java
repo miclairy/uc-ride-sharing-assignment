@@ -6,28 +6,20 @@ import cucumber.api.java.en.When;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.*;
-import org.junit.Assert;
 
-import java.text.DateFormatSymbols;
-import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.MonthDay;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
-/**
- * Created by clbmi on 25/03/2017.
- */
+
 public class makeTripSteps {
 
-    Driver jo;
-    ObservableList<StopPoint> stops;
-    Trip trip;
+    private Driver jo;
+    private ObservableList<StopPoint> stops;
+    private Trip trip;
 
     @Given("^jo is a driver making a trip$")
     public void joIsADriverMakingATrip() {
@@ -57,9 +49,9 @@ public class makeTripSteps {
         Route route = jo.getRoutes().get(0);
         trip = new Trip(jo.getRoutes().get(0), direction, true, jo.getCars().get(0));
         for (StopPoint stop : route.getStops()) {
-            Time timeT = new Time(3, time, "pm");
+            Time timeT = new Time(3, timeInterval, "pm");
             trip.setTimeForStopPoint(stop, timeT);
-            time += timeInterval;
+            timeInterval += timeInterval;
         }
     }
 
@@ -76,7 +68,7 @@ public class makeTripSteps {
     public void theTripIsDisplayedToJoWithAllInformation() {
         Trip joTrip = jo.getTrips().get(0);
         assertEquals(jo.getTrips().get(0), trip);
-        StopPoint stop = joTrip.getRoute().getStops().get(2);
+        StopPoint stop = joTrip.getRoute().getStops().get(1);
         Time time = new Time(3, 30, "pm");
         assertEquals(time, joTrip.getStopTimes().get(stop));
     }

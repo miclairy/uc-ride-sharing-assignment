@@ -1,13 +1,10 @@
 package model;
 
-import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-/**
- * Created by clbmi on 26/03/2017.
- */
+
 public class Trip {
 
     private Route route;
@@ -18,6 +15,7 @@ public class Trip {
     private HashMap<StopPoint, Time> stopTimes = new HashMap<>();
     private GregorianCalendar expirationDate;
     private String name;
+    private boolean shared = false;
 
     public Trip(Route route, String direction, Boolean recurrent, Car car) {
         this.route = route;
@@ -84,5 +82,15 @@ public class Trip {
     @Override
     public String toString() {
         return  name;
+    }
+
+    public void share(int seats) {
+        Ride ride = new Ride(this, seats);
+        shared = true;
+        Data.getSharedRides().add(ride);
+    }
+
+    public boolean isShared() {
+        return shared;
     }
 }
