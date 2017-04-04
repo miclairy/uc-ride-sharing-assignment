@@ -57,7 +57,7 @@ public class Ride {
 
     public String getDetails() {
         String details = "Driver: " + driver + "\nGrade: " + driver.getGrade() + "\nCar: " + trip.getCar().toString() +
-                "\n Route Length: " + trip.getLength() + "\nNumber of Stops: " + trip.getStopTimes().size();
+                "\n Route Length: " + trip.getLength().toString().trim() + "\nNumber of Stops: " + trip.getStopTimes().size();
         return details;
     }
 }

@@ -82,4 +82,8 @@ public class Time {
         this.minutes = minutes;
     }
 
+    public int getTotalSeconds() {
+        return hours * 3600 + minutes * 60;
+    }
+
 }

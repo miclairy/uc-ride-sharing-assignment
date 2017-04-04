@@ -95,14 +95,20 @@ public class Trip {
         return shared;
     }
 
-    public Time getLength() { //TODO make so this works properly date Time?
+    public Time getLength() {
         List<Time> times = new ArrayList<>(stopTimes.values());
-        Time length = times.get(0);
+        int length = times.get(0).getTotalSeconds();
 
-        for (Time time : stopTimes.values()){
-            length.setHours( length.getHours() + Math.abs(length.getHours() - time.getHours()));
-            length.setMinutes(length.getMinutes() + Math.abs(length.getMinutes() - time.getMinutes()));
+        for (Time time : stopTimes.values()) {
+            length += Math.abs(length - time.getTotalSeconds());
+//            length.setHours( length.getHours() + Math.abs(length.getHours() - time.getHours()));
+//            length.setMinutes(length.getMinutes() + Math.abs(length.getMinutes() - time.getMinutes()));
         }
-        return length;
+        length -= times.get(0).getTotalSeconds();
+        int hours = (int) length / 3600;
+        int remainder = (int) length - hours * 3600;
+        int minutes = remainder / 60;
+        Time timeLen = new Time(hours, minutes, "");
+        return timeLen;
     }
 }
