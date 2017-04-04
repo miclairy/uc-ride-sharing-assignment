@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class Trip {
@@ -92,5 +93,16 @@ public class Trip {
 
     public boolean isShared() {
         return shared;
+    }
+
+    public Time getLength() { //TODO make so this works properly date Time?
+        List<Time> times = new ArrayList<>(stopTimes.values());
+        Time length = times.get(0);
+
+        for (Time time : stopTimes.values()){
+            length.setHours( length.getHours() + Math.abs(length.getHours() - time.getHours()));
+            length.setMinutes(length.getMinutes() + Math.abs(length.getMinutes() - time.getMinutes()));
+        }
+        return length;
     }
 }

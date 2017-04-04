@@ -1,16 +1,17 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by cba62 on 22/03/17.
  */
 public class Route {
 
-    private ArrayList<StopPoint> stops = new ArrayList<>();
+    private Collection<StopPoint> stops = new ArrayList<>();
     private String name;
 
-    public Route(ArrayList<StopPoint> stops, String name) {
+    public Route(Collection<StopPoint> stops, String name) {
         this.stops = stops;
         this.name = name;
     }
@@ -30,7 +31,7 @@ public class Route {
         return stops != null ? stops.hashCode() : 0;
     }
 
-    public ArrayList<StopPoint> getStops() {
+    public Collection<StopPoint> getStops() {
         return stops;
     }
 

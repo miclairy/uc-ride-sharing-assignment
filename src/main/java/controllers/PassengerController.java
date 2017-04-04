@@ -59,13 +59,8 @@ public class PassengerController implements Initializable{
     }
 
     private void populateRoutes(StopPoint stopPoint){
-        ObservableList<Ride> result = FXCollections.observableArrayList();
-        for (Ride ride : Data.getSharedRides()){
-            if (ride.getTrip().getRoute().getStops().contains(stopPoint)){
-                result.add(ride);
-            }
-        }
-        sharedRides.setItems(result);
+
+        sharedRides.setItems(Data.ridesForStopPoint(stopPoint));
     }
 
     private void setRideDetails(Ride ride){

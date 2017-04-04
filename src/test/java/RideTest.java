@@ -28,7 +28,7 @@ public class RideTest {
     public void passengerBookTest(){
         Passenger passenger = mock(Passenger.class);
         int previousAvailableSeats = ride.getAvailableSeats();
-        ride.addPassenger(passenger);
+        ride.bookPassenger(passenger);
         assert(ride.getAvailableSeats() < previousAvailableSeats);
     }
 

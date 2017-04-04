@@ -20,6 +20,7 @@ public class makeTripSteps {
     private Driver jo;
     private ObservableList<StopPoint> stops;
     private Trip trip;
+    private StopPoint stopPoint2;
 
     @Given("^jo is a driver making a trip$")
     public void joIsADriverMakingATrip() {
@@ -29,7 +30,7 @@ public class makeTripSteps {
     @Given("^jo has some routes$")
     public void joHasSomeRoutes() {
         StopPoint stopPoint1 = mock(StopPoint.class);
-        StopPoint stopPoint2 = mock(StopPoint.class);
+        stopPoint2 = mock(StopPoint.class);
         StopPoint stopPoint3 = mock(StopPoint.class);
         stops = FXCollections.observableArrayList();
         stops.add(stopPoint1);
@@ -68,7 +69,7 @@ public class makeTripSteps {
     public void theTripIsDisplayedToJoWithAllInformation() {
         Trip joTrip = jo.getTrips().get(0);
         assertEquals(jo.getTrips().get(0), trip);
-        StopPoint stop = joTrip.getRoute().getStops().get(1);
+        StopPoint stop = stopPoint2;
         Time time = new Time(3, 30, "pm");
         assertEquals(time, joTrip.getStopTimes().get(stop));
     }

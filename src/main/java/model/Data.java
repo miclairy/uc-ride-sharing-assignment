@@ -7,6 +7,7 @@ import javafx.collections.SetChangeListener;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 
 
@@ -46,5 +47,24 @@ public class Data {
         }
     }
 
+    public static ObservableList<Ride> ridesForStopPoint(StopPoint stopPoint) {
+        ObservableList<Ride> result = FXCollections.observableArrayList();
+        for (Ride ride : sharedRides) {
+            if (ride.getTrip().getRoute().getStops().contains(stopPoint)) {
+                result.add(ride);
+            }
+        }
+        return result;
+    }
 
+
+    public static Collection<Ride> filterRides(String filter) {
+        Collection<Ride> result = new ArrayList<>();
+        for (Ride ride : sharedRides) {
+            if (ride.getTrip().getDirection().equals(filter)) {
+                result.add(ride);
+            }
+        }
+        return result;
+    }
 }
