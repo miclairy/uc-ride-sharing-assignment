@@ -85,10 +85,21 @@ public class Trip {
         return  name;
     }
 
-    public void share(int seats) {
-        Ride ride = new Ride(this, seats);
-        shared = true;
-        Data.getSharedRides().add(ride);
+    public void share(int seats, Driver driver, GregorianCalendar date) {
+        if (recurrent) {
+            while (date.getTime().before(expirationDate.getTime())) {
+
+                Ride ride = new Ride(this, seats, driver, date);
+                shared = true;
+                Data.getSharedRides().add(ride);
+                date.add(GregorianCalendar.WEEK_OF_YEAR, 1);
+            }
+        } else {
+            Ride ride = new Ride(this, seats, driver, date);
+            shared = true;
+            Data.getSharedRides().add(ride);
+            date.add(GregorianCalendar.WEEK_OF_YEAR, 1);
+        }
     }
 
     public boolean isShared() {
@@ -97,18 +108,15 @@ public class Trip {
 
     public Time getLength() {
         List<Time> times = new ArrayList<>(stopTimes.values());
-        int length = times.get(0).getTotalSeconds();
+        int length = 0;
 
         for (Time time : stopTimes.values()) {
             length += Math.abs(length - time.getTotalSeconds());
-//            length.setHours( length.getHours() + Math.abs(length.getHours() - time.getHours()));
-//            length.setMinutes(length.getMinutes() + Math.abs(length.getMinutes() - time.getMinutes()));
         }
-        length -= times.get(0).getTotalSeconds();
-        int hours = (int) length / 3600;
-        int remainder = (int) length - hours * 3600;
+        int hours = length / 3600;
+        int remainder = length - hours * 3600;
         int minutes = remainder / 60;
-        Time timeLen = new Time(hours, minutes, "");
+        Time timeLen = new Time(hours - times.get(0).getHours(), minutes - times.get(0).getMinutes(), "");
         return timeLen;
     }
 }

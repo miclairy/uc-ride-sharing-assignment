@@ -1,5 +1,6 @@
 package model;
 
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,17 +11,10 @@ public class Ride {
     private int availableSeats;
     private Set<Passenger> passengers = new HashSet<>();
     private Driver driver;
+    private GregorianCalendar date;
 
-    public Ride(Trip trip, int availableSeats) {//TODO add date
-        this.trip = trip;
-        if (availableSeats > trip.getCar().getNumSeats()){
-            this.availableSeats = trip.getCar().getNumSeats();
-        } else {
-            this.availableSeats = availableSeats;
-        }
-    }
 
-    public Ride(Trip trip, int availableSeats, Driver driver) {//TODO add date
+    public Ride(Trip trip, int availableSeats, Driver driver, GregorianCalendar date) {
         this.trip = trip;
         if (availableSeats > trip.getCar().getNumSeats()){
             this.availableSeats = trip.getCar().getNumSeats();
@@ -28,6 +22,7 @@ public class Ride {
             this.availableSeats = availableSeats;
         }
         this.driver = driver;
+        this.date = date;
     }
 
     public int getAvailableSeats() {

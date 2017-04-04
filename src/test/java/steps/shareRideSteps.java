@@ -5,6 +5,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import static org.mockito.Mockito.mock;
 
 
@@ -23,7 +26,7 @@ public class shareRideSteps {
 
     @When("^jo shares the trip with (\\d+) available seats$")
     public void joSharesTheTripWithAvailableSeats(int seats)  {
-        trip.share(seats);
+        trip.share(seats, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
     }
 
     @Then("^a ride that can be booked is created and the trip is shared$")

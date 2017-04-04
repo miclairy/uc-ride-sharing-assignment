@@ -44,10 +44,10 @@ public class seeRidesForStopPointSteps {
     public void thereAreSomeRidesWithStreetIncludedAsAStopPoint(int arg1, String arg2) {
         Car car = mock(Car.class);
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
-        ride1 = new Ride(trip, 5);
+        ride1 = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
         stops.remove(stop);
         trip = new Trip(new Route(stops, ""), "to Uni", false, car);
-        ride2 = new Ride(trip, 6);
+        ride2 = new Ride(trip, 6, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
     }
 
     @When("^sally selects a (\\d+) \"([^\"]*)\" street$")
@@ -69,7 +69,7 @@ public class seeRidesForStopPointSteps {
         stops.add(stop4);
         Car car = mock(Car.class);
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
-        ride3 = new Ride(trip, 5);
+        ride3 = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
     }
 
     @Given("^sally has selected that stop point$")

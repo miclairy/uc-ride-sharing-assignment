@@ -6,7 +6,9 @@ import cucumber.api.java.en.When;
 import model.*;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -61,7 +63,7 @@ public class rideDetailsSteps {
         trip.setTimeForStopPoint(stop1, new Time(3, 00, "pm"));
         trip.setTimeForStopPoint(stop2, new Time(3, 10, "pm"));
         trip.setTimeForStopPoint(stop3, new Time(3, 20, "pm"));
-        ride = new Ride(trip, car.getNumSeats(), jo);
+        ride = new Ride(trip, car.getNumSeats(), jo, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
 
     }
 

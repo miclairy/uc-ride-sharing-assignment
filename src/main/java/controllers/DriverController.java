@@ -17,6 +17,8 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -231,8 +233,9 @@ public class DriverController implements Initializable {
         dialog.setHeaderText("Enter number of available seats");
         dialog.setContentText("Please enter the number of available seats:");
         Optional<String> seats = dialog.showAndWait();
-        trip.share(Integer.parseInt(seats.get()));
+        trip.share(Integer.parseInt(seats.get()), driverUser, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
     }
+
 
     public void stopPointsSearch(){
         stopPoints.setItems(Data.stopPointsSearch(stopPointSearch.getText()));
