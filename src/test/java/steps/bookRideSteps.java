@@ -49,13 +49,14 @@ public class bookRideSteps {
 
     @Given("^sally has booked a ride$")
     public void sallyHasBookedARide() {
-        Car car = mock(Car.class);
+        Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
-        ride1 = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
-        selectedRide = ride1;
-        availableSeatsBefore = selectedRide.getAvailableSeats();
+        selectedRide = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
 
+        System.out.println(selectedRide.getAvailableSeats());
+        sally = new Passenger();
         selectedRide.bookPassenger(sally);
+        availableSeatsBefore = selectedRide.getAvailableSeats();
     }
 
     @When("^sally goes to book the ride again$")
@@ -65,6 +66,7 @@ public class bookRideSteps {
 
     @Then("^nothing happens and she is not included again\\.$")
     public void nothingHappensAndSheIsNotIncludedAgain() throws Throwable {
+        System.out.println(selectedRide.getAvailableSeats());
         assertEquals(availableSeatsBefore, selectedRide.getAvailableSeats());
     }
 

@@ -13,10 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Data;
-import model.Ride;
-import model.StopPoint;
-import model.Trip;
+import model.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,13 +24,16 @@ import java.util.ResourceBundle;
 public class PassengerController implements Initializable{
 
     @FXML
-    ListView<StopPoint> stopPoints;
+    private ListView<StopPoint> stopPoints;
     @FXML
-    ListView<Ride> sharedRides;
+    private ListView<Ride> sharedRides;
     @FXML
-    TextField stopPointSearch;
+    private TextField stopPointSearch;
     @FXML
-    VBox rideDetails;
+    private VBox rideDetails;
+
+    private Ride viewingRide;
+    private Passenger passenger;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,6 +52,7 @@ public class PassengerController implements Initializable{
                 setRideDetails(newValue);
             }
         });
+        passenger = new Passenger();
     }
 
     public void searchStopPoints(){
@@ -64,20 +65,12 @@ public class PassengerController implements Initializable{
     }
 
     private void setRideDetails(Ride ride){
-
+        viewingRide = ride;
         if (ride != null) {
             Trip trip = ride.getTrip();
             rideDetails.getChildren().clear();
 
-            rideDetails.getChildren().add(new Label("Car: " + trip.getCar()));
-            rideDetails.getChildren().add(new Label("Direction: " + trip.getDirection()));
-            if (trip.getRecurrent()) {
-                SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
-                rideDetails.getChildren().add(new Label("Occurs every: " + trip.getDays().toString()));
-                rideDetails.getChildren().add(new Label("Expires: " + formatter.format(trip.getExpirationDate().getTime())));
-                rideDetails.getChildren().add(new Label("Available Seats: " + ride.getAvailableSeats()));
-            }
-
+            rideDetails.getChildren().add(new Label(ride.getDetails()));
             TitledPane routePane = new TitledPane();
             routePane.setText(trip.getRoute().getName());
             ListView<String> routeStops = new ListView<>();
@@ -106,6 +99,16 @@ public class PassengerController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void bookRide(){
+        viewingRide.bookPassenger(passenger);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Booked Ride");
+        alert.setHeaderText("You have successfully booked a ride");
+        alert.setContentText("You can only book the ride once");
+        alert.showAndWait();
+        setRideDetails(viewingRide);
     }
 
 }

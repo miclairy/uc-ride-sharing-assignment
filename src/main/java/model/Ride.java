@@ -38,7 +38,7 @@ public class Ride {
     }
 
     public void bookPassenger(Passenger passenger){
-        if (availableSeats > 0) {
+        if (availableSeats > 0 && !passengers.contains(passenger)) {
             passengers.add(passenger);
             availableSeats--;
             passenger.addRide(this);
@@ -52,7 +52,8 @@ public class Ride {
 
     public String getDetails() {
         String details = "Driver: " + driver + "\nGrade: " + driver.getGrade() + "\nCar: " + trip.getCar().toString() +
-                "\n Route Length: " + trip.getLength().toString().trim() + "\nNumber of Stops: " + trip.getStopTimes().size();
+                "\n Route Length: " + trip.getLength().toString().trim() + "\nNumber of Stops: " + trip.getStopTimes().size() +
+                "\nAvailable Seats: " + availableSeats;
         return details;
     }
 }
