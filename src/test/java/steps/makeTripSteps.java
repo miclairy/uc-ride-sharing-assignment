@@ -7,9 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.*;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -58,7 +56,7 @@ public class makeTripSteps {
 
     @When("^that the trip is recurrent so it repeats every \"([^\"]*)\" until (\\d+)th \"([^\"]*)\"\\.$")
     public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) {
-        ArrayList<String> days = new ArrayList<>();
+        Set<String> days = new HashSet<>();
         days.add(weekday);
         trip.setDays(days);
         trip.setExpirationDate(new GregorianCalendar(Calendar.YEAR, Time.monthToInt(month), day));

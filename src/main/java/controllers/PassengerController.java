@@ -18,6 +18,7 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 
@@ -31,12 +32,19 @@ public class PassengerController implements Initializable{
     private TextField stopPointSearch;
     @FXML
     private VBox rideDetails;
+    @FXML
+    private ComboBox<String> toFromUniCombo;
 
     private Ride viewingRide;
     private Passenger passenger;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        toFromUniCombo.getItems().add("To university");
+        toFromUniCombo.getItems().add("From university");
+        toFromUniCombo.getItems().add("All");
+        toFromUniCombo.setValue("All");
         stopPoints.setItems(Data.stopPointsList.sorted());
         sharedRides.setItems(Data.getSharedRides());
         stopPoints.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<StopPoint>() {
@@ -108,7 +116,33 @@ public class PassengerController implements Initializable{
         alert.setHeaderText("You have successfully booked a ride");
         alert.setContentText("You can only book the ride once");
         alert.showAndWait();
-        setRideDetails(viewingRide);
+        if (viewingRide.getAvailableSeats() == 0){
+            rideDetails.getChildren().clear();
+        } else {
+            setRideDetails(viewingRide);
+        }
+    }
+
+    @FXML
+    public void filterByToFromUni(){
+        String filter = "";
+        ObservableList<Ride> obResult = FXCollections.observableArrayList();
+        if (toFromUniCombo.getValue().equals("To university")){
+            filter = "to";
+            Collection<Ride> result = Data.filterRides(filter);
+            obResult.addAll(result);
+            sharedRides.setItems(obResult);
+        } else if (toFromUniCombo.getValue().equals("From university")){
+            filter = "from";
+            Collection<Ride> result = Data.filterRides(filter);
+            obResult.addAll(result);
+            sharedRides.setItems(obResult);
+        } else {
+            sharedRides.setItems(Data.getSharedRides());
+        }
+
+
+
     }
 
 }

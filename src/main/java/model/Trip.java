@@ -1,9 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public class Trip {
@@ -11,7 +8,7 @@ public class Trip {
     private Route route;
     private String direction;
     private Boolean recurrent;
-    private ArrayList<String> days;
+    private Set<String> days;
     private Car car;
     private HashMap<StopPoint, Time> stopTimes = new HashMap<>();
     private GregorianCalendar expirationDate;
@@ -25,7 +22,7 @@ public class Trip {
         this.car = car;
     }
 
-    public void setDays(ArrayList<String> days) {
+    public void setDays(Set<String> days) {
         if (recurrent) {
             this.days = days;
         }
@@ -43,7 +40,7 @@ public class Trip {
         return route;
     }
 
-    public ArrayList<String> getDays() {
+    public Set<String> getDays() {
         return days;
     }
 
@@ -109,8 +106,8 @@ public class Trip {
     public Time getLength() {
         List<Time> times = new ArrayList<>(stopTimes.values());
         int length = 0;
-
-        for (Time time : stopTimes.values()) {
+        Collections.sort(times);
+        for (Time time : times) {
             length += Math.abs(length - time.getTotalSeconds());
         }
         int hours = length / 3600;

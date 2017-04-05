@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * Created by clbmi on 26/03/2017.
  */
-public class Time {
+public class Time implements Comparable<Time>{
 
     int hours;
     int minutes;
@@ -84,6 +84,21 @@ public class Time {
 
     public int getTotalSeconds() {
         return hours * 3600 + minutes * 60;
+    }
+
+    @Override
+    public int compareTo(Time time) {
+        if (this.hours == time.getHours()) {
+            if (this.minutes < time.getMinutes()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        } else if (this.hours > time.hours) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 
 }

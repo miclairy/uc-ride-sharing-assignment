@@ -41,6 +41,8 @@ public class MakeTripController implements Initializable {
     @FXML
     private Label textDay;
     @FXML
+    private Label daysSelected;
+    @FXML
     private Label txtExpiration;
     @FXML
     private DatePicker expiration;
@@ -49,6 +51,7 @@ public class MakeTripController implements Initializable {
 
     private HashMap<StopPoint, Time> stopTimes = new HashMap<StopPoint, Time>();
     private Driver driver;
+    private Set<String> days = new HashSet<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,7 +70,7 @@ public class MakeTripController implements Initializable {
         carCombo.setValue(driver.getCars().get(0));
         routeCombo.setValue(driver.getRoutes().get(0));
         driectionPicker.setValue("To University");
-
+        daysCombo.setValue("Monday");
     }
 
     public void selectedRoute(){
@@ -125,12 +128,19 @@ public class MakeTripController implements Initializable {
             alert.showAndWait();
         } else {
             Trip trip = new Trip(routeCombo.getValue(), driectionPicker.getValue(), recurrency.isSelected(), carCombo.getValue());
-            ArrayList<String> days = new ArrayList<>();
+
             if (trip.getRecurrent()) {
-                days.add(daysCombo.getValue());
                 trip.setDays(days);
-                trip.setExpirationDate(new GregorianCalendar(expiration.getValue().getYear(), expiration.getValue().getMonthValue(),
-                        expiration.getValue().getDayOfMonth()));
+                if (expiration.getValue() != null) {
+                    trip.setExpirationDate(new GregorianCalendar(expiration.getValue().getYear(), expiration.getValue().getMonthValue(),
+                            expiration.getValue().getDayOfMonth()));
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("No expiration date");
+                    alert.setHeaderText("You have not chosen expiration date");
+                    alert.setContentText("In order for the tip to be recurrent then a expiration date must be chosen");
+                    alert.showAndWait();
+                }
             }
             trip.setStopTimes(stopTimes);
             trip.setName(nameTxt.getText());
@@ -139,6 +149,11 @@ public class MakeTripController implements Initializable {
             DriverController.mainScene();
         }
 
+    }
+
+    public void addToDaysSelected(){
+        days.add(daysCombo.getValue());
+        daysSelected.setText(days.toString());
     }
 
 }

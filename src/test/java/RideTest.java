@@ -2,9 +2,7 @@ import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
@@ -41,14 +39,36 @@ public class RideTest {
     public void passengerBooksLastSeat(){
         Passenger passenger = mock(Passenger.class);
         Passenger passenger1 = mock(Passenger.class);
-        Passenger passenger2 = mock(Passenger.class);
+        Data.getSharedRides().add(ride);
         ride.bookPassenger(passenger);
         ride.bookPassenger(passenger1);
         assertEquals(0, ride.getAvailableSeats());
         assertFalse(Data.getSharedRides().contains(ride));
-        //ride.bookPassenger(passenger2);
     }
 
+    @Test
+    public void rideLength(){
+        StopPoint stop1 = mock(StopPoint.class);
+        StopPoint stop2 = mock(StopPoint.class);
+        StopPoint stop3 = mock(StopPoint.class);
+        Collection<StopPoint> stops = new ArrayList<>();
+        stops.add(stop1);
+        stops.add(stop2);
+        stops.add(stop3);
+        Route route = new Route(stops, "");
+        Trip trip = new Trip(route, "from uni", false, car);
+        trip.setTimeForStopPoint(stop1, new Time(3, 00, "pm"));
+        trip.setTimeForStopPoint(stop2, new Time(3, 00, "pm"));
+        trip.setTimeForStopPoint(stop3, new Time(3, 00, "pm"));
+
+        assertEquals(new Time(0, 0, ""), trip.getLength());
+
+        trip.setTimeForStopPoint(stop1, new Time(3, 00, "pm"));
+        trip.setTimeForStopPoint(stop2, new Time(3, 10, "pm"));
+        trip.setTimeForStopPoint(stop3, new Time(3, 00, "pm"));
+
+        assertEquals(new Time(0, 10, ""), trip.getLength());
+    }
 
 
 }

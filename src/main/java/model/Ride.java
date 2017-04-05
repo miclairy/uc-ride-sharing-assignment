@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class Ride {
+public class Ride implements Comparable<Ride> {
 
     private Trip trip;
     private int availableSeats;
@@ -43,6 +43,9 @@ public class Ride {
             availableSeats--;
             passenger.addRide(this);
         }
+        if (availableSeats == 0){
+            Data.getSharedRides().remove(this);
+        }
 
     }
 
@@ -56,4 +59,17 @@ public class Ride {
                 "\nAvailable Seats: " + availableSeats;
         return details;
     }
+
+
+    @Override
+    public int compareTo(Ride o) {
+        if (date.before(o.date)){
+            return 1;
+        } else if (date.after(o.date)) {
+            return -1;
+        }
+        return 0;
+    }
+
+
 }

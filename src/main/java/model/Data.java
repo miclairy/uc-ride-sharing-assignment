@@ -61,7 +61,7 @@ public class Data {
     public static Collection<Ride> filterRides(String filter) {
         Collection<Ride> result = new ArrayList<>();
         for (Ride ride : sharedRides) {
-            if (ride.getTrip().getDirection().equals(filter)) {
+            if (ride.getTrip().getDirection().contains(filter)) {
                 result.add(ride);
             }
         }
