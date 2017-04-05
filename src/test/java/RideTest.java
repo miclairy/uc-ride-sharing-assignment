@@ -13,12 +13,14 @@ public class RideTest {
 
     private Ride ride;
     private Car car;
+    private Trip trip;
 
     @Before
     public void setUp(){
         Route route = mock(Route.class);
         car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
-        ride = new Ride(new Trip(route, "To Uni", false, car), 2, new Driver("jo"),
+        trip = new Trip(route, "To University", true, car);
+        ride = new Ride(trip, 2, new Driver("jo"),
                 new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
     }
 
@@ -36,7 +38,7 @@ public class RideTest {
     }
 
     @Test
-    public void passengerBooksLastSeat(){
+    public void passengerBooksLastSeatTest(){
         Passenger passenger = mock(Passenger.class);
         Passenger passenger1 = mock(Passenger.class);
         Data.getSharedRides().add(ride);
@@ -47,7 +49,7 @@ public class RideTest {
     }
 
     @Test
-    public void rideLength(){
+    public void rideLengthTest(){
         StopPoint stop1 = mock(StopPoint.class);
         StopPoint stop2 = mock(StopPoint.class);
         StopPoint stop3 = mock(StopPoint.class);
@@ -70,5 +72,20 @@ public class RideTest {
         assertEquals(new Time(0, 10, ""), trip.getLength());
     }
 
+    @Test
+    public void recurrentRideTest(){ //TODO test that they are correct days
+        Data.getSharedRides().clear();
+        trip.setExpirationDate(new GregorianCalendar(2017, 4, 30)); //30th may 2017
+        Set<Integer> days = new HashSet<>();
+        days.add(Time.weekDayToInt("Wednesday"));
+        trip.setDays(days);
+        trip.share(2, new Driver("jo"), new GregorianCalendar(2017, 3, 30));
+        assertEquals(4, Data.getSharedRides().size());
 
+        Data.getSharedRides().clear();
+        days.add(Time.weekDayToInt("Sunday"));
+        trip.setDays(days);
+        trip.share(2, new Driver("jo"), new GregorianCalendar(2017, 3, 30));
+        assertEquals(9, Data.getSharedRides().size());
+    }
 }

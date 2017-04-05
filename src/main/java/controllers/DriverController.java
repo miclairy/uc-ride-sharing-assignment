@@ -194,14 +194,18 @@ public class DriverController implements Initializable {
         if (driverUser != null){
             for (Trip trip : driverUser.getTrips()){
                 TitledPane tripPane = new TitledPane();
-                tripPane.setText(trip.getName());
+                tripPane.setText(trip.getName().getValue());
 
                 VBox infoHolder = new VBox();
                 infoHolder.getChildren().add(new Label("Car: " + trip.getCar()));
                 infoHolder.getChildren().add(new Label("Direction: " + trip.getDirection()));
                 if (trip.getRecurrent()) {
                     SimpleDateFormat formatter=new SimpleDateFormat("dd MMMM yyyy");
-                    infoHolder.getChildren().add(new Label("Occurs every: " + trip.getDays().toString()));
+                    String days = "";
+                    for (Integer day : trip.getDays()){
+                        days += Time.intToDay(day) + ", ";
+                    }
+                    infoHolder.getChildren().add(new Label("Occurs every: " + days));
                     infoHolder.getChildren().add(new Label("Expires: " + formatter.format(trip.getExpirationDate().getTime())));
                 }
 
@@ -233,7 +237,9 @@ public class DriverController implements Initializable {
         dialog.setHeaderText("Enter number of available seats");
         dialog.setContentText("Please enter the number of available seats:");
         Optional<String> seats = dialog.showAndWait();
-        trip.share(Integer.parseInt(seats.get()), driverUser, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        if (seats.isPresent()) {
+            trip.share(Integer.parseInt(seats.get()), driverUser, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        }
     }
 
 

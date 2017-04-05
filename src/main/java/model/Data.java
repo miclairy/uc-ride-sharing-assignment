@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 
 public class Data {
@@ -34,16 +35,18 @@ public class Data {
     }
 
     public static ObservableList<StopPoint> stopPointsSearch(String searchString) {
-        ObservableList<StopPoint> searchResult = FXCollections.observableArrayList();
+        Set<StopPoint> searchResult = new HashSet<>();
         if (searchString.isEmpty()) {
             return Data.stopPointsList.sorted();
         } else {
             for (StopPoint stopPoint : Data.stopPointsList.sorted()) {
-                if (stopPoint.toString().contains(searchString)) {
+                if (stopPoint.toString().toLowerCase().contains(searchString.toLowerCase())) {
                     searchResult.add(stopPoint);
                 }
             }
-            return searchResult;
+            ObservableList<StopPoint> stops = FXCollections.observableArrayList();
+            stops.addAll(searchResult);
+            return stops.sorted();
         }
     }
 
@@ -61,7 +64,7 @@ public class Data {
     public static Collection<Ride> filterRides(String filter) {
         Collection<Ride> result = new ArrayList<>();
         for (Ride ride : sharedRides) {
-            if (ride.getTrip().getDirection().contains(filter)) {
+            if (ride.getTrip().getDirection().toLowerCase().equals(filter.toLowerCase())) {
                 result.add(ride);
             }
         }

@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -70,7 +71,6 @@ public class MakeTripController implements Initializable {
         carCombo.setValue(driver.getCars().get(0));
         routeCombo.setValue(driver.getRoutes().get(0));
         driectionPicker.setValue("To University");
-        daysCombo.setValue("Monday");
     }
 
     public void selectedRoute(){
@@ -130,7 +130,7 @@ public class MakeTripController implements Initializable {
             Trip trip = new Trip(routeCombo.getValue(), driectionPicker.getValue(), recurrency.isSelected(), carCombo.getValue());
 
             if (trip.getRecurrent()) {
-                trip.setDays(days);
+
                 if (expiration.getValue() != null) {
                     trip.setExpirationDate(new GregorianCalendar(expiration.getValue().getYear(), expiration.getValue().getMonthValue(),
                             expiration.getValue().getDayOfMonth()));
@@ -140,6 +140,18 @@ public class MakeTripController implements Initializable {
                     alert.setHeaderText("You have not chosen expiration date");
                     alert.setContentText("In order for the tip to be recurrent then a expiration date must be chosen");
                     alert.showAndWait();
+                }
+
+                if (days.isEmpty()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("No recurring day");
+                    alert.setHeaderText("You have not chosen a day of the week that this re-occurs on");
+                    alert.setContentText("In order for the tip to be recurrent then a recurring day must be chosen");
+                    alert.showAndWait();
+                } else {
+                    for (String day : days) {
+                        trip.getDays().add(Time.weekDayToInt(day));
+                    }
                 }
             }
             trip.setStopTimes(stopTimes);

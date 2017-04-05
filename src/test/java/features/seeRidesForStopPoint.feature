@@ -13,7 +13,5 @@ Feature: See rides for a stop point
     Given there is a stop point that has multiple rides that go to it.
     And sally has selected that stop point
     And sally is a passenger
-    When sally selects a filter option "to uni"
-    Then the rides which go "to uni" are seen.
-
-
+    When sally selects a filter option "To university"
+    Then the rides which go "To university" are seen.

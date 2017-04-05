@@ -21,7 +21,7 @@ public class shareRideSteps {
         jo = new Driver("Jo");
         Route route = mock(Route.class);
         Car car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
-        trip = new Trip(route, "To Uni", false, car);
+        trip = new Trip(route, "To University", false, car);
     }
 
     @When("^jo shares the trip with (\\d+) available seats$")

@@ -34,7 +34,7 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String toString() {
-        return trip.getName();
+        return trip.getName().getValue();
     }
 
     public void bookPassenger(Passenger passenger){
@@ -72,4 +72,7 @@ public class Ride implements Comparable<Ride> {
     }
 
 
+    public GregorianCalendar getDate() {
+        return date;
+    }
 }

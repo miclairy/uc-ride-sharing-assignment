@@ -56,8 +56,8 @@ public class makeTripSteps {
 
     @When("^that the trip is recurrent so it repeats every \"([^\"]*)\" until (\\d+)th \"([^\"]*)\"\\.$")
     public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) {
-        Set<String> days = new HashSet<>();
-        days.add(weekday);
+        Set<Integer> days = new HashSet<>();
+        days.add(Time.weekDayToInt(weekday));
         trip.setDays(days);
         trip.setExpirationDate(new GregorianCalendar(Calendar.YEAR, Time.monthToInt(month), day));
         jo.getTrips().add(trip);

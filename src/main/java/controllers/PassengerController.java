@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -18,7 +19,9 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 
 
@@ -46,7 +49,7 @@ public class PassengerController implements Initializable{
         toFromUniCombo.getItems().add("All");
         toFromUniCombo.setValue("All");
         stopPoints.setItems(Data.stopPointsList.sorted());
-        sharedRides.setItems(Data.getSharedRides());
+        sharedRides.setItems(Data.getSharedRides().sorted());
         stopPoints.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<StopPoint>() {
             @Override
             public void changed(ObservableValue<? extends StopPoint> observable, StopPoint oldValue, StopPoint newValue) {
@@ -61,6 +64,7 @@ public class PassengerController implements Initializable{
             }
         });
         passenger = new Passenger();
+
     }
 
     public void searchStopPoints(){
@@ -79,6 +83,7 @@ public class PassengerController implements Initializable{
             rideDetails.getChildren().clear();
 
             rideDetails.getChildren().add(new Label(ride.getDetails()));
+            rideDetails.getChildren().add(new Label("Date: " + ride.getDate().getTime().toString()));
             TitledPane routePane = new TitledPane();
             routePane.setText(trip.getRoute().getName());
             ListView<String> routeStops = new ListView<>();
@@ -125,20 +130,14 @@ public class PassengerController implements Initializable{
 
     @FXML
     public void filterByToFromUni(){
-        String filter = "";
         ObservableList<Ride> obResult = FXCollections.observableArrayList();
-        if (toFromUniCombo.getValue().equals("To university")){
-            filter = "to";
-            Collection<Ride> result = Data.filterRides(filter);
+        Collection<Ride> result = new HashSet<>();
+        if (!toFromUniCombo.getValue().equals("All")) {
+            result = Data.filterRides(toFromUniCombo.getValue());
             obResult.addAll(result);
-            sharedRides.setItems(obResult);
-        } else if (toFromUniCombo.getValue().equals("From university")){
-            filter = "from";
-            Collection<Ride> result = Data.filterRides(filter);
-            obResult.addAll(result);
-            sharedRides.setItems(obResult);
+            sharedRides.setItems(obResult.sorted());
         } else {
-            sharedRides.setItems(Data.getSharedRides());
+            sharedRides.setItems(Data.getSharedRides().sorted());
         }
 
 
