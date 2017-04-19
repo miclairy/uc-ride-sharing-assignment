@@ -6,10 +6,8 @@ import javafx.collections.ObservableSet;
 import javafx.collections.SetChangeListener;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.List;
 
 
 public class Data {
@@ -17,6 +15,8 @@ public class Data {
     public static ObservableSet<StopPoint> stopPoints = FXCollections.observableSet();
     public static ObservableList<StopPoint> stopPointsList = FXCollections.observableArrayList(stopPoints);
     private static ObservableList<Ride> sharedRides = FXCollections.observableArrayList();
+    public static List<Driver> drivers = new ArrayList<>();
+    public static List<Passenger> passengers = new ArrayList<>();
 
     public static void setDataListeners() {
         SetChangeListener<StopPoint> listner = change -> {

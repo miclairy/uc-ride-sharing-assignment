@@ -76,6 +76,7 @@ public class DriverController implements Initializable {
     public void becomeDriver(){
         if (driverUser == null) {
             driverUser = new Driver("");
+            Data.drivers.add(driverUser);
         }
         registerCar.setVisible(true);
         userTypeText.setText("You are a Driver");
