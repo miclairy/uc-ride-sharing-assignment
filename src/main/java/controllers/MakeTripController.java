@@ -156,7 +156,7 @@ public class MakeTripController implements Initializable {
             }
             trip.setStopTimes(stopTimes);
             trip.setName(nameTxt.getText());
-            driver.getTrips().add(trip);
+            driver.addTrip(trip);
 
             DriverController.mainScene();
         }

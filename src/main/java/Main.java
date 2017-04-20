@@ -18,7 +18,6 @@ import com.google.gson.GsonBuilder;
  */
 public class Main extends Application {
 
-    private static Gson gson = new GsonBuilder().create();
 
     public void start(Stage stage) throws Exception {
 
@@ -38,10 +37,6 @@ public class Main extends Application {
 
     }
 
-    public static void save(Object toSave) throws IOException {
-        Writer writer = new OutputStreamWriter(new FileOutputStream("src/main/resources/data.json"), "UTF-8");
-        gson.toJson(toSave, writer);
-        writer.close();
 
-    }
+
 }

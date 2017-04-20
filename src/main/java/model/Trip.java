@@ -128,4 +128,37 @@ public class Trip {
         Time timeLen = new Time(hours - times.get(0).getHours(), minutes - times.get(0).getMinutes(), "");
         return timeLen;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Trip trip = (Trip) o;
+
+        if (shared != trip.shared) return false;
+        if (route != null ? !route.equals(trip.route) : trip.route != null) return false;
+        if (direction != null ? !direction.equals(trip.direction) : trip.direction != null) return false;
+        if (recurrent != null ? !recurrent.equals(trip.recurrent) : trip.recurrent != null) return false;
+        if (days != null ? !days.equals(trip.days) : trip.days != null) return false;
+        if (car != null ? !car.equals(trip.car) : trip.car != null) return false;
+        if (stopTimes != null ? !stopTimes.equals(trip.stopTimes) : trip.stopTimes != null) return false;
+        if (expirationDate != null ? !expirationDate.equals(trip.expirationDate) : trip.expirationDate != null)
+            return false;
+        return name != null ? name.equals(trip.name) : trip.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = route != null ? route.hashCode() : 0;
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        result = 31 * result + (recurrent != null ? recurrent.hashCode() : 0);
+        result = 31 * result + (days != null ? days.hashCode() : 0);
+        result = 31 * result + (car != null ? car.hashCode() : 0);
+        result = 31 * result + (stopTimes != null ? stopTimes.hashCode() : 0);
+        result = 31 * result + (expirationDate != null ? expirationDate.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (shared ? 1 : 0);
+        return result;
+    }
 }

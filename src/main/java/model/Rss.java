@@ -9,9 +9,6 @@ import java.util.List;
 public class Rss {
     private List<Driver> drivers = new ArrayList<>();
     private List<Passenger> passengers = new ArrayList<>();
-    private List<Trip> trips = new ArrayList<>();
-    private List<Route> routes = new ArrayList<>();
-    private List<Car> cars = new ArrayList<>();
     private List<StopPoint> stopPoints = new ArrayList<>();
 
     public Rss(){
@@ -19,13 +16,17 @@ public class Rss {
         drivers = Data.drivers;
         passengers = Data.passengers;
 
-        for (Driver driver : drivers){
-            cars.addAll(driver.getCars());
-            routes.addAll(driver.getRoutes());
-            trips.addAll(driver.getTrips());
-
-        }
     }
 
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
 
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public List<StopPoint> getStopPoints() {
+        return stopPoints;
+    }
 }

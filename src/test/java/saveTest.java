@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.mockito.Mockito.mock;
 
 /**
  * Created by clbmi on 19/04/2017.
@@ -30,7 +29,7 @@ public class saveTest {
 
         Rss toSave = new Rss();
         try {
-            Main.save(toSave);
+            Data.save(toSave);
         } catch (IOException e) {
             e.printStackTrace();
         }

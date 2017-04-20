@@ -1,19 +1,17 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import model.Driver;
-import model.StopPoint;
-import model.Trip;
+import model.*;
 
-import java.util.Collections;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
+import static org.junit.Assert.assertEquals;
+
 
 /**
  * Created by clbmi on 19/04/2017.
@@ -21,31 +19,48 @@ import static org.mockito.Mockito.mock;
 public class storeDataSteps {
 
     private Trip trip;
+    private Driver jo;
+    private List<StopPoint> stops = new ArrayList<>();
 
     @Given("^there is a trip in the system$")
     public void thereIsATripInTheSystem() {
-        Driver jo = new Driver("jo");
-        StopPoint stopPoint1 = mock(StopPoint.class);
-        StopPoint stopPoint2 = mock(StopPoint.class);
-        StopPoint stopPoint3 = mock(StopPoint.class);
-        ObservableList<StopPoint> stops = FXCollections.observableArrayList();
-        stops.add(stopPoint1);
-        stops.add(stopPoint2);
-        stops.add(stopPoint3);
-        jo.createRoute(stops, "1");
+        jo = new Driver("jo");
+        jo.addCar(new Car("car", "blue", "mazda", "123RTF", 1200, 6));
+        StopPoint stopPoint1 = new StopPoint(3, "hare");
+        StopPoint stopPoint2 = new StopPoint(4, "magic");
+        StopPoint stopPoint3 = new StopPoint(12, "alpha");
+        Data.stopPoints.add(stopPoint1);
+        Data.stopPoints.add(stopPoint2);
+        Data.stopPoints.add(stopPoint3);
+        stops.addAll(Data.stopPointsList);
+        jo.createRoute(Data.stopPointsList, "1");
         trip = new Trip(jo.getRoutes().get(0), "to uni", true, jo.getCars().get(0));
+        jo.addTrip(trip);
+        Data.drivers.add(jo);
 
     }
 
     @When("^the application is closed and reopened$")
-    public void theApplicationIsClosedAndReopened() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void theApplicationIsClosedAndReopened() {
+        Rss toSave = new Rss();
+        try {
+            Data.save(toSave);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Data.drivers.clear();
+        Data.stopPoints.clear();
+        try {
+            Data.load();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     @Then("^the trip should still be there$")
-    public void theTripShouldStillBeThere() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void theTripShouldStillBeThere() {
+        assertEquals(jo, Data.drivers.get(0));
+        assertEquals(trip, Data.drivers.get(0).getTrips().get(0));
+        assertEquals(stops, Data.stopPointsList);
     }
 }
