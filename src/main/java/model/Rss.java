@@ -10,11 +10,13 @@ public class Rss {
     private List<Driver> drivers = new ArrayList<>();
     private List<Passenger> passengers = new ArrayList<>();
     private List<StopPoint> stopPoints = new ArrayList<>();
+    private List<Ride> rides = new ArrayList<>();
 
     public Rss(){
         stopPoints = Data.stopPointsList;
         drivers = Data.drivers;
         passengers = Data.passengers;
+        rides = Data.getSharedRides();
 
     }
 
@@ -28,5 +30,9 @@ public class Rss {
 
     public List<StopPoint> getStopPoints() {
         return stopPoints;
+    }
+
+    public List<Ride> getRides() {
+        return rides;
     }
 }

@@ -161,4 +161,8 @@ public class Trip {
         result = 31 * result + (shared ? 1 : 0);
         return result;
     }
+
+    public void setShared(boolean shared) {
+        this.shared = shared;
+    }
 }

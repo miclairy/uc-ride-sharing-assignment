@@ -89,9 +89,12 @@ public class Data {
         drivers.clear();
         passengers.clear();
         stopPointsList.clear();
-        drivers = loaded.getDrivers();
-        passengers = loaded.getPassengers();
-        stopPointsList.addAll(loaded.getStopPoints());
+        stopPoints.clear();
+        sharedRides.clear();
+        drivers.addAll(loaded.getDrivers());
+        passengers.addAll(loaded.getPassengers());
+        stopPoints.addAll(loaded.getStopPoints());
+        sharedRides.addAll(loaded.getRides());
     }
 
 }

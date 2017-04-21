@@ -7,8 +7,7 @@ import model.*;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,12 +18,17 @@ import static org.junit.Assert.assertEquals;
 public class storeDataSteps {
 
     private Trip trip;
-    private Driver jo;
+    private List<Driver> jos = new ArrayList<>();
     private List<StopPoint> stops = new ArrayList<>();
+    private List<Ride> rides;
 
     @Given("^there is a trip in the system$")
     public void thereIsATripInTheSystem() {
-        jo = new Driver("jo");
+        Data.setDataListeners();
+        Data.drivers.clear();
+        Data.stopPoints.clear();
+        Data.getSharedRides().clear();
+        Driver jo = new Driver("jo");
         jo.addCar(new Car("car", "blue", "mazda", "123RTF", 1200, 6));
         StopPoint stopPoint1 = new StopPoint(3, "hare");
         StopPoint stopPoint2 = new StopPoint(4, "magic");
@@ -35,8 +39,13 @@ public class storeDataSteps {
         stops.addAll(Data.stopPointsList);
         jo.createRoute(Data.stopPointsList, "1");
         trip = new Trip(jo.getRoutes().get(0), "to uni", true, jo.getCars().get(0));
+        Set<Integer> days = new HashSet<>();
+        days.add(5);
+        trip.setDays(days);
+        trip.setExpirationDate(new GregorianCalendar(2018, 1, 1));
         jo.addTrip(trip);
         Data.drivers.add(jo);
+        jos.add(jo);
 
     }
 
@@ -48,8 +57,6 @@ public class storeDataSteps {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Data.drivers.clear();
-        Data.stopPoints.clear();
         try {
             Data.load();
         } catch (UnsupportedEncodingException e) {
@@ -59,8 +66,19 @@ public class storeDataSteps {
 
     @Then("^the trip should still be there$")
     public void theTripShouldStillBeThere() {
-        assertEquals(jo, Data.drivers.get(0));
+        assertEquals(jos, Data.drivers);
         assertEquals(trip, Data.drivers.get(0).getTrips().get(0));
         assertEquals(stops, Data.stopPointsList);
+    }
+
+    @Given("^there is a ride$")
+    public void thereIsARide() {
+        trip.share(5, Data.drivers.get(0), new GregorianCalendar(2017, 7, 30));
+        rides = Data.getSharedRides();
+    }
+
+    @Then("^the ride should still be there$")
+    public void theRideShouldStillBeThere() {
+        assertEquals(rides, Data.getSharedRides());
     }
 }

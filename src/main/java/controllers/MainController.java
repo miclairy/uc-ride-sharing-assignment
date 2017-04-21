@@ -1,16 +1,20 @@
 package controllers;
 
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Data;
+import model.Rss;
 
 import java.io.IOException;
 
-public class pickDriverPassengerController {
+public class MainController {
 
     @FXML
     Text become;
@@ -33,4 +37,18 @@ public class pickDriverPassengerController {
         } catch (IOException e) {
             e.printStackTrace();
         }    }
+
+    @FXML
+    public void exitApplication(ActionEvent event) {
+        Platform.exit();
+    }
+
+    public void stop(){
+        Rss toSave = new Rss();
+        try {
+            Data.save(toSave);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

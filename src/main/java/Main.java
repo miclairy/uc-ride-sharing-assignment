@@ -21,6 +21,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws Exception {
 
+        Data.load();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pickDriverPassenger.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 700);
