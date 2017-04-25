@@ -136,12 +136,11 @@ public class Trip {
 
         Trip trip = (Trip) o;
 
-        if (shared != trip.shared) return false;
-        if (route != null ? !route.equals(trip.route) : trip.route != null) return false;
-        if (direction != null ? !direction.equals(trip.direction) : trip.direction != null) return false;
+        if (!route.equals(trip.route)) return false;
+        if (!direction.equals(trip.direction)) return false;
         if (recurrent != null ? !recurrent.equals(trip.recurrent) : trip.recurrent != null) return false;
         if (days != null ? !days.equals(trip.days) : trip.days != null) return false;
-        if (car != null ? !car.equals(trip.car) : trip.car != null) return false;
+        if (!car.equals(trip.car)) return false;
         if (stopTimes != null ? !stopTimes.equals(trip.stopTimes) : trip.stopTimes != null) return false;
         if (expirationDate != null ? !expirationDate.equals(trip.expirationDate) : trip.expirationDate != null)
             return false;
@@ -150,15 +149,14 @@ public class Trip {
 
     @Override
     public int hashCode() {
-        int result = route != null ? route.hashCode() : 0;
-        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        int result = route.hashCode();
+        result = 31 * result + direction.hashCode();
         result = 31 * result + (recurrent != null ? recurrent.hashCode() : 0);
         result = 31 * result + (days != null ? days.hashCode() : 0);
-        result = 31 * result + (car != null ? car.hashCode() : 0);
+        result = 31 * result + car.hashCode();
         result = 31 * result + (stopTimes != null ? stopTimes.hashCode() : 0);
         result = 31 * result + (expirationDate != null ? expirationDate.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (shared ? 1 : 0);
         return result;
     }
 

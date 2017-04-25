@@ -66,7 +66,7 @@ public class storeDataSteps {
 
     @Then("^the trip should still be there$")
     public void theTripShouldStillBeThere() {
-        assertEquals(jos, Data.drivers);
+        assertEquals(jos.get(0), Data.drivers.get(0));
         assertEquals(trip, Data.drivers.get(0).getTrips().get(0));
         assertEquals(stops, Data.stopPointsList);
     }

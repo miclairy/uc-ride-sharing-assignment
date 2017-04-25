@@ -5,16 +5,23 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import model.Data;
 import model.Rss;
 
+import java.awt.event.WindowAdapter;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainController {
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
+
+public class MainController  {
 
     @FXML
     Text become;
@@ -38,17 +45,5 @@ public class MainController {
             e.printStackTrace();
         }    }
 
-    @FXML
-    public void exitApplication(ActionEvent event) {
-        Platform.exit();
-    }
 
-    public void stop(){
-        Rss toSave = new Rss();
-        try {
-            Data.save(toSave);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

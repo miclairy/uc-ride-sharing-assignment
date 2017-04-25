@@ -1,4 +1,7 @@
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,6 +32,15 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @Override
+    public void stop(){
+        try {
+            Data.save(new Rss());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main( String[] args )
