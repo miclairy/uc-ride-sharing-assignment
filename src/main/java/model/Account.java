@@ -25,7 +25,7 @@ public class Account {
                 return false;
             }
         }
-        for (Account account: Data.passengers){
+        for (Account account: Data.drivers){
             if (account.email.equals(email)){
                 return false;
             }

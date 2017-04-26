@@ -50,7 +50,11 @@ public class createAccountSteps {
     @When("^jo enters type \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
     public void joEntersType(String type, String number, String issued, String expiry) throws ParseException {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        license = new License(type,  number, df.parse(issued), df.parse(expiry));
+        Calendar issuedDate = new GregorianCalendar();
+        Calendar expiryDate = new GregorianCalendar();
+        issuedDate.setTime(df.parse(issued));
+        expiryDate.setTime(df.parse(expiry));
+        license = new License(type,  number, issuedDate, expiryDate);
     }
 
     @Then("^it is verified he can carry passengers$")

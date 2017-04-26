@@ -57,16 +57,16 @@ public class DriverController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        driverUser = Data.driverUser;
         controllerLoader = new FXMLLoader(getClass().getResource("/driverMain.fxml"));
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        becomeDriver();
+        //becomeDriver();
         String cars = "";
         for (Car car : driverUser.getCars()) {
             cars += car.toString();
         }
         registeredCars.setItems(driverUser.getCars());
-
 
         populateRoutes();
         populateTrips();
@@ -74,10 +74,6 @@ public class DriverController implements Initializable {
     }
 
     public void becomeDriver(){
-        if (driverUser == null) {
-            driverUser = new Driver("");
-            Data.drivers.add(driverUser);
-        }
         registerCar.setVisible(true);
         userTypeText.setText("You are a Driver");
         createStopPoint.setVisible(true);
@@ -86,8 +82,8 @@ public class DriverController implements Initializable {
             createRoute.setVisible(true);
         }
 
-
     }
+
 
     private void newScene(String fxml){
         try {

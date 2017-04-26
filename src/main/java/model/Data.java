@@ -27,6 +27,8 @@ public class Data {
     private static GsonBuilder gsonBuilder = new GsonBuilder();
     public static Gson gson = gsonBuilder.setPrettyPrinting().create();
 
+    public static Driver driverUser;
+    public static Passenger passengerUser;
 
     public static void setDataListeners() {
         SetChangeListener<StopPoint> listner = change -> {

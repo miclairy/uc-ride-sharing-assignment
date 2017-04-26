@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static org.junit.Assert.assertFalse;
 
@@ -18,12 +20,20 @@ public class AccountsTests {
 
     @Test
     public void verifyLicenseTest() throws ParseException {
+        Calendar issuedDate = new GregorianCalendar();
+        Calendar expiryDate = new GregorianCalendar();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        License license = new License("full",  "FR123456", df.parse("09/02/2016"), df.parse("06/02/2026"));
-        License restrictedLicense = new License("restricted",  "FR123456", df.parse("09/02/2016"), df.parse("06/02/2026"));
-        License wrongExpiry = new License("full",  "FR123456", df.parse("09/02/2016"), df.parse("06/02/2016"));
-        License oldLicense = new License("full for 2 years",  "FR123456", df.parse("09/02/2016"), df.parse("06/02/2026"));
-        License expiredLicense = new License("full",  "FR123456", df.parse("09/02/2016"), df.parse("06/02/2010"));
+        issuedDate.setTime(df.parse("09/02/2016"));
+        expiryDate.setTime(df.parse("06/02/2026"));
+        License license = new License("full", "FR123456", issuedDate, expiryDate);
+        License restrictedLicense = new License("restricted", "FR123456", issuedDate, expiryDate);
+        Calendar wrongExpiryDate = new GregorianCalendar();
+        wrongExpiryDate.setTime(df.parse("06/02/2016"));
+        License wrongExpiry = new License("full",  "FR123456", issuedDate, wrongExpiryDate);
+        License oldLicense = new License("full for 2 years",  "FR123456", issuedDate, expiryDate);
+        Calendar expired = new GregorianCalendar();
+        expired.setTime(df.parse("06/02/2017"));
+        License expiredLicense = new License("full",  "FR123456", issuedDate, expired);
         assert(license.verify());
         assert(oldLicense.verify());
         assertFalse(restrictedLicense.verify());
