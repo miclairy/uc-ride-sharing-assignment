@@ -75,4 +75,8 @@ public class Account {
     public byte[] getSalt() {
         return salt;
     }
+
+    public void setPassword(byte[] password) {
+        this.password = password;
+    }
 }

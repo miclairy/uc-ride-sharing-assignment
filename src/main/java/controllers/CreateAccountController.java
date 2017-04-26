@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -49,7 +51,8 @@ public class CreateAccountController implements Initializable {
     @FXML
     private PasswordField password2;
 
-    private  Map<String, Object> enteredInformation = new HashMap<>();
+    private static Map<String, Object> enteredInformation = new HashMap<>();
+    private static byte[] password;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,6 +60,15 @@ public class CreateAccountController implements Initializable {
             createTypeAccount.setText("Create Driver Account");
         } else if (createTypeAccount != null) {
             createTypeAccount.setText("Create Passenger Account");
+        }
+        if (type != null){
+            ObservableList<String> licenseTypes = FXCollections.observableArrayList();
+            licenseTypes.add("Full");
+            licenseTypes.add("Restricted");
+            licenseTypes.add("Learner");
+            licenseTypes.add("Full for 2 years");
+            type.setItems(licenseTypes);
+            type.getSelectionModel().select(0);
         }
     }
 
@@ -74,23 +86,14 @@ public class CreateAccountController implements Initializable {
             enteredInformation.put("address", address.getText() + ", " + city.getText());
 
             if (MainController.makeDriver) {
+                temp.storePassword(password1.getText());
+                password = temp.getPassword();
                 goToScreen( "/registerLicense.fxml");
             } else {
                 Passenger newAccount = new Passenger();
                 newAccount.setDetails(enteredInformation);
                 newAccount.storePassword(password1.getText());
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setResizable(false);
-                    stage.setTitle("Login");
-                    stage.setScene(new Scene(root, 443, 429));
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                goToScreen("/passengerMain.fxml");
+                goToScreen("/login.fxml");
                 Data.passengerUser = newAccount;
                 Data.passengers.add(newAccount);
             }
@@ -106,7 +109,12 @@ public class CreateAccountController implements Initializable {
     public void goToScreen(String fxml){
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
-            Stage stage = (Stage) createTypeAccount.getScene().getWindow();
+            Stage stage;
+            if (createTypeAccount != null) {
+                stage = (Stage) createTypeAccount.getScene().getWindow();
+            } else {
+                stage = (Stage) number.getScene().getWindow();
+            }
             stage.setResizable(true);
             stage.setScene(new Scene(root, 1000, 700));
             stage.show();
@@ -116,7 +124,11 @@ public class CreateAccountController implements Initializable {
     }
 
     public void cancel(){
-        Stage stage = (Stage) createTypeAccount.getScene().getWindow();
+        if (createTypeAccount != null) {
+            Stage stage = (Stage) createTypeAccount.getScene().getWindow();
+        } else {
+            Stage stage = (Stage) number.getScene().getWindow();
+        }
         MainController.mainScene();
     }
 
@@ -125,15 +137,18 @@ public class CreateAccountController implements Initializable {
                 issuedDate.getValue().getDayOfMonth());
         GregorianCalendar expiry = new GregorianCalendar(expiryDate.getValue().getYear(), expiryDate.getValue().getMonthValue(),
                 expiryDate.getValue().getDayOfMonth());
-        License license = new License(number.getText(), type.getSelectionModel().getSelectedItem(), issued, expiry);
-        if (license.verify()){
-            Driver newAccount = new Driver();
-            newAccount.setDetails(enteredInformation);
-            newAccount.setLicense(license);
-            newAccount.storePassword(password1.getText());
-            goToScreen("/driverMain.fxml");
-            Data.driverUser = newAccount;
-            Data.drivers.add(newAccount);
+        if (number.getText().length() > 0) {
+            License license = new License(type.getSelectionModel().getSelectedItem(), number.getText(), issued, expiry);
+            if (license.verify()) {
+                Driver newAccount = new Driver();
+                newAccount.setDetails(enteredInformation);
+                newAccount.setLicense(license);
+                newAccount.setPassword(password);
+                Data.driverUser = newAccount;
+                Data.drivers.add(newAccount);
+                goToScreen("/login.fxml");
+
+            }
         }
 
     }

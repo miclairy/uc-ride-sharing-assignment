@@ -22,7 +22,7 @@ public class License {
 
     public boolean verify(){
         if (issued.before(expiry) && expiry.after(Calendar.getInstance())){
-            return type.equals("full") || type.equals("full for 2 years");
+            return type.toLowerCase().equals("full") || type.equals("full for 2 years");
         }
         return false;
     }
