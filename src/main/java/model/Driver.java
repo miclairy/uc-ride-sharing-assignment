@@ -13,16 +13,19 @@ import java.util.Set;
 /**
  * Driver user class that can register cars and driver passengers around
  */
-public class Driver {
+public class Driver extends Account{
 
-    private String name;
     private ObservableList<Car> cars = FXCollections.observableArrayList();
     private ObservableList<Route> routes = FXCollections.observableArrayList();
     private ObservableList<Trip> trips = FXCollections.observableArrayList();
     private String grade;
+    private License license;
 
     public Driver(String name) {
-        this.name = name;
+        this.setName(name);
+    }
+
+    public Driver() {
     }
 
     public void addCar(Car car){
@@ -70,17 +73,13 @@ public class Driver {
         this.grade = grade;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getGrade() {
         return grade;
     }
 
     @Override
     public String toString() {
-        return name;
+        return this.getName();
     }
 
     public void addTrip(Trip trip) {
@@ -94,20 +93,24 @@ public class Driver {
 
         Driver driver = (Driver) o;
 
-        if (name != null ? !name.equals(driver.name) : driver.name != null) return false;
         if (cars != null ? !cars.equals(driver.cars) : driver.cars != null) return false;
         if (routes != null ? !routes.equals(driver.routes) : driver.routes != null) return false;
         if (trips != null ? !trips.equals(driver.trips) : driver.trips != null) return false;
-        return grade != null ? grade.equals(driver.grade) : driver.grade == null;
+        if (grade != null ? !grade.equals(driver.grade) : driver.grade != null) return false;
+        return license != null ? license.equals(driver.license) : driver.license == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (cars != null ? cars.hashCode() : 0);
+        int result = cars != null ? cars.hashCode() : 0;
         result = 31 * result + (routes != null ? routes.hashCode() : 0);
         result = 31 * result + (trips != null ? trips.hashCode() : 0);
         result = 31 * result + (grade != null ? grade.hashCode() : 0);
+        result = 31 * result + (license != null ? license.hashCode() : 0);
         return result;
+    }
+
+    public void setLicense(License license) {
+        this.license = license;
     }
 }

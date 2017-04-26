@@ -4,7 +4,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Passenger {
+public class Passenger extends Account {
 
     private Collection<Ride> bookedRides = new ArrayList<>();
 

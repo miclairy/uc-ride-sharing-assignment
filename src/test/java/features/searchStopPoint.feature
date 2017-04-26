@@ -1,4 +1,4 @@
-Feature: Search stop point.
+Feature: Search stop point
   As a user​, I want to search for existing stop points so that I can define or find rides
 
   Scenario: Search for stop points

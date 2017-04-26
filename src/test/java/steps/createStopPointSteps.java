@@ -42,7 +42,7 @@ public class createStopPointSteps {
     }
 
     @When("^Sally creates a stop point at (\\d+) \"([^\"]*)\" after bob$")
-    public void sally_creates_a_stop_point_at_after_bob(int number, String address) throws Throwable {
+    public void sally_creates_a_stop_point_at_after_bob(int number, String address) {
         sally.createStopPoint(number, address);
     }
 

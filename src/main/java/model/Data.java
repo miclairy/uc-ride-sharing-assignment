@@ -6,7 +6,13 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.collections.SetChangeListener;
 
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import java.io.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.util.*;
 import java.util.List;
 
@@ -20,6 +26,7 @@ public class Data {
     public static List<Passenger> passengers = new ArrayList<>();
     private static GsonBuilder gsonBuilder = new GsonBuilder();
     public static Gson gson = gsonBuilder.setPrettyPrinting().create();
+
 
     public static void setDataListeners() {
         SetChangeListener<StopPoint> listner = change -> {
@@ -96,5 +103,7 @@ public class Data {
         stopPoints.addAll(loaded.getStopPoints());
         sharedRides.addAll(loaded.getRides());
     }
+
+
 
 }

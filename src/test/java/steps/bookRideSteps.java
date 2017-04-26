@@ -36,7 +36,7 @@ public class bookRideSteps {
     }
 
     @Then("^sally will be expected on the ride and the available seats decreases$")
-    public void sallyWillBeExpectedOnTheRideAndTheAvailableSeatsDecreases() throws Throwable {
+    public void sallyWillBeExpectedOnTheRideAndTheAvailableSeatsDecreases() {
         System.out.println(selectedRide.getAvailableSeats());
         assert (selectedRide.getPassengers().contains(sally));
         assert (availableSeatsBefore > selectedRide.getAvailableSeats());
@@ -65,7 +65,7 @@ public class bookRideSteps {
     }
 
     @Then("^nothing happens and she is not included again\\.$")
-    public void nothingHappensAndSheIsNotIncludedAgain() throws Throwable {
+    public void nothingHappensAndSheIsNotIncludedAgain() {
         System.out.println(selectedRide.getAvailableSeats());
         assertEquals(availableSeatsBefore, selectedRide.getAvailableSeats());
     }
