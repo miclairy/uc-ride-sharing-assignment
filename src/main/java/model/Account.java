@@ -17,9 +17,15 @@ public class Account {
     private String email;
     private byte[] password;
     private byte[] salt;
+    private String ucId;
 
     public boolean verifyEmail(String email){
         for (Account account: Data.drivers){
+            if (account.email.equals(email)){
+                return false;
+            }
+        }
+        for (Account account: Data.passengers){
             if (account.email.equals(email)){
                 return false;
             }
@@ -32,6 +38,7 @@ public class Account {
     }
 
     public void setDetails(Map<String, Object> store) {
+        ucId = (String) store.get("ucId");
         name = (String) store.get("name");
         address = (String) store.get("address");
         phone = (long) store.get("phone");
@@ -40,6 +47,7 @@ public class Account {
 
     public Map<String, Object> getDetails() {
         Map<String, Object> details = new HashMap<>();
+        details.put("ucId", ucId);
         details.put("name", name);
         details.put("address", address);
         details.put("phone", phone);
