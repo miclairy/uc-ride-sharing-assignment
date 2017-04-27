@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,7 +43,7 @@ public class createAccountSteps {
     }
 
     @Then("^the email and password are verified and he is asked for his drivers license information$")
-    public void theEmailAndPasswordAreVerifiedAndHeIsAskedForHisDriversLicenseInformation() {
+    public void theEmailAndPasswordAreVerifiedAndHeIsAskedForHisDriversLicenseInformation() throws IOException {
         assert(jo.verifyEmail((String) store.get("email")));
         assert(jo.verifyPassword(password, password));
     }
@@ -63,11 +64,20 @@ public class createAccountSteps {
     }
 
     @Then("^his details are stored and account is created$")
-    public void hisDetailsAreStoredAndAccountIsCreated() {
+    public void hisDetailsAreStoredAndAccountIsCreated() throws IOException {
         jo.setDetails(store);
         jo.setLicense(license);
         jo.storePassword(password);
         assertEquals(jo.getDetails(), store);
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String line = reader.readLine();
+        String readEmail = line.split(",")[0];
+        while (!(readEmail != null && readEmail.equals(store.get("email")))) {
+            line = reader.readLine();
+            readEmail = line.split(",")[0];
+        }
+        assertEquals(store.get("email") + "," + jo.getPassword() + "," + jo.getSalt(), line);
 
     }
 
@@ -87,16 +97,28 @@ public class createAccountSteps {
     }
 
     @Then("^the email and password are verified and her account is created$")
-    public void theEmailAndPasswordAreVerifiedAndHerAccountIsCreated() {
+    public void theEmailAndPasswordAreVerifiedAndHerAccountIsCreated() throws IOException {
         assert(sally.verifyEmail((String) passengerStore.get("email")));
         assert(sally.verifyPassword(passwordP, passwordP));
-
+        sally.setDetails(passengerStore);
+        sally.storePassword(passwordP);
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String line = reader.readLine();
+        String readEmail = line.split(",")[0];
+        while (!(readEmail != null && readEmail.equals(passengerStore.get("email")))) {
+            line = reader.readLine();
+            readEmail = line.split(",")[0];
+        }
+        assertEquals(passengerStore.get("email") + "," + sally.getPassword() + "," + sally.getSalt(), line);
     }
 
     @Then("^the email fails verification and she is told the email is already in use$")
-    public void theEmailFailsVerificationAndSheIsToldTheEmailIsAlreadyInUse() {
+    public void theEmailFailsVerificationAndSheIsToldTheEmailIsAlreadyInUse() throws IOException {
         Passenger temp = new Passenger();
         assertFalse(temp.verifyEmail((String) passengerStore.get("email")));
+        cleanUpFile((String) passengerStore.get("email"));
+        cleanUpFile("jb34@uclive.ac.nz");
     }
 
     @Given("^sally is already signed up$")
@@ -112,6 +134,27 @@ public class createAccountSteps {
         passengerStore.put("email", "sal34@canterbury.ac.nz");
         sally.setDetails(passengerStore);
         Data.passengers.add(sally);
+    }
+
+    private void cleanUpFile(String emailToRemove) throws IOException {
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String line = reader.readLine();
+        List<String> usersBuffer = new ArrayList<>();
+        while (line != null){
+            usersBuffer.add(line + "\n");
+            line = reader.readLine();
+
+        }
+        FileWriter fileWriter = new FileWriter(users);
+        for (String user: usersBuffer){
+            if (!user.split(",")[0].equals(emailToRemove)){
+                fileWriter.write(user);
+            }
+        }
+
+        reader.close();
+        fileWriter.close();
     }
 
 }

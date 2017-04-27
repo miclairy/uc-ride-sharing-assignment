@@ -4,6 +4,7 @@ import model.License;
 import model.PasswordUtils;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,7 +43,7 @@ public class AccountsTests {
     }
 
     @Test
-    public void verifyEmailTest(){
+    public void verifyEmailTest() throws IOException {
         Driver driver = new Driver();
         assert(driver.verifyEmail("cba62@uclive.ac.nz"));
         assert (driver.verifyEmail("jo.blogs@canterbury.ac.nz"));
@@ -57,7 +58,7 @@ public class AccountsTests {
     }
 
     @Test
-    public void testPasswordStore(){
+    public void testPasswordStore() throws IOException {
         Account acc = new Account();
         acc.storePassword("magicFun124");
         assert (!acc.getPassword().equals("magicFun124"));
@@ -65,16 +66,18 @@ public class AccountsTests {
 
 
     @Test
-    public void enterPasswordTest(){
+    public void enterPasswordTest() throws IOException {
         Account acc = new Account();
         acc.storePassword("liveLifeLoud2345");
         assert (PasswordUtils.isExpectedPassword("liveLifeLoud2345".toCharArray(), acc.getSalt(), acc.getPassword()));
     }
 
     @Test
-    public void enterFailedPasswordTest(){
+    public void enterFailedPasswordTest() throws IOException {
         Account acc = new Account();
         acc.storePassword("liveLifeLoud2345");
         assertFalse(PasswordUtils.isExpectedPassword("magicFun234".toCharArray(), acc.getSalt(), acc.getPassword()));
     }
+
+
 }

@@ -74,7 +74,7 @@ public class CreateAccountController implements Initializable {
 
 
     @FXML
-    public void nextStep(){
+    public void nextStep() throws IOException {
 
         Account temp = new Account();
         if (temp.verifyEmail(email.getText()) && temp.verifyPassword(password1.getText(), password2.getText()) && phone.getText().matches("[0-9]+") &&

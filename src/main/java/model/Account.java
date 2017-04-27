@@ -1,10 +1,11 @@
 package model;
 
-import java.security.SecureRandom;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by clbmi on 26/04/2017.
@@ -19,16 +20,17 @@ public class Account {
     private byte[] salt;
     private String ucId;
 
-    public boolean verifyEmail(String email){
-        for (Account account: Data.drivers){
-            if (account.email.equals(email)){
-                return false;
-            }
-        }
-        for (Account account: Data.drivers){
-            if (account.email.equals(email)){
-                return false;
-            }
+    public boolean verifyEmail(String email) throws IOException {
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String readLine = reader.readLine();
+        String readEmail;
+         while (readLine != null) {
+                readEmail = readLine.split(",")[0];
+                if (readEmail.equals(email)) {
+                    return false;
+                }
+                readLine = reader.readLine();
         }
         return email.endsWith("@uclive.ac.nz") || email.endsWith("@canterbury.ac.nz");
     }
@@ -55,9 +57,13 @@ public class Account {
         return Collections.unmodifiableMap(details);
     }
 
-    public void storePassword(String password) {
+    public void storePassword(String password) throws IOException {
         salt = PasswordUtils.getNextSalt();
         this.password = PasswordUtils.hashPassword(password.toCharArray(), salt);
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        FileWriter fileWriter = new FileWriter(users, true);
+        fileWriter.append(email + "," + this.password + "," + salt + "\n");
+        fileWriter.close();
     }
 
     public String getName() {
