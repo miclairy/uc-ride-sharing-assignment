@@ -24,6 +24,7 @@ public class Data {
     private static ObservableList<Ride> sharedRides = FXCollections.observableArrayList();
     public static List<Driver> drivers = new ArrayList<>();
     public static List<Passenger> passengers = new ArrayList<>();
+    public static Map<String, Driver> driverEmails = new HashMap<>();
     private static GsonBuilder gsonBuilder = new GsonBuilder();
     public static Gson gson = gsonBuilder.setPrettyPrinting().create();
 
@@ -107,5 +108,7 @@ public class Data {
     }
 
 
+    public static void openAccount(String email) {
 
+    }
 }

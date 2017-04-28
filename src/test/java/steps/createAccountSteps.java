@@ -4,6 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
+import org.apache.commons.codec.binary.Hex;
 
 import java.io.*;
 import java.text.DateFormat;
@@ -77,7 +78,17 @@ public class createAccountSteps {
             line = reader.readLine();
             readEmail = line.split(",")[0];
         }
-        assertEquals(store.get("email") + "," + jo.getPassword() + "," + jo.getSalt(), line);
+        char[] encodedPassword = Hex.encodeHex(jo.getPassword());
+        String strEncodedPassword = "";
+        for (char c : encodedPassword){
+            strEncodedPassword += c;
+        }
+        char[] encodedSalt = Hex.encodeHex(jo.getSalt());
+        String strEncodedSalt = "";
+        for (char ch : encodedSalt){
+            strEncodedSalt += ch;
+        }
+        assertEquals(store.get("email") + "," + strEncodedPassword + "," + strEncodedSalt, line);
 
     }
 
@@ -110,7 +121,17 @@ public class createAccountSteps {
             line = reader.readLine();
             readEmail = line.split(",")[0];
         }
-        assertEquals(passengerStore.get("email") + "," + sally.getPassword() + "," + sally.getSalt(), line);
+        char[] encodedPassword = Hex.encodeHex(sally.getPassword());
+        String strEncodedPassword = "";
+        for (char c : encodedPassword){
+            strEncodedPassword += c;
+        }
+        char[] encodedSalt = Hex.encodeHex(sally.getSalt());
+        String strEncodedSalt = "";
+        for (char ch : encodedSalt){
+            strEncodedSalt += ch;
+        }
+        assertEquals(passengerStore.get("email") + "," + strEncodedPassword + "," + strEncodedSalt, line);
     }
 
     @Then("^the email fails verification and she is told the email is already in use$")

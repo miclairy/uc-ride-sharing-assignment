@@ -1,5 +1,8 @@
 package model;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -62,7 +65,17 @@ public class Account {
         this.password = PasswordUtils.hashPassword(password.toCharArray(), salt);
         String users = new File("src/main/resources/users.csv").getAbsolutePath();
         FileWriter fileWriter = new FileWriter(users, true);
-        fileWriter.append(email + "," + this.password + "," + salt + "\n");
+        char[] encodedPassword = Hex.encodeHex(this.password);
+        String strEncodedPassword = "";
+        for (char c : encodedPassword){
+            strEncodedPassword += c;
+        }
+        char[] encodedSalt = Hex.encodeHex(salt);
+        String strEncodedSalt = "";
+        for (char ch : encodedSalt){
+            strEncodedSalt += ch;
+        }
+        fileWriter.append(email + "," + strEncodedPassword + "," + strEncodedSalt + "\n");
         fileWriter.close();
     }
 

@@ -1,8 +1,12 @@
 package model;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import java.io.*;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -48,5 +52,26 @@ public class PasswordUtils {
             if (pwdHash[i] != expectedHash[i]) return false;
         }
         return true;
+    }
+
+    public static boolean login(String email, String password) throws IOException, DecoderException {
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String readLine = reader.readLine();
+        String readEmail;
+        while (readLine != null) {
+            readEmail = readLine.split(",")[0];
+            if (readEmail.equals(email)) {
+                String expectedHash = readLine.split(",")[1];
+                String readSalt = readLine.split(",")[2];
+                if (isExpectedPassword(password.toCharArray(), Hex.decodeHex(readSalt.toCharArray()), Hex.decodeHex(expectedHash.toCharArray()))){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+            readLine = reader.readLine();
+        }
+        return false;
     }
 }
