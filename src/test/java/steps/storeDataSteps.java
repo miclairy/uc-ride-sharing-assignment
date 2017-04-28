@@ -44,7 +44,7 @@ public class storeDataSteps {
         trip.setDays(days);
         trip.setExpirationDate(new GregorianCalendar(2018, 1, 1));
         jo.addTrip(trip);
-        Data.drivers.add(jo);
+        Data.addDriver(jo);
         jos.add(jo);
 
     }

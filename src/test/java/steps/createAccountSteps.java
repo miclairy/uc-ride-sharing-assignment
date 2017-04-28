@@ -154,7 +154,7 @@ public class createAccountSteps {
         passengerStore.put("phone", phone);
         passengerStore.put("email", "sal34@canterbury.ac.nz");
         sally.setDetails(passengerStore);
-        Data.passengers.add(sally);
+        Data.addPassenger(sally);
     }
 
     private void cleanUpFile(String emailToRemove) throws IOException {

@@ -94,8 +94,8 @@ public class CreateAccountController implements Initializable {
                 newAccount.setDetails(enteredInformation);
                 newAccount.storePassword(password1.getText());
                 goToScreen("/login.fxml");
-                Data.passengerUser = newAccount;
-                Data.passengers.add(newAccount);
+                Data.addPassenger(newAccount);
+                Data.addPassenger(newAccount);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -145,7 +145,7 @@ public class CreateAccountController implements Initializable {
                 newAccount.setLicense(license);
                 newAccount.setPassword(password);
                 Data.driverUser = newAccount;
-                Data.drivers.add(newAccount);
+                Data.addDriver(newAccount);
                 goToScreen("/login.fxml");
 
             }

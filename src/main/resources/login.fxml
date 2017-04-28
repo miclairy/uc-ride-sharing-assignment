@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
       <GridPane layoutX="233.0" layoutY="118.0" prefHeight="400.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -68,9 +67,14 @@
                         <Font size="13.0" />
                      </font>
                   </Text>
-                  <Button fx:id="signUp" mnemonicParsing="false" text="Sign up" />
+                  <Button mnemonicParsing="false" onAction="#signUp" text="Sign up" />
                </children>
             </VBox>
+            <Label fx:id="incorrect" alignment="CENTER" text="Invalid Credentials" textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

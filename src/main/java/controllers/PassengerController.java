@@ -64,7 +64,7 @@ public class PassengerController implements Initializable{
             }
         });
         passenger = new Passenger();
-        Data.passengers.add(passenger);
+        Data.addPassenger(passenger);
 
     }
 

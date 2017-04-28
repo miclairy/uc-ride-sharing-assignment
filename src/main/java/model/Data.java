@@ -1,6 +1,7 @@
 package model;
 
 import com.google.gson.*;
+import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
@@ -24,7 +25,8 @@ public class Data {
     private static ObservableList<Ride> sharedRides = FXCollections.observableArrayList();
     public static List<Driver> drivers = new ArrayList<>();
     public static List<Passenger> passengers = new ArrayList<>();
-    public static Map<String, Driver> driverEmails = new HashMap<>();
+    private static Map<String, Driver> driverEmails = new HashMap<>();
+    private static Map<String, Passenger> passengerEmails = new HashMap<>();
     private static GsonBuilder gsonBuilder = new GsonBuilder();
     public static Gson gson = gsonBuilder.setPrettyPrinting().create();
 
@@ -107,8 +109,23 @@ public class Data {
         sharedRides.addAll(loaded.getRides());
     }
 
+    public static void addPassenger(Passenger passenger){
+        passengers.add(passenger);
+        passengerEmails.put((String) passenger.getDetails().get("email"), passenger);
+    }
+
+    public static void addDriver(Driver driver){
+        drivers.add(driver);
+        driverEmails.put((String) driver.getDetails().get("email"), driver);
+    }
+
 
     public static void openAccount(String email) {
-
+        if (driverEmails.get(email) != null){
+            driverUser = driverEmails.get(email);
+        }
+        if (passengerEmails.get(email) != null){
+            passengerUser = passengerEmails.get(email);
+        }
     }
 }
