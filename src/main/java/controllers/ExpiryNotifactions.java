@@ -41,11 +41,8 @@ public class ExpiryNotifactions {
         boolean regoNotify = false;
 
         for (Car car : driver.getCars()){
-            Date wof = car.getWofExpiry().getTime();
-            wofNotify = checkIfNotify(wof.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-
-            Date rego = car.getRegistrationExpiry().getTime();
-            regoNotify = checkIfNotify(rego.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            wofNotify = checkIfNotify(car.getWofExpiry());
+            regoNotify = checkIfNotify(car.getRegistrationExpiry());
         }
 
         if (licenseNotify){

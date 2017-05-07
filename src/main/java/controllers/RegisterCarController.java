@@ -3,6 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Car;
@@ -28,6 +29,11 @@ public class RegisterCarController {
     private Button register;
     @FXML
     private Button cancel;
+    @FXML
+    private DatePicker wofExpiry;
+    @FXML
+    private DatePicker registrationExpiry;
+
 
 
     public void registerCar(){
@@ -36,6 +42,8 @@ public class RegisterCarController {
         try {
             Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
                     Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
+            newCar.setWofExpiration(wofExpiry.getValue());
+            newCar.setRegistrationExpiry(registrationExpiry.getValue());
             DriverController.driverUser.addCar(newCar);
             DriverController.mainScene();
         } catch (Exception e){

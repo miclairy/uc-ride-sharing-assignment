@@ -34,11 +34,11 @@ public class Data extends Observable {
     public static Passenger passengerUser;
 
     public static void setDataListeners() {
-        SetChangeListener<StopPoint> listner = change -> {
+        SetChangeListener<StopPoint> listener = change -> {
             stopPointsList.clear();
             stopPointsList.addAll(stopPoints);
         };
-        stopPoints.addListener(listner);
+        stopPoints.addListener(listener);
     }
 
     public static ObservableList<Ride> getSharedRides() {

@@ -56,11 +56,8 @@ public class NotifyUserExpirationSteps {
     @Given("^his WOF expires in one month$")
     public void hisWOFExpiresInOneMonth() {
         Car car = new Car("car", "Blue", "Subarbu", "FR2534", 2001, 5);
-        Calendar expiryDate = new GregorianCalendar();
-        expiryDate.setTime(new Date());
-        expiryDate.add(Calendar.MONTH, 1);
-        car.setWofExpiration(expiryDate);
-        car.setRegistrationExpiry(new GregorianCalendar(2500, 5, 8));
+        car.setWofExpiration(LocalDate.now().plusMonths(1));
+        car.setRegistrationExpiry(LocalDate.of(2100, 5, 12));
         jo.addCar(car);
 
         jo.setLicense(new License("Full", "RT3464858", new GregorianCalendar(2000, 5, 8),
@@ -77,11 +74,8 @@ public class NotifyUserExpirationSteps {
     @Given("^his registration expires in one month$")
     public void hisRegistrationExpiresInOneMonth() {
         Car car = new Car("car", "Blue", "Subarbu", "FR2534", 2001, 5);
-        Calendar expiryDate = new GregorianCalendar();
-        expiryDate.setTime(new Date());
-        expiryDate.add(Calendar.MONTH, 1);
-        car.setRegistrationExpiry(expiryDate);
-        car.setWofExpiration(new GregorianCalendar(2500, 5, 8));
+        car.setRegistrationExpiry(LocalDate.now().plusMonths(1));
+        car.setWofExpiration(LocalDate.of(2100, 7, 5));
         jo.addCar(car);
     }
 
@@ -96,11 +90,8 @@ public class NotifyUserExpirationSteps {
     @Given("^his registration expires in (\\d+) weeks$")
     public void hisRegistrationExpiresInWeeks(int weeks) {
         Car car = new Car("car", "Blue", "Subarbu", "FR2534", 2001, 5);
-        Calendar expiryDate = new GregorianCalendar();
-        expiryDate.setTime(new Date());
-        expiryDate.add(Calendar.WEEK_OF_YEAR, weeks);
-        car.setRegistrationExpiry(expiryDate);
-        car.setWofExpiration(new GregorianCalendar(2500, 5, 8));
+        car.setRegistrationExpiry(LocalDate.now().plusWeeks(weeks));
+        car.setWofExpiration(LocalDate.of(2100, 5, 7));
         jo.addCar(car);
         jo.setLicense(new License("Full", "RT3464858", new GregorianCalendar(2000, 5, 8),
                 new GregorianCalendar(8100, 5, 8)));

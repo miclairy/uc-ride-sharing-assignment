@@ -47,6 +47,7 @@ public class DriverController implements Initializable {
     private TextField stopPointSearch;
 
     static Driver driverUser;
+    static boolean noftifed = false;
 
     private static Window mainStage;
     private static FXMLLoader controllerLoader;
@@ -55,20 +56,36 @@ public class DriverController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         driverUser = Data.getDriverUser();
-        Set<ExpiryNotifactions.Expired> notify = ExpiryNotifactions.checkNotifyUser(driverUser);
-
         controllerLoader = new FXMLLoader(getClass().getResource("/driverMain.fxml"));
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        //becomeDriver();
         String cars = "";
         for (Car car : driverUser.getCars()) {
             cars += car.toString();
         }
         registeredCars.setItems(driverUser.getCars());
 
+        Set<ExpiryNotifactions.Expired> notify = ExpiryNotifactions.checkNotifyUser(driverUser);
+        notifyUser(notify);
         populateRoutes();
         populateTrips();
+
+    }
+
+    private void notifyUser(Set<ExpiryNotifactions.Expired> notify) {
+
+        if (!notify.isEmpty() && !noftifed) {
+            StringBuilder items = new StringBuilder();
+            for (ExpiryNotifactions.Expired notification : notify) {
+                items.append(notification.name().toLowerCase()).append(", ");
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Details are going to expire");
+            alert.setHeaderText("Your " + items + "are going to expire");
+            alert.setContentText("Please update and renew your " + items + "so you can still carry passengers");
+            alert.showAndWait();
+            noftifed = true;
+        }
 
     }
 
