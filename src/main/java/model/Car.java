@@ -1,5 +1,9 @@
 package model;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Car class to store the vehicle attributes
  */
@@ -11,6 +15,8 @@ public class Car {
     private String plates;
     private int year;
     private int numSeats;
+    private Calendar wofExpiration;
+    private Calendar registrationExpiry;
 
     public Car(String type, String colour, String model, String plates, int year, int numSeats) {
         this.type = type;
@@ -67,4 +73,19 @@ public class Car {
     }
 
 
+    public void setWofExpiration(Calendar wofExpiration) {
+        this.wofExpiration = wofExpiration;
+    }
+
+    public Calendar getWofExpiry() {
+        return wofExpiration;
+    }
+
+    public Calendar getRegistrationExpiry() {
+        return registrationExpiry;
+    }
+
+    public void setRegistrationExpiry(Calendar registrationExpiry) {
+        this.registrationExpiry = registrationExpiry;
+    }
 }

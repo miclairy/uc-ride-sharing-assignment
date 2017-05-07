@@ -17,10 +17,7 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class DriverController implements Initializable {
@@ -57,7 +54,9 @@ public class DriverController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        driverUser = Data.driverUser;
+        driverUser = Data.getDriverUser();
+        Set<ExpiryNotifactions.Expired> notify = ExpiryNotifactions.checkNotifyUser(driverUser);
+
         controllerLoader = new FXMLLoader(getClass().getResource("/driverMain.fxml"));
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);

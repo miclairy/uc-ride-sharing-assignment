@@ -113,4 +113,8 @@ public class Driver extends Account{
     public void setLicense(License license) {
         this.license = license;
     }
+
+    public License getLicense() {
+        return license;
+    }
 }

@@ -49,7 +49,7 @@ public class LoginController implements Initializable{
        } else {
            incorrect.setVisible(true);
        }
-       if (Data.driverUser != null){
+       if (Data.getDriverUser() != null){
            try {
                Parent root = FXMLLoader.load(getClass().getResource("/driverMain.fxml"));
                Stage stage = (Stage) email.getScene().getWindow();

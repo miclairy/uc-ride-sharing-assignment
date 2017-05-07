@@ -144,7 +144,7 @@ public class CreateAccountController implements Initializable {
                 newAccount.setDetails(enteredInformation);
                 newAccount.setLicense(license);
                 newAccount.setPassword(password);
-                Data.driverUser = newAccount;
+                Data.setDriverUser(newAccount);
                 Data.addDriver(newAccount);
                 goToScreen("/login.fxml");
 

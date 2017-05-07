@@ -26,4 +26,8 @@ public class License {
         }
         return false;
     }
+
+    public Calendar getExpiry() {
+        return expiry;
+    }
 }

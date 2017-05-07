@@ -18,7 +18,7 @@ import java.util.*;
 import java.util.List;
 
 
-public class Data {
+public class Data extends Observable {
 
     public static ObservableSet<StopPoint> stopPoints = FXCollections.observableSet();
     public static ObservableList<StopPoint> stopPointsList = FXCollections.observableArrayList(stopPoints);
@@ -30,7 +30,7 @@ public class Data {
     private static GsonBuilder gsonBuilder = new GsonBuilder();
     public static Gson gson = gsonBuilder.setPrettyPrinting().create();
 
-    public static Driver driverUser;
+    private static Driver driverUser;
     public static Passenger passengerUser;
 
     public static void setDataListeners() {
@@ -87,6 +87,8 @@ public class Data {
     }
 
     public static void save(Object toSave) throws IOException {
+        gsonBuilder.registerTypeAdapter(ObservableList.class, new DeserializeObservable());
+        gson = gsonBuilder.setPrettyPrinting().create();
         Writer writer = new OutputStreamWriter(new FileOutputStream("src/main/resources/data.json"), "UTF-8");
         gson.toJson(toSave, writer);
         writer.close();
@@ -127,5 +129,14 @@ public class Data {
         if (passengerEmails.get(email) != null){
             passengerUser = passengerEmails.get(email);
         }
+    }
+
+    public static Driver getDriverUser() {
+        return driverUser;
+    }
+
+    public static void setDriverUser(Driver driverUser) {
+        Data.driverUser = driverUser;
+
     }
 }

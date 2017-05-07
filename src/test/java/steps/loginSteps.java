@@ -58,7 +58,7 @@ public class loginSteps {
 
         assert PasswordUtils.login(email, password);
         Data.openAccount(email);
-        assertEquals(jo, Data.driverUser);
+        assertEquals(jo, Data.getDriverUser());
     }
 
     @Given("^jo doesn't have an account$")

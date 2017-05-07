@@ -6,18 +6,15 @@ import javafx.collections.ObservableList;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import com.google.gson.InstanceCreator;
 
 /**
  * Created by clbmi on 20/04/2017.
  */
-public class DeserializeObservable implements JsonDeserializer<ObservableList<?>> {
-    @Override
-    public ObservableList<?> deserialize(JsonElement jsonElement, Type typeOfT, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-        ObservableList list = FXCollections.observableArrayList();
-        final Type type = ((ParameterizedType)typeOfT).getActualTypeArguments()[0];
-        for (final JsonElement element : jsonElement.getAsJsonArray()) {
-            list.add(Data.gson.fromJson(element, type));
-        }
-        return list;
+public class DeserializeObservable implements InstanceCreator<ObservableList<?>> {
+
+    public ObservableList<?> createInstance(Type type) {
+
+        return FXCollections.observableArrayList();
     }
 }
