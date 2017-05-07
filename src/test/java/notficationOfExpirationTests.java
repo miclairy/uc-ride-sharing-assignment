@@ -1,10 +1,7 @@
-import controllers.ExpiryNotifactions;
-import model.Car;
+import model.ExpiryNotifactions;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.GregorianCalendar;
 
 /**
  * Created by clbmi on 7/05/2017.

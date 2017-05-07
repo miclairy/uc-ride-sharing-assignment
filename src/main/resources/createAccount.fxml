@@ -71,7 +71,7 @@
                   <TextField fx:id="email" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#nextStep" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button mnemonicParsing="false" onAction="#storeBasicDetails" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>

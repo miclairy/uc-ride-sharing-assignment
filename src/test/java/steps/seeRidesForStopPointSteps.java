@@ -64,7 +64,7 @@ public class seeRidesForStopPointSteps {
     public void theRidesWhichHaveStreetAsAStopPointAreSeen(int arg1, String arg2) {
         ObservableList<Ride> rides = FXCollections.observableArrayList();
         rides.add(ride1);
-        assertEquals(rides, Data.ridesForStopPoint(selected));
+        assertEquals(rides, Search.ridesForStopPoint(selected));
     }
 
     @Given("^there is a stop point that has multiple rides that go to it\\.$")
@@ -88,7 +88,7 @@ public class seeRidesForStopPointSteps {
     @Given("^sally has selected that stop point$")
     public void sallyHasSelectedThatStopPoint() {
         selected = stop;
-        ridesForStop.addAll(Data.ridesForStopPoint(selected));
+        ridesForStop.addAll(Search.ridesForStopPoint(selected));
         Data.getSharedRides().clear();
         Data.getSharedRides().add(ride1);
         Data.getSharedRides().add(ride2);
@@ -106,7 +106,7 @@ public class seeRidesForStopPointSteps {
         filtered.add(ride1);
         filtered.add(ride3);
 
-        assertEquals(filtered, Data.filterRides(filter));
+        assertEquals(filtered, Search.filterRides(filter));
     }
 
 

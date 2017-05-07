@@ -21,10 +21,11 @@ import com.google.gson.GsonBuilder;
  */
 public class Main extends Application {
 
+    private final String saveLocation = "src/main/resources/data.json";
 
     public void start(Stage stage) throws Exception {
 
-        Data.load();
+        Data.load("/data.json");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 700);
@@ -37,7 +38,7 @@ public class Main extends Application {
     @Override
     public void stop(){
         try {
-            Data.save(new Rss());
+            Data.save(new Rss(), saveLocation);
         } catch (IOException e) {
             e.printStackTrace();
         }

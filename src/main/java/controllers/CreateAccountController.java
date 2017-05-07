@@ -51,8 +51,6 @@ public class CreateAccountController implements Initializable {
     @FXML
     private PasswordField password2;
 
-    private static Map<String, Object> enteredInformation = new HashMap<>();
-    private static byte[] password;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -74,28 +72,23 @@ public class CreateAccountController implements Initializable {
 
 
     @FXML
-    public void nextStep() throws IOException {
+    public void storeBasicDetails() throws IOException {
 
         Account temp = new Account();
+
         if (temp.verifyEmail(email.getText()) && temp.verifyPassword(password1.getText(), password2.getText()) && phone.getText().matches("[0-9]+") &&
         uniId.getText().trim().length() > 0 && phone.getText().trim().length() > 6 && address.getText().trim().length() > 0) {
+            Map<String, Object> enteredInformation = new HashMap<>();
             enteredInformation.put("name", name.getText());
-            enteredInformation.put("uniId", uniId.getText());
+            enteredInformation.put("ucId", uniId.getText());
             enteredInformation.put("email", email.getText());
             enteredInformation.put("phone", Long.parseLong(phone.getText()));
             enteredInformation.put("address", address.getText() + ", " + city.getText());
 
             if (MainController.makeDriver) {
-                temp.storePassword(password1.getText());
-                password = temp.getPassword();
-                goToScreen( "/registerLicense.fxml");
+                setNewDriver(enteredInformation);
             } else {
-                Passenger newAccount = new Passenger();
-                newAccount.setDetails(enteredInformation);
-                newAccount.storePassword(password1.getText());
-                goToScreen("/login.fxml");
-                Data.addPassenger(newAccount);
-                Data.addPassenger(newAccount);
+                setNewPassenger(enteredInformation);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -104,6 +97,23 @@ public class CreateAccountController implements Initializable {
             alert.setContentText("Fill in all boxes. Only university of canterbury emails are accepted");
             alert.showAndWait();
         }
+    }
+
+    private void setNewPassenger(Map<String, Object> enteredInformation) throws IOException {
+        Passenger newAccount = new Passenger();
+        newAccount.setDetails(enteredInformation);
+        newAccount.storePassword(password1.getText());
+        goToScreen("/login.fxml");
+        Data.addPassenger(newAccount);
+    }
+
+    private void setNewDriver(Map<String, Object> enteredInformation) throws IOException {
+        Driver newAccount = new Driver();
+        newAccount.setDetails(enteredInformation);
+        newAccount.storePassword(password1.getText());
+        goToScreen( "/registerLicense.fxml");
+        Data.setDriverUser(newAccount);
+        Data.addDriver(newAccount);
     }
 
     public void goToScreen(String fxml){
@@ -140,12 +150,8 @@ public class CreateAccountController implements Initializable {
         if (number.getText().length() > 0) {
             License license = new License(type.getSelectionModel().getSelectedItem(), number.getText(), issued, expiry);
             if (license.verify()) {
-                Driver newAccount = new Driver();
-                newAccount.setDetails(enteredInformation);
-                newAccount.setLicense(license);
-                newAccount.setPassword(password);
-                Data.setDriverUser(newAccount);
-                Data.addDriver(newAccount);
+                Data.getDriverUser().setLicense(license);
+                Data.setDriverUser(null);
                 goToScreen("/login.fxml");
 
             }

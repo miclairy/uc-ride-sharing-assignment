@@ -1,6 +1,7 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Data;
+import model.Search;
 import model.StopPoint;
 import org.junit.Test;
 
@@ -20,9 +21,9 @@ public class stopPointTest {
         ObservableList<StopPoint> result = FXCollections.observableArrayList();
         result.add(stopPoint);
         result.add(stopPoint2);
-        assertEquals(result.sorted(), Data.stopPointsSearch("Bear"));
+        assertEquals(result.sorted(), Search.stopPointsSearch("Bear"));
         result.remove(stopPoint);
         result.add(stop);
-        assertEquals(result.sorted(), Data.stopPointsSearch("6"));
+        assertEquals(result.sorted(), Search.stopPointsSearch("6"));
     }
 }

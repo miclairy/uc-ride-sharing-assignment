@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Data;
+import model.Search;
 import model.StopPoint;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class searchSteps {
 
     @When("^when I search for a stop point buy entering \"([^\"]*)\"$")
     public void whenISearchForAStopPointBuyEntering(String searchString) throws Throwable {
-        searched = Data.stopPointsSearch(searchString);
+        searched = Search.stopPointsSearch(searchString);
     }
 
     @Then("^the search results should show (\\d+) hare street as a result\\.$")
@@ -48,7 +49,7 @@ public class searchSteps {
         assertEquals(result.sorted(), searched);
         result.remove(stopPoint);
         result.add(stop);
-        assertEquals(result.sorted(), Data.stopPointsSearch("6"));
+        assertEquals(result.sorted(), Search.stopPointsSearch("6"));
     }
 
 }

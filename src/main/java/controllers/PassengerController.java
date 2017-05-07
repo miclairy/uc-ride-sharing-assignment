@@ -69,12 +69,12 @@ public class PassengerController implements Initializable{
     }
 
     public void searchStopPoints(){
-        stopPoints.setItems(Data.stopPointsSearch(stopPointSearch.getText()));
+        stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
 
     private void populateRoutes(StopPoint stopPoint){
 
-        sharedRides.setItems(Data.ridesForStopPoint(stopPoint));
+        sharedRides.setItems(Search.ridesForStopPoint(stopPoint));
     }
 
     private void setRideDetails(Ride ride){
@@ -134,7 +134,7 @@ public class PassengerController implements Initializable{
         ObservableList<Ride> obResult = FXCollections.observableArrayList();
         Collection<Ride> result = new HashSet<>();
         if (!toFromUniCombo.getValue().equals("All")) {
-            result = Data.filterRides(toFromUniCombo.getValue());
+            result = Search.filterRides(toFromUniCombo.getValue());
             obResult.addAll(result);
             sharedRides.setItems(obResult.sorted());
         } else {

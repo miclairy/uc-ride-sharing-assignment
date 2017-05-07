@@ -1,0 +1,2980 @@
+{
+  "drivers": [
+    {
+      "cars": [
+        {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        }
+      ],
+      "routes": [
+        {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        }
+      ],
+      "trips": [
+        {
+          "route": {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          },
+          "direction": "to uni",
+          "recurrent": true,
+          "days": [
+            5
+          ],
+          "car": {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          },
+          "stopTimes": {},
+          "expirationDate": {
+            "year": 2018,
+            "month": 1,
+            "dayOfMonth": 1,
+            "hourOfDay": 0,
+            "minute": 0,
+            "second": 0
+          },
+          "shared": true
+        }
+      ],
+      "name": "jo",
+      "phone": 0
+    }
+  ],
+  "passengers": [],
+  "stopPoints": [
+    {
+      "streetNumber": 4,
+      "streetName": "magic"
+    },
+    {
+      "streetNumber": 3,
+      "streetName": "hare"
+    },
+    {
+      "streetNumber": 12,
+      "streetName": "alpha"
+    }
+  ],
+  "rides": [
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 7,
+        "dayOfMonth": 31,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "dayOfMonth": 7,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "dayOfMonth": 14,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "dayOfMonth": 21,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "dayOfMonth": 28,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 9,
+        "dayOfMonth": 5,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 9,
+        "dayOfMonth": 12,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 9,
+        "dayOfMonth": 19,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 9,
+        "dayOfMonth": 26,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 10,
+        "dayOfMonth": 2,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 10,
+        "dayOfMonth": 9,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 10,
+        "dayOfMonth": 16,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 10,
+        "dayOfMonth": 23,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 10,
+        "dayOfMonth": 30,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 11,
+        "dayOfMonth": 7,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 11,
+        "dayOfMonth": 14,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 11,
+        "dayOfMonth": 21,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 11,
+        "dayOfMonth": 28,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2018,
+        "month": 0,
+        "dayOfMonth": 4,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2018,
+        "month": 0,
+        "dayOfMonth": 11,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2018,
+        "month": 0,
+        "dayOfMonth": 18,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          5
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "dayOfMonth": 1,
+          "hourOfDay": 0,
+          "minute": 0,
+          "second": 0
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              5
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "dayOfMonth": 1,
+              "hourOfDay": 0,
+              "minute": 0,
+              "second": 0
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2018,
+        "month": 0,
+        "dayOfMonth": 25,
+        "hourOfDay": 0,
+        "minute": 0,
+        "second": 0
+      }
+    }
+  ]
+}

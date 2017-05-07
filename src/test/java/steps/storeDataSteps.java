@@ -50,15 +50,16 @@ public class storeDataSteps {
     }
 
     @When("^the application is closed and reopened$")
-    public void theApplicationIsClosedAndReopened() {
+    public void theApplicationIsClosedAndReopened() throws InterruptedException {
         Rss toSave = new Rss();
+        String saveLocation = "src/main/resources/dataTest.json";
         try {
-            Data.save(toSave);
+            Data.save(toSave, saveLocation);
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            Data.load();
+            Data.load("/dataTest.json");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

@@ -257,7 +257,7 @@ public class DriverController implements Initializable {
 
 
     public void stopPointsSearch(){
-        stopPoints.setItems(Data.stopPointsSearch(stopPointSearch.getText()));
+        stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
 
     public void becomePassenger(){

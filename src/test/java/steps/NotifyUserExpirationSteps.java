@@ -1,7 +1,6 @@
 package steps;
 
-import controllers.ExpiryNotifactions;
-import cucumber.api.PendingException;
+import model.ExpiryNotifactions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,7 +10,6 @@ import model.Driver;
 import model.License;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
