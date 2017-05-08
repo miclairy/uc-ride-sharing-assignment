@@ -103,7 +103,8 @@ public class CreateAccountController implements Initializable {
         Passenger newAccount = new Passenger();
         newAccount.setDetails(enteredInformation);
         newAccount.storePassword(password1.getText());
-        goToScreen("/login.fxml");
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/login.fxml");
         Data.addPassenger(newAccount);
     }
 
@@ -111,35 +112,15 @@ public class CreateAccountController implements Initializable {
         Driver newAccount = new Driver();
         newAccount.setDetails(enteredInformation);
         newAccount.storePassword(password1.getText());
-        goToScreen( "/registerLicense.fxml");
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/registerLicense.fxml");
         Data.setDriverUser(newAccount);
         Data.addDriver(newAccount);
     }
 
-    public void goToScreen(String fxml){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxml));
-            Stage stage;
-            if (createTypeAccount != null) {
-                stage = (Stage) createTypeAccount.getScene().getWindow();
-            } else {
-                stage = (Stage) number.getScene().getWindow();
-            }
-            stage.setResizable(true);
-            stage.setScene(new Scene(root, 1000, 700));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void cancel(){
-        if (createTypeAccount != null) {
-            Stage stage = (Stage) createTypeAccount.getScene().getWindow();
-        } else {
-            Stage stage = (Stage) number.getScene().getWindow();
-        }
-        MainController.mainScene();
+    public void cancel() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/pickDriverPassenger.fxml");
     }
 
     public void registerLicense(){
@@ -152,7 +133,12 @@ public class CreateAccountController implements Initializable {
             if (license.verify()) {
                 Data.getDriverUser().setLicense(license);
                 Data.setDriverUser(null);
-                goToScreen("/login.fxml");
+                try {
+                    SwitchScenes switchScenes = new SwitchScenes();
+                    switchScenes.goToScene("/login.fxml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         }

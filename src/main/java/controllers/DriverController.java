@@ -101,27 +101,25 @@ public class DriverController implements Initializable {
     }
 
 
-    private void newScene(String fxml){
+    public void registerCar(){
+        SwitchScenes switchScenes = new SwitchScenes();
         try {
-            mainStage = registerCar.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource(fxml));
-            Stage stage = (Stage) registerCar.getScene().getWindow();
-            stage.setResizable(true);
-            stage.setScene(new Scene(root, 1000, 700));
-            stage.show();
+            switchScenes.goToScene("/registerCar.fxml");
         } catch (IOException e) {
             e.printStackTrace();
-        }    }
-
-    public void registerCar(){
-        newScene("/registerCar.fxml");
+        }
     }
 
     public void createStopPoint(){
-        newScene("/createStopPoint.fxml");
+        SwitchScenes switchScenes = new SwitchScenes();
+        try {
+            switchScenes.goToScene("/createStopPoint.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void makeTrip(){
+    public void makeTrip() throws IOException {
         if (driverUser.getCars().size() <= 0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("You need a car to make a trip");
@@ -135,7 +133,8 @@ public class DriverController implements Initializable {
             alert.setContentText("Click create route to make a route so you can make a trip");
             alert.showAndWait();
         } else {
-            newScene("/createTrip.fxml");
+            SwitchScenes switchScenes = new SwitchScenes();
+            switchScenes.goToScene("/createTrip.fxml");
         }
     }
 
@@ -260,7 +259,8 @@ public class DriverController implements Initializable {
         stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
 
-    public void becomePassenger(){
-        newScene("/passengerMain.fxml");
+    public void becomePassenger() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/passengerMain.fxml");
     }
 }

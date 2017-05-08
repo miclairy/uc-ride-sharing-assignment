@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -108,12 +109,13 @@ public class MakeTripController implements Initializable {
     }
 
     @FXML
-    private void cancel(){
-        DriverController.mainScene();
+    private void cancel() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/driverMain.fxml");
     }
 
     @FXML
-    private void createTrip(){
+    private void createTrip() throws IOException {
         if (nameTxt.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Enter Name for trip");
@@ -158,7 +160,8 @@ public class MakeTripController implements Initializable {
             trip.setName(nameTxt.getText());
             driver.addTrip(trip);
 
-            DriverController.mainScene();
+            SwitchScenes switchScenes = new SwitchScenes();
+            switchScenes.goToScene("/driverMain.fxml");
         }
 
     }

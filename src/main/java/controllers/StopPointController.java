@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 /**
  * Created by clbmi on 18/03/2017.
  */
@@ -34,8 +36,9 @@ public class StopPointController {
 
     }
 
-    public void cancel(){
-        DriverController.mainScene();
+    public void cancel() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/driverMain.fxml");
     }
 
 }

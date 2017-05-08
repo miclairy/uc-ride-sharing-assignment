@@ -99,21 +99,11 @@ public class PassengerController implements Initializable{
         }
     }
 
-    public void becomeDriver(){
-        newScene("/driverMain.fxml");
+    public void becomeDriver() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/driverMain.fxml");
     }
 
-    private void newScene(String fxml){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxml));
-            Stage stage = (Stage) stopPoints.getScene().getWindow();
-            stage.setResizable(true);
-            stage.setScene(new Scene(root, 1000, 700));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void bookRide(){
         viewingRide.bookPassenger(passenger);

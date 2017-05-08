@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Car;
 
+import java.io.IOException;
+
 /**
  * Created by clbmi on 17/03/2017.
  */
@@ -38,7 +40,6 @@ public class RegisterCarController {
 
     public void registerCar(){
 
-        Stage stage = (Stage) register.getScene().getWindow();
         try {
             Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
                     Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
@@ -57,7 +58,11 @@ public class RegisterCarController {
     }
 
     public void cancel(){
-        Stage stage = (Stage) cancel.getScene().getWindow();
-        DriverController.mainScene();
+        SwitchScenes switchScenes = new SwitchScenes();
+        try {
+            switchScenes.goToScene("/driverMain.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

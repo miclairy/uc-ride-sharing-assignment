@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 /**
  * Created by clbmi on 26/04/2017.
  */
-public class LoginController implements Initializable{
+public class LoginController {
 
     @FXML
     private TextField email;
@@ -31,14 +31,7 @@ public class LoginController implements Initializable{
     @FXML
     private Label incorrect;
 
-    private static Window mainStage;
-    private static FXMLLoader controllerLoader;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        controllerLoader = new FXMLLoader(getClass().getResource("/login.fxml"));
-
-    }
+    public static Stage mainStage;
 
 
     public void submit() throws IOException, DecoderException {
@@ -74,32 +67,11 @@ public class LoginController implements Initializable{
     }
 
     @FXML
-    public void signUp(){
-        mainStage = email.getScene().getWindow();
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/pickDriverPassenger.fxml"));
-            Stage stage = (Stage) email.getScene().getWindow();
-            stage.setResizable(true);
-            stage.setScene(new Scene(root, 1000, 700));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void signUp() throws IOException {
+        mainStage = (Stage) email.getScene().getWindow();
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/pickDriverPassenger.fxml");
     }
 
-    static void mainScene() {
-        Stage stage = (Stage) mainStage;
-        stage.setResizable(false);
-        Parent root = null;
-        try {
-            root = controllerLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage.setScene(new Scene(root, 1000, 700));
-
-        stage.show();
-
-    }
 
 }

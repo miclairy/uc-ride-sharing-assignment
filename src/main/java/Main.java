@@ -29,6 +29,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 700);
+
         stage.setTitle("UC RSS");
         stage.setScene(scene);
         stage.show();
