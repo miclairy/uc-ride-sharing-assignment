@@ -1,6 +1,5 @@
 package controllers;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,9 +8,7 @@ import model.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.*;
 
 /**
@@ -40,7 +37,7 @@ public class MakeTripController implements Initializable {
     @FXML
     private ListView<StopPoint> doneStopPoints;
     @FXML
-    private ListView<Time> times;
+    private ListView<LocalTime> times;
     @FXML
     private CheckBox recurrency;
     @FXML
@@ -54,7 +51,7 @@ public class MakeTripController implements Initializable {
     @FXML
     private TextField nameTxt;
 
-    private HashMap<String, Time> stopTimes = new HashMap<String, Time>();
+    private HashMap<String, LocalTime> stopTimes = new HashMap<>();
     private Driver driver;
     private Set<String> days = new HashSet<>();
 
@@ -94,12 +91,10 @@ public class MakeTripController implements Initializable {
         if (stop != null) {
             int minutes = minutesSpinner.getValue();
             int hours = hoursSpinner.getValue();
-            Time time = new Time(hours, minutes, amPm.getValue());
-
-            stopTimes.put(stop.toString(), time);
+            stopTimes.put(stop.toString(), LocalTime.of(hours, minutes));
             stopPointsList.getItems().remove(stop);
             doneStopPoints.getItems().add(stop);
-            times.getItems().add(time);
+            times.getItems().add(LocalTime.of(hours, minutes));
         }
     }
 
@@ -163,7 +158,7 @@ public class MakeTripController implements Initializable {
                     alert.showAndWait();
                 } else {
                     for (String day : days) {
-                        trip.getDays().add(Time.weekDayToInt(day));
+                        trip.getDays().add(TimeUtils.weekDayToInt(day));
                     }
                     if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
                         finishMakingTrip(trip);

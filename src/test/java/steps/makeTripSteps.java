@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.*;
 
+import java.time.LocalTime;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +29,7 @@ public class makeTripSteps {
     @Given("^jo has some routes$")
     public void joHasSomeRoutes() {
         StopPoint stopPoint1 = mock(StopPoint.class);
-        stopPoint2 = mock(StopPoint.class);
+        stopPoint2 = new StopPoint(6, "hare");
         StopPoint stopPoint3 = mock(StopPoint.class);
         stops = FXCollections.observableArrayList();
         stops.add(stopPoint1);
@@ -47,19 +48,19 @@ public class makeTripSteps {
     public void joCreatesATripByDefiningItToBeHisOnlyRouteEachStopPointMinutesAfterThePrevious(String direction, int time, int timeInterval) {
         Route route = jo.getRoutes().get(0);
         trip = new Trip(jo.getRoutes().get(0), direction, true, jo.getCars().get(0));
+        int timeOffset = timeInterval;
         for (StopPoint stop : route.getStops()) {
-            Time timeT = new Time(3, timeInterval, "pm");
-            trip.setTimeForStopPoint(stop, timeT);
-            timeInterval += timeInterval;
+            trip.setTimeForStopPoint(stop, LocalTime.of(15, timeOffset));
+            timeOffset += timeInterval;
         }
     }
 
     @When("^that the trip is recurrent so it repeats every \"([^\"]*)\" until (\\d+)th \"([^\"]*)\"\\.$")
     public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) {
         Set<Integer> days = new HashSet<>();
-        days.add(Time.weekDayToInt(weekday));
+        days.add(TimeUtils.weekDayToInt(weekday));
         trip.setDays(days);
-        trip.setExpirationDate(new GregorianCalendar(Calendar.YEAR, Time.monthToInt(month), day));
+        trip.setExpirationDate(new GregorianCalendar(Calendar.YEAR, TimeUtils.monthToInt(month), day));
         jo.getTrips().add(trip);
     }
 
@@ -68,8 +69,7 @@ public class makeTripSteps {
         Trip joTrip = jo.getTrips().get(0);
         assertEquals(jo.getTrips().get(0), trip);
         StopPoint stop = stopPoint2;
-        Time time = new Time(3, 30, "pm");
-        assertEquals(time, joTrip.getStopTimes().get(stop));
+        assertEquals(LocalTime.of(15, 30), joTrip.getStopTimes().get(stop.toString()));
     }
 
 }

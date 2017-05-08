@@ -46,7 +46,7 @@ public class DriverController implements Initializable {
     @FXML
     private TextField stopPointSearch;
     @FXML
-    private TableView<Ride> ridesTable; //TODO made rides populate table
+    private TableView<Ride> ridesTable;
     @FXML
     private TableColumn<Ride, String> rideNameCol;
     @FXML
@@ -75,6 +75,7 @@ public class DriverController implements Initializable {
             cars += car.toString();
         }
         registeredCars.setItems(driverUser.getCars());
+        ridesTable.getColumns().addAll(rideDateCol, rideNameCol, rideSateCol, rideTimeCol);
 
         Set<ExpiryNotifactions.Expired> notify = ExpiryNotifactions.checkNotifyUser(driverUser);
         notifyUser(notify);
@@ -214,7 +215,7 @@ public class DriverController implements Initializable {
                     SimpleDateFormat formatter=new SimpleDateFormat("dd MMMM yyyy");
                     String days = "";
                     for (Integer day : trip.getDays()){
-                        days += Time.intToDay(day) + ", ";
+                        days += TimeUtils.intToDay(day) + ", ";
                     }
                     infoHolder.getChildren().add(new Label("Occurs every: " + days));
                     infoHolder.getChildren().add(new Label("Expires: " + formatter.format(trip.getExpirationDate().getTime())));

@@ -2,6 +2,8 @@ package model;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.*;
 
 
@@ -12,7 +14,7 @@ public class Trip {
     private Boolean recurrent;
     private Set<Integer> days = new HashSet<>();
     private Car car;
-    private HashMap<String, Time> stopTimes = new HashMap<>();
+    private HashMap<String, LocalTime> stopTimes = new HashMap<>();
     private GregorianCalendar expirationDate;
     private SimpleStringProperty name;
     private boolean shared = false;
@@ -30,7 +32,7 @@ public class Trip {
         }
     }
 
-    public void setTimeForStopPoint(StopPoint stopPoint, Time time) {
+    public void setTimeForStopPoint(StopPoint stopPoint, LocalTime time) {
         stopTimes.put(stopPoint.toString(), time);
     }
 
@@ -46,7 +48,7 @@ public class Trip {
         return days;
     }
 
-    public HashMap<String, Time> getStopTimes() {
+    public HashMap<String, LocalTime> getStopTimes() {
         return stopTimes;
     }
 
@@ -54,7 +56,7 @@ public class Trip {
         return expirationDate;
     }
 
-    public void setStopTimes(HashMap<String, Time> stopTimes) {
+    public void setStopTimes(HashMap<String, LocalTime> stopTimes) {
         this.stopTimes = stopTimes;
     }
 
@@ -115,18 +117,12 @@ public class Trip {
         return shared;
     }
 
-    public Time getLength() {
-        List<Time> times = new ArrayList<>(stopTimes.values());
-        int length = 0;
+    public Duration getLength() {
+        List<LocalTime> times = new ArrayList<>(stopTimes.values());
         Collections.sort(times);
-        for (Time time : times) {
-            length += Math.abs(length - time.getTotalSeconds());
-        }
-        int hours = length / 3600;
-        int remainder = length - hours * 3600;
-        int minutes = remainder / 60;
-        Time timeLen = new Time(hours - times.get(0).getHours(), minutes - times.get(0).getMinutes(), "");
-        return timeLen;
+        LocalTime earliest = times.get(0);
+        LocalTime latest = times.get(times.size() - 1);
+        return Duration.between(earliest, latest);
     }
 
     @Override

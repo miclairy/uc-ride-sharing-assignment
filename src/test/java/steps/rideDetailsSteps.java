@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
@@ -60,9 +61,9 @@ public class rideDetailsSteps {
         stops.add(stop3);
         Route route = new Route(stops, "");
         Trip trip = new Trip(route, "from uni", false, car);
-        trip.setTimeForStopPoint(stop1, new Time(3, 00, "pm"));
-        trip.setTimeForStopPoint(stop2, new Time(3, 10, "pm"));
-        trip.setTimeForStopPoint(stop3, new Time(3, 20, "pm"));
+        trip.setTimeForStopPoint(stop1, LocalTime.of(15, 0));
+        trip.setTimeForStopPoint(stop2, LocalTime.of(15, 10));
+        trip.setTimeForStopPoint(stop3, LocalTime.of(15, 20));
         ride = new Ride(trip, car.getNumSeats(), jo, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
 
     }
@@ -70,7 +71,7 @@ public class rideDetailsSteps {
     @Then("^the rides details are displayed including drivers name, grade, car model, color, year, seats available, route length and number of stops\\.$")
     public void theRidesDetailsAreDisplayedIncludingDriversNameGradeCarModelColorYearSeatsAvailableRouteLengthAndNumberOfStops() throws Throwable {
         String details = "Driver: " + driverName + "\nGrade: " + grade + "\nCar: " + car.toString() +
-                        "\n Route Length: " + new Time(0, routeLength, "").toString().trim() + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats();
+                        "\n Route Length: " + routeLength + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats();
         assertEquals(details, ride.getDetails());
     }
 }

@@ -2,8 +2,12 @@ import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.*;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
+import static java.time.temporal.ChronoUnit.SECONDS;
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -59,17 +63,17 @@ public class RideTest {
         stops.add(stop3);
         Route route = new Route(stops, "");
         Trip trip = new Trip(route, "from uni", false, car);
-        trip.setTimeForStopPoint(stop1, new Time(3, 00, "pm"));
-        trip.setTimeForStopPoint(stop2, new Time(3, 00, "pm"));
-        trip.setTimeForStopPoint(stop3, new Time(3, 00, "pm"));
+        trip.setTimeForStopPoint(stop1, LocalTime.of(15, 0));
+        trip.setTimeForStopPoint(stop2, LocalTime.of(15, 0));
+        trip.setTimeForStopPoint(stop3, LocalTime.of(15, 0));
 
-        assertEquals(new Time(0, 0, ""), trip.getLength());
+        assertEquals(Duration.of(0, SECONDS), trip.getLength());
 
-        trip.setTimeForStopPoint(stop1, new Time(3, 00, "pm"));
-        trip.setTimeForStopPoint(stop2, new Time(3, 10, "pm"));
-        trip.setTimeForStopPoint(stop3, new Time(3, 00, "pm"));
+        trip.setTimeForStopPoint(stop1, LocalTime.of(15, 0));
+        trip.setTimeForStopPoint(stop2, LocalTime.of(15, 10));
+        trip.setTimeForStopPoint(stop3, LocalTime.of(15, 0));
 
-        assertEquals(new Time(0, 10, ""), trip.getLength());
+        assertEquals(Duration.of(10, MINUTES), trip.getLength());
     }
 
     @Test
@@ -77,13 +81,13 @@ public class RideTest {
         Data.getSharedRides().clear();
         trip.setExpirationDate(new GregorianCalendar(2017, 4, 30)); //30th may 2017
         Set<Integer> days = new HashSet<>();
-        days.add(Time.weekDayToInt("Wednesday"));
+        days.add(TimeUtils.weekDayToInt("Wednesday"));
         trip.setDays(days);
         trip.share(2, new Driver("jo"), new GregorianCalendar(2017, 3, 30));
         assertEquals(4, Data.getSharedRides().size());
 
         Data.getSharedRides().clear();
-        days.add(Time.weekDayToInt("Sunday"));
+        days.add(TimeUtils.weekDayToInt("Sunday"));
         trip.setDays(days);
         trip.share(2, new Driver("jo"), new GregorianCalendar(2017, 3, 30));
         assertEquals(9, Data.getSharedRides().size());
