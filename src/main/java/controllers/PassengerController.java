@@ -90,7 +90,7 @@ public class PassengerController implements Initializable{
             ListView<String> routeStops = new ListView<>();
             ObservableList<String> stopPoints = FXCollections.observableArrayList();
             for (StopPoint stop : trip.getRoute().getStops()) {
-                stopPoints.add(stop + " " + trip.getStopTimes().get(stop).toString());
+                stopPoints.add(stop + " " + trip.getStopTimes().get(stop.toString()).toString());
             }
             routeStops.setItems(stopPoints);
             routePane.setContent(routeStops);

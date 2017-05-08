@@ -54,7 +54,7 @@ public class MakeTripController implements Initializable {
     @FXML
     private TextField nameTxt;
 
-    private HashMap<StopPoint, Time> stopTimes = new HashMap<StopPoint, Time>();
+    private HashMap<String, Time> stopTimes = new HashMap<String, Time>();
     private Driver driver;
     private Set<String> days = new HashSet<>();
 
@@ -96,7 +96,7 @@ public class MakeTripController implements Initializable {
             int hours = hoursSpinner.getValue();
             Time time = new Time(hours, minutes, amPm.getValue());
 
-            stopTimes.put(stop, time);
+            stopTimes.put(stop.toString(), time);
             stopPointsList.getItems().remove(stop);
             doneStopPoints.getItems().add(stop);
             times.getItems().add(time);

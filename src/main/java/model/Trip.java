@@ -12,7 +12,7 @@ public class Trip {
     private Boolean recurrent;
     private Set<Integer> days = new HashSet<>();
     private Car car;
-    private HashMap<StopPoint, Time> stopTimes = new HashMap<>();
+    private HashMap<String, Time> stopTimes = new HashMap<>();
     private GregorianCalendar expirationDate;
     private SimpleStringProperty name;
     private boolean shared = false;
@@ -31,7 +31,7 @@ public class Trip {
     }
 
     public void setTimeForStopPoint(StopPoint stopPoint, Time time) {
-        stopTimes.put(stopPoint, time);
+        stopTimes.put(stopPoint.toString(), time);
     }
 
     public void setExpirationDate(GregorianCalendar expirationDate) {
@@ -46,7 +46,7 @@ public class Trip {
         return days;
     }
 
-    public HashMap<StopPoint, Time> getStopTimes() {
+    public HashMap<String, Time> getStopTimes() {
         return stopTimes;
     }
 
@@ -54,7 +54,7 @@ public class Trip {
         return expirationDate;
     }
 
-    public void setStopTimes(HashMap<StopPoint, Time> stopTimes) {
+    public void setStopTimes(HashMap<String, Time> stopTimes) {
         this.stopTimes = stopTimes;
     }
 
