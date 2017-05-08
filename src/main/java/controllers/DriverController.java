@@ -250,7 +250,9 @@ public class DriverController implements Initializable {
         dialog.setContentText("Please enter the number of available seats:");
         Optional<String> seats = dialog.showAndWait();
         if (seats.isPresent()) {
-            trip.share(Integer.parseInt(seats.get()), driverUser, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+            GregorianCalendar cal = new GregorianCalendar();
+            cal.setTime(new Date());
+            trip.share(Integer.parseInt(seats.get()), driverUser, cal);
         }
     }
 

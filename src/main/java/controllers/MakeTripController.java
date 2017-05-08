@@ -9,6 +9,9 @@ import model.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -75,6 +78,9 @@ public class MakeTripController implements Initializable {
     }
 
     public void selectedRoute(){
+        stopTimes.clear();
+        doneStopPoints.getItems().clear();
+        times.getItems().clear();
         Route routeForTrip = routeCombo.getValue();
         stopPointsList.setItems(FXCollections.observableArrayList(routeForTrip.getStops()));
         stopPointsList.setDisable(false);
@@ -84,14 +90,17 @@ public class MakeTripController implements Initializable {
     }
 
     public void setTime(){
-        int minutes = minutesSpinner.getValue();
-        int hours = hoursSpinner.getValue();
-        Time time = new Time(hours, minutes, amPm.getValue());
         StopPoint stop = stopPointsList.getSelectionModel().getSelectedItem();
-        stopTimes.put(stop, time);
-        stopPointsList.getItems().remove(stop);
-        doneStopPoints.getItems().add(stop);
-        times.getItems().add(time);
+        if (stop != null) {
+            int minutes = minutesSpinner.getValue();
+            int hours = hoursSpinner.getValue();
+            Time time = new Time(hours, minutes, amPm.getValue());
+
+            stopTimes.put(stop, time);
+            stopPointsList.getItems().remove(stop);
+            doneStopPoints.getItems().add(stop);
+            times.getItems().add(time);
+        }
     }
 
     public void recurrent(){
@@ -133,13 +142,15 @@ public class MakeTripController implements Initializable {
 
             if (trip.getRecurrent()) {
 
-                if (expiration.getValue() != null) {
-                    trip.setExpirationDate(new GregorianCalendar(expiration.getValue().getYear(), expiration.getValue().getMonthValue(),
-                            expiration.getValue().getDayOfMonth()));
+                if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
+                    Date expirationDate = Date.from(expiration.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+                    GregorianCalendar cal = new GregorianCalendar();
+                    cal.setTime(expirationDate);
+                    trip.setExpirationDate(cal);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("No expiration date");
-                    alert.setHeaderText("You have not chosen expiration date");
+                    alert.setHeaderText("You have not chosen a valid expiration date");
                     alert.setContentText("In order for the tip to be recurrent then a expiration date must be chosen");
                     alert.showAndWait();
                 }
@@ -154,17 +165,26 @@ public class MakeTripController implements Initializable {
                     for (String day : days) {
                         trip.getDays().add(Time.weekDayToInt(day));
                     }
+                    if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
+                        finishMakingTrip(trip);
+                    }
                 }
+            } else {
+                finishMakingTrip(trip);
             }
-            trip.setStopTimes(stopTimes);
-            trip.setName(nameTxt.getText());
-            driver.addTrip(trip);
-
-            SwitchScenes switchScenes = new SwitchScenes();
-            switchScenes.goToScene("/driverMain.fxml");
         }
 
     }
+
+    private void finishMakingTrip(Trip trip) throws IOException {
+        trip.setStopTimes(stopTimes);
+        trip.setName(nameTxt.getText());
+        driver.addTrip(trip);
+
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/driverMain.fxml");
+    }
+
 
     public void addToDaysSelected(){
         days.add(daysCombo.getValue());

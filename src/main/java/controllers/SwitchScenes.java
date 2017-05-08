@@ -14,11 +14,6 @@ public class SwitchScenes {
 
     private Stage stage;
 
-
-    public SwitchScenes(Stage stage) {
-        this.stage = stage;
-    }
-
     public SwitchScenes() {
         this.stage = LoginController.mainStage;
     }

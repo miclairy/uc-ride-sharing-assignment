@@ -35,6 +35,7 @@ public class LoginController {
 
 
     public void submit() throws IOException, DecoderException {
+        mainStage = (Stage) email.getScene().getWindow();
        boolean valid = PasswordUtils.login(email.getText(), password.getText());
        if (valid){
            Data.openAccount(email.getText());
@@ -43,26 +44,12 @@ public class LoginController {
            incorrect.setVisible(true);
        }
        if (Data.getDriverUser() != null){
-           try {
-               Parent root = FXMLLoader.load(getClass().getResource("/driverMain.fxml"));
-               Stage stage = (Stage) email.getScene().getWindow();
-               stage.setResizable(true);
-               stage.setScene(new Scene(root, 1000, 700));
-               stage.show();
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
+           SwitchScenes switchScenes = new SwitchScenes();
+           switchScenes.goToScene("/driverMain.fxml");
        }
         if (Data.passengerUser != null){
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/passengerMain.fxml"));
-                Stage stage = (Stage) email.getScene().getWindow();
-                stage.setResizable(true);
-                stage.setScene(new Scene(root, 1000, 700));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            SwitchScenes switchScenes = new SwitchScenes();
+            switchScenes.goToScene("/passengerMain.fxml");
         }
     }
 
