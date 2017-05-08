@@ -25,7 +25,8 @@ public class StopPointController {
             } else {
                 DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText(), suburb.getText());
             }
-            DriverController.mainScene();
+            SwitchScenes switchScenes = new SwitchScenes();
+            switchScenes.goToScene("/driverMain.fxml");
         } catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly");

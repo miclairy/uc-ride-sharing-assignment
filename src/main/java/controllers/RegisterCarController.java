@@ -46,7 +46,8 @@ public class RegisterCarController {
             newCar.setWofExpiration(wofExpiry.getValue());
             newCar.setRegistrationExpiry(registrationExpiry.getValue());
             DriverController.driverUser.addCar(newCar);
-            DriverController.mainScene();
+            SwitchScenes switchScenes = new SwitchScenes();
+            switchScenes.goToScene("/driverMain.fxml");
         } catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly");
