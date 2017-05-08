@@ -1,18 +1,22 @@
 package model;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class Passenger extends Account {
 
-    private Collection<Ride> bookedRides = new ArrayList<>();
+    private List<Ride> bookedRides = new ArrayList<>();
 
     public void addRide(Ride ride){
         bookedRides.add(ride);
     }
 
-    public Collection<Ride> getBookedRides() {
-        return bookedRides;
+    public ObservableList<Ride> getBookedRides() {
+        return FXCollections.observableArrayList(bookedRides);
     }
 }

@@ -45,6 +45,17 @@ public class DriverController implements Initializable {
     private Accordion tripsHolder;
     @FXML
     private TextField stopPointSearch;
+    @FXML
+    private TableView<Ride> ridesTable; //TODO made rides populate table
+    @FXML
+    private TableColumn<Ride, String> rideNameCol;
+    @FXML
+    private TableColumn<Ride, String> rideDateCol;
+    @FXML
+    private TableColumn<Ride, String> rideTimeCol;
+    @FXML
+    private TableColumn<Ride, String> rideSateCol;
+
 
     static Driver driverUser;
     static boolean noftifed = false;
@@ -88,18 +99,6 @@ public class DriverController implements Initializable {
         }
 
     }
-
-    public void becomeDriver(){
-        registerCar.setVisible(true);
-        userTypeText.setText("You are a Driver");
-        createStopPoint.setVisible(true);
-        makeTrip.setVisible(true);
-        if (Data.stopPointsList.size() > 0) {
-            createRoute.setVisible(true);
-        }
-
-    }
-
 
     public void registerCar(){
         SwitchScenes switchScenes = new SwitchScenes();
@@ -232,7 +231,7 @@ public class DriverController implements Initializable {
                 ListView<String> routeStops = new ListView<>();
                 ObservableList<String> stopPoints = FXCollections.observableArrayList();
                 for (StopPoint stop : trip.getRoute().getStops()){
-                    stopPoints.add(stop + " " + trip.getStopTimes().get(stop).toString());
+                    stopPoints.add(stop + " " + trip.getStopTimes().get(stop.toString()));
                 }
                 routeStops.setItems(stopPoints);
                 routePane.setContent(routeStops);

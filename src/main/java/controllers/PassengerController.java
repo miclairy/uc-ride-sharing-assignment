@@ -19,10 +19,7 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class PassengerController implements Initializable{
@@ -37,6 +34,8 @@ public class PassengerController implements Initializable{
     private VBox rideDetails;
     @FXML
     private ComboBox<String> toFromUniCombo;
+    @FXML
+    private ListView<Ride> bookedRides;
 
     private Ride viewingRide;
     private Passenger passenger;
@@ -50,21 +49,42 @@ public class PassengerController implements Initializable{
         toFromUniCombo.setValue("All");
         stopPoints.setItems(Data.stopPointsList.sorted());
         sharedRides.setItems(Data.getSharedRides().sorted());
+        bookedRides.setItems(Data.passengerUser.getBookedRides());
+        setSelectionListeners();
+        passenger = new Passenger(); //so I can switch
+        Data.addPassenger(passenger);
+
+    }
+
+    private void setSelectionListeners() {
         stopPoints.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<StopPoint>() {
             @Override
             public void changed(ObservableValue<? extends StopPoint> observable, StopPoint oldValue, StopPoint newValue) {
-                populateRoutes(newValue);
+                filterByToFromUni();
+
             }
         });
 
         sharedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
             @Override
             public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
-                setRideDetails(newValue);
+                changeRideShown(newValue);
             }
         });
-        passenger = new Passenger();
-        Data.addPassenger(passenger);
+
+        bookedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
+            @Override
+            public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
+                setRideDetails(newValue);
+                sharedRides.getSelectionModel().clearSelection();
+
+            }
+        });
+    }
+
+    private void changeRideShown(Ride newValue) {
+        setRideDetails(newValue);
+        bookedRides.getSelectionModel().clearSelection();
 
     }
 
@@ -72,10 +92,6 @@ public class PassengerController implements Initializable{
         stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
 
-    private void populateRoutes(StopPoint stopPoint){
-
-        sharedRides.setItems(Search.ridesForStopPoint(stopPoint));
-    }
 
     private void setRideDetails(Ride ride){
         viewingRide = ride;
@@ -106,7 +122,7 @@ public class PassengerController implements Initializable{
 
 
     public void bookRide(){
-        viewingRide.bookPassenger(passenger);
+        viewingRide.bookPassenger(Data.passengerUser);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Booked Ride");
         alert.setHeaderText("You have successfully booked a ride");
@@ -117,21 +133,30 @@ public class PassengerController implements Initializable{
         } else {
             setRideDetails(viewingRide);
         }
+        bookedRides.setItems(Data.passengerUser.getBookedRides());
     }
 
     @FXML
     public void filterByToFromUni(){
         ObservableList<Ride> obResult = FXCollections.observableArrayList();
-        Collection<Ride> result = new HashSet<>();
+        Collection<Ride> filtered = new HashSet<>();
         if (!toFromUniCombo.getValue().equals("All")) {
-            result = Search.filterRides(toFromUniCombo.getValue());
-            obResult.addAll(result);
-            sharedRides.setItems(obResult.sorted());
+            filtered = Search.filterRides(toFromUniCombo.getValue());
         } else {
-            sharedRides.setItems(Data.getSharedRides().sorted());
+            filtered = Data.getSharedRides().sorted();
+        }
+        ObservableList<Ride> onlyStopPointSelected = Search.ridesForStopPoint(stopPoints.getSelectionModel().getSelectedItem());
+        if (!onlyStopPointSelected.isEmpty()){
+            for (int i = 0; i < onlyStopPointSelected.size(); i++) {
+                if (filtered.contains(onlyStopPointSelected.get(i))){
+                    obResult.add(onlyStopPointSelected.get(i));
+                }
+            }
+        } else {
+            obResult.addAll(filtered);
         }
 
-
+        sharedRides.setItems(obResult.sorted());
 
     }
 
