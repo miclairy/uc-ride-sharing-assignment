@@ -3,10 +3,7 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 public class Ride implements Comparable<Ride> {
@@ -40,10 +37,14 @@ public class Ride implements Comparable<Ride> {
         changeRideState(RideState.Available);
         name = trip.getName();
         startDate = new SimpleStringProperty(date.toString());
-        Date earliestTime;
-        for (LocalTime time : trip.getStopTimes().values()){
+        if (!trip.getStopTimes().isEmpty()) {
+            List<LocalTime> times = new ArrayList<>(trip.getStopTimes().values());
+            Collections.sort(times);
+            String earliest = times.get(0).toString(); //TODO fix to string
+            startTime = new SimpleStringProperty(earliest);
+        } else {
+            startTime = new SimpleStringProperty("not known");
         }
-        startTime = new SimpleStringProperty();
     }
 
     public int getAvailableSeats() {

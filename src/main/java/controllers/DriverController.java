@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -75,13 +76,29 @@ public class DriverController implements Initializable {
             cars += car.toString();
         }
         registeredCars.setItems(driverUser.getCars());
-        ridesTable.getColumns().addAll(rideDateCol, rideNameCol, rideSateCol, rideTimeCol);
+        setUpRideTable();
 
         Set<ExpiryNotifactions.Expired> notify = ExpiryNotifactions.checkNotifyUser(driverUser);
         notifyUser(notify);
         populateRoutes();
         populateTrips();
 
+    }
+
+    private void setUpRideTable() {
+        ridesTable.getColumns().addAll(rideDateCol, rideNameCol, rideSateCol, rideTimeCol);
+        rideNameCol.setCellValueFactory(
+                new PropertyValueFactory<Ride,String>("name")
+        );
+        rideSateCol.setCellValueFactory(
+                new PropertyValueFactory<Ride,String>("rideState")
+        );
+        rideTimeCol.setCellValueFactory(
+                new PropertyValueFactory<Ride,String>("startTime")
+        );
+        rideDateCol.setCellValueFactory(
+                new PropertyValueFactory<Ride,String>("startDate")
+        );
     }
 
     private void notifyUser(Set<ExpiryNotifactions.Expired> notify) {
