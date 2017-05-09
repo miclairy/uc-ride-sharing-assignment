@@ -55,7 +55,7 @@ public class DriverController implements Initializable {
     @FXML
     private TableColumn<Ride, String> rideTimeCol;
     @FXML
-    private TableColumn<Ride, String> rideSateCol;
+    private TableColumn<Ride, String> rideStateCol;
 
 
     static Driver driverUser;
@@ -86,11 +86,10 @@ public class DriverController implements Initializable {
     }
 
     private void setUpRideTable() {
-        ridesTable.getColumns().addAll(rideDateCol, rideNameCol, rideSateCol, rideTimeCol);
         rideNameCol.setCellValueFactory(
                 new PropertyValueFactory<Ride,String>("name")
         );
-        rideSateCol.setCellValueFactory(
+        rideStateCol.setCellValueFactory(
                 new PropertyValueFactory<Ride,String>("rideState")
         );
         rideTimeCol.setCellValueFactory(
@@ -99,6 +98,13 @@ public class DriverController implements Initializable {
         rideDateCol.setCellValueFactory(
                 new PropertyValueFactory<Ride,String>("startDate")
         );
+        ObservableList<Ride> driverRides = FXCollections.observableArrayList();
+        for (Ride ride : Data.getSharedRides()){
+            if (ride.getDriver().equals(Data.getDriverUser())){
+                driverRides.add(ride);
+            }
+        }
+        ridesTable.setItems(driverRides);
     }
 
     private void notifyUser(Set<ExpiryNotifactions.Expired> notify) {
@@ -223,7 +229,7 @@ public class DriverController implements Initializable {
         if (driverUser != null){
             for (Trip trip : driverUser.getTrips()){
                 TitledPane tripPane = new TitledPane();
-                tripPane.setText(trip.getName().getValue());
+                tripPane.setText(trip.getName());
 
                 VBox infoHolder = new VBox();
                 infoHolder.getChildren().add(new Label("Car: " + trip.getCar()));

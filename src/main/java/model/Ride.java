@@ -35,7 +35,7 @@ public class Ride implements Comparable<Ride> {
         this.driver = driver;
         this.date = date;
         changeRideState(RideState.Available);
-        name = trip.getName();
+        name = trip.getNameProperty();
         startDate = new SimpleStringProperty(date.toString());
         if (!trip.getStopTimes().isEmpty()) {
             List<LocalTime> times = new ArrayList<>(trip.getStopTimes().values());
@@ -56,7 +56,7 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String toString() {
-        return trip.getName().getValue();
+        return trip.getName();
     }
 
     public void bookPassenger(Passenger passenger){
@@ -121,4 +121,7 @@ public class Ride implements Comparable<Ride> {
         rideState = new SimpleStringProperty(state.name());
     }
 
+    public Driver getDriver() {
+        return driver;
+    }
 }

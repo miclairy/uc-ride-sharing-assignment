@@ -95,7 +95,6 @@ public class Driver extends Account{
 
         if (cars != null ? !cars.equals(driver.cars) : driver.cars != null) return false;
         if (routes != null ? !routes.equals(driver.routes) : driver.routes != null) return false;
-        if (trips != null ? !trips.equals(driver.trips) : driver.trips != null) return false;
         if (grade != null ? !grade.equals(driver.grade) : driver.grade != null) return false;
         return license != null ? license.equals(driver.license) : driver.license == null;
     }
@@ -104,7 +103,6 @@ public class Driver extends Account{
     public int hashCode() {
         int result = cars != null ? cars.hashCode() : 0;
         result = 31 * result + (routes != null ? routes.hashCode() : 0);
-        result = 31 * result + (trips != null ? trips.hashCode() : 0);
         result = 31 * result + (grade != null ? grade.hashCode() : 0);
         result = 31 * result + (license != null ? license.hashCode() : 0);
         return result;

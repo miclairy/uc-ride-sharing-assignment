@@ -64,8 +64,12 @@ public class Trip {
         this.name = new SimpleStringProperty(name);
     }
 
-    public SimpleStringProperty getName() {
+    public SimpleStringProperty getNameProperty() {
         return name;
+    }
+
+    public String getName() {
+        return name.get();
     }
 
     public String getDirection() {
@@ -159,4 +163,6 @@ public class Trip {
     public void setShared(boolean shared) {
         this.shared = shared;
     }
+
+
 }

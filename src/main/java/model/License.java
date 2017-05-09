@@ -30,4 +30,19 @@ public class License {
     public Calendar getExpiry() {
         return expiry;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        License license = (License) o;
+
+        return number.equals(license.number);
+    }
+
+    @Override
+    public int hashCode() {
+        return number.hashCode();
+    }
 }
