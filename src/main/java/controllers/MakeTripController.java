@@ -158,7 +158,7 @@ public class MakeTripController implements Initializable {
                     alert.showAndWait();
                 } else {
                     for (String day : days) {
-                        trip.getDays().add(DayOfWeek.valueOf(day));
+                        trip.getDays().add(DayOfWeek.valueOf(day.toUpperCase()));
                     }
                     if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
                         finishMakingTrip(trip);
