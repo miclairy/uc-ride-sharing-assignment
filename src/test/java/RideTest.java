@@ -2,7 +2,9 @@ import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -24,8 +26,7 @@ public class RideTest {
         Route route = mock(Route.class);
         car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
         trip = new Trip(route, "To University", true, car);
-        ride = new Ride(trip, 2, new Driver("jo"),
-                new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride = new Ride(trip, 2, new Driver("jo"), LocalDate.now());
     }
 
     @Test
@@ -77,19 +78,19 @@ public class RideTest {
     }
 
     @Test
-    public void recurrentRideTest(){ //TODO test that they are correct days
+    public void recurrentRideTest(){ //TODO test that they are correct days and fix
         Data.getSharedRides().clear();
-        trip.setExpirationDate(new GregorianCalendar(2017, 4, 30)); //30th may 2017
-        Set<Integer> days = new HashSet<>();
-        days.add(TimeUtils.weekDayToInt("Wednesday"));
+        trip.setExpirationDate(LocalDate.of(2017, 4, 30)); //30th may 2017
+        Set<DayOfWeek> days = new HashSet<>();
+        days.add(DayOfWeek.WEDNESDAY);
         trip.setDays(days);
-        trip.share(2, new Driver("jo"), new GregorianCalendar(2017, 3, 30));
+        trip.share(2, new Driver("jo"), LocalDate.of(2017, 3, 30));
         assertEquals(4, Data.getSharedRides().size());
 
         Data.getSharedRides().clear();
-        days.add(TimeUtils.weekDayToInt("Sunday"));
+        days.add(DayOfWeek.SUNDAY);
         trip.setDays(days);
-        trip.share(2, new Driver("jo"), new GregorianCalendar(2017, 3, 30));
-        assertEquals(9, Data.getSharedRides().size());
+        trip.share(2, new Driver("jo"), LocalDate.of(2017, 3, 30));
+        assertEquals(7, Data.getSharedRides().size());
     }
 }

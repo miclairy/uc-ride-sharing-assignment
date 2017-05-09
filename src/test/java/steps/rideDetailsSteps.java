@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -64,7 +65,7 @@ public class rideDetailsSteps {
         trip.setTimeForStopPoint(stop1, LocalTime.of(15, 0));
         trip.setTimeForStopPoint(stop2, LocalTime.of(15, 10));
         trip.setTimeForStopPoint(stop3, LocalTime.of(15, 20));
-        ride = new Ride(trip, car.getNumSeats(), jo, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride = new Ride(trip, car.getNumSeats(), jo, LocalDate.now());
 
     }
 

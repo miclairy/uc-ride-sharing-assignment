@@ -52,7 +52,7 @@
           "direction": "to uni",
           "recurrent": true,
           "days": [
-            5
+            "FRIDAY"
           ],
           "car": {
             "type": "car",
@@ -66,10 +66,7 @@
           "expirationDate": {
             "year": 2018,
             "month": 1,
-            "dayOfMonth": 1,
-            "hourOfDay": 0,
-            "minute": 0,
-            "second": 0
+            "day": 1
           },
           "shared": true
         }
@@ -125,7 +122,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -139,10 +136,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -200,7 +194,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -214,157 +208,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
-            },
-            "shared": true
-          }
-        ],
-        "name": "jo",
-        "phone": 0
-      },
-      "date": {
-        "year": 2017,
-        "month": 7,
-        "dayOfMonth": 31,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
-      },
-      "state": "Available",
-      "startDate": {
-        "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d7,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d31,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
-        "valid": true
-      },
-      "startTime": {
-        "name": "",
-        "value": "not known",
-        "valid": true
-      },
-      "rideState": {
-        "name": "",
-        "value": "Available",
-        "valid": true
-      }
-    },
-    {
-      "trip": {
-        "route": {
-          "stops": [
-            {
-              "streetNumber": 4,
-              "streetName": "magic"
-            },
-            {
-              "streetNumber": 3,
-              "streetName": "hare"
-            },
-            {
-              "streetNumber": 12,
-              "streetName": "alpha"
-            }
-          ],
-          "name": "1"
-        },
-        "direction": "to uni",
-        "recurrent": true,
-        "days": [
-          5
-        ],
-        "car": {
-          "type": "car",
-          "colour": "blue",
-          "model": "mazda",
-          "plates": "123RTF",
-          "year": 1200,
-          "numSeats": 6
-        },
-        "stopTimes": {},
-        "expirationDate": {
-          "year": 2018,
-          "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
-        },
-        "shared": true
-      },
-      "availableSeats": 5,
-      "passengers": [],
-      "driver": {
-        "cars": [
-          {
-            "type": "car",
-            "colour": "blue",
-            "model": "mazda",
-            "plates": "123RTF",
-            "year": 1200,
-            "numSeats": 6
-          }
-        ],
-        "routes": [
-          {
-            "stops": [
-              {
-                "streetNumber": 4,
-                "streetName": "magic"
-              },
-              {
-                "streetNumber": 3,
-                "streetName": "hare"
-              },
-              {
-                "streetNumber": 12,
-                "streetName": "alpha"
-              }
-            ],
-            "name": "1"
-          }
-        ],
-        "trips": [
-          {
-            "route": {
-              "stops": [
-                {
-                  "streetNumber": 4,
-                  "streetName": "magic"
-                },
-                {
-                  "streetNumber": 3,
-                  "streetName": "hare"
-                },
-                {
-                  "streetNumber": 12,
-                  "streetName": "alpha"
-                }
-              ],
-              "name": "1"
-            },
-            "direction": "to uni",
-            "recurrent": true,
-            "days": [
-              5
-            ],
-            "car": {
-              "type": "car",
-              "colour": "blue",
-              "model": "mazda",
-              "plates": "123RTF",
-              "year": 1200,
-              "numSeats": 6
-            },
-            "stopTimes": {},
-            "expirationDate": {
-              "year": 2018,
-              "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -375,15 +219,12 @@
       "date": {
         "year": 2017,
         "month": 8,
-        "dayOfMonth": 7,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 4
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d8,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d7,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-08-04",
         "valid": true
       },
       "startTime": {
@@ -419,7 +260,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -433,10 +274,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -494,7 +332,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -508,10 +346,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -522,15 +357,12 @@
       "date": {
         "year": 2017,
         "month": 8,
-        "dayOfMonth": 14,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 11
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d8,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d14,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-08-11",
         "valid": true
       },
       "startTime": {
@@ -566,7 +398,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -580,10 +412,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -641,7 +470,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -655,10 +484,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -669,15 +495,12 @@
       "date": {
         "year": 2017,
         "month": 8,
-        "dayOfMonth": 21,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 18
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d8,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d21,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-08-18",
         "valid": true
       },
       "startTime": {
@@ -713,7 +536,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -727,10 +550,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -788,7 +608,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -802,10 +622,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -816,15 +633,12 @@
       "date": {
         "year": 2017,
         "month": 8,
-        "dayOfMonth": 28,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 25
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d8,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d28,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-08-25",
         "valid": true
       },
       "startTime": {
@@ -860,7 +674,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -874,10 +688,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -935,7 +746,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -949,10 +760,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -963,15 +771,12 @@
       "date": {
         "year": 2017,
         "month": 9,
-        "dayOfMonth": 5,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 1
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d9,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d5,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-09-01",
         "valid": true
       },
       "startTime": {
@@ -1007,7 +812,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1021,10 +826,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1082,7 +884,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1096,10 +898,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -1110,15 +909,12 @@
       "date": {
         "year": 2017,
         "month": 9,
-        "dayOfMonth": 12,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 8
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d9,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d12,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-09-08",
         "valid": true
       },
       "startTime": {
@@ -1154,7 +950,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1168,10 +964,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1229,7 +1022,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1243,10 +1036,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -1257,15 +1047,12 @@
       "date": {
         "year": 2017,
         "month": 9,
-        "dayOfMonth": 19,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 15
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d9,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d19,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-09-15",
         "valid": true
       },
       "startTime": {
@@ -1301,7 +1088,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1315,10 +1102,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1376,7 +1160,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1390,10 +1174,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -1404,15 +1185,12 @@
       "date": {
         "year": 2017,
         "month": 9,
-        "dayOfMonth": 26,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 22
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d9,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d26,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-09-22",
         "valid": true
       },
       "startTime": {
@@ -1448,7 +1226,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1462,10 +1240,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1523,7 +1298,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1537,10 +1312,145 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 9,
+        "day": 29
+      },
+      "state": "Available",
+      "startDate": {
+        "name": "",
+        "value": "2017-09-29",
+        "valid": true
+      },
+      "startTime": {
+        "name": "",
+        "value": "not known",
+        "valid": true
+      },
+      "rideState": {
+        "name": "",
+        "value": "Available",
+        "valid": true
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          "FRIDAY"
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "day": 1
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
             },
             "shared": true
           }
@@ -1551,15 +1461,12 @@
       "date": {
         "year": 2017,
         "month": 10,
-        "dayOfMonth": 2,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 6
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d10,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d2,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-10-06",
         "valid": true
       },
       "startTime": {
@@ -1595,7 +1502,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1609,10 +1516,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1670,7 +1574,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1684,10 +1588,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -1698,15 +1599,12 @@
       "date": {
         "year": 2017,
         "month": 10,
-        "dayOfMonth": 9,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 13
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d10,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d9,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-10-13",
         "valid": true
       },
       "startTime": {
@@ -1742,7 +1640,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1756,10 +1654,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1817,7 +1712,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1831,10 +1726,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -1845,15 +1737,12 @@
       "date": {
         "year": 2017,
         "month": 10,
-        "dayOfMonth": 16,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 20
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d10,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d16,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-10-20",
         "valid": true
       },
       "startTime": {
@@ -1889,7 +1778,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -1903,10 +1792,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -1964,7 +1850,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -1978,10 +1864,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -1992,15 +1875,12 @@
       "date": {
         "year": 2017,
         "month": 10,
-        "dayOfMonth": 23,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 27
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d10,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d23,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-10-27",
         "valid": true
       },
       "startTime": {
@@ -2036,7 +1916,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -2050,10 +1930,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -2111,7 +1988,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -2125,157 +2002,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
-            },
-            "shared": true
-          }
-        ],
-        "name": "jo",
-        "phone": 0
-      },
-      "date": {
-        "year": 2017,
-        "month": 10,
-        "dayOfMonth": 30,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
-      },
-      "state": "Available",
-      "startDate": {
-        "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d10,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d30,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
-        "valid": true
-      },
-      "startTime": {
-        "name": "",
-        "value": "not known",
-        "valid": true
-      },
-      "rideState": {
-        "name": "",
-        "value": "Available",
-        "valid": true
-      }
-    },
-    {
-      "trip": {
-        "route": {
-          "stops": [
-            {
-              "streetNumber": 4,
-              "streetName": "magic"
-            },
-            {
-              "streetNumber": 3,
-              "streetName": "hare"
-            },
-            {
-              "streetNumber": 12,
-              "streetName": "alpha"
-            }
-          ],
-          "name": "1"
-        },
-        "direction": "to uni",
-        "recurrent": true,
-        "days": [
-          5
-        ],
-        "car": {
-          "type": "car",
-          "colour": "blue",
-          "model": "mazda",
-          "plates": "123RTF",
-          "year": 1200,
-          "numSeats": 6
-        },
-        "stopTimes": {},
-        "expirationDate": {
-          "year": 2018,
-          "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
-        },
-        "shared": true
-      },
-      "availableSeats": 5,
-      "passengers": [],
-      "driver": {
-        "cars": [
-          {
-            "type": "car",
-            "colour": "blue",
-            "model": "mazda",
-            "plates": "123RTF",
-            "year": 1200,
-            "numSeats": 6
-          }
-        ],
-        "routes": [
-          {
-            "stops": [
-              {
-                "streetNumber": 4,
-                "streetName": "magic"
-              },
-              {
-                "streetNumber": 3,
-                "streetName": "hare"
-              },
-              {
-                "streetNumber": 12,
-                "streetName": "alpha"
-              }
-            ],
-            "name": "1"
-          }
-        ],
-        "trips": [
-          {
-            "route": {
-              "stops": [
-                {
-                  "streetNumber": 4,
-                  "streetName": "magic"
-                },
-                {
-                  "streetNumber": 3,
-                  "streetName": "hare"
-                },
-                {
-                  "streetNumber": 12,
-                  "streetName": "alpha"
-                }
-              ],
-              "name": "1"
-            },
-            "direction": "to uni",
-            "recurrent": true,
-            "days": [
-              5
-            ],
-            "car": {
-              "type": "car",
-              "colour": "blue",
-              "model": "mazda",
-              "plates": "123RTF",
-              "year": 1200,
-              "numSeats": 6
-            },
-            "stopTimes": {},
-            "expirationDate": {
-              "year": 2018,
-              "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -2286,15 +2013,12 @@
       "date": {
         "year": 2017,
         "month": 11,
-        "dayOfMonth": 7,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 3
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d11,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d7,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-11-03",
         "valid": true
       },
       "startTime": {
@@ -2330,7 +2054,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -2344,10 +2068,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -2405,7 +2126,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -2419,10 +2140,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -2433,15 +2151,12 @@
       "date": {
         "year": 2017,
         "month": 11,
-        "dayOfMonth": 14,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 10
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d11,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d14,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-11-10",
         "valid": true
       },
       "startTime": {
@@ -2477,7 +2192,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -2491,10 +2206,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -2552,7 +2264,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -2566,10 +2278,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -2580,15 +2289,12 @@
       "date": {
         "year": 2017,
         "month": 11,
-        "dayOfMonth": 21,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 17
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d11,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d21,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-11-17",
         "valid": true
       },
       "startTime": {
@@ -2624,7 +2330,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -2638,10 +2344,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -2699,7 +2402,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -2713,10 +2416,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -2727,15 +2427,12 @@
       "date": {
         "year": 2017,
         "month": 11,
-        "dayOfMonth": 28,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "day": 24
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2017,MONTH\u003d11,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d28,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-11-24",
         "valid": true
       },
       "startTime": {
@@ -2771,7 +2468,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -2785,10 +2482,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -2846,7 +2540,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -2860,10 +2554,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -2872,17 +2563,14 @@
         "phone": 0
       },
       "date": {
-        "year": 2018,
-        "month": 0,
-        "dayOfMonth": 4,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "year": 2017,
+        "month": 12,
+        "day": 1
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2018,MONTH\u003d0,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d4,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-12-01",
         "valid": true
       },
       "startTime": {
@@ -2918,7 +2606,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -2932,10 +2620,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -2993,7 +2678,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -3007,10 +2692,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -3019,17 +2701,14 @@
         "phone": 0
       },
       "date": {
-        "year": 2018,
-        "month": 0,
-        "dayOfMonth": 11,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "year": 2017,
+        "month": 12,
+        "day": 8
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2018,MONTH\u003d0,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d11,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-12-08",
         "valid": true
       },
       "startTime": {
@@ -3065,7 +2744,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -3079,10 +2758,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -3140,7 +2816,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -3154,10 +2830,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -3166,17 +2839,14 @@
         "phone": 0
       },
       "date": {
-        "year": 2018,
-        "month": 0,
-        "dayOfMonth": 18,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "year": 2017,
+        "month": 12,
+        "day": 15
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2018,MONTH\u003d0,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d18,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-12-15",
         "valid": true
       },
       "startTime": {
@@ -3212,7 +2882,7 @@
         "direction": "to uni",
         "recurrent": true,
         "days": [
-          5
+          "FRIDAY"
         ],
         "car": {
           "type": "car",
@@ -3226,10 +2896,7 @@
         "expirationDate": {
           "year": 2018,
           "month": 1,
-          "dayOfMonth": 1,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 1
         },
         "shared": true
       },
@@ -3287,7 +2954,7 @@
             "direction": "to uni",
             "recurrent": true,
             "days": [
-              5
+              "FRIDAY"
             ],
             "car": {
               "type": "car",
@@ -3301,10 +2968,7 @@
             "expirationDate": {
               "year": 2018,
               "month": 1,
-              "dayOfMonth": 1,
-              "hourOfDay": 0,
-              "minute": 0,
-              "second": 0
+              "day": 1
             },
             "shared": true
           }
@@ -3313,17 +2977,152 @@
         "phone": 0
       },
       "date": {
-        "year": 2018,
-        "month": 0,
-        "dayOfMonth": 25,
-        "hourOfDay": 0,
-        "minute": 0,
-        "second": 0
+        "year": 2017,
+        "month": 12,
+        "day": 22
       },
       "state": "Available",
       "startDate": {
         "name": "",
-        "value": "java.util.GregorianCalendar[time\u003d?,areFieldsSet\u003dfalse,areAllFieldsSet\u003dfalse,lenient\u003dtrue,zone\u003dsun.util.calendar.ZoneInfo[id\u003d\"Pacific/Auckland\",offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,transitions\u003d156,lastRule\u003djava.util.SimpleTimeZone[id\u003dPacific/Auckland,offset\u003d43200000,dstSavings\u003d3600000,useDaylight\u003dtrue,startYear\u003d0,startMode\u003d2,startMonth\u003d8,startDay\u003d-1,startDayOfWeek\u003d1,startTime\u003d7200000,startTimeMode\u003d1,endMode\u003d3,endMonth\u003d3,endDay\u003d1,endDayOfWeek\u003d1,endTime\u003d7200000,endTimeMode\u003d1]],firstDayOfWeek\u003d1,minimalDaysInFirstWeek\u003d1,ERA\u003d?,YEAR\u003d2018,MONTH\u003d0,WEEK_OF_YEAR\u003d?,WEEK_OF_MONTH\u003d?,DAY_OF_MONTH\u003d25,DAY_OF_YEAR\u003d?,DAY_OF_WEEK\u003d?,DAY_OF_WEEK_IN_MONTH\u003d?,AM_PM\u003d0,HOUR\u003d0,HOUR_OF_DAY\u003d0,MINUTE\u003d0,SECOND\u003d0,MILLISECOND\u003d?,ZONE_OFFSET\u003d?,DST_OFFSET\u003d?]",
+        "value": "2017-12-22",
+        "valid": true
+      },
+      "startTime": {
+        "name": "",
+        "value": "not known",
+        "valid": true
+      },
+      "rideState": {
+        "name": "",
+        "value": "Available",
+        "valid": true
+      }
+    },
+    {
+      "trip": {
+        "route": {
+          "stops": [
+            {
+              "streetNumber": 4,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 3,
+              "streetName": "hare"
+            },
+            {
+              "streetNumber": 12,
+              "streetName": "alpha"
+            }
+          ],
+          "name": "1"
+        },
+        "direction": "to uni",
+        "recurrent": true,
+        "days": [
+          "FRIDAY"
+        ],
+        "car": {
+          "type": "car",
+          "colour": "blue",
+          "model": "mazda",
+          "plates": "123RTF",
+          "year": 1200,
+          "numSeats": 6
+        },
+        "stopTimes": {},
+        "expirationDate": {
+          "year": 2018,
+          "month": 1,
+          "day": 1
+        },
+        "shared": true
+      },
+      "availableSeats": 5,
+      "passengers": [],
+      "driver": {
+        "cars": [
+          {
+            "type": "car",
+            "colour": "blue",
+            "model": "mazda",
+            "plates": "123RTF",
+            "year": 1200,
+            "numSeats": 6
+          }
+        ],
+        "routes": [
+          {
+            "stops": [
+              {
+                "streetNumber": 4,
+                "streetName": "magic"
+              },
+              {
+                "streetNumber": 3,
+                "streetName": "hare"
+              },
+              {
+                "streetNumber": 12,
+                "streetName": "alpha"
+              }
+            ],
+            "name": "1"
+          }
+        ],
+        "trips": [
+          {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6
+            },
+            "stopTimes": {},
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          }
+        ],
+        "name": "jo",
+        "phone": 0
+      },
+      "date": {
+        "year": 2017,
+        "month": 12,
+        "day": 29
+      },
+      "state": "Available",
+      "startDate": {
+        "name": "",
+        "value": "2017-12-29",
         "valid": true
       },
       "startTime": {

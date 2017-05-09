@@ -7,6 +7,8 @@ import model.*;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -39,10 +41,10 @@ public class storeDataSteps {
         stops.addAll(Data.stopPointsList);
         jo.createRoute(Data.stopPointsList, "1");
         trip = new Trip(jo.getRoutes().get(0), "to uni", true, jo.getCars().get(0));
-        Set<Integer> days = new HashSet<>();
-        days.add(5);
+        Set<DayOfWeek> days = new HashSet<>();
+        days.add(DayOfWeek.FRIDAY);
         trip.setDays(days);
-        trip.setExpirationDate(new GregorianCalendar(2018, 1, 1));
+        trip.setExpirationDate(LocalDate.of(2018, 1, 1));
         jo.addTrip(trip);
         Data.addDriver(jo);
         jos.add(jo);
@@ -74,7 +76,7 @@ public class storeDataSteps {
 
     @Given("^there is a ride$")
     public void thereIsARide() {
-        trip.share(5, Data.drivers.get(0), new GregorianCalendar(2017, 7, 30));
+        trip.share(5, Data.drivers.get(0), LocalDate.of(2017, 7, 30));
         rides = Data.getSharedRides();
     }
 

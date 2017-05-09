@@ -2,7 +2,9 @@ package model;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -12,10 +14,10 @@ public class Trip {
     private Route route;
     private String direction;
     private Boolean recurrent;
-    private Set<Integer> days = new HashSet<>();
+    private Set<DayOfWeek> days = new HashSet<>();
     private Car car;
     private HashMap<String, LocalTime> stopTimes = new HashMap<>();
-    private GregorianCalendar expirationDate;
+    private LocalDate expirationDate;
     private SimpleStringProperty name;
     private boolean shared = false;
 
@@ -26,7 +28,7 @@ public class Trip {
         this.car = car;
     }
 
-    public void setDays(Set<Integer> days) {
+    public void setDays(Set<DayOfWeek> days) {
         if (recurrent) {
             this.days = days;
         }
@@ -36,7 +38,7 @@ public class Trip {
         stopTimes.put(stopPoint.toString(), time);
     }
 
-    public void setExpirationDate(GregorianCalendar expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -44,7 +46,7 @@ public class Trip {
         return route;
     }
 
-    public Set<Integer> getDays() {
+    public Set<DayOfWeek> getDays() {
         return days;
     }
 
@@ -52,7 +54,7 @@ public class Trip {
         return stopTimes;
     }
 
-    public GregorianCalendar getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
@@ -90,22 +92,20 @@ public class Trip {
         return  name.getValue();
     }
 
-    public void share(int seats, Driver driver, GregorianCalendar date) {
+    public void share(int seats, Driver driver, LocalDate date) {
         int count = 0;
         if (recurrent) {
-            for (Integer day : days) {
-                date.add(GregorianCalendar.WEEK_OF_YEAR, -count);
-                while (date.getTime().before(expirationDate.getTime())) {
+            for (DayOfWeek day : days) {
+                date = date.plusWeeks(-count);
+                while (date.isBefore(expirationDate)) {
 
-                    while (date.get(Calendar.DAY_OF_WEEK) != day){
-                        date.add(Calendar.DAY_OF_WEEK, 1);
+                    while (date.getDayOfWeek().getValue() != day.getValue()){
+                        date = date.plusDays(1);
                     }
-                    GregorianCalendar tripDate = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH),
-                                                date.get(Calendar.DAY_OF_MONTH));
-                    Ride ride = new Ride(this, seats, driver, tripDate);
+                    Ride ride = new Ride(this, seats, driver, date);
                     shared = true;
                     Data.getSharedRides().add(ride);
-                    date.add(GregorianCalendar.WEEK_OF_YEAR, 1);
+                    date = date.plusWeeks(1);
                     count++;
                 }
             }
@@ -113,7 +113,7 @@ public class Trip {
             Ride ride = new Ride(this, seats, driver, date);
             shared = true;
             Data.getSharedRides().add(ride);
-            date.add(GregorianCalendar.WEEK_OF_YEAR, 1);
+            date = date.plusWeeks(1);
         }
     }
 

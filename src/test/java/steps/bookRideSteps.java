@@ -6,6 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +25,7 @@ public class bookRideSteps {
         Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Route route = mock(Route.class);
         Trip trip = new Trip(route, "to Uni", false, car);
-        ride1 = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride1 = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
         selectedRide = ride1;
     }
 
@@ -51,7 +52,7 @@ public class bookRideSteps {
     public void sallyHasBookedARide() {
         Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
-        selectedRide = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        selectedRide = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
 
         System.out.println(selectedRide.getAvailableSeats());
         sally = new Passenger();

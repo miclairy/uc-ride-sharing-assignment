@@ -7,7 +7,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.*;
 
+import java.sql.Time;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -48,6 +52,7 @@ public class makeTripSteps {
     public void joCreatesATripByDefiningItToBeHisOnlyRouteEachStopPointMinutesAfterThePrevious(String direction, int time, int timeInterval) {
         Route route = jo.getRoutes().get(0);
         trip = new Trip(jo.getRoutes().get(0), direction, true, jo.getCars().get(0));
+        trip.setName("Test Trip");
         int timeOffset = timeInterval;
         for (StopPoint stop : route.getStops()) {
             trip.setTimeForStopPoint(stop, LocalTime.of(15, timeOffset));
@@ -57,10 +62,10 @@ public class makeTripSteps {
 
     @When("^that the trip is recurrent so it repeats every \"([^\"]*)\" until (\\d+)th \"([^\"]*)\"\\.$")
     public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) {
-        Set<Integer> days = new HashSet<>();
-        days.add(TimeUtils.weekDayToInt(weekday));
+        Set<DayOfWeek> days = new HashSet<>();
+        days.add(DayOfWeek.of(day));
         trip.setDays(days);
-        trip.setExpirationDate(new GregorianCalendar(Calendar.YEAR, TimeUtils.monthToInt(month), day));
+        trip.setExpirationDate(LocalDate.of(Calendar.YEAR, Month.valueOf(month.toUpperCase()), day));
         jo.getTrips().add(trip);
     }
 

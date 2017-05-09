@@ -100,7 +100,7 @@ public class PassengerController implements Initializable{
             rideDetails.getChildren().clear();
 
             rideDetails.getChildren().add(new Label(ride.getDetails()));
-            rideDetails.getChildren().add(new Label("Date: " + ride.getDate().getTime().toString()));
+            rideDetails.getChildren().add(new Label("Date: " + ride.getDate().toString()));
             TitledPane routePane = new TitledPane();
             routePane.setText(trip.getRoute().getName());
             ListView<String> routeStops = new ListView<>();

@@ -91,6 +91,9 @@ public class MakeTripController implements Initializable {
         if (stop != null) {
             int minutes = minutesSpinner.getValue();
             int hours = hoursSpinner.getValue();
+            if (amPm.getValue() == "PM"){
+                hours += 12;
+            }
             stopTimes.put(stop.toString(), LocalTime.of(hours, minutes));
             stopPointsList.getItems().remove(stop);
             doneStopPoints.getItems().add(stop);
@@ -138,10 +141,7 @@ public class MakeTripController implements Initializable {
             if (trip.getRecurrent()) {
 
                 if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
-                    Date expirationDate = Date.from(expiration.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-                    GregorianCalendar cal = new GregorianCalendar();
-                    cal.setTime(expirationDate);
-                    trip.setExpirationDate(cal);
+                    trip.setExpirationDate(expiration.getValue());
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("No expiration date");
@@ -158,7 +158,7 @@ public class MakeTripController implements Initializable {
                     alert.showAndWait();
                 } else {
                     for (String day : days) {
-                        trip.getDays().add(TimeUtils.weekDayToInt(day));
+                        trip.getDays().add(DayOfWeek.valueOf(day));
                     }
                     if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
                         finishMakingTrip(trip);

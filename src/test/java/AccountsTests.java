@@ -45,7 +45,7 @@ public class AccountsTests {
     @Test
     public void verifyEmailTest() throws IOException {
         Driver driver = new Driver();
-        assert(driver.verifyEmail("cba62@uclive.ac.nz"));
+        assert(driver.verifyEmail("lalal34@uclive.ac.nz"));
         assert (driver.verifyEmail("jo.blogs@canterbury.ac.nz"));
         assertFalse(driver.verifyEmail("piggy@gmail.com"));
     }

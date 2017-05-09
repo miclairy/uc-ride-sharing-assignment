@@ -18,6 +18,9 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.*;
 
 
@@ -194,21 +197,6 @@ public class DriverController implements Initializable {
         stopPoints.getSelectionModel().clearSelection();
     }
 
-    static void mainScene() {
-        Stage stage = (Stage) mainStage;
-        stage.setResizable(false);
-        Parent root = null;
-        try {
-            root = controllerLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage.setScene(new Scene(root, 1000, 700));
-
-        stage.show();
-
-    }
-
     private void populateRoutes(){
 
         if (driverUser != null) {
@@ -237,11 +225,11 @@ public class DriverController implements Initializable {
                 if (trip.getRecurrent()) {
                     SimpleDateFormat formatter=new SimpleDateFormat("dd MMMM yyyy");
                     String days = "";
-                    for (Integer day : trip.getDays()){
-                        days += TimeUtils.intToDay(day) + ", ";
+                    for (DayOfWeek day : trip.getDays()){
+                        days += day.getDisplayName(TextStyle.FULL, Locale.ENGLISH) + ", ";
                     }
                     infoHolder.getChildren().add(new Label("Occurs every: " + days));
-                    infoHolder.getChildren().add(new Label("Expires: " + formatter.format(trip.getExpirationDate().getTime())));
+                    infoHolder.getChildren().add(new Label("Expires: " + trip.getExpirationDate()));
                 }
 
                 tripPane.setContent(infoHolder);
@@ -273,9 +261,7 @@ public class DriverController implements Initializable {
         dialog.setContentText("Please enter the number of available seats:");
         Optional<String> seats = dialog.showAndWait();
         if (seats.isPresent()) {
-            GregorianCalendar cal = new GregorianCalendar();
-            cal.setTime(new Date());
-            trip.share(Integer.parseInt(seats.get()), driverUser, cal);
+            trip.share(Integer.parseInt(seats.get()), driverUser, LocalDate.now());
         }
     }
 

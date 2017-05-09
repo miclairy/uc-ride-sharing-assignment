@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -26,7 +27,7 @@ public class shareRideSteps {
 
     @When("^jo shares the trip with (\\d+) available seats$")
     public void joSharesTheTripWithAvailableSeats(int seats)  {
-        trip.share(seats, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        trip.share(seats, new Driver("jo"), LocalDate.now());
     }
 
     @Then("^a ride that can be booked is created and the trip is shared$")

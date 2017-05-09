@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.*;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -45,12 +46,12 @@ public class seeRidesForStopPointSteps {
         Car car = mock(Car.class);
         Trip trip = new Trip(new Route(stops, ""), "To University", false, car);
         trip.setName("trip");
-        ride1 = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride1 = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
         List<StopPoint> stops2 = new ArrayList<>();
         stops2.add(stop2);
         Trip trip2 = new Trip(new Route(stops2, ""), "From University", false, car);
         trip2.setName("trip2");
-        ride2 = new Ride(trip2, 6, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride2 = new Ride(trip2, 6, new Driver("jo"), LocalDate.now());
         Data.getSharedRides().add(ride1);
         Data.getSharedRides().add(ride2);
     }
@@ -75,14 +76,14 @@ public class seeRidesForStopPointSteps {
         Car car = mock(Car.class);
         Trip trip3 = new Trip(new Route(stops, ""), "To University", false, car);
         trip3.setName("trip3");
-        ride3 = new Ride(trip3, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride3 = new Ride(trip3, 5, new Driver("jo"), LocalDate.now());
         Trip trip = new Trip(new Route(stops, ""), "To University", false, car);
         trip.setName("trip");
-        ride1 = new Ride(trip, 5, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride1 = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
         stops.remove(stop);
         Trip trip2 = new Trip(new Route(stops, ""), "From University", false, car);
         trip2.setName("trip2");
-        ride2 = new Ride(trip2, 6, new Driver("jo"), new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH));
+        ride2 = new Ride(trip2, 6, new Driver("jo"), LocalDate.now());
     }
 
     @Given("^sally has selected that stop point$")

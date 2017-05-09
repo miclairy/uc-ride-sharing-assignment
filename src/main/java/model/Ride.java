@@ -2,6 +2,7 @@ package model;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -16,7 +17,7 @@ public class Ride implements Comparable<Ride> {
     private int availableSeats;
     private Set<Passenger> passengers = new HashSet<>();
     private Driver driver;
-    private GregorianCalendar date;
+    private LocalDate date;
     private RideState state;
 
     private SimpleStringProperty name;
@@ -25,7 +26,7 @@ public class Ride implements Comparable<Ride> {
     private SimpleStringProperty rideState;
 
 
-    public Ride(Trip trip, int availableSeats, Driver driver, GregorianCalendar date) {
+    public Ride(Trip trip, int availableSeats, Driver driver, LocalDate date) {
         this.trip = trip;
         if (availableSeats > trip.getCar().getNumSeats()){
             this.availableSeats = trip.getCar().getNumSeats();
@@ -40,7 +41,7 @@ public class Ride implements Comparable<Ride> {
         if (!trip.getStopTimes().isEmpty()) {
             List<LocalTime> times = new ArrayList<>(trip.getStopTimes().values());
             Collections.sort(times);
-            String earliest = times.get(0).toString(); //TODO fix to string
+            String earliest = times.get(0).toString();
             startTime = new SimpleStringProperty(earliest);
         } else {
             startTime = new SimpleStringProperty("not known");
@@ -85,15 +86,15 @@ public class Ride implements Comparable<Ride> {
 
     @Override
     public int compareTo(Ride o) {
-        if (date.before(o.date)){
+        if (date.isBefore(o.date)){
             return 1;
-        } else if (date.after(o.date)) {
+        } else if (date.isAfter(o.date)) {
             return -1;
         }
         return 0;
     }
 
-    public GregorianCalendar getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
