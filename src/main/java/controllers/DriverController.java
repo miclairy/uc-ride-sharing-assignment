@@ -107,7 +107,7 @@ public class DriverController implements Initializable {
                 driverRides.add(ride);
             }
         }
-        ridesTable.setItems(driverRides);
+        ridesTable.setItems(driverRides.sorted());
     }
 
     private void notifyUser(Set<ExpiryNotifactions.Expired> notify) {

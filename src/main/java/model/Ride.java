@@ -19,6 +19,7 @@ public class Ride implements Comparable<Ride> {
     private Driver driver;
     private LocalDate date;
     private RideState state;
+    private LocalTime time;
 
     private SimpleStringProperty name;
     private SimpleStringProperty startDate;
@@ -35,12 +36,14 @@ public class Ride implements Comparable<Ride> {
         }
         this.driver = driver;
         this.date = date;
+
         changeRideState(RideState.Available);
         name = trip.getNameProperty();
         startDate = new SimpleStringProperty(date.toString());
         if (!trip.getStopTimes().isEmpty()) {
             List<LocalTime> times = new ArrayList<>(trip.getStopTimes().values());
             Collections.sort(times);
+            time = times.get(0);
             String earliest = times.get(0).toString();
             startTime = new SimpleStringProperty(earliest);
         } else {
@@ -86,12 +89,11 @@ public class Ride implements Comparable<Ride> {
 
     @Override
     public int compareTo(Ride o) {
-        if (date.isBefore(o.date)){
-            return 1;
-        } else if (date.isAfter(o.date)) {
-            return -1;
+        int compare = date.compareTo(o.getDate());
+        if (compare == 0){
+            compare = time.compareTo(o.time);
         }
-        return 0;
+        return compare;
     }
 
     public LocalDate getDate() {
@@ -125,4 +127,5 @@ public class Ride implements Comparable<Ride> {
     public Driver getDriver() {
         return driver;
     }
+
 }
