@@ -63,6 +63,7 @@ public class DriverController implements Initializable {
 
     static Driver driverUser;
     static boolean noftifed = false;
+    private ObservableList<Ride> driverRides = FXCollections.observableArrayList();
 
     private static Window mainStage;
     private static FXMLLoader controllerLoader;
@@ -101,13 +102,17 @@ public class DriverController implements Initializable {
         rideDateCol.setCellValueFactory(
                 new PropertyValueFactory<Ride,String>("startDate")
         );
-        ObservableList<Ride> driverRides = FXCollections.observableArrayList();
+
+        updateDriverRides();
+        ridesTable.setItems(driverRides.sorted());
+    }
+
+    private void updateDriverRides(){
         for (Ride ride : Data.getSharedRides()){
             if (ride.getDriver().equals(Data.getDriverUser())){
                 driverRides.add(ride);
             }
         }
-        ridesTable.setItems(driverRides.sorted());
     }
 
     private void notifyUser(Set<ExpiryNotifactions.Expired> notify) {
@@ -236,7 +241,10 @@ public class DriverController implements Initializable {
 
                 Button share = new Button("Share");
                 infoHolder.getChildren().add(share);
-                share.setOnAction(event -> shareRide(trip));
+                share.setOnAction(event -> {
+                    shareRide(trip);
+                    updateDriverRides();
+                });
 
                 TitledPane routePane = new TitledPane();
                 routePane.setText(trip.getRoute().getName());

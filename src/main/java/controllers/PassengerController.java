@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -68,6 +69,7 @@ public class PassengerController implements Initializable{
         sharedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
             @Override
             public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
+                Platform.runLater(() -> bookedRides.getSelectionModel().clearSelection());
                 changeRideShown(newValue);
             }
         });
@@ -75,9 +77,8 @@ public class PassengerController implements Initializable{
         bookedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
             @Override
             public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
+                Platform.runLater(() -> sharedRides.getSelectionModel().clearSelection());
                 setRideDetails(newValue);
-                sharedRides.getSelectionModel().clearSelection();
-
             }
         });
     }
@@ -122,18 +123,20 @@ public class PassengerController implements Initializable{
 
 
     public void bookRide(){
-        viewingRide.bookPassenger(Data.passengerUser);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Booked Ride");
-        alert.setHeaderText("You have successfully booked a ride");
-        alert.setContentText("You can only book the ride once");
-        alert.showAndWait();
-        if (viewingRide.getAvailableSeats() == 0){
-            rideDetails.getChildren().clear();
-        } else {
-            setRideDetails(viewingRide);
+        if (viewingRide != null) {
+            viewingRide.bookPassenger(Data.passengerUser);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Booked Ride");
+            alert.setHeaderText("You have successfully booked a ride");
+            alert.setContentText("You can only book the ride once");
+            alert.showAndWait();
+            if (viewingRide.getAvailableSeats() == 0) {
+                rideDetails.getChildren().clear();
+            } else {
+                setRideDetails(viewingRide);
+            }
+            bookedRides.setItems(Data.passengerUser.getBookedRides().sorted());
         }
-        bookedRides.setItems(Data.passengerUser.getBookedRides());
     }
 
     @FXML
