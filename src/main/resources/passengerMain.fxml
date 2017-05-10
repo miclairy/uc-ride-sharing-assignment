@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -54,8 +56,8 @@
       </AnchorPane>
       <HBox prefHeight="57.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <children>
-            <Button mnemonicParsing="false" onAction="#bookRide" text="Book" />
-            <Button mnemonicParsing="false" onAction="#becomeDriver" text="Switch To Driver" />
+            <Button fx:id="book" mnemonicParsing="false" onAction="#bookRide" text="Book" />
+            <Button fx:id="cancelBooking" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel" visible="false" />
          </children>
       </HBox>
       <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -68,7 +70,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ListView fx:id="bookedRides" prefHeight="200.0" prefWidth="200.0" />
+            <TableView fx:id="bookedRidesTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="ridesCol" prefWidth="75.0" text="Ride" />
+                <TableColumn fx:id="rideStateCol" prefWidth="75.0" text="Sate" />
+              </columns>
+            </TableView>
          </children>
       </VBox>
    </children>

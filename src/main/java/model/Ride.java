@@ -10,7 +10,7 @@ import java.util.*;
 public class Ride implements Comparable<Ride> {
 
     public enum RideState{
-        Done, Cancelled, Booked, Available
+        Done, Cancelled, Booked, Running
     }
 
     private Trip trip;
@@ -37,7 +37,7 @@ public class Ride implements Comparable<Ride> {
         this.driver = driver;
         this.date = date;
 
-        changeRideState(RideState.Available);
+        changeRideState(RideState.Running);
         name = trip.getNameProperty();
         startDate = new SimpleStringProperty(date.toString());
         if (!trip.getStopTimes().isEmpty()) {
@@ -67,7 +67,7 @@ public class Ride implements Comparable<Ride> {
         if (availableSeats > 0 && !passengers.contains(passenger)) {
             passengers.add(passenger);
             availableSeats--;
-            passenger.addRide(this);
+            passenger.bookRide(this);
         }
         if (availableSeats == 0){
             Data.getSharedRides().remove(this);
@@ -126,6 +126,11 @@ public class Ride implements Comparable<Ride> {
 
     public Driver getDriver() {
         return driver;
+    }
+
+    public void cancelRide() {
+        rideState = new SimpleStringProperty(RideState.Cancelled.name());
+        Data.getSharedRides().remove(this);
     }
 
 }

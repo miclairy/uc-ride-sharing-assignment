@@ -37,6 +37,7 @@
          <children>
             <Button fx:id="registerCar" mnemonicParsing="false" onAction="#registerCar" text="Register a car" />
             <Button fx:id="createStopPoint" mnemonicParsing="false" onAction="#createStopPoint" text="Create Stop Point" />
+            <Button fx:id="cancelRide" mnemonicParsing="false" onAction="#cancelRide" text="Cancel Ride" visible="false" />
          </children>
       </VBox>
       <Accordion GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
@@ -110,6 +111,5 @@
             <Button fx:id="clearSelection" mnemonicParsing="false" onAction="#clearSelection" text="Clear Selection" />
          </children>
       </VBox>
-      <Button mnemonicParsing="false" onAction="#becomePassenger" text="Switch to passenger" GridPane.rowIndex="3" />
     </children>
 </GridPane>

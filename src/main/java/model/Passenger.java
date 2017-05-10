@@ -12,8 +12,12 @@ public class Passenger extends Account {
 
     private List<Ride> bookedRides = new ArrayList<>();
 
-    public void addRide(Ride ride){
-        bookedRides.add(ride);
+    public boolean bookRide(Ride ride){
+        if (ride.getRideState() != Ride.RideState.Cancelled.name()) {
+            bookedRides.add(ride);
+            return true;
+        }
+        return false;
     }
 
     public ObservableList<Ride> getBookedRides() {

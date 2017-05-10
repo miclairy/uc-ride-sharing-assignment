@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -59,6 +61,8 @@ public class DriverController implements Initializable {
     private TableColumn<Ride, String> rideTimeCol;
     @FXML
     private TableColumn<Ride, String> rideStateCol;
+    @FXML
+    private Button cancelRide;
 
 
     static Driver driverUser;
@@ -103,11 +107,19 @@ public class DriverController implements Initializable {
                 new PropertyValueFactory<Ride,String>("startDate")
         );
 
+        ridesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
+            @Override
+            public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
+                cancelRide.setVisible(true);
+            }
+        });
+
         updateDriverRides();
         ridesTable.setItems(driverRides.sorted());
     }
 
     private void updateDriverRides(){
+        driverRides.clear();
         for (Ride ride : Data.getSharedRides()){
             if (ride.getDriver().equals(Data.getDriverUser())){
                 driverRides.add(ride);
@@ -273,13 +285,20 @@ public class DriverController implements Initializable {
         }
     }
 
+    @FXML
+    private void cancelRide(){
+        Ride ride = ridesTable.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cancel Ride");
+        alert.setHeaderText("Are you sure you want to cancel the ride");
+        alert.setContentText("Cancelling ride " + ride.toString());
+        alert.showAndWait();
+        ride.cancelRide();
+        updateDriverRides();
+    }
 
     public void stopPointsSearch(){
         stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
 
-    public void becomePassenger() throws IOException {
-        SwitchScenes switchScenes = new SwitchScenes();
-        switchScenes.goToScene("/passengerMain.fxml");
-    }
 }

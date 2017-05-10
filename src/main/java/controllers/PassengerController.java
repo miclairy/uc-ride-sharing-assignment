@@ -36,7 +36,15 @@ public class PassengerController implements Initializable{
     @FXML
     private ComboBox<String> toFromUniCombo;
     @FXML
-    private ListView<Ride> bookedRides;
+    private TableView<Ride> bookedRidesTable;
+    @FXML
+    private TableColumn<Ride, String> ridesCol;
+    @FXML
+    private TableColumn<Ride, String> rideStateCol;
+    @FXML
+    private Button cancelBooking;
+    @FXML
+    private Button book;
 
     private Ride viewingRide;
     private Passenger passenger;
@@ -50,8 +58,9 @@ public class PassengerController implements Initializable{
         toFromUniCombo.setValue("All");
         stopPoints.setItems(Data.stopPointsList.sorted());
         sharedRides.setItems(Data.getSharedRides().sorted());
-        bookedRides.setItems(Data.passengerUser.getBookedRides());
+        setUpRideTable();
         setSelectionListeners();
+
         passenger = new Passenger(); //so I can switch
         Data.addPassenger(passenger);
 
@@ -69,25 +78,34 @@ public class PassengerController implements Initializable{
         sharedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
             @Override
             public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
-                Platform.runLater(() -> bookedRides.getSelectionModel().clearSelection());
-                changeRideShown(newValue);
+                Platform.runLater(() -> bookedRidesTable.getSelectionModel().clearSelection());
+                setRideDetails(newValue);
+                book.setVisible(true);
+                cancelBooking.setVisible(false);
             }
         });
 
-        bookedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
+        bookedRidesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
             @Override
             public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
                 Platform.runLater(() -> sharedRides.getSelectionModel().clearSelection());
                 setRideDetails(newValue);
+                book.setVisible(false);
+                cancelBooking.setVisible(true);
             }
         });
     }
 
-    private void changeRideShown(Ride newValue) {
-        setRideDetails(newValue);
-        bookedRides.getSelectionModel().clearSelection();
-
+    private void setUpRideTable() {
+        ridesCol.setCellValueFactory(
+                new PropertyValueFactory<Ride,String>("name")
+        );
+        rideStateCol.setCellValueFactory(
+                new PropertyValueFactory<Ride,String>("rideState")
+        );
+        bookedRidesTable.setItems(Data.passengerUser.getBookedRides().sorted());
     }
+
 
     public void searchStopPoints(){
         stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
@@ -135,8 +153,13 @@ public class PassengerController implements Initializable{
             } else {
                 setRideDetails(viewingRide);
             }
-            bookedRides.setItems(Data.passengerUser.getBookedRides().sorted());
+            bookedRidesTable.setItems(Data.passengerUser.getBookedRides().sorted());
         }
+    }
+
+    @FXML
+    private void cancelBooking(){
+
     }
 
     @FXML
