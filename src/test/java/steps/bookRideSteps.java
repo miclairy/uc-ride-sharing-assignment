@@ -18,6 +18,7 @@ public class bookRideSteps {
     private Ride ride1;
     private Ride selectedRide;
     private Passenger sally;
+    private Driver jo = new Driver();
     private int availableSeatsBefore;
 
     @Given("^sally has selected a ride$")
@@ -25,7 +26,7 @@ public class bookRideSteps {
         Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Route route = mock(Route.class);
         Trip trip = new Trip(route, "to Uni", false, car);
-        ride1 = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
+        ride1 = new Ride(trip, 5, LocalDate.now());
         selectedRide = ride1;
     }
 
@@ -33,7 +34,7 @@ public class bookRideSteps {
     public void sallyBooksTheRide() {
         availableSeatsBefore = selectedRide.getAvailableSeats();
         sally = new Passenger();
-        selectedRide.bookPassenger(sally);
+        selectedRide.bookPassenger(jo, sally);
     }
 
     @Then("^sally will be expected on the ride and the available seats decreases$")
@@ -52,17 +53,17 @@ public class bookRideSteps {
     public void sallyHasBookedARide() {
         Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
-        selectedRide = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
+        selectedRide = new Ride(trip, 5, LocalDate.now());
 
         System.out.println(selectedRide.getAvailableSeats());
         sally = new Passenger();
-        selectedRide.bookPassenger(sally);
+        selectedRide.bookPassenger(jo, sally);
         availableSeatsBefore = selectedRide.getAvailableSeats();
     }
 
     @When("^sally goes to book the ride again$")
     public void sallyGoesToBookTheRideAgain() {
-        selectedRide.bookPassenger(sally);
+        selectedRide.bookPassenger(jo, sally);
     }
 
     @Then("^nothing happens and she is not included again\\.$")

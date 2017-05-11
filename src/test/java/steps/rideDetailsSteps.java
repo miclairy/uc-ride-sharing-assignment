@@ -65,13 +65,13 @@ public class rideDetailsSteps {
         trip.setTimeForStopPoint(stop1, LocalTime.of(15, 0));
         trip.setTimeForStopPoint(stop2, LocalTime.of(15, 10));
         trip.setTimeForStopPoint(stop3, LocalTime.of(15, 20));
-        ride = new Ride(trip, car.getNumSeats(), jo, LocalDate.now());
+        ride = new Ride(trip, car.getNumSeats(), LocalDate.now());
 
     }
 
     @Then("^the rides details are displayed including drivers name, grade, car model, color, year, seats available, route length and number of stops\\.$")
     public void theRidesDetailsAreDisplayedIncludingDriversNameGradeCarModelColorYearSeatsAvailableRouteLengthAndNumberOfStops() throws Throwable {
-        String details = "Driver: " + driverName + "\nGrade: " + grade + "\nCar: " + car.toString() +
+        String details = "\nCar: " + car.toString() +
                         "\n Route Length: " + routeLength + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats();
         assertEquals(details, ride.getDetails());
     }

@@ -20,13 +20,14 @@ public class RideTest {
     private Ride ride;
     private Car car;
     private Trip trip;
+    private Driver jo = new Driver();
 
     @Before
     public void setUp(){
         Route route = mock(Route.class);
         car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
         trip = new Trip(route, "To University", true, car);
-        ride = new Ride(trip, 2, new Driver("jo"), LocalDate.now());
+        ride = new Ride(trip, 2, LocalDate.now());
     }
 
     @Test
@@ -38,7 +39,7 @@ public class RideTest {
     public void passengerBookTest(){
         Passenger passenger = mock(Passenger.class);
         int previousAvailableSeats = ride.getAvailableSeats();
-        ride.bookPassenger(passenger);
+        ride.bookPassenger(jo, passenger);
         assert(ride.getAvailableSeats() < previousAvailableSeats);
     }
 
@@ -46,11 +47,11 @@ public class RideTest {
     public void passengerBooksLastSeatTest(){
         Passenger passenger = mock(Passenger.class);
         Passenger passenger1 = mock(Passenger.class);
-        Data.getSharedRides().add(ride);
-        ride.bookPassenger(passenger);
-        ride.bookPassenger(passenger1);
+        jo.addRide(ride);
+        ride.bookPassenger(jo, passenger);
+        ride.bookPassenger(jo, passenger1);
         assertEquals(0, ride.getAvailableSeats());
-        assertFalse(Data.getSharedRides().contains(ride));
+        assertFalse(jo.getRides().contains(ride));
     }
 
     @Test
@@ -79,18 +80,18 @@ public class RideTest {
 
     @Test
     public void recurrentRideTest(){ //TODO test that they are correct days and fix
-        Data.getSharedRides().clear();
+        jo.getRides().clear();
         trip.setExpirationDate(LocalDate.of(2017, 4, 30)); //30th may 2017
         Set<DayOfWeek> days = new HashSet<>();
         days.add(DayOfWeek.WEDNESDAY);
         trip.setDays(days);
-        trip.share(2, new Driver("jo"), LocalDate.of(2017, 3, 30));
-        assertEquals(4, Data.getSharedRides().size());
+        trip.share(2, jo, LocalDate.of(2017, 3, 30));
+        assertEquals(4, jo.getRides().size());
 
-        Data.getSharedRides().clear();
+        jo.getRides().clear();
         days.add(DayOfWeek.SUNDAY);
         trip.setDays(days);
-        trip.share(2, new Driver("jo"), LocalDate.of(2017, 3, 30));
-        assertEquals(7, Data.getSharedRides().size());
+        trip.share(2, jo, LocalDate.of(2017, 3, 30));
+        assertEquals(8, jo.getRides().size());
     }
 }

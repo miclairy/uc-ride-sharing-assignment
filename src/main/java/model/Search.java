@@ -13,7 +13,6 @@ import java.util.Set;
  */
 public class Search {
 
-    private static ObservableList<Ride> sharedRides = Data.getSharedRides();
 
     public static ObservableList<StopPoint> stopPointsSearch(String searchString) {
         Set<StopPoint> searchResult = new HashSet<>();
@@ -31,7 +30,7 @@ public class Search {
         }
     }
 
-    public static ObservableList<Ride> ridesForStopPoint(StopPoint stopPoint) {
+    public static ObservableList<Ride> ridesForStopPoint(ObservableList<Ride> sharedRides, StopPoint stopPoint) {
         ObservableList<Ride> result = FXCollections.observableArrayList();
         for (Ride ride : sharedRides) {
             if (ride.getTrip().getRoute().getStops().contains(stopPoint)) {
@@ -42,7 +41,7 @@ public class Search {
     }
 
 
-    public static Collection<Ride> filterRides(String filter) {
+    public static Collection<Ride> filterRides(ObservableList<Ride> sharedRides, String filter) {
         Collection<Ride> result = new ArrayList<>();
         for (Ride ride : sharedRides) {
             if (ride.getTrip().getDirection().toLowerCase().equals(filter.toLowerCase())) {

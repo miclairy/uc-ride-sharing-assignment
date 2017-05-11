@@ -27,13 +27,13 @@ public class shareRideSteps {
 
     @When("^jo shares the trip with (\\d+) available seats$")
     public void joSharesTheTripWithAvailableSeats(int seats)  {
-        trip.share(seats, new Driver("jo"), LocalDate.now());
+        trip.share(seats, jo, LocalDate.now());
     }
 
     @Then("^a ride that can be booked is created and the trip is shared$")
     public void aRideThatCanBeBookedIsCreatedAndTheTripIsShared() {
         int size = 0;
         assert(trip.isShared());
-        assert(Data.getSharedRides().size() > size);
+        assert(jo.getRides().size() > size);
     }
 }

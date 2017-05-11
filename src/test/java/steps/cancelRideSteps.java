@@ -22,6 +22,7 @@ public class cancelRideSteps {
     @Given("^Jo is a driver who wants to cancel a ride$")
     public void joIsADriverWhoWantsToCancelARide() {
         jo = new Driver();
+        Data.setDriverUser(jo);
     }
 
     @Given("^Jo has a trip which he has shared$")
@@ -29,7 +30,9 @@ public class cancelRideSteps {
         Route route = mock(Route.class);
         Car car = mock(Car.class);
         Trip trip = new Trip(route, "to Uni", false, car);
-        josRide = new Ride(trip, 5, jo, LocalDate.now());    }
+        josRide = new Ride(trip, 5, LocalDate.now());
+        jo.addRide(josRide);
+    }
 
     @Given("^there are passengers booked on the ride$")
     public void thereArePassengersBookedOnTheRide() {
@@ -49,6 +52,6 @@ public class cancelRideSteps {
 
     @Then("^the ride is no longer available$")
     public void theRideIsNoLongerAvailable() {
-        assertFalse(Data.getSharedRides().contains(josRide));
+        assertFalse(jo.getRides().contains(josRide));
     }
 }

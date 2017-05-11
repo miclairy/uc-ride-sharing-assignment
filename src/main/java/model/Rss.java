@@ -16,7 +16,6 @@ public class Rss {
         stopPoints = Data.stopPointsList;
         drivers = Data.drivers;
         passengers = Data.passengers;
-        rides = Data.getSharedRides();
 
     }
 

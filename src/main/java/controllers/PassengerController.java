@@ -48,6 +48,8 @@ public class PassengerController implements Initializable{
 
     private Ride viewingRide;
     private Passenger passenger;
+    private ObservableList<Ride> rides = FXCollections.observableArrayList();
+    private Map<Ride, Driver> driverRide = new HashMap<>();
 
 
     @Override
@@ -57,7 +59,14 @@ public class PassengerController implements Initializable{
         toFromUniCombo.getItems().add("All");
         toFromUniCombo.setValue("All");
         stopPoints.setItems(Data.stopPointsList.sorted());
-        sharedRides.setItems(Data.getSharedRides().sorted());
+
+        for (Driver driver : Data.drivers){
+            rides.addAll(driver.getRides());
+            for (Ride ride : driver.getRides()) {
+                driverRide.put(ride, driver);
+            }
+        }
+        sharedRides.setItems(rides.sorted());
         setUpRideTable();
         setSelectionListeners();
         notifyCancelledRide();
@@ -115,7 +124,7 @@ public class PassengerController implements Initializable{
         if (ride != null) {
             Trip trip = ride.getTrip();
             rideDetails.getChildren().clear();
-
+            rideDetails.getChildren().add(new Label(driverRide.get(ride).toString()));
             rideDetails.getChildren().add(new Label(ride.getDetails()));
             rideDetails.getChildren().add(new Label("Date: " + ride.getDate().toString()));
             TitledPane routePane = new TitledPane();
@@ -134,7 +143,7 @@ public class PassengerController implements Initializable{
 
     public void bookRide(){
         if (viewingRide != null) {
-            viewingRide.bookPassenger(Data.passengerUser);
+            viewingRide.bookPassenger(driverRide.get(viewingRide), Data.passengerUser);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Booked Ride");
             alert.setHeaderText("You have successfully booked a ride");
@@ -172,11 +181,11 @@ public class PassengerController implements Initializable{
         ObservableList<Ride> obResult = FXCollections.observableArrayList();
         Collection<Ride> filtered = new HashSet<>();
         if (!toFromUniCombo.getValue().equals("All")) {
-            filtered = Search.filterRides(toFromUniCombo.getValue());
+            filtered = Search.filterRides(rides, toFromUniCombo.getValue());
         } else {
-            filtered = Data.getSharedRides().sorted();
+            filtered = rides.sorted();
         }
-        ObservableList<Ride> onlyStopPointSelected = Search.ridesForStopPoint(stopPoints.getSelectionModel().getSelectedItem());
+        ObservableList<Ride> onlyStopPointSelected = Search.ridesForStopPoint(rides, stopPoints.getSelectionModel().getSelectedItem());
         if (!onlyStopPointSelected.isEmpty()){
             for (int i = 0; i < onlyStopPointSelected.size(); i++) {
                 if (filtered.contains(onlyStopPointSelected.get(i))){

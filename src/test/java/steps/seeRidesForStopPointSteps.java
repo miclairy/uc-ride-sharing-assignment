@@ -24,6 +24,7 @@ public class seeRidesForStopPointSteps {
     private Ride ride3;
     private StopPoint stop;
     private StopPoint stop2;
+    private Driver jo = new Driver("jo");
     private Collection<Ride> ridesForStop = new ArrayList<>();
     private String filter;
 
@@ -46,14 +47,14 @@ public class seeRidesForStopPointSteps {
         Car car = mock(Car.class);
         Trip trip = new Trip(new Route(stops, ""), "To University", false, car);
         trip.setName("trip");
-        ride1 = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
+        ride1 = new Ride(trip, 5, LocalDate.now());
         List<StopPoint> stops2 = new ArrayList<>();
         stops2.add(stop2);
         Trip trip2 = new Trip(new Route(stops2, ""), "From University", false, car);
         trip2.setName("trip2");
-        ride2 = new Ride(trip2, 6, new Driver("jo"), LocalDate.now());
-        Data.getSharedRides().add(ride1);
-        Data.getSharedRides().add(ride2);
+        ride2 = new Ride(trip2, 6, LocalDate.now());
+        jo.getRides().add(ride1);
+        jo.addRide(ride2);
     }
 
     @When("^sally selects a (\\d+) \"([^\"]*)\" street$")
@@ -65,7 +66,7 @@ public class seeRidesForStopPointSteps {
     public void theRidesWhichHaveStreetAsAStopPointAreSeen(int arg1, String arg2) {
         ObservableList<Ride> rides = FXCollections.observableArrayList();
         rides.add(ride1);
-        assertEquals(rides, Search.ridesForStopPoint(selected));
+        assertEquals(rides, Search.ridesForStopPoint(jo.getRides(), selected));
     }
 
     @Given("^there is a stop point that has multiple rides that go to it\\.$")
@@ -76,24 +77,24 @@ public class seeRidesForStopPointSteps {
         Car car = mock(Car.class);
         Trip trip3 = new Trip(new Route(stops, ""), "To University", false, car);
         trip3.setName("trip3");
-        ride3 = new Ride(trip3, 5, new Driver("jo"), LocalDate.now());
+        ride3 = new Ride(trip3, 5, LocalDate.now());
         Trip trip = new Trip(new Route(stops, ""), "To University", false, car);
         trip.setName("trip");
-        ride1 = new Ride(trip, 5, new Driver("jo"), LocalDate.now());
+        ride1 = new Ride(trip, 5, LocalDate.now());
         stops.remove(stop);
         Trip trip2 = new Trip(new Route(stops, ""), "From University", false, car);
         trip2.setName("trip2");
-        ride2 = new Ride(trip2, 6, new Driver("jo"), LocalDate.now());
+        ride2 = new Ride(trip2, 6, LocalDate.now());
     }
 
     @Given("^sally has selected that stop point$")
     public void sallyHasSelectedThatStopPoint() {
         selected = stop;
-        ridesForStop.addAll(Search.ridesForStopPoint(selected));
-        Data.getSharedRides().clear();
-        Data.getSharedRides().add(ride1);
-        Data.getSharedRides().add(ride2);
-        Data.getSharedRides().add(ride3);
+        ridesForStop.addAll(Search.ridesForStopPoint(jo.getRides(), selected));
+        jo.getRides().clear();
+        jo.addRide(ride1);
+        jo.addRide(ride2);
+        jo.addRide(ride3);
     }
 
     @When("^sally selects a filter option \"([^\"]*)\"$")
@@ -107,7 +108,7 @@ public class seeRidesForStopPointSteps {
         filtered.add(ride1);
         filtered.add(ride3);
 
-        assertEquals(filtered, Search.filterRides(filter));
+        assertEquals(filtered, Search.filterRides(jo.getRides(), filter));
     }
 
 

@@ -29,7 +29,9 @@ public class storeDataSteps {
         Data.setDataListeners();
         Data.drivers.clear();
         Data.stopPoints.clear();
-        Data.getSharedRides().clear();
+        for (Driver jo : jos){
+            jo.getRides().clear();
+        }
         Driver jo = new Driver("jo");
         jo.addCar(new Car("car", "blue", "mazda", "123RTF", 1200, 6));
         StopPoint stopPoint1 = new StopPoint(3, "hare");
@@ -77,11 +79,11 @@ public class storeDataSteps {
     @Given("^there is a ride$")
     public void thereIsARide() {
         trip.share(5, Data.drivers.get(0), LocalDate.of(2017, 7, 30));
-        rides = Data.getSharedRides();
+        rides = jos.get(0).getRides();
     }
 
     @Then("^the ride should still be there$")
     public void theRideShouldStillBeThere() {
-        assertEquals(rides, Data.getSharedRides());
+        assertEquals(rides, jos.get(0).getRides());
     }
 }

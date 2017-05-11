@@ -80,7 +80,7 @@ public class Driver extends Account{
 
     @Override
     public String toString() {
-        return this.getName();
+        return this.getName() + "\n";
     }
 
     public void addTrip(Trip trip) {

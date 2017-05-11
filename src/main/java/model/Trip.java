@@ -102,20 +102,17 @@ public class Trip {
                     while (date.getDayOfWeek().getValue() != day.getValue()){
                         date = date.plusDays(1);
                     }
-                    Ride ride = new Ride(this, seats, driver, date);
+                    Ride ride = new Ride(this, seats, date);
                     driver.addRide(ride);
                     shared = true;
-                    Data.getSharedRides().add(ride);
                     date = date.plusWeeks(1);
                     count++;
                 }
             }
         } else {
-            Ride ride = new Ride(this, seats, driver, date);
+            Ride ride = new Ride(this, seats, date);
             driver.addRide(ride);
             shared = true;
-            Data.getSharedRides().add(ride);
-            date = date.plusWeeks(1);
         }
     }
 

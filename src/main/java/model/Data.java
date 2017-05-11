@@ -23,7 +23,6 @@ public class Data extends Observable {
 
     public static ObservableSet<StopPoint> stopPoints = FXCollections.observableSet();
     public static ObservableList<StopPoint> stopPointsList = FXCollections.observableArrayList(stopPoints);
-    private static ObservableList<Ride> sharedRides = FXCollections.observableArrayList();
     public static List<Driver> drivers = new ArrayList<>();
     public static List<Passenger> passengers = new ArrayList<>();
     private static Map<String, Driver> driverEmails = new HashMap<>();
@@ -40,10 +39,6 @@ public class Data extends Observable {
             stopPointsList.addAll(stopPoints);
         };
         stopPoints.addListener(listener);
-    }
-
-    public static ObservableList<Ride> getSharedRides() {
-        return sharedRides;
     }
 
     public ArrayList<StopPoint> getStopPoints() {
@@ -68,7 +63,6 @@ public class Data extends Observable {
         passengers.clear();
         stopPointsList.clear();
         stopPoints.clear();
-        sharedRides.clear();
         for (Driver driver :loaded.getDrivers()){
             addDriver(driver);
         }
@@ -76,7 +70,6 @@ public class Data extends Observable {
             addPassenger(passenger);
         }
         stopPoints.addAll(loaded.getStopPoints());
-        sharedRides.addAll(loaded.getRides());
     }
 
     public static void addPassenger(Passenger passenger){

@@ -16,7 +16,6 @@ public class Ride implements Comparable<Ride> {
     private Trip trip;
     private int availableSeats;
     private Set<Passenger> passengers = new HashSet<>();
-    private Driver driver;
     private LocalDate date;
     private RideState state;
     private LocalTime time;
@@ -28,14 +27,13 @@ public class Ride implements Comparable<Ride> {
     private SimpleStringProperty rideState;
 
 
-    public Ride(Trip trip, int availableSeats, Driver driver, LocalDate date) {
+    public Ride(Trip trip, int availableSeats, LocalDate date) {
         this.trip = trip;
         if (availableSeats > trip.getCar().getNumSeats()){
             this.availableSeats = trip.getCar().getNumSeats();
         } else {
             this.availableSeats = availableSeats;
         }
-        this.driver = driver;
         this.date = date;
 
         changeRideState(RideState.Running);
@@ -64,14 +62,14 @@ public class Ride implements Comparable<Ride> {
         return trip.getName();
     }
 
-    public void bookPassenger(Passenger passenger){
+    public void bookPassenger(Driver driver, Passenger passenger){
         if (availableSeats > 0 && !passengers.contains(passenger)) {
             passengers.add(passenger);
             availableSeats--;
             passenger.bookRide(this);
         }
         if (availableSeats == 0){
-            Data.getSharedRides().remove(this);
+            driver.getRides().remove(this);
         }
 
     }
@@ -81,7 +79,7 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String getDetails() {
-        String details = "Driver: " + driver + "\nGrade: " + driver.getGrade() + "\nCar: " + trip.getCar().toString() +
+        String details =  "\nCar: " + trip.getCar().toString() +
                 "\n Route Length: " + trip.getLength().toMinutes() + "\nNumber of Stops: " + trip.getStopTimes().size() +
                 "\nAvailable Seats: " + availableSeats;
         return details;
@@ -128,13 +126,9 @@ public class Ride implements Comparable<Ride> {
         rideState = new SimpleStringProperty(state.name());
     }
 
-    public Driver getDriver() {
-        return driver;
-    }
-
     public void cancelRide(String reason) {
         rideState = new SimpleStringProperty(RideState.Cancelled.name());
-        Data.getSharedRides().remove(this);
+        Data.getDriverUser().getRides().remove(this);
         cancelationReason = reason;
     }
 
