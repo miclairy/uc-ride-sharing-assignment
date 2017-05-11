@@ -22,7 +22,9 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
@@ -67,16 +69,12 @@ public class DriverController implements Initializable {
 
     static Driver driverUser;
     static boolean noftifed = false;
-    private ObservableList<Ride> driverRides = FXCollections.observableArrayList();
 
-    private static Window mainStage;
-    private static FXMLLoader controllerLoader;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         driverUser = Data.getDriverUser();
-        controllerLoader = new FXMLLoader(getClass().getResource("/driverMain.fxml"));
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         String cars = "";
@@ -114,18 +112,9 @@ public class DriverController implements Initializable {
             }
         });
 
-        updateDriverRides();
-        ridesTable.setItems(driverRides.sorted());
+        ridesTable.setItems(Data.getDriverUser().getRides().sorted());
     }
 
-    private void updateDriverRides(){
-        driverRides.clear();
-        for (Ride ride : Data.getSharedRides()){
-            if (ride.getDriver().equals(Data.getDriverUser())){
-                driverRides.add(ride);
-            }
-        }
-    }
 
     private void notifyUser(Set<ExpiryNotifactions.Expired> notify) {
 
@@ -255,7 +244,6 @@ public class DriverController implements Initializable {
                 infoHolder.getChildren().add(share);
                 share.setOnAction(event -> {
                     shareRide(trip);
-                    updateDriverRides();
                 });
 
                 TitledPane routePane = new TitledPane();
@@ -288,13 +276,22 @@ public class DriverController implements Initializable {
     @FXML
     private void cancelRide(){
         Ride ride = ridesTable.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        TextInputDialog alert = new TextInputDialog();
         alert.setTitle("Cancel Ride");
-        alert.setHeaderText("Are you sure you want to cancel the ride");
-        alert.setContentText("Cancelling ride " + ride.toString());
-        alert.showAndWait();
-        ride.cancelRide();
-        updateDriverRides();
+        alert.setHeaderText("Are you sure you want to cancel the ride " + ride.toString());
+        alert.setContentText("Why are you cancelling?");
+        Optional<String> reason = alert.showAndWait();
+        reason.ifPresent(name -> ride.cancelRide(reason.get()));
+        ridesTable.setItems(Data.getDriverUser().getRides());
+
+        if ( ChronoUnit.HOURS.between(LocalTime.now(), ride.getTime()) <= 2){
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("You may not be well reviewed");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Passengers may not review you well as you cancelled your ride close " +
+                    "to the time of the ride");
+            warningAlert.showAndWait();
+        }
     }
 
     public void stopPointsSearch(){

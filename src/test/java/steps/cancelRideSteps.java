@@ -39,7 +39,7 @@ public class cancelRideSteps {
 
     @When("^jo selects to cancel the ride$")
     public void joSelectsToCancelTheRide() {
-        josRide.cancelRide();
+        josRide.cancelRide("sick");
     }
 
     @Then("^the passengers are notified$")

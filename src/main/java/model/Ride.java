@@ -20,6 +20,7 @@ public class Ride implements Comparable<Ride> {
     private LocalDate date;
     private RideState state;
     private LocalTime time;
+    private String cancelationReason;
 
     private SimpleStringProperty name;
     private SimpleStringProperty startDate;
@@ -114,6 +115,9 @@ public class Ride implements Comparable<Ride> {
         return startTime.get();
     }
 
+    public LocalTime getTime() {
+        return time;
+    }
 
     public String getRideState() {
         return rideState.get();
@@ -128,9 +132,13 @@ public class Ride implements Comparable<Ride> {
         return driver;
     }
 
-    public void cancelRide() {
+    public void cancelRide(String reason) {
         rideState = new SimpleStringProperty(RideState.Cancelled.name());
         Data.getSharedRides().remove(this);
+        cancelationReason = reason;
     }
 
+    public String getCancelationReason() {
+        return cancelationReason;
+    }
 }

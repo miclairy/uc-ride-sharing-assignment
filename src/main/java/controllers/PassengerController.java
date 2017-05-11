@@ -60,9 +60,7 @@ public class PassengerController implements Initializable{
         sharedRides.setItems(Data.getSharedRides().sorted());
         setUpRideTable();
         setSelectionListeners();
-
-        passenger = new Passenger(); //so I can switch
-        Data.addPassenger(passenger);
+        notifyCancelledRide();
 
     }
 
@@ -134,12 +132,6 @@ public class PassengerController implements Initializable{
         }
     }
 
-    public void becomeDriver() throws IOException {
-        SwitchScenes switchScenes = new SwitchScenes();
-        switchScenes.goToScene("/driverMain.fxml");
-    }
-
-
     public void bookRide(){
         if (viewingRide != null) {
             viewingRide.bookPassenger(Data.passengerUser);
@@ -160,6 +152,19 @@ public class PassengerController implements Initializable{
     @FXML
     private void cancelBooking(){
 
+    }
+
+    private void notifyCancelledRide(){
+        for (Ride ride : Data.passengerUser.getBookedRides()){
+            if (ride.getRideState().equals(Ride.RideState.Cancelled.name()) &&
+                    !Data.passengerUser.getNotifiedRides().contains(ride)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cancellation");
+                alert.setHeaderText("Driver Cancelled Ride");
+                alert.setContentText("Driver cancelled ride " + ride.toString() + " because " + ride.getCancelationReason());
+                alert.showAndWait();
+            }
+        }
     }
 
     @FXML

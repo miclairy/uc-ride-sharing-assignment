@@ -18,6 +18,7 @@ public class Driver extends Account{
     private ObservableList<Car> cars = FXCollections.observableArrayList();
     private ObservableList<Route> routes = FXCollections.observableArrayList();
     private ObservableList<Trip> trips = FXCollections.observableArrayList();
+    private ObservableList<Ride> rides = FXCollections.observableArrayList();
     private String grade;
     private License license;
 
@@ -114,5 +115,13 @@ public class Driver extends Account{
 
     public License getLicense() {
         return license;
+    }
+
+    public ObservableList<Ride> getRides() {
+        return rides;
+    }
+
+    public void addRide(Ride ride) {
+        rides.add(ride);
     }
 }

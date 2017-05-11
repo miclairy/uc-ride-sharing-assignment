@@ -4,13 +4,12 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class Passenger extends Account {
 
     private List<Ride> bookedRides = new ArrayList<>();
+    private Set<Ride> notifiedRides = new HashSet<>();
 
     public boolean bookRide(Ride ride){
         if (ride.getRideState() != Ride.RideState.Cancelled.name()) {
@@ -22,5 +21,9 @@ public class Passenger extends Account {
 
     public ObservableList<Ride> getBookedRides() {
         return FXCollections.observableArrayList(bookedRides);
+    }
+
+    public Set<Ride> getNotifiedRides() {
+        return notifiedRides;
     }
 }

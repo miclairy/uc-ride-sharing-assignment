@@ -103,6 +103,7 @@ public class Trip {
                         date = date.plusDays(1);
                     }
                     Ride ride = new Ride(this, seats, driver, date);
+                    driver.addRide(ride);
                     shared = true;
                     Data.getSharedRides().add(ride);
                     date = date.plusWeeks(1);
@@ -111,6 +112,7 @@ public class Trip {
             }
         } else {
             Ride ride = new Ride(this, seats, driver, date);
+            driver.addRide(ride);
             shared = true;
             Data.getSharedRides().add(ride);
             date = date.plusWeeks(1);

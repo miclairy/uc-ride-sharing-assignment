@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class ExpiryNotifactions {
 
-    public static enum Expired{
+    public enum Expired{
         LICENSE, WOF, REGISTRATION;
     }
 
