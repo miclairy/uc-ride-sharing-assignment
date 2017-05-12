@@ -10,7 +10,7 @@ import java.util.*;
 public class Ride implements Comparable<Ride> {
 
     public enum RideState{
-        Done, Cancelled, Booked, Running
+        Done, Cancelled, Booked, Running, Full
     }
 
     private Trip trip;
@@ -20,6 +20,7 @@ public class Ride implements Comparable<Ride> {
     private RideState state;
     private LocalTime time;
     private String cancelationReason;
+    private Set<Passenger> cancelationUnnotifiedPassengers = new HashSet<>();
 
     private SimpleStringProperty name;
     private SimpleStringProperty startDate;
@@ -62,16 +63,16 @@ public class Ride implements Comparable<Ride> {
         return trip.getName();
     }
 
-    public void bookPassenger(Driver driver, Passenger passenger){
-        if (availableSeats > 0 && !passengers.contains(passenger)) {
+    public boolean bookPassenger(Driver driver, Passenger passenger){
+        if (availableSeats > 0) {
             passengers.add(passenger);
             availableSeats--;
-            passenger.bookRide(this);
         }
         if (availableSeats == 0){
-            driver.getRides().remove(this);
+            changeRideState(RideState.Full);
+            return false;
         }
-
+        return true;
     }
 
     public Set<Passenger> getPassengers() {
@@ -79,9 +80,8 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String getDetails() {
-        String details =  "\nCar: " + trip.getCar().toString() +
-                "\n Route Length: " + trip.getLength().toMinutes() + "\nNumber of Stops: " + trip.getStopTimes().size() +
-                "\nAvailable Seats: " + availableSeats;
+        String details =  "\nCar: " + trip.getCar().toString() + "\n Route Length: " + trip.getLength().toMinutes() +
+                "\nNumber of Stops: " + trip.getStopTimes().size() + "\nAvailable Seats: " + availableSeats;
         return details;
     }
 
@@ -128,11 +128,25 @@ public class Ride implements Comparable<Ride> {
 
     public void cancelRide(String reason) {
         rideState = new SimpleStringProperty(RideState.Cancelled.name());
-        Data.getDriverUser().getRides().remove(this);
         cancelationReason = reason;
+        cancelationUnnotifiedPassengers.addAll(passengers);
     }
 
     public String getCancelationReason() {
         return cancelationReason;
+    }
+
+    public Set<Passenger> getCancelationUnnotifiedPassengers() {
+        return cancelationUnnotifiedPassengers;
+    }
+
+    public void notifiedPassenger(Passenger passenger){
+        cancelationUnnotifiedPassengers.add(passenger);
+    }
+
+    public void cancelPassenger(Passenger passenger){
+        passengers.remove(passenger);
+        availableSeats += 1;
+        changeRideState(RideState.Running);
     }
 }

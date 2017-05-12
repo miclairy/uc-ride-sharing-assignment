@@ -46,7 +46,7 @@ public class bookRideSteps {
 
     @Then("^she will know that she booked the ride$")
     public void sheWillKnowThatSheBookedTheRide() {
-        assert (sally.getBookedRides().contains(ride1));
+        assert (ride1.getPassengers().contains(sally));
     }
 
     @Given("^sally has booked a ride$")

@@ -284,7 +284,8 @@ public class DriverController implements Initializable {
         reason.ifPresent(name -> ride.cancelRide(reason.get()));
         ridesTable.setItems(Data.getDriverUser().getRides());
 
-        if ( ChronoUnit.HOURS.between(LocalTime.now(), ride.getTime()) <= 2){
+        if (ChronoUnit.DAYS.between(LocalDate.now(), ride.getDate()) <= 0 &&
+                ChronoUnit.HOURS.between(LocalTime.now(), ride.getTime()) <= 2){
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
             warningAlert.setTitle("You may not be well reviewed");
             warningAlert.setHeaderText(null);

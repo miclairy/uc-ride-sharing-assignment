@@ -37,7 +37,7 @@ public class cancelRideSteps {
     @Given("^there are passengers booked on the ride$")
     public void thereArePassengersBookedOnTheRide() {
         sally = new Passenger();
-        sally.bookRide(josRide);
+        josRide.bookPassenger(jo, sally);
     }
 
     @When("^jo selects to cancel the ride$")
@@ -47,7 +47,8 @@ public class cancelRideSteps {
 
     @Then("^the passengers are notified$")
     public void thePassengersAreNotified() {
-        assertFalse(sally.bookRide(josRide));
+        josRide.notifiedPassenger(sally);
+        assert(josRide.getCancelationUnnotifiedPassengers().contains(sally));
     }
 
     @Then("^the ride is no longer available$")

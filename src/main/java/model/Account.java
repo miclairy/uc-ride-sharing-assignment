@@ -6,6 +6,7 @@ import org.apache.commons.codec.binary.Hex;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,5 +98,25 @@ public class Account {
 
     public void setPassword(byte[] password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Account account = (Account) o;
+
+        if (!email.equals(account.email)) return false;
+        if (!Arrays.equals(password, account.password)) return false;
+        return ucId.equals(account.ucId);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = email.hashCode();
+        result = 31 * result + Arrays.hashCode(password);
+        result = 31 * result + ucId.hashCode();
+        return result;
     }
 }

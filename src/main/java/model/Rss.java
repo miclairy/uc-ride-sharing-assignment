@@ -10,7 +10,6 @@ public class Rss {
     private List<Driver> drivers = new ArrayList<>();
     private List<Passenger> passengers = new ArrayList<>();
     private List<StopPoint> stopPoints = new ArrayList<>();
-    private List<Ride> rides = new ArrayList<>();
 
     public Rss(){
         stopPoints = Data.stopPointsList;
@@ -31,7 +30,4 @@ public class Rss {
         return stopPoints;
     }
 
-    public List<Ride> getRides() {
-        return rides;
-    }
 }
