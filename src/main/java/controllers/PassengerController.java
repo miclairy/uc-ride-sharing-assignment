@@ -67,9 +67,10 @@ public class PassengerController implements Initializable{
         driverRide.clear();
         for (Driver driver : Data.drivers){
             for (Ride ride : driver.getRides()) {
+                driverRide.put(ride, driver);
                 if (ride.getRideState().equals(Ride.RideState.Running.name())) {
                     rides.add(ride);
-                    driverRide.put(ride, driver);
+
                 }
             }
         }

@@ -141,7 +141,7 @@ public class Ride implements Comparable<Ride> {
     }
 
     public void notifiedPassenger(Passenger passenger){
-        cancelationUnnotifiedPassengers.add(passenger);
+        cancelationUnnotifiedPassengers.remove(passenger);
     }
 
     public void cancelPassenger(Passenger passenger){
