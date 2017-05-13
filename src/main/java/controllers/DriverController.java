@@ -131,6 +131,21 @@ public class DriverController implements Initializable {
             noftifed = true;
         }
 
+        for (Ride ride : Data.getDriverUser().getRides()){
+            HashMap<Passenger, String> cancelledPassengers = ride.notifyDriver();
+            if (!cancelledPassengers.isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Passengers have cancelled");
+                alert.setHeaderText("Passengers have cancelled on " + ride);
+                String reasons = "";
+                for (Passenger passenger : cancelledPassengers.keySet()){
+                    reasons += passenger.getName() + " " + cancelledPassengers.get(passenger) + ", ";
+                }
+                alert.setContentText(reasons);
+                alert.showAndWait();
+            }
+        }
+
     }
 
     public void registerCar(){

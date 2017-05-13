@@ -157,7 +157,9 @@ public class Ride implements Comparable<Ride> {
 
     public HashMap<Passenger, String> notifyDriver() {
         notifyDriver = false;
-        return passengerCancelationReasons;
+        HashMap<Passenger, String> cancelled = passengerCancelationReasons;
+        passengerCancelationReasons.clear();
+        return cancelled;
     }
 
 }

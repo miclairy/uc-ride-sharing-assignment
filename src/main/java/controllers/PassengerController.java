@@ -13,6 +13,9 @@ import javafx.scene.layout.VBox;
 import model.*;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
@@ -178,7 +181,24 @@ public class PassengerController implements Initializable{
 
     @FXML
     private void cancelBooking(){
-        viewingRide.cancelPassenger(Data.passengerUser, "");
+
+        TextInputDialog alert = new TextInputDialog();
+        alert.setTitle("Cancel Ride");
+        alert.setHeaderText("Are you sure you want to cancel the booking on " + viewingRide.toString());
+        alert.setContentText("Why are you cancelling?");
+        Optional<String> reason = alert.showAndWait();
+        reason.ifPresent(name -> viewingRide.cancelPassenger(Data.passengerUser, reason.get()));
+
+        if (ChronoUnit.DAYS.between(LocalDate.now(), viewingRide.getDate()) <= 0 &&
+                ChronoUnit.HOURS.between(LocalTime.now(), viewingRide.getTime()) <= 2){
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("You may not be well reviewed");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Drivers may not review you well as you cancelled your ride close " +
+                    "to the time of the ride");
+            warningAlert.showAndWait();
+        }
+
     }
 
     private void notifyCancelledRide(){
