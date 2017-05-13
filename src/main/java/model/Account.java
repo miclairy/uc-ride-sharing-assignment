@@ -107,16 +107,14 @@ public class Account {
 
         Account account = (Account) o;
 
-        if (!email.equals(account.email)) return false;
-        if (!Arrays.equals(password, account.password)) return false;
-        return ucId.equals(account.ucId);
+        if (email != null ? !email.equals(account.email) : account.email != null) return false;
+        return ucId != null ? ucId.equals(account.ucId) : account.ucId == null;
     }
 
     @Override
     public int hashCode() {
-        int result = email.hashCode();
-        result = 31 * result + Arrays.hashCode(password);
-        result = 31 * result + ucId.hashCode();
+        int result = email != null ? email.hashCode() : 0;
+        result = 31 * result + (ucId != null ? ucId.hashCode() : 0);
         return result;
     }
 }

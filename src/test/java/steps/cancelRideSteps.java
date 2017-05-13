@@ -6,7 +6,10 @@ import cucumber.api.java.en.When;
 import model.*;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
 
@@ -37,6 +40,13 @@ public class cancelRideSteps {
     @Given("^there are passengers booked on the ride$")
     public void thereArePassengersBookedOnTheRide() {
         sally = new Passenger();
+        Map<String, Object> store = new HashMap<>();
+        store.put("ucId", "sal34");
+        store.put("name", "sally");
+        store.put("address", "45 Sally");
+        store.put("phone", (long) 450138318);
+        store.put("email", "sal34@uclive.ac.nz");
+        sally.setDetails(store);
         josRide.bookPassenger(jo, sally);
     }
 
@@ -48,11 +58,11 @@ public class cancelRideSteps {
     @Then("^the passengers are notified$")
     public void thePassengersAreNotified() {
         josRide.notifiedPassenger(sally);
-        assert(josRide.getCancelationUnnotifiedPassengers().contains(sally));
+        assertFalse(josRide.getCancelationUnnotifiedPassengers().contains(sally));
     }
 
     @Then("^the ride is no longer available$")
     public void theRideIsNoLongerAvailable() {
-        assertFalse(jo.getRides().contains(josRide));
+        assertEquals(Ride.RideState.Cancelled.name(), josRide.getRideState());
     }
 }

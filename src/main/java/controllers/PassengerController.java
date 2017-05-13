@@ -177,8 +177,8 @@ public class PassengerController implements Initializable{
     }
 
     @FXML
-    private void cancelBooking(){ //TODO
-        viewingRide.cancelPassenger(Data.passengerUser);
+    private void cancelBooking(){
+        viewingRide.cancelPassenger(Data.passengerUser, "");
     }
 
     private void notifyCancelledRide(){

@@ -19,6 +19,8 @@ public class Ride implements Comparable<Ride> {
     private LocalDate date;
     private RideState state;
     private LocalTime time;
+    private boolean notifyDriver = false;
+    private HashMap<Passenger, String> passengerCancelationReasons = new HashMap<>();
     private String cancelationReason;
     private Set<Passenger> cancelationUnnotifiedPassengers = new HashSet<>();
 
@@ -65,8 +67,9 @@ public class Ride implements Comparable<Ride> {
 
     public boolean bookPassenger(Driver driver, Passenger passenger){
         if (availableSeats > 0) {
-            passengers.add(passenger);
-            availableSeats--;
+            if (passengers.add(passenger)){
+                availableSeats--;
+            }
         }
         if (availableSeats == 0){
             changeRideState(RideState.Full);
@@ -144,9 +147,17 @@ public class Ride implements Comparable<Ride> {
         cancelationUnnotifiedPassengers.remove(passenger);
     }
 
-    public void cancelPassenger(Passenger passenger){
+    public void cancelPassenger(Passenger passenger, String reason){
         passengers.remove(passenger);
         availableSeats += 1;
         changeRideState(RideState.Running);
+        notifyDriver = true;
+        passengerCancelationReasons.put(passenger, reason);
     }
+
+    public HashMap<Passenger, String> notifyDriver() {
+        notifyDriver = false;
+        return passengerCancelationReasons;
+    }
+
 }

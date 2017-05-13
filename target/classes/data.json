@@ -278,6 +278,62 @@
             "valid": true
           },
           "shared": true
+        },
+        {
+          "route": {
+            "stops": [
+              {
+                "streetNumber": 3,
+                "streetName": "Bear"
+              },
+              {
+                "streetNumber": 6,
+                "streetName": "Hare"
+              }
+            ],
+            "name": "animal"
+          },
+          "direction": "To University",
+          "recurrent": false,
+          "days": [],
+          "car": {
+            "type": "car",
+            "colour": "green",
+            "model": "subaru",
+            "plates": "ALN345",
+            "year": 1998,
+            "numSeats": 5,
+            "wofExpiration": {
+              "year": 2018,
+              "month": 5,
+              "day": 19
+            },
+            "registrationExpiry": {
+              "year": 2018,
+              "month": 5,
+              "day": 19
+            }
+          },
+          "stopTimes": {
+            "6 Hare \n": {
+              "hour": 22,
+              "minute": 0,
+              "second": 0,
+              "nano": 0
+            },
+            "3 Bear \n": {
+              "hour": 21,
+              "minute": 0,
+              "second": 0,
+              "nano": 0
+            }
+          },
+          "name": {
+            "name": "",
+            "value": "later today",
+            "valid": true
+          },
+          "shared": true
         }
       ],
       "rides": [
@@ -379,6 +435,7 @@
             "second": 0,
             "nano": 0
           },
+          "cancelationReason": "because busy",
           "cancelationUnnotifiedPassengers": [],
           "name": {
             "name": "",
@@ -397,7 +454,7 @@
           },
           "rideState": {
             "name": "",
-            "value": "Running",
+            "value": "Cancelled",
             "valid": true
           }
         },
@@ -1125,6 +1182,100 @@
           "rideState": {
             "name": "",
             "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 3,
+                  "streetName": "Bear"
+                },
+                {
+                  "streetNumber": 6,
+                  "streetName": "Hare"
+                }
+              ],
+              "name": "animal"
+            },
+            "direction": "To University",
+            "recurrent": false,
+            "days": [],
+            "car": {
+              "type": "car",
+              "colour": "green",
+              "model": "subaru",
+              "plates": "ALN345",
+              "year": 1998,
+              "numSeats": 5,
+              "wofExpiration": {
+                "year": 2018,
+                "month": 5,
+                "day": 19
+              },
+              "registrationExpiry": {
+                "year": 2018,
+                "month": 5,
+                "day": 19
+              }
+            },
+            "stopTimes": {
+              "6 Hare \n": {
+                "hour": 22,
+                "minute": 0,
+                "second": 0,
+                "nano": 0
+              },
+              "3 Bear \n": {
+                "hour": 21,
+                "minute": 0,
+                "second": 0,
+                "nano": 0
+              }
+            },
+            "name": {
+              "name": "",
+              "value": "later today",
+              "valid": true
+            },
+            "shared": true
+          },
+          "availableSeats": 2,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 5,
+            "day": 12
+          },
+          "state": "Running",
+          "time": {
+            "hour": 21,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "cancelationReason": "make by misstke",
+          "cancelationUnnotifiedPassengers": [],
+          "name": {
+            "name": "",
+            "value": "later today",
+            "valid": true
+          },
+          "startDate": {
+            "name": "",
+            "value": "2017-05-12",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "21:00",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Cancelled",
             "valid": true
           }
         }

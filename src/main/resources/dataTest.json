@@ -120,7 +120,9 @@
             "day": 4
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-08-04",
@@ -185,7 +187,9 @@
             "day": 11
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-08-11",
@@ -250,7 +254,9 @@
             "day": 18
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-08-18",
@@ -315,7 +321,9 @@
             "day": 25
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-08-25",
@@ -380,7 +388,9 @@
             "day": 1
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-09-01",
@@ -445,7 +455,9 @@
             "day": 8
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-09-08",
@@ -510,7 +522,9 @@
             "day": 15
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-09-15",
@@ -575,7 +589,9 @@
             "day": 22
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-09-22",
@@ -640,7 +656,9 @@
             "day": 29
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-09-29",
@@ -705,7 +723,9 @@
             "day": 6
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-10-06",
@@ -770,7 +790,9 @@
             "day": 13
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-10-13",
@@ -835,7 +857,9 @@
             "day": 20
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-10-20",
@@ -900,7 +924,9 @@
             "day": 27
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-10-27",
@@ -965,7 +991,9 @@
             "day": 3
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-11-03",
@@ -1030,7 +1058,9 @@
             "day": 10
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-11-10",
@@ -1095,7 +1125,9 @@
             "day": 17
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-11-17",
@@ -1160,7 +1192,9 @@
             "day": 24
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-11-24",
@@ -1225,7 +1259,9 @@
             "day": 1
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-12-01",
@@ -1290,7 +1326,9 @@
             "day": 8
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-12-08",
@@ -1355,7 +1393,9 @@
             "day": 15
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-12-15",
@@ -1420,7 +1460,9 @@
             "day": 22
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-12-22",
@@ -1485,7 +1527,9 @@
             "day": 29
           },
           "state": "Running",
-          "cancellationNotifiedPassengers": [],
+          "notifyDriver": false,
+          "passengerCancelationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
           "startDate": {
             "name": "",
             "value": "2017-12-29",
@@ -1529,6 +1573,5 @@
       "streetNumber": 12,
       "streetName": "alpha"
     }
-  ],
-  "rides": []
+  ]
 }

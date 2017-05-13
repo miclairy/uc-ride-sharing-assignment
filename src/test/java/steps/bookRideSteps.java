@@ -34,6 +34,13 @@ public class bookRideSteps {
     public void sallyBooksTheRide() {
         availableSeatsBefore = selectedRide.getAvailableSeats();
         sally = new Passenger();
+        Map<String, Object> store = new HashMap<>();
+        store.put("ucId", "sal34");
+        store.put("name", "sally");
+        store.put("address", "45 Sally");
+        store.put("phone", (long) 450138318);
+        store.put("email", "sal34@uclive.ac.nz");
+        sally.setDetails(store);
         selectedRide.bookPassenger(jo, sally);
     }
 
@@ -55,7 +62,6 @@ public class bookRideSteps {
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
         selectedRide = new Ride(trip, 5, LocalDate.now());
 
-        System.out.println(selectedRide.getAvailableSeats());
         sally = new Passenger();
         selectedRide.bookPassenger(jo, sally);
         availableSeatsBefore = selectedRide.getAvailableSeats();
@@ -68,7 +74,6 @@ public class bookRideSteps {
 
     @Then("^nothing happens and she is not included again\\.$")
     public void nothingHappensAndSheIsNotIncludedAgain() {
-        System.out.println(selectedRide.getAvailableSeats());
         assertEquals(availableSeatsBefore, selectedRide.getAvailableSeats());
     }
 
