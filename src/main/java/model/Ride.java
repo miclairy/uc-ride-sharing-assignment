@@ -19,10 +19,10 @@ public class Ride implements Comparable<Ride> {
     private LocalDate date;
     private RideState state;
     private LocalTime time;
-    private boolean notifyDriver = false;
-    private HashMap<Passenger, String> passengerCancelationReasons = new HashMap<>();
+    private HashMap<Passenger, String> passengerCancellationReasons = new HashMap<>();
     private String cancelationReason;
     private Set<Passenger> cancelationUnnotifiedPassengers = new HashSet<>();
+    private Set<Passenger> newCancellations;
 
     private SimpleStringProperty name;
     private SimpleStringProperty startDate;
@@ -38,6 +38,7 @@ public class Ride implements Comparable<Ride> {
             this.availableSeats = availableSeats;
         }
         this.date = date;
+        newCancellations = new HashSet<>();
 
         changeRideState(RideState.Running);
         name = trip.getNameProperty();
@@ -83,9 +84,8 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String getDetails() {
-        String details =  "\nCar: " + trip.getCar().toString() + "\n Route Length: " + trip.getLength().toMinutes() +
+        return "\nCar: " + trip.getCar().toString() + "\n Route Length: " + trip.getLength().toMinutes() +
                 "\nNumber of Stops: " + trip.getStopTimes().size() + "\nAvailable Seats: " + availableSeats;
-        return details;
     }
 
 
@@ -124,7 +124,7 @@ public class Ride implements Comparable<Ride> {
         return rideState.get();
     }
 
-    public void changeRideState(RideState newState) {
+    private void changeRideState(RideState newState) {
         state = newState;
         rideState = new SimpleStringProperty(state.name());
     }
@@ -151,15 +151,24 @@ public class Ride implements Comparable<Ride> {
         passengers.remove(passenger);
         availableSeats += 1;
         changeRideState(RideState.Running);
-        notifyDriver = true;
-        passengerCancelationReasons.put(passenger, reason);
+        newCancellations.add(passenger);
+        passengerCancellationReasons.put(passenger, reason);
     }
 
     public HashMap<Passenger, String> notifyDriver() {
-        notifyDriver = false;
-        HashMap<Passenger, String> cancelled = passengerCancelationReasons;
-        passengerCancelationReasons.clear();
-        return cancelled;
+
+        if (!newCancellations.isEmpty()) {
+            HashMap<Passenger, String> cancelled = new HashMap<>();
+            for (Passenger passenger : newCancellations) {
+                cancelled.put(passenger, passengerCancellationReasons.get(passenger));
+            }
+            newCancellations.clear();
+            return cancelled;
+        }
+        return new HashMap<>();
     }
 
+    public HashMap<Passenger, String> getPassengerCancellationReasons() {
+        return passengerCancellationReasons;
+    }
 }

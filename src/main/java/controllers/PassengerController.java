@@ -43,7 +43,6 @@ public class PassengerController implements Initializable{
     private Button book;
 
     private Ride viewingRide;
-    private Passenger passenger;
     private ObservableList<Ride> rides = FXCollections.observableArrayList();
     private Map<Ride, Driver> driverRide = new HashMap<>();
     private ObservableList<Ride> bookedRides = FXCollections.observableArrayList();
@@ -80,41 +79,29 @@ public class PassengerController implements Initializable{
     }
 
     private void setSelectionListeners() {
-        stopPoints.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<StopPoint>() {
-            @Override
-            public void changed(ObservableValue<? extends StopPoint> observable, StopPoint oldValue, StopPoint newValue) {
-                filterByToFromUni();
+        stopPoints.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> filterByToFromUni());
 
-            }
+        sharedRides.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            Platform.runLater(() -> bookedRidesTable.getSelectionModel().clearSelection());
+            setRideDetails(newValue);
+            book.setVisible(true);
+            cancelBooking.setVisible(false);
         });
 
-        sharedRides.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
-            @Override
-            public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
-                Platform.runLater(() -> bookedRidesTable.getSelectionModel().clearSelection());
-                setRideDetails(newValue);
-                book.setVisible(true);
-                cancelBooking.setVisible(false);
-            }
-        });
-
-        bookedRidesTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ride>() {
-            @Override
-            public void changed(ObservableValue<? extends Ride> observable, Ride oldValue, Ride newValue) {
-                Platform.runLater(() -> sharedRides.getSelectionModel().clearSelection());
-                setRideDetails(newValue);
-                book.setVisible(false);
-                cancelBooking.setVisible(true);
-            }
+        bookedRidesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            Platform.runLater(() -> sharedRides.getSelectionModel().clearSelection());
+            setRideDetails(newValue);
+            book.setVisible(false);
+            cancelBooking.setVisible(true);
         });
     }
 
     private void setUpRideTable() {
         ridesCol.setCellValueFactory(
-                new PropertyValueFactory<Ride,String>("name")
+                new PropertyValueFactory<>("name")
         );
         rideStateCol.setCellValueFactory(
-                new PropertyValueFactory<Ride,String>("rideState")
+                new PropertyValueFactory<>("rideState")
         );
 
         updateBookedRides();
@@ -125,6 +112,9 @@ public class PassengerController implements Initializable{
         for (Driver driver : Data.drivers){
             for (Ride ride : driver.getRides()){
                 if (ride.getPassengers().contains(Data.passengerUser)){
+                    bookedRides.add(ride);
+                }
+                if (ride.getPassengerCancellationReasons().containsKey(Data.passengerUser)){
                     bookedRides.add(ride);
                 }
             }
@@ -198,6 +188,7 @@ public class PassengerController implements Initializable{
                     "to the time of the ride");
             warningAlert.showAndWait();
         }
+        updateBookedRides();
 
     }
 
@@ -226,9 +217,9 @@ public class PassengerController implements Initializable{
         }
         ObservableList<Ride> onlyStopPointSelected = Search.ridesForStopPoint(rides, stopPoints.getSelectionModel().getSelectedItem());
         if (!onlyStopPointSelected.isEmpty()){
-            for (int i = 0; i < onlyStopPointSelected.size(); i++) {
-                if (filtered.contains(onlyStopPointSelected.get(i))){
-                    obResult.add(onlyStopPointSelected.get(i));
+            for (Ride anOnlyStopPointSelected : onlyStopPointSelected) {
+                if (filtered.contains(anOnlyStopPointSelected)) {
+                    obResult.add(anOnlyStopPointSelected);
                 }
             }
         } else {
