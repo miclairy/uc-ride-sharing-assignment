@@ -1,7 +1,14 @@
 package model;
 
+import com.google.maps.DistanceMatrixApiRequest;
+import com.google.maps.GeoApiContext;
+import com.google.maps.errors.ApiException;
+import com.google.maps.model.Distance;
+import com.google.maps.model.DistanceMatrix;
+import com.google.maps.model.TravelMode;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -10,6 +17,8 @@ import java.util.*;
 
 
 public class Trip {
+
+    private static final double FUEL_PRICE = 2.15;
 
     private Route route;
     private String direction;
@@ -20,12 +29,15 @@ public class Trip {
     private LocalDate expirationDate;
     private SimpleStringProperty name;
     private boolean shared = false;
+    private static final String apiKey = "AIzaSyAUC7URAPnPNNPhcsCLLZgAJ4KpB9SFXvQ";
+    private static GeoApiContext context = new GeoApiContext();
 
     public Trip(Route route, String direction, Boolean recurrent, Car car) {
         this.route = route;
         this.direction = direction;
         this.recurrent = recurrent;
         this.car = car;
+        context.setApiKey(apiKey);
     }
 
     public void setDays(Set<DayOfWeek> days) {
@@ -161,6 +173,35 @@ public class Trip {
 
     public void setShared(boolean shared) {
         this.shared = shared;
+    }
+
+
+    public double calculateCostPerPassenger() throws InterruptedException, ApiException, IOException {
+        double totalKm = 0;
+        DistanceMatrixApiRequest distanceRequest = new DistanceMatrixApiRequest(context);
+        StopPoint stop = route.getStops().get(0);
+        for (int i = 0; i < route.getStops().size() - 1; i ++){
+            stop = route.getStops().get(i + 1);
+            Distance distance = getDistance(distanceRequest, route.getStops().get(i), stop);
+            totalKm += distance.inMeters / 1000;
+        }
+
+        Distance distance = getDistance(distanceRequest, stop, new StopPoint("University of Canterbury"));
+        totalKm += distance.inMeters / 1000.0;
+
+        double efficiencyPerKm = car.getEfficiency() / 100;
+
+        return efficiencyPerKm * totalKm * FUEL_PRICE;
+
+    }
+
+    private Distance getDistance(DistanceMatrixApiRequest distanceRequest, StopPoint origin, StopPoint destination) throws ApiException, InterruptedException, IOException {
+
+        DistanceMatrix distanceMatrix = distanceRequest.origins(origin.getAddress())
+                .destinations(destination.getAddress())
+                .mode(TravelMode.DRIVING)
+                .await();
+        return distanceMatrix.rows[0].elements[0].distance;
     }
 
 

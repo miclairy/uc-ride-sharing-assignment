@@ -7,10 +7,7 @@ import model.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -56,7 +53,7 @@ public class rideDetailsSteps {
         StopPoint stop1 = mock(StopPoint.class);
         StopPoint stop2 = mock(StopPoint.class);
         StopPoint stop3 = mock(StopPoint.class);
-        Collection<StopPoint> stops = new ArrayList<>();
+        List<StopPoint> stops = new ArrayList<>();
         stops.add(stop1);
         stops.add(stop2);
         stops.add(stop3);

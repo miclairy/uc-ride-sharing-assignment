@@ -175,4 +175,5 @@ public class Ride implements Comparable<Ride> {
     public HashMap<String, String> getPassengerCancellationReasons() {
         return passengerCancellationReasons;
     }
+
 }

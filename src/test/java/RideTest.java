@@ -59,7 +59,7 @@ public class RideTest {
         StopPoint stop1 = mock(StopPoint.class);
         StopPoint stop2 = mock(StopPoint.class);
         StopPoint stop3 = mock(StopPoint.class);
-        Collection<StopPoint> stops = new ArrayList<>();
+        List<StopPoint> stops = new ArrayList<>();
         stops.add(stop1);
         stops.add(stop2);
         stops.add(stop3);

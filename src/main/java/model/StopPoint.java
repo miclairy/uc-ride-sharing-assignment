@@ -16,20 +16,24 @@ public class StopPoint {
     private int streetNumber;
     private String suburb;
     private String streetName;
-    private int distanceFromUni;
-    private static final String apiKey = "AIzaSyAUC7URAPnPNNPhcsCLLZgAJ4KpB9SFXvQ";
-    private static GeoApiContext context = new GeoApiContext();
+    private String placeName;
+//    private static final String apiKey = "AIzaSyAUC7URAPnPNNPhcsCLLZgAJ4KpB9SFXvQ";
+//    private static GeoApiContext context = new GeoApiContext();
 
     public StopPoint(int streetNumber, String streetName) {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
-        context.setApiKey(apiKey);
+//        context.setApiKey(apiKey);
     }
 
     public StopPoint(int streetNumber, String streetName, String suburb) {
         this.streetNumber = streetNumber;
         this.suburb = suburb;
         this.streetName = streetName;
+    }
+
+    public StopPoint(String placeName) {
+        this.placeName = placeName;
     }
 
     @Override
@@ -63,15 +67,21 @@ public class StopPoint {
         return str;
     }
 
-    public Distance calculateDistance() throws InterruptedException, ApiException, IOException {
-
-        DistanceMatrixApiRequest distanceRequest = new DistanceMatrixApiRequest(context);
-        distanceRequest.origins("43.5235, 172.5839"); //uni lat long
-        DistanceMatrix distance = distanceRequest.origins("University of Canterbury")
-                                                .destinations(streetNumber + " " + streetName + "Christchurch")
-                                                .mode(TravelMode.DRIVING)
-                                                .await();
-        return distance.rows[0].elements[0].distance;
-
+    public String getAddress() {
+        if (placeName != null){
+            return placeName;
+        }
+        return streetNumber + " " + streetName + "Christchurch";
     }
+
+//    public Distance calculateDistance() throws InterruptedException, ApiException, IOException {
+//
+//        DistanceMatrixApiRequest distanceRequest = new DistanceMatrixApiRequest(context);
+//        DistanceMatrix distance = distanceRequest.origins("University of Canterbury")
+//                                                .destinations(streetNumber + " " + streetName + "Christchurch")
+//                                                .mode(TravelMode.DRIVING)
+//                                                .await();
+//        return distance.rows[0].elements[0].distance;
+//
+//    }
 }
