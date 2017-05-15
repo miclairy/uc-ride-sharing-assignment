@@ -8,7 +8,8 @@
           "model": "mazda",
           "plates": "123RTF",
           "year": 1200,
-          "numSeats": 6
+          "numSeats": 6,
+          "efficiency": 0
         }
       ],
       "routes": [
@@ -60,7 +61,8 @@
             "model": "mazda",
             "plates": "123RTF",
             "year": 1200,
-            "numSeats": 6
+            "numSeats": 6,
+            "efficiency": 0
           },
           "stopTimes": {},
           "expirationDate": {
@@ -102,7 +104,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -120,9 +123,9 @@
             "day": 4
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-08-04",
@@ -169,7 +172,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -187,9 +191,9 @@
             "day": 11
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-08-11",
@@ -236,7 +240,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -254,9 +259,9 @@
             "day": 18
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-08-18",
@@ -303,7 +308,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -321,9 +327,9 @@
             "day": 25
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-08-25",
@@ -370,7 +376,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -388,9 +395,9 @@
             "day": 1
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-09-01",
@@ -437,7 +444,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -455,9 +463,9 @@
             "day": 8
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-09-08",
@@ -504,7 +512,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -522,9 +531,9 @@
             "day": 15
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-09-15",
@@ -571,7 +580,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -589,9 +599,9 @@
             "day": 22
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-09-22",
@@ -638,7 +648,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -656,9 +667,9 @@
             "day": 29
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-09-29",
@@ -705,7 +716,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -723,9 +735,9 @@
             "day": 6
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-10-06",
@@ -772,7 +784,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -790,9 +803,9 @@
             "day": 13
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-10-13",
@@ -839,7 +852,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -857,9 +871,9 @@
             "day": 20
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-10-20",
@@ -906,7 +920,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -924,9 +939,9 @@
             "day": 27
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-10-27",
@@ -973,7 +988,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -991,9 +1007,9 @@
             "day": 3
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-11-03",
@@ -1040,7 +1056,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1058,9 +1075,9 @@
             "day": 10
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-11-10",
@@ -1107,7 +1124,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1125,9 +1143,9 @@
             "day": 17
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-11-17",
@@ -1174,7 +1192,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1192,9 +1211,9 @@
             "day": 24
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-11-24",
@@ -1241,7 +1260,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1259,9 +1279,9 @@
             "day": 1
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-12-01",
@@ -1308,7 +1328,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1326,9 +1347,9 @@
             "day": 8
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-12-08",
@@ -1375,7 +1396,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1393,9 +1415,9 @@
             "day": 15
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-12-15",
@@ -1442,7 +1464,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1460,9 +1483,9 @@
             "day": 22
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-12-22",
@@ -1509,7 +1532,8 @@
               "model": "mazda",
               "plates": "123RTF",
               "year": 1200,
-              "numSeats": 6
+              "numSeats": 6,
+              "efficiency": 0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1527,9 +1551,9 @@
             "day": 29
           },
           "state": "Running",
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "startDate": {
             "name": "",
             "value": "2017-12-29",

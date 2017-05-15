@@ -38,7 +38,7 @@ formatter.match({
   "location": "addRouteSteps.joIsADriverAndWantsToMakeARoute()"
 });
 formatter.result({
-  "duration": 490958718,
+  "duration": 71727316,
   "status": "passed"
 });
 formatter.match({
@@ -51,28 +51,28 @@ formatter.match({
   "location": "addRouteSteps.thereAreMoreThanStopPoint(int)"
 });
 formatter.result({
-  "duration": 17314564,
+  "duration": 1108473,
   "status": "passed"
 });
 formatter.match({
   "location": "addRouteSteps.joCreatesRouteByAddingStopPoints()"
 });
 formatter.result({
-  "duration": 8132812,
+  "duration": 1967918,
   "status": "passed"
 });
 formatter.match({
   "location": "addRouteSteps.aNewRouteIsStoredWithTheStopPoints()"
 });
 formatter.result({
-  "duration": 1393879,
+  "duration": 123750,
   "status": "passed"
 });
 formatter.uri("addTrip.feature");
 formatter.feature({
   "line": 1,
   "name": "make trip",
-  "description": "As ​​driver​​, I want to ​​add trips so that I can set up all the information for the rides\r\nthat I will share later on",
+  "description": "As ​​driver​​, I want to ​​add trips so that I can set up all the information for the rides\nthat I will share later on",
   "id": "make-trip",
   "keyword": "Feature"
 });
@@ -118,21 +118,21 @@ formatter.match({
   "location": "makeTripSteps.joIsADriverMakingATrip()"
 });
 formatter.result({
-  "duration": 43568,
+  "duration": 62214,
   "status": "passed"
 });
 formatter.match({
   "location": "makeTripSteps.joHasSomeRoutes()"
 });
 formatter.result({
-  "duration": 149033,
+  "duration": 137795,
   "status": "passed"
 });
 formatter.match({
   "location": "makeTripSteps.joRegisteredACar()"
 });
 formatter.result({
-  "duration": 31020188,
+  "duration": 22184655,
   "status": "passed"
 });
 formatter.match({
@@ -153,7 +153,7 @@ formatter.match({
   "location": "makeTripSteps.joCreatesATripByDefiningItToBeHisOnlyRouteEachStopPointMinutesAfterThePrevious(String,int,int)"
 });
 formatter.result({
-  "duration": 2630612,
+  "duration": 825745,
   "status": "passed"
 });
 formatter.match({
@@ -174,14 +174,14 @@ formatter.match({
   "location": "makeTripSteps.thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String,int,String)"
 });
 formatter.result({
-  "duration": 983137,
+  "duration": 211609,
   "status": "passed"
 });
 formatter.match({
   "location": "makeTripSteps.theTripIsDisplayedToJoWithAllInformation()"
 });
 formatter.result({
-  "duration": 71813,
+  "duration": 28130,
   "status": "passed"
 });
 formatter.uri("bookRide.feature");
@@ -229,35 +229,35 @@ formatter.match({
   "location": "rideDetailsSteps.sallyIsAPassenger()"
 });
 formatter.result({
-  "duration": 48376,
+  "duration": 37200,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.sallyHasSelectedARide()"
 });
 formatter.result({
-  "duration": 49739147,
+  "duration": 160109,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.sallyBooksTheRide()"
 });
 formatter.result({
-  "duration": 70309,
+  "duration": 51708,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.sallyWillBeExpectedOnTheRideAndTheAvailableSeatsDecreases()"
 });
 formatter.result({
-  "duration": 40563,
+  "duration": 38679,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.sheWillKnowThatSheBookedTheRide()"
 });
 formatter.result({
-  "duration": 12319,
+  "duration": 11034,
   "status": "passed"
 });
 formatter.scenario({
@@ -292,35 +292,35 @@ formatter.match({
   "location": "rideDetailsSteps.sallyIsAPassenger()"
 });
 formatter.result({
-  "duration": 15624,
+  "duration": 22828,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.sallyHasBookedARide()"
 });
 formatter.result({
-  "duration": 81728,
+  "duration": 82697,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.sallyGoesToBookTheRideAgain()"
 });
 formatter.result({
-  "duration": 12019,
+  "duration": 16825,
   "status": "passed"
 });
 formatter.match({
   "location": "bookRideSteps.nothingHappensAndSheIsNotIncludedAgain()"
 });
 formatter.result({
-  "duration": 19230,
+  "duration": 22152,
   "status": "passed"
 });
 formatter.uri("cancelBooking.feature");
 formatter.feature({
   "line": 1,
   "name": "Cancel booking",
-  "description": "As a ​​passenger​​, I want to ​​cancel a booked ride so that the driver will be informed and the seat\r\ncan be used by someone else.",
+  "description": "As a ​​passenger​​, I want to ​​cancel a booked ride so that the driver will be informed and the seat\ncan be used by someone else.",
   "id": "cancel-booking",
   "keyword": "Feature"
 });
@@ -356,7 +356,7 @@ formatter.match({
   "location": "cancelBookedRideSteps.sallyHasBookedARideAndWantsToCancelIt()"
 });
 formatter.result({
-  "duration": 301671,
+  "duration": 236253,
   "status": "passed"
 });
 formatter.match({
@@ -369,28 +369,28 @@ formatter.match({
   "location": "cancelBookedRideSteps.sallyCancelsTheBookingBecause(String)"
 });
 formatter.result({
-  "duration": 107268,
+  "duration": 143732,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelBookedRideSteps.theDriversCarIsAvailableAgainIfItWasnTBeforeWithUpdatedAvailableSeats()"
 });
 formatter.result({
-  "duration": 45371,
+  "duration": 45897,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelBookedRideSteps.theDriverIsNotifiedOfTheCancellation()"
 });
 formatter.result({
-  "duration": 38160,
+  "duration": 89127,
   "status": "passed"
 });
 formatter.uri("cancelRide.feature");
 formatter.feature({
   "line": 1,
   "name": "Cancel Ride",
-  "description": "As a ​​driver​​, I want to ​​cancel a ride so the passengers will be notified that I will no longer be\r\npicking them up",
+  "description": "As a ​​driver​​, I want to ​​cancel a ride so the passengers will be notified that I will no longer be\npicking them up",
   "id": "cancel-ride",
   "keyword": "Feature"
 });
@@ -436,42 +436,42 @@ formatter.match({
   "location": "cancelRideSteps.joIsADriverWhoWantsToCancelARide()"
 });
 formatter.result({
-  "duration": 59493,
+  "duration": 73768,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelRideSteps.joHasATripWhichHeHasShared()"
 });
 formatter.result({
-  "duration": 332019,
+  "duration": 354944,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelRideSteps.thereArePassengersBookedOnTheRide()"
 });
 formatter.result({
-  "duration": 49277,
+  "duration": 56727,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelRideSteps.joSelectsToCancelTheRide()"
 });
 formatter.result({
-  "duration": 28845,
+  "duration": 33968,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelRideSteps.thePassengersAreNotified()"
 });
 formatter.result({
-  "duration": 38760,
+  "duration": 37190,
   "status": "passed"
 });
 formatter.match({
   "location": "cancelRideSteps.theRideIsNoLongerAvailable()"
 });
 formatter.result({
-  "duration": 30347,
+  "duration": 30489,
   "status": "passed"
 });
 formatter.uri("createAccount.feature");
@@ -524,7 +524,7 @@ formatter.match({
   "location": "createAccountSteps.joClickedBecomeDriver()"
 });
 formatter.result({
-  "duration": 81126,
+  "duration": 76069,
   "status": "passed"
 });
 formatter.match({
@@ -557,14 +557,14 @@ formatter.match({
   "location": "createAccountSteps.joEntersAndAndHeUploadsAPhotoAndEntersThePasswordTwice(String,String,String,long,String,String)"
 });
 formatter.result({
-  "duration": 245785,
+  "duration": 228385,
   "status": "passed"
 });
 formatter.match({
   "location": "createAccountSteps.theEmailAndPasswordAreVerifiedAndHeIsAskedForHisDriversLicenseInformation()"
 });
 formatter.result({
-  "duration": 310085,
+  "duration": 677864,
   "status": "passed"
 });
 formatter.match({
@@ -589,21 +589,21 @@ formatter.match({
   "location": "createAccountSteps.joEntersType(String,String,String,String)"
 });
 formatter.result({
-  "duration": 437784,
+  "duration": 385985,
   "status": "passed"
 });
 formatter.match({
   "location": "createAccountSteps.itIsVerifiedHeCanCarryPassengers()"
 });
 formatter.result({
-  "duration": 74216,
+  "duration": 49275,
   "status": "passed"
 });
 formatter.match({
   "location": "createAccountSteps.hisDetailsAreStoredAndAccountIsCreated()"
 });
 formatter.result({
-  "duration": 223260678,
+  "duration": 40126732,
   "status": "passed"
 });
 formatter.scenario({
@@ -633,7 +633,7 @@ formatter.match({
   "location": "createAccountSteps.sallyClickedToBecomeAPassenger()"
 });
 formatter.result({
-  "duration": 50479,
+  "duration": 24669,
   "status": "passed"
 });
 formatter.match({
@@ -666,14 +666,14 @@ formatter.match({
   "location": "createAccountSteps.sallyEntersAndAndSheUploadsAPhotoAndEntersThePasswordTwice(String,String,String,long,String,String)"
 });
 formatter.result({
-  "duration": 287249,
+  "duration": 99225,
   "status": "passed"
 });
 formatter.match({
   "location": "createAccountSteps.theEmailAndPasswordAreVerifiedAndHerAccountIsCreated()"
 });
 formatter.result({
-  "duration": 37611891,
+  "duration": 23107696,
   "status": "passed"
 });
 formatter.scenario({
@@ -703,7 +703,7 @@ formatter.match({
   "location": "createAccountSteps.sallyIsAlreadySignedUp()"
 });
 formatter.result({
-  "duration": 80526,
+  "duration": 68691,
   "status": "passed"
 });
 formatter.match({
@@ -736,21 +736,21 @@ formatter.match({
   "location": "createAccountSteps.sallyEntersAndAndSheUploadsAPhotoAndEntersThePasswordTwice(String,String,String,long,String,String)"
 });
 formatter.result({
-  "duration": 192301,
+  "duration": 129839,
   "status": "passed"
 });
 formatter.match({
   "location": "createAccountSteps.theEmailFailsVerificationAndSheIsToldTheEmailIsAlreadyInUse()"
 });
 formatter.result({
-  "duration": 1643268,
+  "duration": 10270466,
   "status": "passed"
 });
 formatter.uri("createStopPoints.feature");
 formatter.feature({
   "line": 1,
   "name": "create stop points",
-  "description": "As ​​driver​​, I want to ​​create stop points so I can specify where I will pick up or drop\r\noff passengers",
+  "description": "As ​​driver​​, I want to ​​create stop points so I can specify where I will pick up or drop\noff passengers",
   "id": "create-stop-points",
   "keyword": "Feature"
 });
@@ -781,7 +781,7 @@ formatter.match({
   "location": "createStopPointSteps.bob_is_a_driver()"
 });
 formatter.result({
-  "duration": 70310,
+  "duration": 53406,
   "status": "passed"
 });
 formatter.match({
@@ -798,14 +798,14 @@ formatter.match({
   "location": "createStopPointSteps.bob_creates_a_stop_point_at(int,String)"
 });
 formatter.result({
-  "duration": 722029,
+  "duration": 456904,
   "status": "passed"
 });
 formatter.match({
   "location": "createStopPointSteps.the_street_address_is_stored_as_a_stop_point()"
 });
 formatter.result({
-  "duration": 61596,
+  "duration": 42853,
   "status": "passed"
 });
 formatter.scenario({
@@ -835,7 +835,7 @@ formatter.match({
   "location": "createStopPointSteps.sally_is_a_driver()"
 });
 formatter.result({
-  "duration": 34855,
+  "duration": 22435,
   "status": "passed"
 });
 formatter.match({
@@ -852,21 +852,21 @@ formatter.match({
   "location": "createStopPointSteps.sally_creates_a_stop_point_at_after_bob(int,String)"
 });
 formatter.result({
-  "duration": 93446,
+  "duration": 58922,
   "status": "passed"
 });
 formatter.match({
   "location": "createStopPointSteps.a_new_stop_point_is_not_made()"
 });
 formatter.result({
-  "duration": 13822,
+  "duration": 12849,
   "status": "passed"
 });
 formatter.uri("expirationNotification.feature");
 formatter.feature({
   "line": 1,
   "name": "Nofity User of expiration\u0027",
-  "description": "As a ​​driver​​, I want to be ​​notified ​​if my drivers licence, WOF or registration is about to expire so I\r\ncan renew them on time.",
+  "description": "As a ​​driver​​, I want to be ​​notified ​​if my drivers licence, WOF or registration is about to expire so I\ncan renew them on time.",
   "id": "nofity-user-of-expiration\u0027",
   "keyword": "Feature"
 });
@@ -902,28 +902,28 @@ formatter.match({
   "location": "NotifyUserExpirationSteps.joHasAnAccount()"
 });
 formatter.result({
-  "duration": 67606,
+  "duration": 62200,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.hisLicenseExpiresInOneMonth()"
 });
 formatter.result({
-  "duration": 100357,
+  "duration": 108264,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.logsIn()"
 });
 formatter.result({
-  "duration": 21633,
+  "duration": 14824,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.heWillBeNotifiedThatHisLicenseGoingToExpire()"
 });
 formatter.result({
-  "duration": 831700,
+  "duration": 578892,
   "status": "passed"
 });
 formatter.scenario({
@@ -958,28 +958,28 @@ formatter.match({
   "location": "NotifyUserExpirationSteps.joHasAnAccount()"
 });
 formatter.result({
-  "duration": 27643,
+  "duration": 20972,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.hisWOFExpiresInOneMonth()"
 });
 formatter.result({
-  "duration": 122893,
+  "duration": 86935,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.logsIn()"
 });
 formatter.result({
-  "duration": 10216,
+  "duration": 7357,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.heWillBeNotifiedThatSWOFIsGoingToExpire()"
 });
 formatter.result({
-  "duration": 784527,
+  "duration": 556648,
   "status": "passed"
 });
 formatter.scenario({
@@ -1019,35 +1019,35 @@ formatter.match({
   "location": "NotifyUserExpirationSteps.joHasAnAccount()"
 });
 formatter.result({
-  "duration": 31850,
+  "duration": 20228,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.hisRegistrationExpiresInOneMonth()"
 });
 formatter.result({
-  "duration": 76921,
+  "duration": 41671,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.hisLicenseExpiresInOneMonth()"
 });
 formatter.result({
-  "duration": 58592,
+  "duration": 40368,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.logsIn()"
 });
 formatter.result({
-  "duration": 9915,
+  "duration": 6646,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.heWillBeNotifiedThatTheRegistrationAndLicenseAreGoingToExpire()"
 });
 formatter.result({
-  "duration": 222648,
+  "duration": 127510,
   "status": "passed"
 });
 formatter.scenario({
@@ -1082,7 +1082,7 @@ formatter.match({
   "location": "NotifyUserExpirationSteps.joHasAnAccount()"
 });
 formatter.result({
-  "duration": 28545,
+  "duration": 19141,
   "status": "passed"
 });
 formatter.match({
@@ -1095,21 +1095,21 @@ formatter.match({
   "location": "NotifyUserExpirationSteps.hisRegistrationExpiresInWeeks(int)"
 });
 formatter.result({
-  "duration": 152939,
+  "duration": 99223,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.logsIn()"
 });
 formatter.result({
-  "duration": 13221,
+  "duration": 6901,
   "status": "passed"
 });
 formatter.match({
   "location": "NotifyUserExpirationSteps.heWillNotBeNotifiedThatItIsGoingToExpire()"
 });
 formatter.result({
-  "duration": 308282,
+  "duration": 225075,
   "status": "passed"
 });
 formatter.uri("login.feature");
@@ -1147,21 +1147,21 @@ formatter.match({
   "location": "loginSteps.joHasAnAccount()"
 });
 formatter.result({
-  "duration": 29308412,
+  "duration": 26374769,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.heEntersTheCorrectEmailAndPassword()"
 });
 formatter.result({
-  "duration": 37859,
+  "duration": 31280,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.heIsLetIntoHisAccountWithHisTripsEtc()"
 });
 formatter.result({
-  "duration": 21732370,
+  "duration": 19623444,
   "status": "passed"
 });
 formatter.scenario({
@@ -1191,21 +1191,21 @@ formatter.match({
   "location": "loginSteps.joDoesnTHaveAnAccount()"
 });
 formatter.result({
-  "duration": 23272577,
+  "duration": 32686285,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.joTriesToLogIn()"
 });
 formatter.result({
-  "duration": 21934,
+  "duration": 18766,
   "status": "passed"
 });
 formatter.match({
   "location": "loginSteps.heIsToldTheCredentialsAreWrong()"
 });
 formatter.result({
-  "duration": 1500245,
+  "duration": 95849341,
   "status": "passed"
 });
 formatter.uri("registerCar.feature");
@@ -1263,7 +1263,7 @@ formatter.match({
   "location": "registerCarSteps.jo_is_a_driver()"
 });
 formatter.result({
-  "duration": 58892,
+  "duration": 125197,
   "status": "passed"
 });
 formatter.match({
@@ -1280,7 +1280,7 @@ formatter.match({
   "location": "registerCarSteps.jo_has_a_car_with_seats_and_type_is(int,String)"
 });
 formatter.result({
-  "duration": 76920,
+  "duration": 132095,
   "status": "passed"
 });
 formatter.match({
@@ -1293,7 +1293,7 @@ formatter.match({
   "location": "registerCarSteps.license_plate(String)"
 });
 formatter.result({
-  "duration": 28845,
+  "duration": 54373,
   "status": "passed"
 });
 formatter.match({
@@ -1306,7 +1306,7 @@ formatter.match({
   "location": "registerCarSteps.year(int)"
 });
 formatter.result({
-  "duration": 35155,
+  "duration": 97950,
   "status": "passed"
 });
 formatter.match({
@@ -1323,14 +1323,14 @@ formatter.match({
   "location": "registerCarSteps.the_car_colour_is_model_is(String,String)"
 });
 formatter.result({
-  "duration": 32150,
+  "duration": 127501,
   "status": "passed"
 });
 formatter.match({
   "location": "registerCarSteps.the_car_is_registered()"
 });
 formatter.result({
-  "duration": 32751,
+  "duration": 70654,
   "status": "passed"
 });
 formatter.match({
@@ -1355,7 +1355,7 @@ formatter.match({
   "location": "registerCarSteps.the_car_s_attributes_of_year_license_plate_colour_and_seats_are_stored(int,String,String,int)"
 });
 formatter.result({
-  "duration": 97953,
+  "duration": 314582,
   "status": "passed"
 });
 formatter.scenario({
@@ -1390,28 +1390,28 @@ formatter.match({
   "location": "registerCarSteps.jo_is_a_driver()"
 });
 formatter.result({
-  "duration": 23737,
+  "duration": 66251,
   "status": "passed"
 });
 formatter.match({
   "location": "registerCarSteps.jo_has_a_car_registered_a_car()"
 });
 formatter.result({
-  "duration": 31850,
+  "duration": 100632,
   "status": "passed"
 });
 formatter.match({
   "location": "registerCarSteps.jo_registers_a_new_car()"
 });
 formatter.result({
-  "duration": 17126,
+  "duration": 53759,
   "status": "passed"
 });
 formatter.match({
   "location": "registerCarSteps.the_car_s_is_registered_and_jo_has_add_the_car_to_his_account()"
 });
 formatter.result({
-  "duration": 8714,
+  "duration": 27236,
   "status": "passed"
 });
 formatter.uri("searchStopPoint.feature");
@@ -1449,7 +1449,7 @@ formatter.match({
   "location": "searchSteps.thereIsSomeStopPoints()"
 });
 formatter.result({
-  "duration": 63099,
+  "duration": 172130,
   "status": "passed"
 });
 formatter.match({
@@ -1462,7 +1462,7 @@ formatter.match({
   "location": "searchSteps.whenISearchForAStopPointBuyEntering(String)"
 });
 formatter.result({
-  "duration": 14953174,
+  "duration": 33329821,
   "status": "passed"
 });
 formatter.match({
@@ -1475,14 +1475,14 @@ formatter.match({
   "location": "searchSteps.theSearchResultsShouldShowHareStreetAsAResult(int)"
 });
 formatter.result({
-  "duration": 524620,
+  "duration": 1227471,
   "status": "passed"
 });
 formatter.uri("seeRideDetails.feature");
 formatter.feature({
   "line": 1,
   "name": "See ride details",
-  "description": "As ​​passenger​​, I want to ​​see the details of a specific ride so that I can choose the\r\nbest ride for me.",
+  "description": "As ​​passenger​​, I want to ​​see the details of a specific ride so that I can choose the\nbest ride for me.",
   "id": "see-ride-details",
   "keyword": "Feature"
 });
@@ -1518,7 +1518,7 @@ formatter.match({
   "location": "rideDetailsSteps.sallyIsAPassenger()"
 });
 formatter.result({
-  "duration": 23137,
+  "duration": 41170,
   "status": "passed"
 });
 formatter.match({
@@ -1551,7 +1551,7 @@ formatter.match({
   "location": "rideDetailsSteps.sallySelectsARideWhichIsFromWhoIsGradeAndWithAWithSeatsAvailable(String,String,int,String,String,int)"
 });
 formatter.result({
-  "duration": 175474,
+  "duration": 339884,
   "status": "passed"
 });
 formatter.match({
@@ -1568,21 +1568,21 @@ formatter.match({
   "location": "rideDetailsSteps.theRouteIsMinutesLongWithStops(int,int)"
 });
 formatter.result({
-  "duration": 464827,
+  "duration": 941262,
   "status": "passed"
 });
 formatter.match({
   "location": "rideDetailsSteps.theRidesDetailsAreDisplayedIncludingDriversNameGradeCarModelColorYearSeatsAvailableRouteLengthAndNumberOfStops()"
 });
 formatter.result({
-  "duration": 1970180,
+  "duration": 203724,
   "status": "passed"
 });
 formatter.uri("seeRidesForStopPoint.feature");
 formatter.feature({
   "line": 1,
   "name": "See rides for a stop point",
-  "description": " As a ​​passenger​​, I want to ​​see the available rides at a specific stop point so that I\r\n can choose one.",
+  "description": " As a ​​passenger​​, I want to ​​see the available rides at a specific stop point so that I\n can choose one.",
   "id": "see-rides-for-a-stop-point",
   "keyword": "Feature"
 });
@@ -1633,14 +1633,14 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.thereIsSomeStopPointsIncludingStreet(int,String)"
 });
 formatter.result({
-  "duration": 173071,
+  "duration": 280212,
   "status": "passed"
 });
 formatter.match({
   "location": "seeRidesForStopPointSteps.sallyIsAPassenger()"
 });
 formatter.result({
-  "duration": 21033,
+  "duration": 38085,
   "status": "passed"
 });
 formatter.match({
@@ -1657,7 +1657,7 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.thereAreSomeRidesWithStreetIncludedAsAStopPoint(int,String)"
 });
 formatter.result({
-  "duration": 409239,
+  "duration": 773658,
   "status": "passed"
 });
 formatter.match({
@@ -1674,7 +1674,7 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.sallySelectsAStreet(int,String)"
 });
 formatter.result({
-  "duration": 57390,
+  "duration": 126379,
   "status": "passed"
 });
 formatter.match({
@@ -1691,7 +1691,7 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.theRidesWhichHaveStreetAsAStopPointAreSeen(int,String)"
 });
 formatter.result({
-  "duration": 93747,
+  "duration": 251149,
   "status": "passed"
 });
 formatter.scenario({
@@ -1731,21 +1731,21 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.thereIsAStopPointThatHasMultipleRidesThatGoToIt()"
 });
 formatter.result({
-  "duration": 246385,
+  "duration": 749651,
   "status": "passed"
 });
 formatter.match({
   "location": "seeRidesForStopPointSteps.sallyHasSelectedThatStopPoint()"
 });
 formatter.result({
-  "duration": 43268,
+  "duration": 96526,
   "status": "passed"
 });
 formatter.match({
   "location": "seeRidesForStopPointSteps.sallyIsAPassenger()"
 });
 formatter.result({
-  "duration": 7812,
+  "duration": 22790,
   "status": "passed"
 });
 formatter.match({
@@ -1758,7 +1758,7 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.sallySelectsAFilterOption(String)"
 });
 formatter.result({
-  "duration": 39061,
+  "duration": 104376,
   "status": "passed"
 });
 formatter.match({
@@ -1771,7 +1771,7 @@ formatter.match({
   "location": "seeRidesForStopPointSteps.theRidesWhichGoAreSeen(String)"
 });
 formatter.result({
-  "duration": 45371,
+  "duration": 128365,
   "status": "passed"
 });
 formatter.uri("shareRide.feature");
@@ -1809,7 +1809,7 @@ formatter.match({
   "location": "shareRideSteps.joHasMadeATrip()"
 });
 formatter.result({
-  "duration": 110874,
+  "duration": 295402,
   "status": "passed"
 });
 formatter.match({
@@ -1822,21 +1822,21 @@ formatter.match({
   "location": "shareRideSteps.joSharesTheTripWithAvailableSeats(int)"
 });
 formatter.result({
-  "duration": 94348,
+  "duration": 235186,
   "status": "passed"
 });
 formatter.match({
   "location": "shareRideSteps.aRideThatCanBeBookedIsCreatedAndTheTripIsShared()"
 });
 formatter.result({
-  "duration": 18329,
+  "duration": 53531,
   "status": "passed"
 });
 formatter.uri("storeData.feature");
 formatter.feature({
   "line": 1,
   "name": "Store entered Data",
-  "description": "As a ​​user​​, I want the system to ​​store my data​​, so I don’t have to re-enter it everytime I restart the\r\napplication.",
+  "description": "As a ​​user​​, I want the system to ​​store my data​​, so I don’t have to re-enter it everytime I restart the\napplication.",
   "id": "store-entered-data",
   "keyword": "Feature"
 });
@@ -1867,21 +1867,21 @@ formatter.match({
   "location": "storeDataSteps.thereIsATripInTheSystem()"
 });
 formatter.result({
-  "duration": 962705,
+  "duration": 2732028,
   "status": "passed"
 });
 formatter.match({
   "location": "storeDataSteps.theApplicationIsClosedAndReopened()"
 });
 formatter.result({
-  "duration": 24381611,
+  "duration": 43909508,
   "status": "passed"
 });
 formatter.match({
   "location": "storeDataSteps.theTripShouldStillBeThere()"
 });
 formatter.result({
-  "duration": 64000,
+  "duration": 128547,
   "status": "passed"
 });
 formatter.scenario({
@@ -1916,28 +1916,28 @@ formatter.match({
   "location": "storeDataSteps.thereIsATripInTheSystem()"
 });
 formatter.result({
-  "duration": 618366,
+  "duration": 2396493,
   "status": "passed"
 });
 formatter.match({
   "location": "storeDataSteps.thereIsARide()"
 });
 formatter.result({
-  "duration": 206123,
+  "duration": 625074,
   "status": "passed"
 });
 formatter.match({
   "location": "storeDataSteps.theApplicationIsClosedAndReopened()"
 });
 formatter.result({
-  "duration": 20533496,
+  "duration": 33429447,
   "status": "passed"
 });
 formatter.match({
   "location": "storeDataSteps.theRideShouldStillBeThere()"
 });
 formatter.result({
-  "duration": 21935,
+  "duration": 31777,
   "status": "passed"
 });
 });

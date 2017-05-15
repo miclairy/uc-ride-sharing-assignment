@@ -51,7 +51,7 @@ public class RideTest {
         ride.bookPassenger(jo, passenger);
         ride.bookPassenger(jo, passenger1);
         assertEquals(0, ride.getAvailableSeats());
-        assertFalse(jo.getRides().contains(ride));
+        assertEquals(Ride.RideState.Full.name(), ride.getRideState());
     }
 
     @Test
@@ -92,6 +92,6 @@ public class RideTest {
         days.add(DayOfWeek.SUNDAY);
         trip.setDays(days);
         trip.share(2, jo, LocalDate.of(2017, 3, 30));
-        assertEquals(8, jo.getRides().size());
+        assertEquals(7, jo.getRides().size());
     }
 }

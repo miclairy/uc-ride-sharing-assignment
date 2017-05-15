@@ -164,7 +164,7 @@ public class Ride implements Comparable<Ride> {
         if (!newCancellations.isEmpty()) {
             HashMap<Passenger, String> cancelled = new HashMap<>();
             for (Passenger passenger : newCancellations) {
-                cancelled.put(passenger, passengerCancellationReasons.get(passenger));
+                cancelled.put(passenger, passengerCancellationReasons.get((String) passenger.getDetails().get("email")));
             }
             newCancellations.clear();
             return cancelled;

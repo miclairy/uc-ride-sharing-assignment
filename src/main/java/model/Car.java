@@ -17,6 +17,7 @@ public class Car {
     private int numSeats;
     private LocalDate wofExpiration;
     private LocalDate registrationExpiry;
+    private int efficiency;
 
     public Car(String type, String colour, String model, String plates, int year, int numSeats) {
         this.type = type;
@@ -87,5 +88,9 @@ public class Car {
 
     public void setRegistrationExpiry(LocalDate registrationExpiry) {
         this.registrationExpiry = registrationExpiry;
+    }
+
+    public void setEfficiency(int efficiency) {
+        this.efficiency = efficiency;
     }
 }
