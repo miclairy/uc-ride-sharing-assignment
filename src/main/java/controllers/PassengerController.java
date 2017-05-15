@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.*;
 
@@ -70,7 +71,8 @@ public class PassengerController implements Initializable{
         for (Driver driver : Data.drivers){
             for (Ride ride : driver.getRides()) {
                 driverRide.put(ride, driver);
-                if (ride.getRideState().equals(Ride.RideState.Running.name())) {
+                if (ride.getRideState().equals(Ride.RideState.Running.name()) ||
+                        ride.getRideState().equals("Booking Cancelled")) {
                     rides.add(ride);
 
                 }
@@ -114,7 +116,7 @@ public class PassengerController implements Initializable{
                 if (ride.getPassengers().contains(Data.passengerUser)){
                     bookedRides.add(ride);
                 }
-                if (ride.getPassengerCancellationReasons().containsKey(Data.passengerUser)){
+                if (ride.getPassengerCancellationReasons().containsKey((String) Data.passengerUser.getDetails().get("email"))){
                     bookedRides.add(ride);
                 }
             }
@@ -134,8 +136,10 @@ public class PassengerController implements Initializable{
         if (ride != null) {
             Trip trip = ride.getTrip();
             rideDetails.getChildren().clear();
-            rideDetails.getChildren().add(new Label(driverRide.get(ride).toString() + ride.getDetails()));
-            rideDetails.getChildren().add(new Label("Date: " + ride.getDate().toString()));
+            AnchorPane detailsHolder = new AnchorPane();
+            detailsHolder.autosize();
+            detailsHolder.getChildren().add(new Label(driverRide.get(ride).toString() + " " + ride.getDetails() +
+                                            "\nDate: " + ride.getDate().toString()));
             TitledPane routePane = new TitledPane();
             routePane.setText(trip.getRoute().getName());
             ListView<String> routeStops = new ListView<>();
@@ -146,6 +150,7 @@ public class PassengerController implements Initializable{
             routeStops.setItems(stopPoints);
             routePane.setContent(routeStops);
 
+            rideDetails.getChildren().add(detailsHolder);
             rideDetails.getChildren().add(routePane);
         }
     }

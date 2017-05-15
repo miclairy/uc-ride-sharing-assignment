@@ -128,72 +128,12 @@
             },
             "shared": true
           },
-          "availableSeats": 4,
-          "passengers": [
-            {
-              "name": "bob",
-              "address": "3 bob, BOBO",
-              "phone": 271112223,
-              "email": "bob@uclive.ac.nz",
-              "password": [
-                -123,
-                -60,
-                -99,
-                -74,
-                91,
-                -106,
-                47,
-                -61,
-                57,
-                -86,
-                1,
-                3,
-                117,
-                75,
-                -11,
-                -26,
-                -19,
-                38,
-                -21,
-                14,
-                31,
-                -48,
-                -34,
-                -51,
-                28,
-                97,
-                85,
-                15,
-                -15,
-                96,
-                118,
-                124
-              ],
-              "salt": [
-                -120,
-                56,
-                120,
-                63,
-                -18,
-                106,
-                107,
-                104,
-                60,
-                124,
-                0,
-                -91,
-                -84,
-                -47,
-                -6,
-                124
-              ],
-              "ucId": "bob"
-            }
-          ],
+          "availableSeats": 5,
+          "passengers": [],
           "date": {
             "year": 2017,
             "month": 5,
-            "day": 14
+            "day": 15
           },
           "state": "Running",
           "time": {
@@ -202,9 +142,11 @@
             "second": 0,
             "nano": 0
           },
-          "notifyDriver": false,
-          "passengerCancelationReasons": {},
+          "passengerCancellationReasons": {
+            "bob@uclive.ac.nz": "sick"
+          },
           "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
           "name": {
             "name": "",
             "value": "hare",
@@ -212,7 +154,7 @@
           },
           "startDate": {
             "name": "",
-            "value": "2017-05-14",
+            "value": "2017-05-15",
             "valid": true
           },
           "startTime": {

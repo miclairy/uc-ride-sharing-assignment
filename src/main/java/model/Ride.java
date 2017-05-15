@@ -10,7 +10,7 @@ import java.util.*;
 public class Ride implements Comparable<Ride> {
 
     public enum RideState{
-        Done, Cancelled, Booked, Running, Full
+        Done, Cancelled, Running, Full
     }
 
     private Trip trip;
@@ -19,7 +19,7 @@ public class Ride implements Comparable<Ride> {
     private LocalDate date;
     private RideState state;
     private LocalTime time;
-    private HashMap<Passenger, String> passengerCancellationReasons = new HashMap<>();
+    private HashMap<String, String> passengerCancellationReasons = new HashMap<>();
     private String cancelationReason;
     private Set<Passenger> cancelationUnnotifiedPassengers = new HashSet<>();
     private Set<Passenger> newCancellations;
@@ -121,6 +121,10 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String getRideState() {
+        if (Data.passengerUser != null &&
+                passengerCancellationReasons.keySet().contains((String) Data.passengerUser.getDetails().get("email"))){
+            return "Booking Cancelled";
+        }
         return rideState.get();
     }
 
@@ -152,7 +156,7 @@ public class Ride implements Comparable<Ride> {
         availableSeats += 1;
         changeRideState(RideState.Running);
         newCancellations.add(passenger);
-        passengerCancellationReasons.put(passenger, reason);
+        passengerCancellationReasons.put((String) passenger.getDetails().get("email"), reason);
     }
 
     public HashMap<Passenger, String> notifyDriver() {
@@ -168,7 +172,7 @@ public class Ride implements Comparable<Ride> {
         return new HashMap<>();
     }
 
-    public HashMap<Passenger, String> getPassengerCancellationReasons() {
+    public HashMap<String, String> getPassengerCancellationReasons() {
         return passengerCancellationReasons;
     }
 }
