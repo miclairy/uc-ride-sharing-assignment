@@ -1,7 +1,9 @@
 package model;
 
+import com.google.maps.errors.ApiException;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
@@ -83,9 +85,10 @@ public class Ride implements Comparable<Ride> {
         return passengers;
     }
 
-    public String getDetails() {
+    public String getDetails() throws InterruptedException, ApiException, IOException {
         return "\nCar: " + trip.getCar().toString() + "\n Route Length: " + trip.getLength().toMinutes() +
-                "\nNumber of Stops: " + trip.getStopTimes().size() + "\nAvailable Seats: " + availableSeats;
+                "\nNumber of Stops: " + trip.getStopTimes().size() + "\nAvailable Seats: " + availableSeats
+                 + "\nCost: $" + trip.calculateCostPerPassenger();
     }
 
 

@@ -1,5 +1,6 @@
 package controllers;
 
+import com.google.maps.errors.ApiException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -87,7 +88,15 @@ public class DriverController implements Initializable {
         Set<ExpiryNotifactions.Expired> notify = ExpiryNotifactions.checkNotifyUser(driverUser);
         notifyUser(notify);
         populateRoutes();
-        populateTrips();
+        try {
+            populateTrips();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ApiException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -234,7 +243,7 @@ public class DriverController implements Initializable {
         }
     }
 
-    private void populateTrips(){
+    private void populateTrips() throws InterruptedException, ApiException, IOException {
         if (driverUser != null){
             for (Trip trip : driverUser.getTrips()){
                 TitledPane tripPane = new TitledPane();
@@ -243,6 +252,7 @@ public class DriverController implements Initializable {
                 VBox infoHolder = new VBox();
                 infoHolder.getChildren().add(new Label("Car: " + trip.getCar()));
                 infoHolder.getChildren().add(new Label("Direction: " + trip.getDirection()));
+                infoHolder.getChildren().add(new Label("Cost: $" + trip.calculateCostPerPassenger()));
                 if (trip.getRecurrent()) {
                     SimpleDateFormat formatter=new SimpleDateFormat("dd MMMM yyyy");
                     String days = "";

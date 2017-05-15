@@ -190,7 +190,6 @@ public class Trip {
         totalKm += distance.inMeters / 1000.0;
 
         double efficiencyPerKm = car.getEfficiency() / 100;
-
         return efficiencyPerKm * totalKm * FUEL_PRICE;
 
     }
