@@ -1,5 +1,13 @@
 package model;
 
+import com.google.maps.DistanceMatrixApiRequest;
+import com.google.maps.GeoApiContext;
+import com.google.maps.GeocodingApi;
+import com.google.maps.errors.ApiException;
+import com.google.maps.model.*;
+
+import java.io.IOException;
+
 /**
  * Created by clbmi on 18/03/2017.
  */
@@ -9,10 +17,13 @@ public class StopPoint {
     private String suburb;
     private String streetName;
     private int distanceFromUni;
+    private static final String apiKey = "AIzaSyAUC7URAPnPNNPhcsCLLZgAJ4KpB9SFXvQ";
+    private static GeoApiContext context = new GeoApiContext();
 
     public StopPoint(int streetNumber, String streetName) {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
+        context.setApiKey(apiKey);
     }
 
     public StopPoint(int streetNumber, String streetName, String suburb) {
@@ -50,5 +61,17 @@ public class StopPoint {
             str += " " + suburb;
         }
         return str;
+    }
+
+    public Distance calculateDistance() throws InterruptedException, ApiException, IOException {
+
+        DistanceMatrixApiRequest distanceRequest = new DistanceMatrixApiRequest(context);
+        distanceRequest.origins("43.5235, 172.5839"); //uni lat long
+        DistanceMatrix distance = distanceRequest.origins("University of Canterbury")
+                                                .destinations(streetNumber + " " + streetName + "Christchurch")
+                                                .mode(TravelMode.DRIVING)
+                                                .await();
+        return distance.rows[0].elements[0].distance;
+
     }
 }
