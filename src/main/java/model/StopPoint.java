@@ -8,6 +8,7 @@ public class StopPoint {
     private int streetNumber;
     private String suburb;
     private String streetName;
+    private int distanceFromUni;
 
     public StopPoint(int streetNumber, String streetName) {
         this.streetNumber = streetNumber;

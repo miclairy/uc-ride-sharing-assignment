@@ -26,4 +26,10 @@ public class stopPointTest {
         result.add(stop);
         assertEquals(result.sorted(), Search.stopPointsSearch("6"));
     }
+
+    @Test
+    public void calculateDistanceFromUniTest(){
+        StopPoint stop = new StopPoint(6, "Hare");
+
+    }
 }
