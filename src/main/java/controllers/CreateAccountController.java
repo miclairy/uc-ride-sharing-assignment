@@ -3,15 +3,9 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Border;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
@@ -74,7 +68,7 @@ public class CreateAccountController implements Initializable {
     @FXML
     public void storeBasicDetails() throws IOException {
 
-        Account temp = new Account();
+        Passenger temp = new Passenger();
 
         if (temp.verifyEmail(email.getText()) && temp.verifyPassword(password1.getText(), password2.getText()) && phone.getText().matches("[0-9]+") &&
         uniId.getText().trim().length() > 0 && phone.getText().trim().length() > 6 && address.getText().trim().length() > 0) {

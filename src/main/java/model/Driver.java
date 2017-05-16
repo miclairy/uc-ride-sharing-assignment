@@ -1,19 +1,14 @@
 package model;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.SetChangeListener;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Driver user class that can register cars and driver passengers around
  */
-public class Driver extends Account{
+public class Driver extends Passenger{
 
     private ObservableList<Car> cars = FXCollections.observableArrayList();
     private ObservableList<Route> routes = FXCollections.observableArrayList();

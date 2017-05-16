@@ -9,7 +9,7 @@
           "plates": "123RTF",
           "year": 1200,
           "numSeats": 6,
-          "efficiency": 0
+          "efficiency": 0.0
         }
       ],
       "routes": [
@@ -62,7 +62,7 @@
             "plates": "123RTF",
             "year": 1200,
             "numSeats": 6,
-            "efficiency": 0
+            "efficiency": 0.0
           },
           "stopTimes": {},
           "expirationDate": {
@@ -105,7 +105,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -173,7 +173,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -241,7 +241,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -309,7 +309,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -377,7 +377,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -445,7 +445,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -513,7 +513,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -581,7 +581,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -649,7 +649,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -717,7 +717,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -785,7 +785,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -853,7 +853,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -921,7 +921,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -989,7 +989,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1057,7 +1057,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1125,7 +1125,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1193,7 +1193,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1261,7 +1261,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1329,7 +1329,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1397,7 +1397,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1465,7 +1465,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {
@@ -1533,7 +1533,7 @@
               "plates": "123RTF",
               "year": 1200,
               "numSeats": 6,
-              "efficiency": 0
+              "efficiency": 0.0
             },
             "stopTimes": {},
             "expirationDate": {

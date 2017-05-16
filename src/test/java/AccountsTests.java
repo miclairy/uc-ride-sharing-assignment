@@ -1,6 +1,6 @@
-import model.Account;
 import model.Driver;
 import model.License;
+import model.Passenger;
 import model.PasswordUtils;
 import org.junit.Test;
 
@@ -59,7 +59,7 @@ public class AccountsTests {
 
     @Test
     public void testPasswordStore() throws IOException {
-        Account acc = new Account();
+        Passenger acc = new Passenger();
         acc.storePassword("magicFun124");
         assert (!acc.getPassword().equals("magicFun124"));
     }
@@ -67,14 +67,14 @@ public class AccountsTests {
 
     @Test
     public void enterPasswordTest() throws IOException {
-        Account acc = new Account();
+        Passenger acc = new Passenger();
         acc.storePassword("liveLifeLoud2345");
         assert (PasswordUtils.isExpectedPassword("liveLifeLoud2345".toCharArray(), acc.getSalt(), acc.getPassword()));
     }
 
     @Test
     public void enterFailedPasswordTest() throws IOException {
-        Account acc = new Account();
+        Passenger acc = new Passenger();
         acc.storePassword("liveLifeLoud2345");
         assertFalse(PasswordUtils.isExpectedPassword("magicFun234".toCharArray(), acc.getSalt(), acc.getPassword()));
     }

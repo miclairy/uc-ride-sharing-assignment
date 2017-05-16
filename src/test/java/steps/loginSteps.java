@@ -3,13 +3,11 @@ package steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import model.Account;
 import model.Data;
 import model.Driver;
+import model.Passenger;
 import model.PasswordUtils;
 import org.apache.commons.codec.DecoderException;
-import org.junit.AfterClass;
-import org.junit.Test;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ import static org.junit.Assert.assertFalse;
 public class loginSteps {
 
     private Driver jo;
-    private Account sally;
+    private Passenger sally;
     private String password;
     private String email;
 
@@ -63,7 +61,7 @@ public class loginSteps {
 
     @Given("^jo doesn't have an account$")
     public void joDoesnTHaveAnAccount() throws IOException {
-        sally = new Account();
+        sally = new Passenger();
         Map<String, Object> store = new HashMap<>();
         store.put("ucId", "sal34");
         store.put("name", "sally");

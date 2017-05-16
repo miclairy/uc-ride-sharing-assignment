@@ -69,7 +69,8 @@ public class rideDetailsSteps {
     @Then("^the rides details are displayed including drivers name, grade, car model, color, year, seats available, route length and number of stops\\.$")
     public void theRidesDetailsAreDisplayedIncludingDriversNameGradeCarModelColorYearSeatsAvailableRouteLengthAndNumberOfStops() throws Throwable {
         String details = "\nCar: " + car.toString() +
-                        "\n Route Length: " + routeLength + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats();
+                        "\n Route Length: " + routeLength + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats()
+                + "\nCost: $1.5";
         assertEquals(details, ride.getDetails());
     }
 }
