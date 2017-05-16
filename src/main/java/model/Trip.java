@@ -37,7 +37,7 @@ public class Trip {
         this.direction = direction;
         this.recurrent = recurrent;
         this.car = car;
-        context.setApiKey(apiKey);
+
     }
 
     public void setDays(Set<DayOfWeek> days) {
@@ -178,6 +178,7 @@ public class Trip {
 
     public double calculateCostPerPassenger() throws InterruptedException, ApiException, IOException {
         double totalKm = 0;
+        context.setApiKey(apiKey);
         DistanceMatrixApiRequest distanceRequest = new DistanceMatrixApiRequest(context);
         StopPoint stop = route.getStops().get(0);
         for (int i = 0; i < route.getStops().size() - 1; i ++){

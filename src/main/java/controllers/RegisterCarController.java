@@ -45,7 +45,7 @@ public class RegisterCarController {
         try {
             Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
                     Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
-            newCar.setEfficiency(Integer.parseInt(efficiency.getText()));
+            newCar.setEfficiency(Double.parseDouble(efficiency.getText()));
             newCar.setWofExpiration(wofExpiry.getValue());
             newCar.setRegistrationExpiry(registrationExpiry.getValue());
             DriverController.driverUser.addCar(newCar);

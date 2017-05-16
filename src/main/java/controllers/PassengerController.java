@@ -1,5 +1,6 @@
 package controllers;
 
+import com.google.maps.errors.ApiException;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -85,14 +87,30 @@ public class PassengerController implements Initializable{
 
         sharedRides.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             Platform.runLater(() -> bookedRidesTable.getSelectionModel().clearSelection());
-            setRideDetails(newValue);
+            try {
+                setRideDetails(newValue);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ApiException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             book.setVisible(true);
             cancelBooking.setVisible(false);
         });
 
         bookedRidesTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             Platform.runLater(() -> sharedRides.getSelectionModel().clearSelection());
-            setRideDetails(newValue);
+            try {
+                setRideDetails(newValue);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ApiException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             book.setVisible(false);
             cancelBooking.setVisible(true);
         });
@@ -131,7 +149,7 @@ public class PassengerController implements Initializable{
     }
 
 
-    private void setRideDetails(Ride ride){
+    private void setRideDetails(Ride ride) throws InterruptedException, ApiException, IOException {
         viewingRide = ride;
         if (ride != null) {
             Trip trip = ride.getTrip();
@@ -166,7 +184,15 @@ public class PassengerController implements Initializable{
             if (viewingRide.getAvailableSeats() == 0) {
                 rideDetails.getChildren().clear();
             } else {
-                setRideDetails(viewingRide);
+                try {
+                    setRideDetails(viewingRide);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
             updateBookedRides();
             bookedRidesTable.setItems(bookedRides.sorted());
