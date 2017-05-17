@@ -29,11 +29,12 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="247.0" vgrow="SOMETIMES" />
+    <RowConstraints />
+      <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="247.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox GridPane.columnIndex="1" GridPane.rowSpan="2147483647" GridPane.vgrow="ALWAYS">
+      <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.vgrow="ALWAYS">
          <children>
             <HBox prefHeight="21.0" prefWidth="200.0">
                <children>
@@ -41,10 +42,10 @@
                   <TextField fx:id="stopPointSearch" onAction="#searchStopPoints" />
                </children>
             </HBox>
-            <ListView fx:id="stopPoints" prefHeight="381.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <ListView fx:id="stopPoints" prefHeight="319.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
-      <VBox GridPane.columnIndex="2">
+      <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
          <children>
             <HBox prefHeight="33.0" prefWidth="200.0">
                <children>
@@ -54,7 +55,7 @@
             <ListView fx:id="sharedRides" prefHeight="379.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <children>
             <VBox fx:id="rideDetails" layoutY="14.0" prefHeight="247.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
@@ -65,7 +66,7 @@
             <Button fx:id="cancelBooking" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel" visible="false" />
          </children>
       </HBox>
-      <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <VBox GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Booked Rides">
                <VBox.margin>
@@ -83,5 +84,7 @@
             </TableView>
          </children>
       </VBox>
+      <Text fx:id="userDetails" strokeType="OUTSIDE" strokeWidth="0.0" text="User" GridPane.columnIndex="1" />
+      <Button mnemonicParsing="false" onAction="#editAccount" text="Edit Account" GridPane.columnIndex="2" />
    </children>
 </GridPane>

@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.*;
 
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class PassengerController implements Initializable{
     private Button cancelBooking;
     @FXML
     private Button book;
+    @FXML private Text userDetails;
+
 
     private Ride viewingRide;
     private ObservableList<Ride> rides = FXCollections.observableArrayList();
@@ -64,6 +67,8 @@ public class PassengerController implements Initializable{
         setUpRideTable();
         setSelectionListeners();
         notifyCancelledRide();
+
+        userDetails.setText(Data.passengerUser.toString());
 
     }
 
@@ -246,8 +251,10 @@ public class PassengerController implements Initializable{
         } else {
             filtered = rides.sorted();
         }
+        System.out.println(stopPoints.getSelectionModel().getSelectedItem());
         ObservableList<Ride> onlyStopPointSelected = Search.ridesForStopPoint(rides, stopPoints.getSelectionModel().getSelectedItem());
-        if (!onlyStopPointSelected.isEmpty()){
+        System.out.println(onlyStopPointSelected);
+        if (stopPoints.getSelectionModel().getSelectedItem() == null){
             for (Ride anOnlyStopPointSelected : onlyStopPointSelected) {
                 if (filtered.contains(anOnlyStopPointSelected)) {
                     obResult.add(anOnlyStopPointSelected);
@@ -259,6 +266,12 @@ public class PassengerController implements Initializable{
 
         sharedRides.setItems(obResult.sorted());
 
+    }
+
+    @FXML
+    private void editAccount() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/editAccount.fxml");
     }
 
 }

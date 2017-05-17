@@ -73,11 +73,6 @@ public class Driver extends Passenger{
         return grade;
     }
 
-    @Override
-    public String toString() {
-        return this.getName();
-    }
-
     public void addTrip(Trip trip) {
         trips.add(trip);
     }

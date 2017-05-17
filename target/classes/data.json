@@ -50,6 +50,19 @@
             }
           ],
           "name": "hare"
+        },
+        {
+          "stops": [
+            {
+              "streetNumber": 5,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 6,
+              "streetName": "Hare"
+            }
+          ],
+          "name": "5"
         }
       ],
       "trips": [
@@ -330,23 +343,17 @@
         "issued": {
           "year": 2015,
           "month": 5,
-          "dayOfMonth": 19,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 0
         },
         "expiry": {
           "year": 2024,
           "month": 5,
-          "dayOfMonth": 23,
-          "hourOfDay": 0,
-          "minute": 0,
-          "second": 0
+          "day": 0
         }
       },
-      "name": "Calire",
+      "name": "Claire",
       "address": "2 Hare, CHCH",
-      "phone": 27555989,
+      "phone": "27555989",
       "email": "cba62@uclive.ac.nz",
       "password": [
         -50,
@@ -407,7 +414,7 @@
     {
       "name": "bob",
       "address": "3 bob, BOBO",
-      "phone": 271112223,
+      "phone": "271112223",
       "email": "bob@uclive.ac.nz",
       "password": [
         -123,
@@ -468,6 +475,10 @@
     {
       "streetNumber": 6,
       "streetName": "Hare"
+    },
+    {
+      "streetNumber": 5,
+      "streetName": "magic"
     }
   ]
 }

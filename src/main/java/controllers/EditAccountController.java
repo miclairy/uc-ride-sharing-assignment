@@ -67,7 +67,11 @@ public class EditAccountController implements Initializable{
         }
 
         SwitchScenes switchScenes = new SwitchScenes();
-        switchScenes.goToScene("/driverMain.fxml");
+        if (Data.getDriverUser() != null) {
+            switchScenes.goToScene("/driverMain.fxml");
+        } else {
+            switchScenes.goToScene("/passengerMain.fxml");
+        }
 
 //        if (!password1.getText().isEmpty()){ TODO
 //            if (user.verifyPassword(password1.getText(), password2.getText()){
@@ -78,7 +82,11 @@ public class EditAccountController implements Initializable{
 
     public void cancel() throws IOException {
         SwitchScenes switchScenes = new SwitchScenes();
-        switchScenes.goToScene("/driverMain.fxml");
+        if (Data.getDriverUser() != null) {
+            switchScenes.goToScene("/driverMain.fxml");
+        } else {
+            switchScenes.goToScene("/passengerMain.fxml");
+        }
     }
 
 }
