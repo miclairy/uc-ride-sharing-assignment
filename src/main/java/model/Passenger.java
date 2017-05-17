@@ -3,9 +3,7 @@ package model;
 import org.apache.commons.codec.binary.Hex;
 
 import java.io.*;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by clbmi on 26/04/2017.
@@ -14,7 +12,7 @@ public class Passenger {
 
     private String name;
     private String address;
-    private long phone;
+    private String phone;
     private String email;
     private byte[] password;
     private byte[] salt;
@@ -39,16 +37,28 @@ public class Passenger {
         return password.equals(passwordCheck);
     }
 
-    public void setDetails(Map<String, Object> store) {
-        ucId = (String) store.get("ucId");
-        name = (String) store.get("name");
-        address = (String) store.get("address");
-        phone = (long) store.get("phone");
-        email = (String) store.get("email");
+    public void setDetails(Map<String, String> store) {
+
+        if (ucId == null) {
+            ucId = store.get("ucId");
+        }
+        if (store.get("name") != null) {
+            name = store.get("name");
+        }
+        if (store.get("address") != null) {
+            address = store.get("address");
+        }
+        if (store.get("phone") != null) {
+            phone = store.get("phone");
+        }
+        if (email == null) {
+            email = store.get("email");
+        }
     }
 
-    public Map<String, Object> getDetails() {
-        Map<String, Object> details = new HashMap<>();
+
+    public Map<String, String> getDetails() {
+        Map<String, String> details = new HashMap<>();
         details.put("ucId", ucId);
         details.put("name", name);
         details.put("address", address);

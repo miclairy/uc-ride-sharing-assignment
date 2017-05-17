@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -21,19 +22,15 @@ public class AccountsTests {
 
     @Test
     public void verifyLicenseTest() throws ParseException {
-        Calendar issuedDate = new GregorianCalendar();
-        Calendar expiryDate = new GregorianCalendar();
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        issuedDate.setTime(df.parse("09/02/2016"));
-        expiryDate.setTime(df.parse("06/02/2026"));
+
+        LocalDate issuedDate = LocalDate.of(2016, 9, 2);
+        LocalDate expiryDate = LocalDate.of(2026, 02, 06);
         License license = new License("full", "FR123456", issuedDate, expiryDate);
         License restrictedLicense = new License("restricted", "FR123456", issuedDate, expiryDate);
-        Calendar wrongExpiryDate = new GregorianCalendar();
-        wrongExpiryDate.setTime(df.parse("06/02/2016"));
+        LocalDate wrongExpiryDate = LocalDate.of(2016, 02, 06);
         License wrongExpiry = new License("full",  "FR123456", issuedDate, wrongExpiryDate);
         License oldLicense = new License("full for 2 years",  "FR123456", issuedDate, expiryDate);
-        Calendar expired = new GregorianCalendar();
-        expired.setTime(df.parse("06/02/2017"));
+        LocalDate expired = LocalDate.of(2017, 02, 06);
         License expiredLicense = new License("full",  "FR123456", issuedDate, expired);
         assert(license.verify());
         assert(oldLicense.verify());

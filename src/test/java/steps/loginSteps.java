@@ -32,11 +32,11 @@ public class loginSteps {
     @Given("^jo has an account$")
     public void joHasAnAccount() throws IOException {
         jo = new Driver();
-        Map<String, Object> store = new HashMap<>();
+        Map<String, String> store = new HashMap<>();
         store.put("ucId", "jba23");
         store.put("name", "jo");
         store.put("address", "6 hare");
-        store.put("phone", (long) 5555552);
+        store.put("phone", "5555552");
         store.put("email", "jba12@uclive.ac.nz");
         jo.setDetails(store);
         jo.storePassword("123Abc");
@@ -47,7 +47,7 @@ public class loginSteps {
     @When("^he enters the correct email and password$")
     public void heEntersTheCorrectEmailAndPassword() {
         password = "123Abc";
-        email = (String) jo.getDetails().get("email");
+        email = jo.getDetails().get("email");
 
     }
 
@@ -62,11 +62,11 @@ public class loginSteps {
     @Given("^jo doesn't have an account$")
     public void joDoesnTHaveAnAccount() throws IOException {
         sally = new Passenger();
-        Map<String, Object> store = new HashMap<>();
+        Map<String, String> store = new HashMap<>();
         store.put("ucId", "sal34");
         store.put("name", "sally");
         store.put("address", "8 bear");
-        store.put("phone", (long) 599720263);
+        store.put("phone", "599720263");
         store.put("email", "123@uclive.ac.nz");
         sally.setDetails(store);
         sally.storePassword("pass");

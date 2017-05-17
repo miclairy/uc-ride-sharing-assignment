@@ -34,11 +34,11 @@ public class bookRideSteps {
     public void sallyBooksTheRide() {
         availableSeatsBefore = selectedRide.getAvailableSeats();
         sally = new Passenger();
-        Map<String, Object> store = new HashMap<>();
+        Map<String, String> store = new HashMap<>();
         store.put("ucId", "sal34");
         store.put("name", "sally");
         store.put("address", "45 Sally");
-        store.put("phone", (long) 450138318);
+        store.put("phone", "450138318");
         store.put("email", "sal34@uclive.ac.nz");
         sally.setDetails(store);
         selectedRide.bookPassenger(jo, sally);

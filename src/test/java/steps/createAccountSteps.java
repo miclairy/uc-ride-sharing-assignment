@@ -10,6 +10,8 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -23,8 +25,8 @@ public class createAccountSteps {
     private Driver jo;
     private String password;
     private String passwordP;
-    private Map<String, Object> store = new HashMap<>();
-    private Map<String, Object> passengerStore = new HashMap<>();
+    private Map<String, String> store = new HashMap<>();
+    private Map<String, String> passengerStore = new HashMap<>();
     private License license;
     private Passenger sally;
 
@@ -33,8 +35,8 @@ public class createAccountSteps {
         jo = new Driver("");
     }
 
-    @When("^jo enters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", (\\d+) and \"([^\"]*)\" and he uploads a photo and enters the password \"([^\"]*)\" twice$")
-    public void joEntersAndAndHeUploadsAPhotoAndEntersThePasswordTwice(String ucid, String name, String address, long phone, String email, String password) {
+    @When("^jo enters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\" and he uploads a photo and enters the password \"([^\"]*)\" twice$")
+    public void joEntersAndAndHeUploadsAPhotoAndEntersThePasswordTwice(String ucid, String name, String address, String phone, String email, String password) {
         this.password = password;
         store.put("ucId", ucid);
         store.put("name", name);
@@ -51,12 +53,8 @@ public class createAccountSteps {
 
     @When("^jo enters type \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
     public void joEntersType(String type, String number, String issued, String expiry) throws ParseException {
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        Calendar issuedDate = new GregorianCalendar();
-        Calendar expiryDate = new GregorianCalendar();
-        issuedDate.setTime(df.parse(issued));
-        expiryDate.setTime(df.parse(expiry));
-        license = new License(type,  number, issuedDate, expiryDate);
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        license = new License(type,  number, LocalDate.parse(issued, df), LocalDate.parse(expiry, df));
     }
 
     @Then("^it is verified he can carry passengers$")
@@ -97,8 +95,8 @@ public class createAccountSteps {
         sally = new Passenger();
     }
 
-    @When("^sally enters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", (\\d+) and \"([^\"]*)\" and she uploads a photo and enters the password \"([^\"]*)\" twice$")
-    public void sallyEntersAndAndSheUploadsAPhotoAndEntersThePasswordTwice(String ucid, String name, String address, long phone, String email, String password) {
+    @When("^sally enters \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\" and she uploads a photo and enters the password \"([^\"]*)\" twice$")
+    public void sallyEntersAndAndSheUploadsAPhotoAndEntersThePasswordTwice(String ucid, String name, String address, String phone, String email, String password) {
         this.passwordP = password;
         passengerStore.put("ucId", ucid);
         passengerStore.put("name", name);
@@ -146,12 +144,11 @@ public class createAccountSteps {
     public void sallyIsAlreadySignedUp() throws Throwable {
         sally = new Passenger();
         this.passwordP = "liveLife";
-        Map<String, Object> passengerStore = new HashMap<>();
+        Map<String, String> passengerStore = new HashMap<>();
         passengerStore.put("ucId", "sal34");
         passengerStore.put("name", "sally");
         passengerStore.put("address", "23 bear street");
-        long phone = 1234568852;
-        passengerStore.put("phone", phone);
+        passengerStore.put("phone", "1234568852");
         passengerStore.put("email", "sal34@canterbury.ac.nz");
         sally.setDetails(passengerStore);
         Data.addPassenger(sally);

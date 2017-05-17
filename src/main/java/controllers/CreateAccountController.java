@@ -72,11 +72,11 @@ public class CreateAccountController implements Initializable {
 
         if (temp.verifyEmail(email.getText()) && temp.verifyPassword(password1.getText(), password2.getText()) && phone.getText().matches("[0-9]+") &&
         uniId.getText().trim().length() > 0 && phone.getText().trim().length() > 6 && address.getText().trim().length() > 0) {
-            Map<String, Object> enteredInformation = new HashMap<>();
+            Map<String, String> enteredInformation = new HashMap<>();
             enteredInformation.put("name", name.getText());
             enteredInformation.put("ucId", uniId.getText());
             enteredInformation.put("email", email.getText());
-            enteredInformation.put("phone", Long.parseLong(phone.getText()));
+            enteredInformation.put("phone", phone.getText());
             enteredInformation.put("address", address.getText() + ", " + city.getText());
 
             if (MainController.makeDriver) {
@@ -93,7 +93,7 @@ public class CreateAccountController implements Initializable {
         }
     }
 
-    private void setNewPassenger(Map<String, Object> enteredInformation) throws IOException {
+    private void setNewPassenger(Map<String, String> enteredInformation) throws IOException {
         Passenger newAccount = new Passenger();
         newAccount.setDetails(enteredInformation);
         newAccount.storePassword(password1.getText());
@@ -102,7 +102,7 @@ public class CreateAccountController implements Initializable {
         Data.addPassenger(newAccount);
     }
 
-    private void setNewDriver(Map<String, Object> enteredInformation) throws IOException {
+    private void setNewDriver(Map<String, String> enteredInformation) throws IOException {
         Driver newAccount = new Driver();
         newAccount.setDetails(enteredInformation);
         newAccount.storePassword(password1.getText());
@@ -118,12 +118,10 @@ public class CreateAccountController implements Initializable {
     }
 
     public void registerLicense(){
-        GregorianCalendar issued = new GregorianCalendar(issuedDate.getValue().getYear(), issuedDate.getValue().getMonthValue(),
-                issuedDate.getValue().getDayOfMonth());
-        GregorianCalendar expiry = new GregorianCalendar(expiryDate.getValue().getYear(), expiryDate.getValue().getMonthValue(),
-                expiryDate.getValue().getDayOfMonth());
+
         if (number.getText().length() > 0) {
-            License license = new License(type.getSelectionModel().getSelectedItem(), number.getText(), issued, expiry);
+            License license = new License(type.getSelectionModel().getSelectedItem(), number.getText(),
+                    issuedDate.getValue(), expiryDate.getValue());
             if (license.verify()) {
                 Data.getDriverUser().setLicense(license);
                 Data.setDriverUser(null);

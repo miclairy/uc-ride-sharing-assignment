@@ -1571,15 +1571,14 @@
           }
         }
       ],
-      "name": "jo",
-      "phone": 0
+      "name": "jo"
     }
   ],
   "passengers": [
     {
       "name": "sally",
       "address": "23 bear street",
-      "phone": 1234568852,
+      "phone": "1234568852",
       "email": "sal34@canterbury.ac.nz",
       "ucId": "sal34"
     }

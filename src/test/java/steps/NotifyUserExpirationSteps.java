@@ -30,11 +30,8 @@ public class NotifyUserExpirationSteps {
 
     @Given("^his license expires in one month$")
     public void hisLicenseExpiresInOneMonth() {
-        Calendar issuedDate = new GregorianCalendar();
-        Calendar expiryDate = new GregorianCalendar();
-        issuedDate.set(2000, 5, 12);
-        expiryDate.setTime(new Date());
-        expiryDate.add(Calendar.MONTH, 1);
+        LocalDate issuedDate = LocalDate.of(2000, 5, 12);
+        LocalDate expiryDate = LocalDate.now().plusMonths(1);
         License license = new License("full", "FR346568", issuedDate, expiryDate);
         jo.setLicense(license);
     }
@@ -58,8 +55,8 @@ public class NotifyUserExpirationSteps {
         car.setRegistrationExpiry(LocalDate.of(2100, 5, 12));
         jo.addCar(car);
 
-        jo.setLicense(new License("Full", "RT3464858", new GregorianCalendar(2000, 5, 8),
-                new GregorianCalendar(8100, 5, 8)));
+        jo.setLicense(new License("Full", "RT3464858", LocalDate.of(2000, 5, 8),
+                LocalDate.of(8100, 5, 8)));
     }
 
     @Then("^he will be notified that s WOF is going to expire\\.$")
@@ -91,8 +88,8 @@ public class NotifyUserExpirationSteps {
         car.setRegistrationExpiry(LocalDate.now().plusWeeks(weeks));
         car.setWofExpiration(LocalDate.of(2100, 5, 7));
         jo.addCar(car);
-        jo.setLicense(new License("Full", "RT3464858", new GregorianCalendar(2000, 5, 8),
-                new GregorianCalendar(8100, 5, 8)));
+        jo.setLicense(new License("Full", "RT3464858", LocalDate.of(2000, 5, 8),
+                LocalDate.of(8100, 5, 8)));
     }
 
     @Then("^he will not be notified that it is going to expire\\.$")

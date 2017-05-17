@@ -35,8 +35,8 @@ public class ExpiryNotifactions {
     public static Set<Expired> checkNotifyUser(Driver driver){
         Set<Expired> expired = new HashSet<>();
 
-        Date licenseExpiry = driver.getLicense().getExpiry().getTime();
-        boolean licenseNotify = checkIfNotify(licenseExpiry.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        LocalDate licenseExpiry = driver.getLicense().getExpiry();
+        boolean licenseNotify = checkIfNotify(licenseExpiry);
         boolean wofNotify = false;
         boolean regoNotify = false;
 

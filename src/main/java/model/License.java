@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 /**
@@ -9,11 +10,11 @@ public class License {
 
     private String type; //todo enum of license types????????
     private String number;
-    private Calendar issued;
-    private Calendar expiry;
+    private LocalDate issued;
+    private LocalDate expiry;
 
 
-    public License(String type, String number, Calendar issued, Calendar expiry) {
+    public License(String type, String number, LocalDate issued, LocalDate expiry) {
         this.type = type;
         this.number = number;
         this.issued = issued;
@@ -21,13 +22,13 @@ public class License {
     }
 
     public boolean verify(){
-        if (issued.before(expiry) && expiry.after(Calendar.getInstance())){
+        if (issued.isBefore(expiry) && expiry.isAfter(LocalDate.now())){
             return type.toLowerCase().equals("full") || type.equals("full for 2 years");
         }
         return false;
     }
 
-    public Calendar getExpiry() {
+    public LocalDate getExpiry() {
         return expiry;
     }
 
@@ -44,5 +45,9 @@ public class License {
     @Override
     public int hashCode() {
         return number.hashCode();
+    }
+
+    public void upDateExpiiry(LocalDate expiry) {
+        this.expiry = expiry;
     }
 }
