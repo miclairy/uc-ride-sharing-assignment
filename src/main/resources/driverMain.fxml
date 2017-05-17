@@ -30,7 +30,7 @@
     <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Text fx:id="userTypeText" strokeType="OUTSIDE" strokeWidth="0.0" text="You are a Driver" />
+            <Text fx:id="userDetails" strokeType="OUTSIDE" strokeWidth="0.0" text="You are a Driver" />
          </children>
       </HBox>
       <VBox prefHeight="111.0" prefWidth="142.0" GridPane.rowIndex="1">
@@ -109,7 +109,9 @@
             <Button fx:id="makeTrip" mnemonicParsing="false" onAction="#makeTrip" text="Make Trip" />
             <Button fx:id="createRoute" mnemonicParsing="false" onAction="#createRoute" text="Create Route" />
             <Button fx:id="clearSelection" mnemonicParsing="false" onAction="#clearSelection" text="Clear Selection" />
+            <Button mnemonicParsing="false" onAction="#updateLicense" text="Update License" />
          </children>
       </VBox>
+      <Button mnemonicParsing="false" onAction="#editAccount" text="Edit Account" GridPane.rowIndex="3" />
     </children>
 </GridPane>

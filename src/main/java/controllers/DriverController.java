@@ -32,41 +32,18 @@ import java.util.*;
 public class DriverController implements Initializable {
 
 
-    @FXML
-    private Button registerCar;
-    @FXML
-    private Text userTypeText;
-    @FXML
-    private ListView<Car> registeredCars;
-    @FXML
-    private Button createStopPoint;
-    @FXML
-    private ListView<StopPoint> stopPoints;
-    @FXML
-    private Button createRoute;
-    @FXML
-    private Button clearSelection;
-    @FXML
-    private Accordion routesHolder;
-    @FXML
-    private Button makeTrip;
-    @FXML
-    private Accordion tripsHolder;
-    @FXML
-    private TextField stopPointSearch;
-    @FXML
-    private TableView<Ride> ridesTable;
-    @FXML
-    private TableColumn<Ride, String> rideNameCol;
-    @FXML
-    private TableColumn<Ride, String> rideDateCol;
-    @FXML
-    private TableColumn<Ride, String> rideTimeCol;
-    @FXML
-    private TableColumn<Ride, String> rideStateCol;
-    @FXML
-    private Button cancelRide;
-
+    @FXML private ListView<Car> registeredCars;
+    @FXML private ListView<StopPoint> stopPoints;
+    @FXML private Accordion routesHolder;
+    @FXML private Accordion tripsHolder;
+    @FXML private TextField stopPointSearch;
+    @FXML private TableView<Ride> ridesTable;
+    @FXML private TableColumn<Ride, String> rideNameCol;
+    @FXML private TableColumn<Ride, String> rideDateCol;
+    @FXML private TableColumn<Ride, String> rideTimeCol;
+    @FXML private TableColumn<Ride, String> rideStateCol;
+    @FXML private Button cancelRide;
+    @FXML private Text userDetails;
 
     static Driver driverUser;
     static boolean noftifed = false;
@@ -76,6 +53,7 @@ public class DriverController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         driverUser = Data.getDriverUser();
+        userDetails.setText(driverUser.toString());
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         String cars = "";
@@ -323,5 +301,12 @@ public class DriverController implements Initializable {
     public void stopPointsSearch(){
         stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
+
+    public void editAccount() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/editAccount.fxml");
+    }
+
+    public void updateLicense() {} //todo
 
 }

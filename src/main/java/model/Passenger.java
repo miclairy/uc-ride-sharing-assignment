@@ -67,6 +67,12 @@ public class Passenger {
         return Collections.unmodifiableMap(details);
     }
 
+    @Override
+    public String toString(){
+        return "Uc Id: " + ucId + "\nEmail: " + email + "\nName: " + name + "\nAddress: " + address +
+                "\nPhone number: " + phone;
+    }
+
     public void storePassword(String password) throws IOException {
         salt = PasswordUtils.getNextSalt();
         this.password = PasswordUtils.hashPassword(password.toCharArray(), salt);
