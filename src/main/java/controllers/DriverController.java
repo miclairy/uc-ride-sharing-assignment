@@ -309,7 +309,17 @@ public class DriverController implements Initializable {
 
     public void updateLicense() throws IOException {
         SwitchScenes switchScenes = new SwitchScenes();
-        switchScenes.goToScene("/registerLicense");
+        switchScenes.goToScene("/registerLicense.fxml");
+    }
+
+    @FXML
+    private void editCar() throws IOException {
+        Car car = registeredCars.getSelectionModel().getSelectedItem();
+
+        if (car != null){
+            SwitchScenes switchScenes = new SwitchScenes();
+            switchScenes.goToScene("/editCar.fxml", car);
+        }
     }
 
 }

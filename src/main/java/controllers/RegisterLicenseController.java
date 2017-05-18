@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -41,8 +42,8 @@ public class RegisterLicenseController implements Initializable{
         license = Data.getDriverUser().getLicense();
         if (license != null){
             title.setText("Edit License");
-            issuedDate.setChronology(Chronology.from(license.getIssued()));
-            expiryDate.setChronology(Chronology.from(license.getExpiry()));
+            issuedDate.setValue(license.getIssued());
+            expiryDate.setValue(license.getExpiry());
             number.setText(license.getNumber());
             type.getSelectionModel().select(license.getType());
         }
@@ -55,26 +56,43 @@ public class RegisterLicenseController implements Initializable{
         if (license == null){
             registerLicense();
             Data.setDriverUser(null);
-            switchScenes.goToScene("/login.fxml");
+            if (registerLicense()) {
+                switchScenes.goToScene("/login.fxml");
+            }
         } else {
             Data.getDriverUser().setLicense(null);
-            registerLicense();
-            switchScenes.goToScene("/driverMain.fxml");
+            if (registerLicense()) {
+                switchScenes.goToScene("/driverMain.fxml");
+            }
         }
     }
 
 
-    private void registerLicense(){
+    private boolean registerLicense(){
 
         if (number.getText().length() > 0) {
             License license = new License(type.getSelectionModel().getSelectedItem(), number.getText(),
                     issuedDate.getValue(), expiryDate.getValue());
             if (license.verify()) {
                 Data.getDriverUser().setLicense(license);
-
+                return true;
             }
         }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Must have a full license");
+        alert.setContentText("You must have a full license to carry passengers");
+        alert.showAndWait();
+        return false;
 
+    }
+
+    public void cancel() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        if (license == null) {
+            switchScenes.goToScene("/pickDriverPassenger.fxml");
+        } else {
+            switchScenes.goToScene("/driverMain.fxml");
+        }
     }
 
 }
