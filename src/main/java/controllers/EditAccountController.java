@@ -73,11 +73,11 @@ public class EditAccountController implements Initializable{
             switchScenes.goToScene("/passengerMain.fxml");
         }
 
-//        if (!password1.getText().isEmpty()){ TODO
-//            if (user.verifyPassword(password1.getText(), password2.getText()){
-//                user.storePassword(password1.getText());
-//            }
-//        }
+        if (!password1.getText().isEmpty()){
+            if (user.verifyPassword(password1.getText(), password2.getText())){
+                user.changePassword(password1.getText());
+            }
+        }
     }
 
     public void cancel() throws IOException {

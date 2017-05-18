@@ -92,7 +92,28 @@ public class Passenger {
         fileWriter.close();
     }
 
-    public void changePassword(){
+    public void changePassword(String password) throws IOException {
+
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String line = reader.readLine();
+        List<String> usersBuffer = new ArrayList<>();
+        while (line != null){
+            usersBuffer.add(line + "\n");
+            line = reader.readLine();
+
+        }
+        FileWriter fileWriter = new FileWriter(users);
+        for (String user: usersBuffer){
+            if (!user.split(",")[0].equals(email)){
+                fileWriter.write(user);
+            }
+        }
+
+        reader.close();
+        fileWriter.close();
+
+        storePassword(password);
 
     }
 
