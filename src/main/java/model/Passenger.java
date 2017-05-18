@@ -92,6 +92,10 @@ public class Passenger {
         fileWriter.close();
     }
 
+    public void changePassword(){
+
+    }
+
     public String getName() {
         return name;
     }
