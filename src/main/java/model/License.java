@@ -47,7 +47,19 @@ public class License {
         return number.hashCode();
     }
 
-    public void upDateExpiiry(LocalDate expiry) {
+    public void upDateExpiry(LocalDate expiry) {
         this.expiry = expiry;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public LocalDate getIssued() {
+        return issued;
     }
 }

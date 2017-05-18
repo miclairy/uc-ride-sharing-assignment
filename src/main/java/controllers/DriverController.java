@@ -307,6 +307,9 @@ public class DriverController implements Initializable {
         switchScenes.goToScene("/editAccount.fxml");
     }
 
-    public void updateLicense() {} //todo
+    public void updateLicense() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/registerLicense");
+    }
 
 }

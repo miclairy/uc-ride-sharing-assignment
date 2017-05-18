@@ -14,8 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateAccountController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterLicenseController">
    <children>
       <GridPane layoutX="73.0" layoutY="67.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -29,7 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Register License" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Register License" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
@@ -63,7 +62,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </Button>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#registerLicense" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#saveLicense" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>

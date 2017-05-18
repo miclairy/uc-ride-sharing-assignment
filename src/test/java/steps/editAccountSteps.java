@@ -1,6 +1,5 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -79,7 +78,7 @@ public class editAccountSteps {
 
     @When("^Jo goes to edit his account and changes his license expiration to next year$")
     public void joGoesToEditHisAccountAndChangesHisLicenseExpirationToNextYear() {
-        license.upDateExpiiry(LocalDate.of(2026, 05, 1));
+        license.upDateExpiry(LocalDate.of(2026, 05, 1));
     }
 
     @Then("^his new license information is stored$")

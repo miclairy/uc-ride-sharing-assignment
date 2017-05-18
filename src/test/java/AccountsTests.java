@@ -2,15 +2,19 @@ import model.Driver;
 import model.License;
 import model.Passenger;
 import model.PasswordUtils;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 
-import java.io.IOException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 
@@ -74,6 +78,40 @@ public class AccountsTests {
         Passenger acc = new Passenger();
         acc.storePassword("liveLifeLoud2345");
         assertFalse(PasswordUtils.isExpectedPassword("magicFun234".toCharArray(), acc.getSalt(), acc.getPassword()));
+    }
+
+    @Test
+    public void changePasswordTest() throws IOException {
+        Passenger acc = new Passenger();
+        acc.storePassword("liveLifeLoud2345");
+        acc.changePassword("lalalala");
+        assert (PasswordUtils.isExpectedPassword("lalalala".toCharArray(), acc.getSalt(), acc.getPassword()));
+    }
+
+    @After
+    public void removeMadeAccounts() throws IOException {
+        cleanUpFile("null");
+    }
+
+    private void cleanUpFile(String emailToRemove) throws IOException {
+        String users = new File("src/main/resources/users.csv").getAbsolutePath();
+        BufferedReader reader = new BufferedReader(new FileReader(users));
+        String line = reader.readLine();
+        List<String> usersBuffer = new ArrayList<>();
+        while (line != null){
+            usersBuffer.add(line + "\n");
+            line = reader.readLine();
+
+        }
+        FileWriter fileWriter = new FileWriter(users);
+        for (String user: usersBuffer){
+            if (!user.split(",")[0].equals(emailToRemove)){
+                fileWriter.write(user);
+            }
+        }
+
+        reader.close();
+        fileWriter.close();
     }
 
 
