@@ -251,10 +251,9 @@ public class PassengerController implements Initializable{
         } else {
             filtered = rides.sorted();
         }
-        System.out.println(stopPoints.getSelectionModel().getSelectedItem());
         ObservableList<Ride> onlyStopPointSelected = Search.ridesForStopPoint(rides, stopPoints.getSelectionModel().getSelectedItem());
-        System.out.println(onlyStopPointSelected);
-        if (stopPoints.getSelectionModel().getSelectedItem() == null){
+
+        if (stopPoints.getSelectionModel().getSelectedItem() != null){
             for (Ride anOnlyStopPointSelected : onlyStopPointSelected) {
                 if (filtered.contains(anOnlyStopPointSelected)) {
                     obResult.add(anOnlyStopPointSelected);
@@ -263,7 +262,6 @@ public class PassengerController implements Initializable{
         } else {
             obResult.addAll(filtered);
         }
-
         sharedRides.setItems(obResult.sorted());
 
     }
