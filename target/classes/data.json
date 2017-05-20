@@ -408,6 +408,103 @@
         6
       ],
       "ucId": "cba62@uclive.ac.nz"
+    },
+    {
+      "cars": [
+        {
+          "type": "Car",
+          "colour": "Red",
+          "model": "Holden",
+          "plates": "RED345",
+          "year": 1990,
+          "numSeats": 8,
+          "wofExpiration": {
+            "year": 2018,
+            "month": 5,
+            "day": 25
+          },
+          "registrationExpiry": {
+            "year": 2018,
+            "month": 6,
+            "day": 14
+          },
+          "efficiency": 11.0
+        }
+      ],
+      "routes": [],
+      "trips": [],
+      "rides": [],
+      "license": {
+        "type": "Full",
+        "number": "TR4578b",
+        "issued": {
+          "year": 2017,
+          "month": 5,
+          "day": 12
+        },
+        "expiry": {
+          "year": 2024,
+          "month": 5,
+          "day": 16
+        }
+      },
+      "name": "jo",
+      "address": "31 jo, Bob Town",
+      "phone": "031276465",
+      "email": "jo@uclive.ac.nz",
+      "password": [
+        40,
+        -11,
+        -68,
+        93,
+        -56,
+        94,
+        56,
+        66,
+        65,
+        -43,
+        88,
+        -93,
+        -102,
+        -104,
+        -10,
+        -39,
+        43,
+        -123,
+        -22,
+        -7,
+        -68,
+        -78,
+        -46,
+        -14,
+        -93,
+        97,
+        -55,
+        68,
+        35,
+        -5,
+        28,
+        1
+      ],
+      "salt": [
+        67,
+        -111,
+        54,
+        -79,
+        101,
+        -114,
+        60,
+        15,
+        5,
+        75,
+        103,
+        33,
+        -82,
+        -108,
+        -112,
+        47
+      ],
+      "ucId": "jo"
     }
   ],
   "passengers": [

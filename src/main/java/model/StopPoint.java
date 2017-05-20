@@ -71,7 +71,7 @@ public class StopPoint {
         if (placeName != null){
             return placeName;
         }
-        return streetNumber + " " + streetName + "Christchurch";
+        return streetNumber + " " + streetName + " Christchurch";
     }
 
 //    public Distance calculateDistance() throws InterruptedException, ApiException, IOException {
