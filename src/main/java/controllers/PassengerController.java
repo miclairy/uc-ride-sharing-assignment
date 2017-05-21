@@ -139,7 +139,7 @@ public class PassengerController implements Initializable{
                 if (ride.getPassengers().contains(Data.passengerUser)){
                     bookedRides.add(ride);
                 }
-                if (ride.getPassengerCancellationReasons().containsKey((String) Data.passengerUser.getDetails().get("email"))){
+                if (ride.getPassengerCancellationReasons().containsKey(Data.passengerUser.getDetails().get("email"))){
                     bookedRides.add(ride);
                 }
             }
@@ -272,4 +272,9 @@ public class PassengerController implements Initializable{
         switchScenes.goToScene("/editAccount.fxml");
     }
 
+    public void setSelected(ObservableList<StopPoint> selectedStopPoints) {
+        stopPoints.getSelectionModel().clearSelection();
+        stopPoints.getSelectionModel().getSelectedItems().addAll(selectedStopPoints);
+        filterByToFromUni();
+    }
 }

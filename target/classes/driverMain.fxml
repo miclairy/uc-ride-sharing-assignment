@@ -20,8 +20,8 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DriverController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="132.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="481.0" minWidth="10.0" prefWidth="468.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="152.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="481.0" minWidth="10.0" prefWidth="448.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -39,6 +39,7 @@
          <children>
             <Button fx:id="registerCar" mnemonicParsing="false" onAction="#registerCar" text="Register a car" />
             <Button fx:id="createStopPoint" mnemonicParsing="false" onAction="#createStopPoint" text="Create Stop Point" />
+            <Button mnemonicParsing="false" onAction="#selectSearchStopPoints" text="Search/Select Stop Points" />
             <Button fx:id="cancelRide" mnemonicParsing="false" onAction="#cancelRide" text="Cancel Ride" visible="false" />
          </children>
       </VBox>

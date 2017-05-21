@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.lynden.gmapsfx.GoogleMapView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,9 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-
-<?import com.lynden.gmapsfx.GoogleMapView?>
-<AnchorPane prefHeight="398.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StopPointController">
+<AnchorPane prefHeight="398.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StopPointController">
    <children>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -59,7 +58,7 @@
             <HBox GridPane.rowIndex="3">
                <children>
                   <Label fx:id="searchLabel" text="Search: " />
-                  <TextField fx:id="searchField" />
+                  <TextField fx:id="searchField" onAction="#search" />
                </children>
             </HBox>
             <SplitPane dividerPositions="0.6854368932038835" prefHeight="206.0" prefWidth="613.0" GridPane.rowIndex="4">

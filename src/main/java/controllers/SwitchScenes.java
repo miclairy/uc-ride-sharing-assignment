@@ -1,5 +1,7 @@
 package controllers;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,6 +9,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Car;
+import model.Data;
+import model.StopPoint;
 
 import java.io.IOException;
 
@@ -37,4 +41,26 @@ public class SwitchScenes {
         stage.show();
     }
 
+    void goToScene(String fxml, ObservableList<StopPoint> selectedStopPoints) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        stage.setResizable(true);
+        stage.setScene(new Scene(loader.load()));
+        if (Data.getDriverUser() != null){
+            DriverController controller = loader.getController();
+            controller.setSelected(selectedStopPoints);
+        } else {
+            PassengerController controller = loader.getController();
+            controller.setSelected(selectedStopPoints);
+        }
+        stage.show();
+    }
+
+    void goToScene(String fxml, Boolean create) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        stage.setResizable(true);
+        stage.setScene(new Scene(loader.load()));
+        StopPointController controller = loader.getController();
+        controller.setMode(create);
+        stage.show();
+    }
 }

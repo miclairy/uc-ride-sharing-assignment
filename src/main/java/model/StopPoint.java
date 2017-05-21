@@ -5,6 +5,9 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.*;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
+import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 
 import java.io.IOException;
 
@@ -17,6 +20,8 @@ public class StopPoint {
     private String suburb;
     private String streetName;
     private String placeName;
+    private transient Marker marker;
+    private transient MarkerOptions markerOptions;
 //    private static final String apiKey = "AIzaSyAUC7URAPnPNNPhcsCLLZgAJ4KpB9SFXvQ";
 //    private static GeoApiContext context = new GeoApiContext();
 
@@ -72,6 +77,24 @@ public class StopPoint {
             return placeName;
         }
         return streetNumber + " " + streetName + " Christchurch";
+    }
+
+
+    public void hideMarker(GoogleMap map){
+        if (marker != null) {
+            map.removeMarker(marker);
+            this.marker = null;
+        }
+    }
+
+    public void storeMarker(Marker marker, MarkerOptions markerOptions) {
+        this.marker = marker;
+        this.markerOptions = markerOptions;
+    }
+
+    public Marker restoreMarker(){
+        this.marker = new Marker(markerOptions);
+        return marker;
     }
 
 //    public Distance calculateDistance() throws InterruptedException, ApiException, IOException {

@@ -302,6 +302,12 @@ public class DriverController implements Initializable {
         stopPoints.setItems(Search.stopPointsSearch(stopPointSearch.getText()));
     }
 
+    @FXML
+    private void selectSearchStopPoints() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/createStopPoint.fxml", false);
+    }
+
     public void editAccount() throws IOException {
         SwitchScenes switchScenes = new SwitchScenes();
         switchScenes.goToScene("/editAccount.fxml");
@@ -322,4 +328,20 @@ public class DriverController implements Initializable {
         }
     }
 
+    public void setSelected(ObservableList<StopPoint> selectedStopPoints) {
+        stopPoints.getSelectionModel().clearSelection();
+        for (StopPoint stop : selectedStopPoints){
+            stopPoints.getSelectionModel().select(stop);
+        }
+        Alert makeRouteAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        makeRouteAlert.setTitle("Make a Route with selected Stop points");
+        makeRouteAlert.setHeaderText("Make a route with the stop Points you selected");
+        makeRouteAlert.setContentText("Do you want to make a route with the selected stop points?");
+        makeRouteAlert.showAndWait();
+
+        Optional<ButtonType> result = makeRouteAlert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            createRoute();
+        }
+    }
 }
