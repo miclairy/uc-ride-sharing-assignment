@@ -91,13 +91,21 @@ public class StopPointController implements Initializable, MapComponentInitializ
 
     private void makeStopPoint(){
         try {
-            if (suburb.getText().isEmpty()) {
-                DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText());
+            if (Integer.parseInt(number.getText()) > 0) {
+                if (suburb.getText().isEmpty()) {
+                    DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText());
+                } else {
+                    DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText(), suburb.getText());
+                }
+                SwitchScenes switchScenes = new SwitchScenes();
+                switchScenes.goToScene("/driverMain.fxml");
             } else {
-                DriverController.driverUser.createStopPoint(Integer.parseInt(number.getText()), street.getText(), suburb.getText());
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("House Number incorrect");
+                alert.setHeaderText("House number must be positive.");
+                alert.setContentText("");
+                alert.showAndWait();
             }
-            SwitchScenes switchScenes = new SwitchScenes();
-            switchScenes.goToScene("/driverMain.fxml");
         } catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly");

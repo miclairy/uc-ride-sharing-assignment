@@ -43,14 +43,22 @@ public class RegisterCarController {
     public void registerCar(){
 
         try {
-            Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
-                    Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
-            newCar.setEfficiency(Double.parseDouble(efficiency.getText()));
-            newCar.setWofExpiration(wofExpiry.getValue());
-            newCar.setRegistrationExpiry(registrationExpiry.getValue());
-            DriverController.driverUser.addCar(newCar);
-            SwitchScenes switchScenes = new SwitchScenes();
-            switchScenes.goToScene("/driverMain.fxml");
+            if (Integer.parseInt(year.getText()) > 0 && Integer.parseInt(numSeats.getText()) > 0) {
+                Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
+                        Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
+                newCar.setEfficiency(Double.parseDouble(efficiency.getText()));
+                newCar.setWofExpiration(wofExpiry.getValue());
+                newCar.setRegistrationExpiry(registrationExpiry.getValue());
+                DriverController.driverUser.addCar(newCar);
+                SwitchScenes switchScenes = new SwitchScenes();
+                switchScenes.goToScene("/driverMain.fxml");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Information was entered incorrectly");
+                alert.setHeaderText("Year and number of seats must be greater than 0");
+                alert.setContentText("");
+                alert.showAndWait();
+            }
         } catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly");
