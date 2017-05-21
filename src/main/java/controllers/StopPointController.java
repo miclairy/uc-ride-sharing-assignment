@@ -6,6 +6,7 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.GeocodingResult;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.text.Text;
 import model.Data;
 import model.Search;
 import model.StopPoint;
+import netscape.javascript.JSObject;
 
 import java.io.IOException;
 import java.net.URL;
@@ -146,6 +148,7 @@ public class StopPointController implements Initializable, MapComponentInitializ
 
         map = mapView.createMap(mapOptions);
         addAllStopPointMarkers();
+
     }
 
     private void addAllStopPointMarkers() {
@@ -161,6 +164,15 @@ public class StopPointController implements Initializable, MapComponentInitializ
                 Marker marker = new Marker(markerOptions);
                 stopPoint.storeMarker(marker, markerOptions);
                 map.addMarker(marker);
+
+                map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
+                    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+                    infoWindowOptions.content(stopPoint.getAddress());
+                    InfoWindow infoWindow = new InfoWindow(infoWindowOptions);
+                    infoWindow.open(map, marker);
+                    stopPointsList.getSelectionModel().select(stopPoint);
+                });
+
             } catch (ApiException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
