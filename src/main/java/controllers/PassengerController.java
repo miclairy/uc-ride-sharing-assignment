@@ -161,7 +161,7 @@ public class PassengerController implements Initializable{
             rideDetails.getChildren().clear();
             AnchorPane detailsHolder = new AnchorPane();
             detailsHolder.autosize();
-            detailsHolder.getChildren().add(new Label(driverRide.get(ride).toString() + " " + ride.getDetails() +
+            detailsHolder.getChildren().add(new Label(driverRide.get(ride).getName() + " " + ride.getDetails() +
                                             "\nDate: " + ride.getDate().toString()));
             TitledPane routePane = new TitledPane();
             routePane.setText(trip.getRoute().getName());
@@ -274,7 +274,14 @@ public class PassengerController implements Initializable{
 
     public void setSelected(ObservableList<StopPoint> selectedStopPoints) {
         stopPoints.getSelectionModel().clearSelection();
-        stopPoints.getSelectionModel().getSelectedItems().addAll(selectedStopPoints);
+        for (StopPoint stop : selectedStopPoints){
+            stopPoints.getSelectionModel().select(stop);
+        }
         filterByToFromUni();
+    }
+
+    public void select() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/createStopPoint.fxml", false);
     }
 }
