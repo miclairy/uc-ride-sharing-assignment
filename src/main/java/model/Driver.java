@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
 /**
- * Driver user class that can register cars and driver passengers around
+ * Driver user class that can register cars and driver users around
  */
 public class Driver extends Passenger{
 

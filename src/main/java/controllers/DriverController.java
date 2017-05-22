@@ -28,6 +28,8 @@ import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
+import static java.util.Collections.min;
+
 
 public class DriverController implements Initializable {
 
@@ -113,7 +115,7 @@ public class DriverController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Details are going to expire");
             alert.setHeaderText("Your " + items + "are going to expire");
-            alert.setContentText("Please update and renew your " + items + "so you can still carry passengers");
+            alert.setContentText("Please update and renew your " + items + "so you can still carry users");
             alert.showAndWait();
             noftifed = true;
         }
@@ -272,7 +274,13 @@ public class DriverController implements Initializable {
         dialog.setContentText("Please enter the number of available seats:");
         Optional<String> seats = dialog.showAndWait();
         if (seats.isPresent()) {
-            trip.share(Integer.parseInt(seats.get()), driverUser, LocalDate.now());
+            boolean success = trip.share(Integer.parseInt(seats.get()), driverUser, LocalDate.now());
+            if (!success){
+                Alert ridePassedAlert = new Alert(Alert.AlertType.INFORMATION);
+                ridePassedAlert.setContentText("The ride is too close to the start time of the ride and wasn't made." +
+                        "If it is recurrent then the first ride that is after 1 hour from now will be made");
+                ridePassedAlert.showAndWait();
+            }
         }
     }
 
@@ -343,5 +351,11 @@ public class DriverController implements Initializable {
         if (result.get() == ButtonType.OK){
             createRoute();
         }
+    }
+
+    @FXML
+    private void goToPassenger() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        switchScenes.goToScene("/passengerMain.fxml");
     }
 }

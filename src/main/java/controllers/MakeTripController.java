@@ -61,7 +61,7 @@ public class MakeTripController implements Initializable {
 
         routeCombo.getItems().addAll(driver.getRoutes());
         hoursSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12));
-        minutesSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59));
+        minutesSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 5, 5));
         amPm.getItems().add("AM");
         amPm.getItems().add("PM");
         driectionPicker.getItems().add("To University");
@@ -91,13 +91,25 @@ public class MakeTripController implements Initializable {
         if (stop != null) {
             int minutes = minutesSpinner.getValue();
             int hours = hoursSpinner.getValue();
-            if (amPm.getValue() == "PM"){
+            if (amPm.getValue().equals("PM")){
                 hours += 12;
             }
-            stopTimes.put(stop.toString(), LocalTime.of(hours, minutes));
-            stopPointsList.getItems().remove(stop);
-            doneStopPoints.getItems().add(stop);
-            times.getItems().add(LocalTime.of(hours, minutes));
+            boolean valid = true;
+            LocalTime time = LocalTime.of(hours, minutes);
+            for (LocalTime storedTime : stopTimes.values()){
+                if (time.equals(storedTime)){
+                    valid = false;
+                    Alert sameTimeAlert = new Alert(Alert.AlertType.ERROR);
+                    sameTimeAlert.setHeaderText("Can't have a stop time at the same time as another stop");
+                    sameTimeAlert.setContentText("Are you a magician? Can you be in two places at once? I thought not.");
+                }
+            }
+            if (valid) {
+                stopTimes.put(stop.toString(), time);
+                stopPointsList.getItems().remove(stop);
+                doneStopPoints.getItems().add(stop);
+                times.getItems().add(LocalTime.of(hours, minutes));
+            }
         }
     }
 
@@ -140,7 +152,10 @@ public class MakeTripController implements Initializable {
 
             if (trip.getRecurrent()) {
 
-                if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
+                if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now()) &&
+                        expiration.getValue().isBefore(carCombo.getValue().getWofExpiry()) &&
+                        expiration.getValue().isBefore(carCombo.getValue().getRegistrationExpiry()) &&
+                        expiration.getValue().isBefore(Data.getDriverUser().getLicense().getExpiry())) {
                     trip.setExpirationDate(expiration.getValue());
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -160,7 +175,10 @@ public class MakeTripController implements Initializable {
                     for (String day : days) {
                         trip.getDays().add(DayOfWeek.valueOf(day.toUpperCase()));
                     }
-                    if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now())) {
+                    if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now()) &&
+                            expiration.getValue().isBefore(carCombo.getValue().getWofExpiry()) &&
+                            expiration.getValue().isBefore(carCombo.getValue().getRegistrationExpiry()) &&
+                            expiration.getValue().isBefore(Data.getDriverUser().getLicense().getExpiry())) {
                         finishMakingTrip(trip);
                     }
                 }

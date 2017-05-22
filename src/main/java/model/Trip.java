@@ -15,6 +15,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
+import static java.util.Collections.min;
+
 
 public class Trip {
 
@@ -104,14 +106,17 @@ public class Trip {
         return  name.getValue();
     }
 
-    public void share(int seats, Driver driver, LocalDate date) {
+    public boolean share(int seats, Driver driver, LocalDate date) {
+        LocalTime startTime = min(stopTimes.values());
         int count = 0;
         if (recurrent) {
             for (DayOfWeek day : days) {
                 date = date.plusWeeks(-count);
                 while (date.isBefore(expirationDate)) {
-
-                    while (date.getDayOfWeek().getValue() != day.getValue()){
+                    if (startTime.isBefore(LocalTime.now()) && date.equals(LocalDate.now())) {
+                        date = date.plusWeeks(1);
+                    }
+                    while (date.getDayOfWeek().getValue() != day.getValue()) {
                         date = date.plusDays(1);
                     }
                     Ride ride = new Ride(this, seats, date);
@@ -122,10 +127,15 @@ public class Trip {
                 }
             }
         } else {
-            Ride ride = new Ride(this, seats, date);
-            driver.addRide(ride);
-            shared = true;
+            if (!startTime.isBefore(LocalTime.now())) {
+                Ride ride = new Ride(this, seats, date);
+                driver.addRide(ride);
+                shared = true;
+            } else {
+                return false;
+            }
         }
+        return true;
     }
 
     public boolean isShared() {

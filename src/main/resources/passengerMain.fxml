@@ -84,7 +84,12 @@
          </children>
       </VBox>
       <Text fx:id="userDetails" strokeType="OUTSIDE" strokeWidth="0.0" text="User" GridPane.columnIndex="1" />
-      <Button mnemonicParsing="false" onAction="#editAccount" text="Edit Account" GridPane.columnIndex="2" />
+      <HBox GridPane.columnIndex="2">
+         <children>
+            <Button mnemonicParsing="false" onAction="#editAccount" text="Edit Account" />
+            <Button mnemonicParsing="false" onAction="#goToDriver" text="Switch To driver" />
+         </children>
+      </HBox>
       <Button fx:id="book" mnemonicParsing="false" onAction="#bookRide" text="Book" GridPane.columnIndex="3" GridPane.rowIndex="2" />
    </children>
 </GridPane>

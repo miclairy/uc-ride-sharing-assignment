@@ -88,8 +88,10 @@ public class RegisterLicenseController implements Initializable{
 
     public void cancel() throws IOException {
         SwitchScenes switchScenes = new SwitchScenes();
-        if (license == null) {
+        if (license == null && Data.passengerUser == null) {
             switchScenes.goToScene("/pickDriverPassenger.fxml");
+        } else if (Data.passengerUser != null){
+            switchScenes.goToScene("/passengerMain.fxml");
         } else {
             switchScenes.goToScene("/driverMain.fxml");
         }

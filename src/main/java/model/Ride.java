@@ -86,7 +86,7 @@ public class Ride implements Comparable<Ride> {
     }
 
     public String getDetails() throws InterruptedException, ApiException, IOException {
-        return "\nCar: " + trip.getCar().toString() + "\n Route Length: " + trip.getLength().toMinutes() +
+        return "\nCar: " + trip.getCar().toString() + "\nDirection: " + trip.getDirection() +
                 "\nNumber of Stops: " + trip.getStopTimes().size() + "\nAvailable Seats: " + availableSeats
                  + "\nCost: $" + trip.calculateCostPerPassenger();
     }

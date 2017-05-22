@@ -52,7 +52,7 @@ public class PassengerController implements Initializable{
     private ObservableList<Ride> rides = FXCollections.observableArrayList();
     private Map<Ride, Driver> driverRide = new HashMap<>();
     private ObservableList<Ride> bookedRides = FXCollections.observableArrayList();
-
+    private Passenger passenger;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,14 +61,18 @@ public class PassengerController implements Initializable{
         toFromUniCombo.getItems().add("All");
         toFromUniCombo.setValue("All");
         stopPoints.setItems(Data.stopPointsList.sorted());
-
+        if (Data.passengerUser != null) {
+            passenger = Data.passengerUser;
+        } else {
+            passenger = Data.getDriverUser();
+        }
         updateAvailableRides();
         sharedRides.setItems(rides.sorted());
         setUpRideTable();
         setSelectionListeners();
         notifyCancelledRide();
 
-        userDetails.setText(Data.passengerUser.toString());
+        userDetails.setText(passenger.toString());
 
     }
 
@@ -136,10 +140,10 @@ public class PassengerController implements Initializable{
         bookedRides.clear();
         for (Driver driver : Data.drivers){
             for (Ride ride : driver.getRides()){
-                if (ride.getPassengers().contains(Data.passengerUser)){
+                if (ride.getPassengers().contains(passenger)){
                     bookedRides.add(ride);
                 }
-                if (ride.getPassengerCancellationReasons().containsKey(Data.passengerUser.getDetails().get("email"))){
+                if (ride.getPassengerCancellationReasons().containsKey(passenger.getDetails().get("email"))){
                     bookedRides.add(ride);
                 }
             }
@@ -180,28 +184,34 @@ public class PassengerController implements Initializable{
 
     public void bookRide(){
         if (viewingRide != null) {
-            viewingRide.bookPassenger(driverRide.get(viewingRide), Data.passengerUser);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Booked Ride");
-            alert.setHeaderText("You have successfully booked a ride");
-            alert.setContentText("You can only book the ride once");
-            alert.showAndWait();
-            if (viewingRide.getAvailableSeats() == 0) {
-                rideDetails.getChildren().clear();
-            } else {
-                try {
-                    setRideDetails(viewingRide);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ApiException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            if (!passenger.equals(driverRide.get(viewingRide))) {
+                viewingRide.bookPassenger(driverRide.get(viewingRide), passenger);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Booked Ride");
+                alert.setHeaderText("You have successfully booked a ride");
+                alert.setContentText("You can only book the ride once");
+                alert.showAndWait();
+                if (viewingRide.getAvailableSeats() == 0) {
+                    rideDetails.getChildren().clear();
+                } else {
+                    try {
+                        setRideDetails(viewingRide);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ApiException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+                updateBookedRides();
+                bookedRidesTable.setItems(bookedRides.sorted());
+                updateAvailableRides();
             }
-            updateBookedRides();
-            bookedRidesTable.setItems(bookedRides.sorted());
-            updateAvailableRides();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Tried to book your own ride");
+            alert.setHeaderText("You can't book your own ride");
+            alert.showAndWait();
         }
     }
 
@@ -213,7 +223,7 @@ public class PassengerController implements Initializable{
         alert.setHeaderText("Are you sure you want to cancel the booking on " + viewingRide.toString());
         alert.setContentText("Why are you cancelling?");
         Optional<String> reason = alert.showAndWait();
-        reason.ifPresent(name -> viewingRide.cancelPassenger(Data.passengerUser, reason.get()));
+        reason.ifPresent(name -> viewingRide.cancelPassenger(passenger, reason.get()));
 
         if (ChronoUnit.DAYS.between(LocalDate.now(), viewingRide.getDate()) <= 0 &&
                 ChronoUnit.HOURS.between(LocalTime.now(), viewingRide.getTime()) <= 2){
@@ -231,13 +241,13 @@ public class PassengerController implements Initializable{
     private void notifyCancelledRide(){
         for (Ride ride : bookedRides){
             if (ride.getRideState().equals(Ride.RideState.Cancelled.name()) &&
-                    ride.getCancelationUnnotifiedPassengers().contains(Data.passengerUser)){
+                    ride.getCancelationUnnotifiedPassengers().contains(passenger)){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Cancellation");
                 alert.setHeaderText("Driver Cancelled Ride");
                 alert.setContentText("Driver cancelled ride " + ride.toString() + " because " + ride.getCancelationReason());
                 alert.showAndWait();
-                ride.notifiedPassenger(Data.passengerUser);
+                ride.notifiedPassenger(passenger);
             }
         }
     }
@@ -283,5 +293,15 @@ public class PassengerController implements Initializable{
     public void select() throws IOException {
         SwitchScenes switchScenes = new SwitchScenes();
         switchScenes.goToScene("/createStopPoint.fxml", false);
+    }
+
+    @FXML
+    private void goToDriver() throws IOException {
+        SwitchScenes switchScenes = new SwitchScenes();
+        if (Data.getDriverUser() != null){
+            switchScenes.goToScene("/driverMain.fxml");
+        } else {
+            switchScenes.goToScene("/registerLicense.fxml");
+        }
     }
 }
