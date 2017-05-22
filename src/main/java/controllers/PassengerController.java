@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -46,6 +48,7 @@ public class PassengerController implements Initializable{
     @FXML
     private Button book;
     @FXML private Text userDetails;
+    @FXML private ImageView photo;
 
 
     private Ride viewingRide;
@@ -73,6 +76,7 @@ public class PassengerController implements Initializable{
         notifyCancelledRide();
 
         userDetails.setText(passenger.toString());
+        photo.setImage(new Image(passenger.getPhotoUrl()));
 
     }
 

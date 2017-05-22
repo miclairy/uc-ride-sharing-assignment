@@ -29,7 +29,7 @@ public class CreateAccountController implements Initializable {
     @FXML
     private TextField address;
     @FXML
-    private TextField city;
+    private TextField photoUrl;
     @FXML
     private Text createTypeAccount;
     @FXML
@@ -61,7 +61,7 @@ public class CreateAccountController implements Initializable {
             enteredInformation.put("ucId", uniId.getText());
             enteredInformation.put("email", email.getText());
             enteredInformation.put("phone", phone.getText());
-            enteredInformation.put("address", address.getText() + ", " + city.getText());
+            enteredInformation.put("address", address.getText());
 
             if (MainController.makeDriver) {
                 setNewDriver(enteredInformation);
@@ -81,6 +81,7 @@ public class CreateAccountController implements Initializable {
         Passenger newAccount = new Passenger();
         newAccount.setDetails(enteredInformation);
         newAccount.storePassword(password1.getText());
+        newAccount.setPhotoUrl(photoUrl.getText());
         SwitchScenes switchScenes = new SwitchScenes();
         switchScenes.goToScene("/login.fxml");
         Data.addPassenger(newAccount);
@@ -90,6 +91,7 @@ public class CreateAccountController implements Initializable {
         Driver newAccount = new Driver();
         newAccount.setDetails(enteredInformation);
         newAccount.storePassword(password1.getText());
+        newAccount.setPhotoUrl(photoUrl.getText());
         Data.setDriverUser(newAccount);
         Data.addDriver(newAccount);
         SwitchScenes switchScenes = new SwitchScenes();

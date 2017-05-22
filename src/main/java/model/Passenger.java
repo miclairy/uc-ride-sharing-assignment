@@ -17,6 +17,7 @@ public class Passenger {
     private byte[] password;
     private byte[] salt;
     private String ucId;
+    private String photoUrl = "";
 
     public boolean verifyEmail(String email) throws IOException {
         String users = new File("src/main/resources/users.csv").getAbsolutePath();
@@ -135,6 +136,14 @@ public class Passenger {
 
     public void setPassword(byte[] password) {
         this.password = password;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
     @Override

@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -46,6 +48,7 @@ public class DriverController implements Initializable {
     @FXML private TableColumn<Ride, String> rideStateCol;
     @FXML private Button cancelRide;
     @FXML private Text userDetails;
+    @FXML private ImageView photo;
 
     static Driver driverUser;
     static boolean noftifed = false;
@@ -56,6 +59,7 @@ public class DriverController implements Initializable {
 
         driverUser = Data.getDriverUser();
         userDetails.setText(driverUser.toString());
+        photo.setImage(new Image(driverUser.getPhotoUrl()));
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         String cars = "";
