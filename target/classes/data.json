@@ -407,7 +407,8 @@
         -43,
         6
       ],
-      "ucId": "cba62@uclive.ac.nz"
+      "ucId": "cba62",
+      "photoUrl": ""
     },
     {
       "cars": [
@@ -504,7 +505,8 @@
         -112,
         47
       ],
-      "ucId": "jo"
+      "ucId": "jo",
+      "photoUrl": "http://animals.sandiegozoo.org/sites/default/files/2016-10/owl_southern_white_faced.jpg"
     }
   ],
   "passengers": [
@@ -565,7 +567,68 @@
         -6,
         124
       ],
-      "ucId": "bob"
+      "ucId": "bob",
+      "photoUrl": ""
+    },
+    {
+      "name": "drtjh",
+      "address": "h",
+      "phone": "1427567",
+      "email": "g@uclive.ac.nz",
+      "password": [
+        -74,
+        -100,
+        53,
+        43,
+        -30,
+        -32,
+        94,
+        -23,
+        96,
+        75,
+        -8,
+        -122,
+        -32,
+        16,
+        111,
+        35,
+        42,
+        -70,
+        -80,
+        18,
+        -108,
+        -66,
+        -108,
+        2,
+        -17,
+        35,
+        44,
+        -32,
+        103,
+        -64,
+        -77,
+        -87
+      ],
+      "salt": [
+        65,
+        -111,
+        68,
+        31,
+        48,
+        102,
+        123,
+        50,
+        90,
+        20,
+        63,
+        94,
+        30,
+        -55,
+        80,
+        -14
+      ],
+      "ucId": "fgh",
+      "photoUrl": "http://animals.sandiegozoo.org/sites/default/files/2016-10/owl_southern_white_faced.jpg"
     }
   ],
   "stopPoints": [

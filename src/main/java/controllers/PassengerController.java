@@ -48,6 +48,7 @@ public class PassengerController implements Initializable{
     @FXML
     private Button book;
     @FXML private Text userDetails;
+    @FXML private Button switchToDriver;
     @FXML private ImageView photo;
 
 
@@ -66,8 +67,10 @@ public class PassengerController implements Initializable{
         stopPoints.setItems(Data.stopPointsList.sorted());
         if (Data.passengerUser != null) {
             passenger = Data.passengerUser;
+            switchToDriver.setVisible(false);
         } else {
             passenger = Data.getDriverUser();
+            switchToDriver.setVisible(true);
         }
         updateAvailableRides();
         sharedRides.setItems(rides.sorted());

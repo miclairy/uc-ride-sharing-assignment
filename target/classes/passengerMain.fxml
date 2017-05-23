@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,79 +18,85 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PassengerController">
-  <columnConstraints>
-    <ColumnConstraints />
-    <ColumnConstraints />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints />
-      <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="247.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+<AnchorPane prefHeight="489.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PassengerController">
    <children>
-      <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.vgrow="ALWAYS">
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="672.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints />
+          <ColumnConstraints />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+            <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="247.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <HBox prefHeight="21.0" prefWidth="200.0">
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label text="Search: " />
-                  <TextField fx:id="stopPointSearch" onAction="#searchStopPoints" />
+                  <HBox prefHeight="21.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Search: " />
+                        <TextField fx:id="stopPointSearch" onAction="#searchStopPoints" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#select" text="Select/Search Stop Points" />
+                  <ListView fx:id="stopPoints" prefHeight="319.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <HBox prefHeight="33.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="toFromUniCombo" onAction="#filterByToFromUni" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <ListView fx:id="sharedRides" prefHeight="379.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </ListView>
+               </children>
+            </VBox>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <VBox fx:id="rideDetails" layoutY="14.0" prefHeight="247.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="57.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="cancelBooking" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel" visible="false" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#select" text="Select/Search Stop Points" />
-            <ListView fx:id="stopPoints" prefHeight="319.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-         </children>
-      </VBox>
-      <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <children>
-            <HBox prefHeight="33.0" prefWidth="200.0">
+            <VBox GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <ComboBox fx:id="toFromUniCombo" onAction="#filterByToFromUni" prefWidth="150.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Booked Rides">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="bookedRidesTable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="ridesCol" prefWidth="75.0" text="Ride" />
+                      <TableColumn fx:id="rideStateCol" prefWidth="75.0" text="Sate" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <Text fx:id="userDetails" strokeType="OUTSIDE" strokeWidth="0.0" text="User" GridPane.columnIndex="1" />
+            <HBox GridPane.columnIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#editAccount" text="Edit Account" />
+                  <Button fx:id="switchToDriver" mnemonicParsing="false" onAction="#goToDriver" text="Switch To driver" />
                </children>
             </HBox>
-            <ListView fx:id="sharedRides" prefHeight="379.0" prefWidth="200.0">
-               <VBox.margin>
-                  <Insets top="25.0" />
-               </VBox.margin></ListView>
+            <Button fx:id="book" mnemonicParsing="false" onAction="#bookRide" text="Book" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fx:id="photo" fitHeight="68.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
          </children>
-      </VBox>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-         <children>
-            <VBox fx:id="rideDetails" layoutY="14.0" prefHeight="247.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
-      <HBox prefHeight="57.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-         <children>
-            <Button fx:id="cancelBooking" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel" visible="false" />
-         </children>
-      </HBox>
-      <VBox GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Booked Rides">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TableView fx:id="bookedRidesTable" prefHeight="200.0" prefWidth="200.0">
-              <columns>
-                <TableColumn fx:id="ridesCol" prefWidth="75.0" text="Ride" />
-                <TableColumn fx:id="rideStateCol" prefWidth="75.0" text="Sate" />
-              </columns>
-            </TableView>
-         </children>
-      </VBox>
-      <Text fx:id="userDetails" strokeType="OUTSIDE" strokeWidth="0.0" text="User" GridPane.columnIndex="1" />
-      <HBox GridPane.columnIndex="2">
-         <children>
-            <Button mnemonicParsing="false" onAction="#editAccount" text="Edit Account" />
-            <Button mnemonicParsing="false" onAction="#goToDriver" text="Switch To driver" />
-         </children>
-      </HBox>
-      <Button fx:id="book" mnemonicParsing="false" onAction="#bookRide" text="Book" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      </GridPane>
    </children>
-</GridPane>
+</AnchorPane>

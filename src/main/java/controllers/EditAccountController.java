@@ -26,6 +26,7 @@ public class EditAccountController implements Initializable{
     @FXML private TextField address;
     @FXML private PasswordField password1;
     @FXML private PasswordField password2;
+    @FXML private TextField photoUrlField;
 
     private Passenger user;
 
@@ -44,6 +45,7 @@ public class EditAccountController implements Initializable{
         name.setText(userDetails.get("name"));
         phone.setText(userDetails.get("phone"));
         address.setText(userDetails.get("address"));
+        photoUrlField.setText(user.getPhotoUrl());
 
     }
 
@@ -58,6 +60,10 @@ public class EditAccountController implements Initializable{
             enteredInformation.put("phone", phone.getText());
             enteredInformation.put("address", address.getText());
             user.setDetails(enteredInformation);
+
+            if (!photoUrlField.getText().isEmpty()){
+                user.setPhotoUrl(photoUrlField.getText());
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information was entered incorrectly or wasn't valid");

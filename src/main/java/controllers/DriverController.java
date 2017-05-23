@@ -59,7 +59,9 @@ public class DriverController implements Initializable {
 
         driverUser = Data.getDriverUser();
         userDetails.setText(driverUser.toString());
-        photo.setImage(new Image(driverUser.getPhotoUrl()));
+        if (!driverUser.getPhotoUrl().isEmpty()) {
+            photo.setImage(new Image(driverUser.getPhotoUrl()));
+        }
         stopPoints.setItems(Data.stopPointsList.sorted());
         stopPoints.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         String cars = "";
