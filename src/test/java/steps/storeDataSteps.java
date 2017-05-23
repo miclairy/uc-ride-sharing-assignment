@@ -49,8 +49,9 @@ public class storeDataSteps {
         trip.setDays(days);
         trip.setExpirationDate(LocalDate.of(2018, 1, 1));
         Map<String, LocalTime> times = new HashMap<>();
-        times.put("A stop", LocalTime.now().plusHours(1).plusMinutes(2));
+        times.put("A stop", LocalTime.of(23, 59, 0));
         trip.setStopTimes(times);
+        trip.setName("Test");
         jo.addTrip(trip);
         Data.addDriver(jo);
         jos.add(jo);

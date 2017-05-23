@@ -67,15 +67,20 @@
           "stopTimes": {
             "A stop": {
               "hour": 23,
-              "minute": 40,
-              "second": 34,
-              "nano": 197000000
+              "minute": 59,
+              "second": 0,
+              "nano": 0
             }
           },
           "expirationDate": {
             "year": 2018,
             "month": 1,
             "day": 1
+          },
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
           },
           "shared": true
         }
@@ -117,15 +122,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -139,13 +149,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-08-04",
@@ -153,7 +168,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -198,15 +213,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -220,13 +240,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-08-11",
@@ -234,7 +259,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -279,15 +304,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -301,13 +331,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-08-18",
@@ -315,7 +350,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -360,15 +395,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -382,13 +422,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-08-25",
@@ -396,7 +441,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -441,15 +486,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -463,13 +513,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-09-01",
@@ -477,7 +532,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -522,15 +577,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -544,13 +604,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-09-08",
@@ -558,7 +623,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -603,15 +668,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -625,13 +695,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-09-15",
@@ -639,7 +714,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -684,15 +759,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -706,13 +786,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-09-22",
@@ -720,7 +805,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -765,15 +850,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -787,13 +877,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-09-29",
@@ -801,7 +896,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -846,15 +941,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -868,13 +968,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-10-06",
@@ -882,7 +987,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -927,15 +1032,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -949,13 +1059,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-10-13",
@@ -963,7 +1078,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1008,15 +1123,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1030,13 +1150,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-10-20",
@@ -1044,7 +1169,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1089,15 +1214,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1111,13 +1241,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-10-27",
@@ -1125,7 +1260,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1170,15 +1305,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1192,13 +1332,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-11-03",
@@ -1206,7 +1351,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1251,15 +1396,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1273,13 +1423,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-11-10",
@@ -1287,7 +1442,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1332,15 +1487,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1354,13 +1514,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-11-17",
@@ -1368,7 +1533,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1413,15 +1578,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1435,13 +1605,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-11-24",
@@ -1449,7 +1624,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1494,15 +1669,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1516,13 +1696,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-12-01",
@@ -1530,7 +1715,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1575,15 +1760,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1597,13 +1787,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-12-08",
@@ -1611,7 +1806,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1656,15 +1851,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1678,13 +1878,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-12-15",
@@ -1692,7 +1897,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1737,15 +1942,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1759,13 +1969,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-12-22",
@@ -1773,7 +1988,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
@@ -1818,15 +2033,20 @@
             "stopTimes": {
               "A stop": {
                 "hour": 23,
-                "minute": 40,
-                "second": 34,
-                "nano": 197000000
+                "minute": 59,
+                "second": 0,
+                "nano": 0
               }
             },
             "expirationDate": {
               "year": 2018,
               "month": 1,
               "day": 1
+            },
+            "name": {
+              "name": "",
+              "value": "Test",
+              "valid": true
             },
             "shared": true
           },
@@ -1840,13 +2060,18 @@
           "state": "Running",
           "time": {
             "hour": 23,
-            "minute": 40,
-            "second": 34,
-            "nano": 197000000
+            "minute": 59,
+            "second": 0,
+            "nano": 0
           },
           "passengerCancellationReasons": {},
           "cancelationUnnotifiedPassengers": [],
           "newCancellations": [],
+          "name": {
+            "name": "",
+            "value": "Test",
+            "valid": true
+          },
           "startDate": {
             "name": "",
             "value": "2017-12-29",
@@ -1854,7 +2079,7 @@
           },
           "startTime": {
             "name": "",
-            "value": "23:40:34.197",
+            "value": "23:59",
             "valid": true
           },
           "rideState": {
