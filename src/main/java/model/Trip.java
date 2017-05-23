@@ -31,7 +31,7 @@ public class Trip {
     private Boolean recurrent;
     private Set<DayOfWeek> days = new HashSet<>();
     private Car car;
-    private HashMap<String, LocalTime> stopTimes = new HashMap<>();
+    private Map<String, LocalTime> stopTimes = new HashMap<>();
     private LocalDate expirationDate;
     private SimpleStringProperty name;
     private boolean shared = false;
@@ -68,7 +68,7 @@ public class Trip {
         return days;
     }
 
-    public HashMap<String, LocalTime> getStopTimes() {
+    public Map<String, LocalTime> getStopTimes() {
         return stopTimes;
     }
 
@@ -76,7 +76,7 @@ public class Trip {
         return expirationDate;
     }
 
-    public void setStopTimes(HashMap<String, LocalTime> stopTimes) {
+    public void setStopTimes(Map<String, LocalTime> stopTimes) {
         this.stopTimes = stopTimes;
     }
 
@@ -117,7 +117,7 @@ public class Trip {
             for (DayOfWeek day : days) {
                 date = date.plusWeeks(-count);
                 while (date.isBefore(expirationDate)) {
-                    if (startTime.isBefore(LocalTime.now()) && date.equals(LocalDate.now())) {
+                    if (startTime.isBefore(LocalTime.now().plusHours(1)) && date.equals(LocalDate.now())) {
                         date = date.plusWeeks(1);
                     }
                     while (date.getDayOfWeek().getValue() != day.getValue()) {
@@ -131,7 +131,7 @@ public class Trip {
                 }
             }
         } else {
-            if (!startTime.isBefore(LocalTime.now())) {
+            if (!startTime.isBefore(LocalTime.now().plusHours(1))) {
                 Ride ride = new Ride(this, seats, date);
                 driver.addRide(ride);
                 shared = true;

@@ -6,8 +6,11 @@ import cucumber.api.java.en.When;
 import model.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.mockito.Mockito.mock;
 
@@ -23,11 +26,14 @@ public class shareRideSteps {
         Route route = mock(Route.class);
         Car car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
         trip = new Trip(route, "To University", false, car);
+        Map<String, LocalTime> times = new HashMap<>();
+        times.put("A stop", LocalTime.now().plusHours(1).plusMinutes(2));
+        trip.setStopTimes(times);
     }
 
     @When("^jo shares the trip with (\\d+) available seats$")
     public void joSharesTheTripWithAvailableSeats(int seats)  {
-        trip.share(seats, jo, LocalDate.now());
+        trip.share(seats, jo, LocalDate.now().minusDays(1));
     }
 
     @Then("^a ride that can be booked is created and the trip is shared$")

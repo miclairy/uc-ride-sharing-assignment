@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -47,6 +48,9 @@ public class storeDataSteps {
         days.add(DayOfWeek.FRIDAY);
         trip.setDays(days);
         trip.setExpirationDate(LocalDate.of(2018, 1, 1));
+        Map<String, LocalTime> times = new HashMap<>();
+        times.put("A stop", LocalTime.now().plusHours(1).plusMinutes(2));
+        trip.setStopTimes(times);
         jo.addTrip(trip);
         Data.addDriver(jo);
         jos.add(jo);

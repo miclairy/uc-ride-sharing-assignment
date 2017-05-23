@@ -64,16 +64,1806 @@
             "numSeats": 6,
             "efficiency": 0.0
           },
-          "stopTimes": {},
+          "stopTimes": {
+            "A stop": {
+              "hour": 23,
+              "minute": 40,
+              "second": 34,
+              "nano": 197000000
+            }
+          },
           "expirationDate": {
             "year": 2018,
             "month": 1,
             "day": 1
           },
-          "shared": false
+          "shared": true
         }
       ],
-      "rides": [],
+      "rides": [
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 8,
+            "day": 4
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-08-04",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 8,
+            "day": 11
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-08-11",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 8,
+            "day": 18
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-08-18",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 8,
+            "day": 25
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-08-25",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 9,
+            "day": 1
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-09-01",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 9,
+            "day": 8
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-09-08",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 9,
+            "day": 15
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-09-15",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 9,
+            "day": 22
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-09-22",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 9,
+            "day": 29
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-09-29",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 10,
+            "day": 6
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-10-06",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 10,
+            "day": 13
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-10-13",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 10,
+            "day": 20
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-10-20",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 10,
+            "day": 27
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-10-27",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 11,
+            "day": 3
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-11-03",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 11,
+            "day": 10
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-11-10",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 11,
+            "day": 17
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-11-17",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 11,
+            "day": 24
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-11-24",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 12,
+            "day": 1
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-12-01",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 12,
+            "day": 8
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-12-08",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 12,
+            "day": 15
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-12-15",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 12,
+            "day": 22
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-12-22",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        },
+        {
+          "trip": {
+            "route": {
+              "stops": [
+                {
+                  "streetNumber": 4,
+                  "streetName": "magic"
+                },
+                {
+                  "streetNumber": 3,
+                  "streetName": "hare"
+                },
+                {
+                  "streetNumber": 12,
+                  "streetName": "alpha"
+                }
+              ],
+              "name": "1"
+            },
+            "direction": "to uni",
+            "recurrent": true,
+            "days": [
+              "FRIDAY"
+            ],
+            "car": {
+              "type": "car",
+              "colour": "blue",
+              "model": "mazda",
+              "plates": "123RTF",
+              "year": 1200,
+              "numSeats": 6,
+              "efficiency": 0.0
+            },
+            "stopTimes": {
+              "A stop": {
+                "hour": 23,
+                "minute": 40,
+                "second": 34,
+                "nano": 197000000
+              }
+            },
+            "expirationDate": {
+              "year": 2018,
+              "month": 1,
+              "day": 1
+            },
+            "shared": true
+          },
+          "availableSeats": 5,
+          "passengers": [],
+          "date": {
+            "year": 2017,
+            "month": 12,
+            "day": 29
+          },
+          "state": "Running",
+          "time": {
+            "hour": 23,
+            "minute": 40,
+            "second": 34,
+            "nano": 197000000
+          },
+          "passengerCancellationReasons": {},
+          "cancelationUnnotifiedPassengers": [],
+          "newCancellations": [],
+          "startDate": {
+            "name": "",
+            "value": "2017-12-29",
+            "valid": true
+          },
+          "startTime": {
+            "name": "",
+            "value": "23:40:34.197",
+            "valid": true
+          },
+          "rideState": {
+            "name": "",
+            "value": "Running",
+            "valid": true
+          }
+        }
+      ],
       "name": "jo",
       "photoUrl": ""
     }
