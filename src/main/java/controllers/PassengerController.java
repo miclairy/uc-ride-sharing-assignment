@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
@@ -179,7 +181,7 @@ public class PassengerController implements Initializable{
             ListView<String> routeStops = new ListView<>();
             ObservableList<String> stopPoints = FXCollections.observableArrayList();
             for (StopPoint stop : trip.getRoute().getStops()) {
-                stopPoints.add(stop + " " + trip.getStopTimes().get(stop.toString()).toString());
+                stopPoints.add(stop + " " + trip.getStopTimes().get(stop.toString()).format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)));
             }
             routeStops.setItems(stopPoints);
             routePane.setContent(routeStops);
