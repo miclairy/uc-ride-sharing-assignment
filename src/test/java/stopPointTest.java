@@ -41,6 +41,8 @@ public class stopPointTest {
         StopPoint stop = new StopPoint(21, "Halswell Junction Road");
         List<StopPoint> stops = new ArrayList<>();
         stops.add(stop);
+        StopPoint stop2 = new StopPoint(5, "Guise Lane");
+        stops.add(stop2);
         Route route = new Route(stops, "test");
         Car car = mock(Car.class);
         Answer<Double> answer = invocationOnMock -> 10.0;
@@ -49,7 +51,7 @@ public class stopPointTest {
         Trip trip = new Trip(route, "to University", false, car);
         try {
             double cost = trip.calculateCostPerPassenger();
-            Assert.assertEquals(1.87415, cost, 0.01);
+            Assert.assertEquals(1.90877, cost, 0.01);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ApiException e) {

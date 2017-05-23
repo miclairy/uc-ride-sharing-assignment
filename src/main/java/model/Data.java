@@ -42,7 +42,7 @@ public class Data extends Observable {
     }
 
     public ArrayList<StopPoint> getStopPoints() {
-        return new ArrayList<>();
+        return new ArrayList<>(stopPointsList);
     }
 
     public static void save(Object toSave, String fileName) throws IOException {

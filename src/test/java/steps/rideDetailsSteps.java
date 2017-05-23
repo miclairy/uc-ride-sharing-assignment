@@ -44,15 +44,19 @@ public class rideDetailsSteps {
         jo = new Driver(driver);
         jo.setGrade(grade);
         car = new Car("", colour, model, "123TRE", year, availableSeats);
+        car.setEfficiency(10.0);
     }
 
     @When("^the route is (\\d+) minutes long with (\\d+) stops\\.$")
     public void theRouteIsMinutesLongWithStops(int routeLength, int numStops) {
         this.routeLength = routeLength;
         this.numStops = numStops;
-        StopPoint stop1 = mock(StopPoint.class);
-        StopPoint stop2 = mock(StopPoint.class);
-        StopPoint stop3 = mock(StopPoint.class);
+//        StopPoint stop1 = mock(StopPoint.class);
+//        StopPoint stop2 = mock(StopPoint.class);
+//        StopPoint stop3 = mock(StopPoint.class);
+        StopPoint stop1 = new StopPoint(6, "Hare Street");
+        StopPoint stop2 = new StopPoint(42,"Arthur Street");
+        StopPoint stop3 = new StopPoint(73, "Mary Street");
         List<StopPoint> stops = new ArrayList<>();
         stops.add(stop1);
         stops.add(stop2);
@@ -69,8 +73,8 @@ public class rideDetailsSteps {
     @Then("^the rides details are displayed including drivers name, grade, car model, color, year, seats available, route length and number of stops\\.$")
     public void theRidesDetailsAreDisplayedIncludingDriversNameGradeCarModelColorYearSeatsAvailableRouteLengthAndNumberOfStops() throws Throwable {
         String details = "\nCar: " + car.toString() +
-                        "\n Route Length: " + routeLength + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats()
-                + "\nCost: $1.5";
+                        "\nDirection: from uni" + "\nNumber of Stops: " + numStops + "\nAvailable Seats: " + car.getNumSeats()
+                + "\nCost: $2.90";
         assertEquals(details, ride.getDetails());
     }
 }

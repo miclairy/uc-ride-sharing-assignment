@@ -1,14 +1,18 @@
 package model;
 
+import com.google.maps.DirectionsApi;
+import com.google.maps.DirectionsApiRequest;
 import com.google.maps.DistanceMatrixApiRequest;
 import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
+import com.google.maps.model.DirectionsResult;
 import com.google.maps.model.Distance;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.TravelMode;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -187,32 +191,31 @@ public class Trip {
 
 
     public double calculateCostPerPassenger() throws InterruptedException, ApiException, IOException {
-        double totalKm = 0;
+        double totalm = 0;
         context.setApiKey(apiKey);
-        DistanceMatrixApiRequest distanceRequest = new DistanceMatrixApiRequest(context);
-        StopPoint stop = route.getStops().get(0);
+        String[] waypoints = new String[route.getStops().size() - 1];
+
         for (int i = 0; i < route.getStops().size() - 1; i ++){
-            stop = route.getStops().get(i + 1);
-            Distance distance = getDistance(distanceRequest, route.getStops().get(i), stop);
-            totalKm += distance.inMeters / 1000;
+            waypoints[i] = route.getStops().get(i + 1).getAddress();
         }
-
-        Distance distance = getDistance(distanceRequest, stop, new StopPoint("University of Canterbury"));
-        totalKm += distance.inMeters / 1000.0;
-
-        double efficiencyPerKm = car.getEfficiency() / 100;
-        return efficiencyPerKm * totalKm * FUEL_PRICE;
-
-    }
-
-    private Distance getDistance(DistanceMatrixApiRequest distanceRequest, StopPoint origin, StopPoint destination) throws ApiException, InterruptedException, IOException {
-
-        DistanceMatrix distanceMatrix = distanceRequest.origins(origin.getAddress())
-                .destinations(destination.getAddress())
+        DirectionsApiRequest distanceRequest = DirectionsApi.newRequest(context);
+        DirectionsResult directionsResult = distanceRequest.destination("University Of Canterbury")
+                .origin(route.getStops().get(0).getAddress())
+                .waypoints(waypoints)
                 .mode(TravelMode.DRIVING)
                 .await();
-        return distanceMatrix.rows[0].elements[0].distance;
+
+        for (int i = 0; i < route.getStops().size(); i ++){
+
+            Distance distance = directionsResult.routes[0].legs[i].distance;
+            totalm += distance.inMeters;
+        }
+
+        double efficiencyPerKm = car.getEfficiency() / 100;
+        return efficiencyPerKm * (totalm / 1000) * FUEL_PRICE;
+
     }
+
 
 
 }

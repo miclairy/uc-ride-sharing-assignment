@@ -32,7 +32,6 @@ public class EditAccountController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //temp code
 
         if (Data.getDriverUser() != null){
             user = Data.getDriverUser();
