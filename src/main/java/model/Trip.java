@@ -113,15 +113,19 @@ public class Trip {
     public boolean share(int seats, Driver driver, LocalDate date) {
         LocalTime startTime = min(stopTimes.values());
         int count = 0;
+        int dayCount = 0;
         if (recurrent) {
             for (DayOfWeek day : days) {
-                date = date.plusWeeks(-count);
+                date = date.minusWeeks(count);
+                date = date.minusDays(dayCount);
                 while (date.isBefore(expirationDate)) {
                     if (startTime.isBefore(LocalTime.now().plusHours(1)) && date.equals(LocalDate.now())) {
                         date = date.plusWeeks(1);
+                        count += 1;
                     }
                     while (date.getDayOfWeek().getValue() != day.getValue()) {
                         date = date.plusDays(1);
+                        dayCount++;
                     }
                     Ride ride = new Ride(this, seats, date);
                     driver.addRide(ride);

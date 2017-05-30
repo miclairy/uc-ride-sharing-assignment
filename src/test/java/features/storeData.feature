@@ -14,6 +14,7 @@ Feature: Store entered Data
 
   Scenario: Jo closes the application after sharing a trip
     Given there is a trip in the system
+    And there is a ride
     When the application is closed
     Then the ride is in the json
 

@@ -5,8 +5,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import model.*;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Path;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -58,15 +61,6 @@ public class storeDataSteps {
 
     }
 
-    @When("^the application is closed and reopened$")
-    public void theApplicationIsClosedAndReopened() throws InterruptedException {
-        try {
-            Data.load("/dataTest.json");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
-
     @When("^the application is reopened$")
     public void theApplicationIsReopened() throws Throwable {
         try {
@@ -78,12 +72,22 @@ public class storeDataSteps {
 
     @Then("^the ride is in the json$")
     public void theRideIsInTheJson() throws Throwable {
-        assert true;
+        File file = new File("src/main/resources/dataTestWritten.json");
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()){
+            String line = scanner.nextLine();
+            if (line.contains("\"rides\": [")){
+                assertEquals("      \"rides\": [", line);
+                return;
+            }
+        }
+        assert false;
     }
 
     @Then("^the trip should still be there$")
     public void theTripShouldStillBeThere() {
         assertEquals(jos.get(0), Data.drivers.get(0));
+        trip.setShared(true);
         assertEquals(trip, Data.drivers.get(0).getTrips().get(0));
         assertEquals(stops, Data.stopPointsList);
     }
@@ -96,13 +100,13 @@ public class storeDataSteps {
 
     @Then("^the ride should still be there$")
     public void theRideShouldStillBeThere() {
-        assertEquals(rides, jos.get(0).getRides());
+        assertEquals(rides, Data.drivers.get(0).getRides());
     }
 
     @When("^the application is closed$")
     public void theApplicationIsClosed() throws Throwable {
         Rss toSave = new Rss();
-        String saveLocation = "src/main/resources/dataTest.json";
+        String saveLocation = "src/main/resources/dataTestWritten.json";
         try {
             Data.save(toSave, saveLocation);
         } catch (IOException e) {
@@ -112,6 +116,15 @@ public class storeDataSteps {
 
     @Then("^the trip is entered in the json$")
     public void theTripIsEnteredInTheJson() throws Throwable {
-        assert true; //todo
+        File file = new File("src/main/resources/dataTestWritten.json");
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()){
+            String line = scanner.nextLine();
+            if (line.contains("\"trips\": [")){
+                assertEquals("      \"trips\": [", line);
+                return;
+            }
+        }
+        assert false;
     }
 }

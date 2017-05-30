@@ -179,4 +179,31 @@ public class Ride implements Comparable<Ride> {
         return passengerCancellationReasons;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ride ride = (Ride) o;
+
+        if (availableSeats != ride.availableSeats) return false;
+        if (!trip.equals(ride.trip)) return false;
+        if (passengers != null ? !passengers.equals(ride.passengers) : ride.passengers != null) return false;
+        if (!date.equals(ride.date)) return false;
+        if (!time.equals(ride.time)) return false;
+        if (startDate != null ? !startDate.getValue().equals(ride.startDate.getValue()) : ride.startDate != null) return false;
+        return startTime != null ? startTime.getValue().equals(ride.startTime.getValue()) : ride.startTime == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = trip.hashCode();
+        result = 31 * result + availableSeats;
+        result = 31 * result + (passengers != null ? passengers.hashCode() : 0);
+        result = 31 * result + date.hashCode();
+        result = 31 * result + time.hashCode();
+        result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
+        result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+        return result;
+    }
 }
