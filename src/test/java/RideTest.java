@@ -23,7 +23,7 @@ public class RideTest {
     private Driver jo = new Driver();
 
     @Before
-    public void setUp(){
+    public void setUp() throws InvalidDataException {
         Route route = mock(Route.class);
         car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);
         trip = new Trip(route, "To University", true, car);

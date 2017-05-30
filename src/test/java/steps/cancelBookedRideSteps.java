@@ -22,7 +22,7 @@ public class cancelBookedRideSteps {
     private String reason;
 
     @Given("^sally has booked a ride and wants to cancel it$")
-    public void sallyHasBookedARideAndWantsToCancelIt() {
+    public void sallyHasBookedARideAndWantsToCancelIt() throws InvalidDataException {
         Car car = new Car("car", "blue", "mazda", "ATE346", 1998, 1);
         Trip trip = new Trip(mock(Route.class), "to uni", false, car);
         ride = new Ride(trip, 1, LocalDate.now());

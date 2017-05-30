@@ -1,13 +1,9 @@
 package steps;
 
-import model.ExpiryNotifactions;
+import model.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import model.Car;
-import model.Data;
-import model.Driver;
-import model.License;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -49,7 +45,7 @@ public class NotifyUserExpirationSteps {
     }
 
     @Given("^his WOF expires in one month$")
-    public void hisWOFExpiresInOneMonth() {
+    public void hisWOFExpiresInOneMonth() throws InvalidDataException {
         Car car = new Car("car", "Blue", "Subarbu", "FR2534", 2001, 5);
         car.setWofExpiration(LocalDate.now().plusMonths(1));
         car.setRegistrationExpiry(LocalDate.of(2100, 5, 12));
@@ -67,7 +63,7 @@ public class NotifyUserExpirationSteps {
     }
 
     @Given("^his registration expires in one month$")
-    public void hisRegistrationExpiresInOneMonth() {
+    public void hisRegistrationExpiresInOneMonth() throws InvalidDataException {
         Car car = new Car("car", "Blue", "Subarbu", "FR2534", 2001, 5);
         car.setRegistrationExpiry(LocalDate.now().plusMonths(1));
         car.setWofExpiration(LocalDate.of(2100, 7, 5));
@@ -83,7 +79,7 @@ public class NotifyUserExpirationSteps {
     }
 
     @Given("^his registration expires in (\\d+) weeks$")
-    public void hisRegistrationExpiresInWeeks(int weeks) {
+    public void hisRegistrationExpiresInWeeks(int weeks) throws InvalidDataException {
         Car car = new Car("car", "Blue", "Subarbu", "FR2534", 2001, 5);
         car.setRegistrationExpiry(LocalDate.now().plusWeeks(weeks));
         car.setWofExpiration(LocalDate.of(2100, 5, 7));

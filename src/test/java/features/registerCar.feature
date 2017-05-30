@@ -17,3 +17,9 @@ Feature: Register Car
     When jo registers a new car
     Then the car's is registered and jo has add the car to his account
 
+
+  Scenario: Jo registers car with no seats or year that doesn't exist
+    Given Jo is a driver
+    When jo registers a "car" with 0 seats and license plate of "123TRE" and year -2000 and the colour is "blue"and the model is "holden"
+    Then the car is not made and exception is thrown
+

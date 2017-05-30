@@ -25,7 +25,9 @@ public class Driver extends Passenger{
     }
 
     public void addCar(Car car){
-        cars.add(car);
+        if (!cars.contains(car)) {
+            cars.add(car);
+        }
     }
 
     public ObservableList<Car> getCars() {

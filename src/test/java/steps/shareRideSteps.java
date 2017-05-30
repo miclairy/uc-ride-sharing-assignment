@@ -21,7 +21,7 @@ public class shareRideSteps {
     private Trip trip;
 
     @Given("^Jo has made a trip$")
-    public void joHasMadeATrip()  {
+    public void joHasMadeATrip() throws InvalidDataException {
         jo = new Driver("Jo");
         Route route = mock(Route.class);
         Car car = new Car("Car", "Blue", "Mazda6", "ALN345", 2011, 5);

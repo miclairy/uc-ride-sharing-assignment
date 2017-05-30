@@ -19,13 +19,17 @@ public class Car {
     private LocalDate registrationExpiry;
     private double efficiency;
 
-    public Car(String type, String colour, String model, String plates, int year, int numSeats) {
-        this.type = type;
-        this.colour = colour;
-        this.model = model;
-        this.plates = plates;
-        this.year = year;
-        this.numSeats = numSeats;
+    public Car(String type, String colour, String model, String plates, int year, int numSeats) throws InvalidDataException {
+        if (year > 0 && numSeats > 0) {
+            this.type = type;
+            this.colour = colour;
+            this.model = model;
+            this.plates = plates;
+            this.year = year;
+            this.numSeats = numSeats;
+        } else {
+            throw new InvalidDataException();
+        }
     }
 
     public String getType() {

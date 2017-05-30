@@ -22,7 +22,7 @@ public class bookRideSteps {
     private int availableSeatsBefore;
 
     @Given("^sally has selected a ride$")
-    public void sallyHasSelectedARide() {
+    public void sallyHasSelectedARide() throws InvalidDataException {
         Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Route route = mock(Route.class);
         Trip trip = new Trip(route, "to Uni", false, car);
@@ -57,7 +57,7 @@ public class bookRideSteps {
     }
 
     @Given("^sally has booked a ride$")
-    public void sallyHasBookedARide() {
+    public void sallyHasBookedARide() throws InvalidDataException {
         Car car = new Car("BMW", "Blue", "mack6", "TED123", 2010, 5);
         Trip trip = new Trip(new Route(stops, ""), "to Uni", false, car);
         selectedRide = new Ride(trip, 5, LocalDate.now());

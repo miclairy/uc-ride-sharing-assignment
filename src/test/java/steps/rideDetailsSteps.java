@@ -34,7 +34,7 @@ public class rideDetailsSteps {
     }
 
     @When("^sally selects a ride which is from \"([^\"]*)\" who is \"([^\"]*)\" grade and with a (\\d+) \"([^\"]*)\" \"([^\"]*)\" with (\\d+) seats available$")
-    public void sallySelectsARideWhichIsFromWhoIsGradeAndWithAWithSeatsAvailable(String driver, String grade, int year, String colour, String model, int availableSeats) {
+    public void sallySelectsARideWhichIsFromWhoIsGradeAndWithAWithSeatsAvailable(String driver, String grade, int year, String colour, String model, int availableSeats) throws InvalidDataException {
         this.driverName = driver;
         this.grade = grade;
         this.year = year;

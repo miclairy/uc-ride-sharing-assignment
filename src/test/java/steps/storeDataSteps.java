@@ -29,7 +29,7 @@ public class storeDataSteps {
     private List<Ride> rides;
 
     @Given("^there is a trip in the system$")
-    public void thereIsATripInTheSystem() {
+    public void thereIsATripInTheSystem() throws InvalidDataException {
         Data.setDataListeners();
         Data.drivers.clear();
         Data.stopPoints.clear();

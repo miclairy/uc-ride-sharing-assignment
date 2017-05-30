@@ -7,6 +7,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Car;
+import model.InvalidDataException;
 
 import java.io.IOException;
 
@@ -43,7 +44,7 @@ public class RegisterCarController {
     public void registerCar(){
 
         try {
-            if (Integer.parseInt(year.getText()) > 0 && Integer.parseInt(numSeats.getText()) > 0) {
+            try {
                 Car newCar = new Car(type.getText(), colour.getText(), model.getText(), plate.getText(),
                         Integer.parseInt(year.getText()), Integer.parseInt(numSeats.getText()));
                 newCar.setEfficiency(Double.parseDouble(efficiency.getText()));
@@ -52,7 +53,7 @@ public class RegisterCarController {
                 DriverController.driverUser.addCar(newCar);
                 SwitchScenes switchScenes = new SwitchScenes();
                 switchScenes.goToScene("/driverMain.fxml");
-            } else {
+            } catch (InvalidDataException e){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Information was entered incorrectly");
                 alert.setHeaderText("Year and number of seats must be greater than 0");
