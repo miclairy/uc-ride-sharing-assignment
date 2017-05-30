@@ -85,6 +85,9 @@ public class RideTest {
         Set<DayOfWeek> days = new HashSet<>();
         days.add(DayOfWeek.WEDNESDAY);
         trip.setDays(days);
+        Map<String, LocalTime> times = new HashMap();
+        times.put("time", LocalTime.now().plusHours(1));
+        trip.setStopTimes(times);
         trip.share(2, jo, LocalDate.of(2017, 3, 30));
         assertEquals(4, jo.getRides().size());
 
@@ -92,6 +95,6 @@ public class RideTest {
         days.add(DayOfWeek.SUNDAY);
         trip.setDays(days);
         trip.share(2, jo, LocalDate.of(2017, 3, 30));
-        assertEquals(7, jo.getRides().size());
+        assertEquals(8, jo.getRides().size());
     }
 }

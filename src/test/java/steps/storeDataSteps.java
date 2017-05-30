@@ -60,18 +60,25 @@ public class storeDataSteps {
 
     @When("^the application is closed and reopened$")
     public void theApplicationIsClosedAndReopened() throws InterruptedException {
-        Rss toSave = new Rss();
-        String saveLocation = "src/main/resources/dataTest.json";
-        try {
-            Data.save(toSave, saveLocation);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         try {
             Data.load("/dataTest.json");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    @When("^the application is reopened$")
+    public void theApplicationIsReopened() throws Throwable {
+        try {
+            Data.load("/dataTest.json");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("^the ride is in the json$")
+    public void theRideIsInTheJson() throws Throwable {
+        assert true;
     }
 
     @Then("^the trip should still be there$")
@@ -90,5 +97,21 @@ public class storeDataSteps {
     @Then("^the ride should still be there$")
     public void theRideShouldStillBeThere() {
         assertEquals(rides, jos.get(0).getRides());
+    }
+
+    @When("^the application is closed$")
+    public void theApplicationIsClosed() throws Throwable {
+        Rss toSave = new Rss();
+        String saveLocation = "src/main/resources/dataTest.json";
+        try {
+            Data.save(toSave, saveLocation);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("^the trip is entered in the json$")
+    public void theTripIsEnteredInTheJson() throws Throwable {
+        assert true; //todo
     }
 }
