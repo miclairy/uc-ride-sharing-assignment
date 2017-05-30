@@ -451,7 +451,21 @@
           "efficiency": 8.0
         }
       ],
-      "routes": [],
+      "routes": [
+        {
+          "stops": [
+            {
+              "streetNumber": 5,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 6,
+              "streetName": "Hare"
+            }
+          ],
+          "name": "et"
+        }
+      ],
       "trips": [],
       "rides": [],
       "license": {

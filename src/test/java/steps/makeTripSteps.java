@@ -48,10 +48,10 @@ public class makeTripSteps {
         jo.addCar(car);
     }
 
-    @When("^Jo creates a trip by defining it to be his only route \"([^\"]*)\" (\\d+) each stop point (\\d+) minutes after the previous$")
-    public void joCreatesATripByDefiningItToBeHisOnlyRouteEachStopPointMinutesAfterThePrevious(String direction, int time, int timeInterval) {
+    @When("^Jo creates a recurrent is \"([^\"]*)\" trip by defining it to be his only route \"([^\"]*)\" (\\d+) each stop point (\\d+) minutes after the previous$")
+    public void joCreatesARecurrentIsTripByDefiningItToBeHisOnlyRouteEachStopPointMinutesAfterThePrevious(String recurrence, String direction, int time, int timeInterval) {
         Route route = jo.getRoutes().get(0);
-        trip = new Trip(jo.getRoutes().get(0), direction, true, jo.getCars().get(0));
+        trip = new Trip(jo.getRoutes().get(0), direction, Boolean.valueOf(recurrence), jo.getCars().get(0));
         trip.setName("Test Trip");
         int timeOffset = timeInterval;
         for (StopPoint stop : route.getStops()) {
@@ -75,6 +75,22 @@ public class makeTripSteps {
         assertEquals(jo.getTrips().get(0), trip);
         StopPoint stop = stopPoint2;
         assertEquals(LocalTime.of(15, 30), joTrip.getStopTimes().get(stop.toString()));
+        assertEquals(true, trip.getRecurrent());
+        assertEquals(LocalDate.of(Calendar.YEAR, Month.valueOf("may".toUpperCase()), 6), trip.getExpirationDate());
+    }
+
+    @When("^it is added to jo$")
+    public void itIsAddedToJo() throws Throwable {
+        jo.getTrips().add(trip);
+    }
+
+    @Then("^the no recurrent trip is displayed to jo with all information\\.$")
+    public void theNoRecurrentTripIsDisplayedToJoWithAllInformation() throws Throwable {
+        Trip joTrip = jo.getTrips().get(0);
+        assertEquals(jo.getTrips().get(0), trip);
+        StopPoint stop = stopPoint2;
+        assertEquals(LocalTime.of(15, 30), joTrip.getStopTimes().get(stop.toString()));
+        assertEquals(false, trip.getRecurrent());
     }
 
 }

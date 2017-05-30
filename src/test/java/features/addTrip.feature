@@ -6,6 +6,15 @@ Feature: make trip
     Given jo is a driver making a trip
     And jo has some routes
     And Jo registered a car.
-    When Jo creates a trip by defining it to be his only route "to university" 1500 each stop point 15 minutes after the previous
+    When Jo creates a recurrent is "true" trip by defining it to be his only route "to university" 1500 each stop point 15 minutes after the previous
     And that the trip is recurrent so it repeats every "Wednesday" until 6th "May".
     Then the trip is displayed to jo with all information.
+
+  Scenario: Jo makes a trip
+    Given jo is a driver making a trip
+    And jo has some routes
+    And Jo registered a car.
+    When Jo creates a recurrent is "false" trip by defining it to be his only route "to university" 1500 each stop point 15 minutes after the previous
+    And it is added to jo
+    Then the no recurrent trip is displayed to jo with all information.
+
