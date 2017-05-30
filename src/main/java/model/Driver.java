@@ -44,14 +44,18 @@ public class Driver extends Passenger{
         Data.stopPoints.add(stopPoint);
     }
 
-    public void createRoute(ObservableList<StopPoint> stopPoints, String name) {
-        ArrayList<StopPoint> stops = new ArrayList<>();
-        stops.addAll(stopPoints);
-        Route route = new Route(stops, name);
-        if (!routes.contains(route)) {
-            routes.add(route);
+    public void createRoute(ObservableList<StopPoint> stopPoints, String name) throws InvalidDataException {
+        if (!stopPoints.isEmpty()) {
+            ArrayList<StopPoint> stops = new ArrayList<>();
+            stops.addAll(stopPoints);
+            Route route = new Route(stops, name);
+            if (!routes.contains(route)) {
+                routes.add(route);
+            } else {
+                return;
+            }
         } else {
-            return;
+            throw new InvalidDataException();
         }
     }
 

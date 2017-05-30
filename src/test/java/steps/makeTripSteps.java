@@ -31,7 +31,7 @@ public class makeTripSteps {
     }
 
     @Given("^jo has some routes$")
-    public void joHasSomeRoutes() {
+    public void joHasSomeRoutes() throws InvalidDataException {
         StopPoint stopPoint1 = mock(StopPoint.class);
         stopPoint2 = new StopPoint(6, "hare");
         StopPoint stopPoint3 = mock(StopPoint.class);

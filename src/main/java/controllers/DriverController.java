@@ -182,31 +182,32 @@ public class DriverController implements Initializable {
 
     public void createRoute(){
         ObservableList<StopPoint> selectedStops = stopPoints.getSelectionModel().getSelectedItems();
-        if (selectedStops.isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Select 1 or more stop point");
-            alert.setHeaderText("You have not selected any stop points");
-            alert.setContentText("Please select one or more stop points from the list");
-            alert.showAndWait();
-        } else {
 
-            TextInputDialog dialog = new TextInputDialog();
-            dialog.setTitle("Name Route");
-            dialog.setHeaderText("Enter Name for Route");
-            dialog.setContentText("Please enter a name for new route:");
-            Optional<String> result = dialog.showAndWait();
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Name Route");
+        dialog.setHeaderText("Enter Name for Route");
+        dialog.setContentText("Please enter a name for new route:");
+        Optional<String> result = dialog.showAndWait();
 
-            if (result.isPresent()){
-                TitledPane routePane = new TitledPane();
-                String value = result.get();
-                routePane.setText(value);
+        if (result.isPresent()) {
+            TitledPane routePane = new TitledPane();
+            String value = result.get();
+            routePane.setText(value);
+            try {
                 driverUser.createRoute(selectedStops, value);
                 ListView<StopPoint> routeStops = new ListView<>();
                 routeStops.setItems(selectedStops);
                 routePane.setContent(routeStops);
                 routesHolder.getPanes().add(routePane);
+            } catch (InvalidDataException e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Select 1 or more stop point");
+                alert.setHeaderText("You have not selected any stop points");
+                alert.setContentText("Please select one or more stop points from the list");
+                alert.showAndWait();
             }
         }
+
     }
 
     public void clearSelection(){

@@ -430,6 +430,25 @@
             "day": 14
           },
           "efficiency": 11.0
+        },
+        {
+          "type": "van",
+          "colour": "blue",
+          "model": "bmw",
+          "plates": "BUE366",
+          "year": 2000,
+          "numSeats": 8,
+          "wofExpiration": {
+            "year": 2018,
+            "month": 5,
+            "day": 25
+          },
+          "registrationExpiry": {
+            "year": 2018,
+            "month": 5,
+            "day": 24
+          },
+          "efficiency": 8.0
         }
       ],
       "routes": [],
