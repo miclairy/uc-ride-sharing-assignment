@@ -79,7 +79,7 @@ public class RideTest {
     }
 
     @Test
-    public void recurrentRideTest(){ //TODO test that they are correct days and fix
+    public void recurrentRideTest(){
         jo.getRides().clear();
         trip.setExpirationDate(LocalDate.of(2017, 4, 30)); //30th may 2017
         Set<DayOfWeek> days = new HashSet<>();
@@ -96,5 +96,20 @@ public class RideTest {
         trip.setDays(days);
         trip.share(2, jo, LocalDate.of(2017, 3, 30));
         assertEquals(8, jo.getRides().size());
+    }
+
+    @Test
+    public void RideAlreadyPassedTest(){
+        jo.getRides().clear();
+        trip.setExpirationDate(LocalDate.now().plusWeeks(3)); //30th may 2017
+        Set<DayOfWeek> days = new HashSet<>();
+        days.add(LocalDate.now().getDayOfWeek());
+        trip.setDays(days);
+        Map<String, LocalTime> times = new HashMap();
+        times.put("time", LocalTime.now().minusHours(1));
+        trip.setStopTimes(times);
+        trip.share(2, jo, LocalDate.now());
+        assertEquals(2, jo.getRides().size());
+
     }
 }

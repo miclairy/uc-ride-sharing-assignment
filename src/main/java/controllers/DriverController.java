@@ -239,7 +239,7 @@ public class DriverController implements Initializable {
                 VBox infoHolder = new VBox();
                 infoHolder.getChildren().add(new Label("Car: " + trip.getCar()));
                 infoHolder.getChildren().add(new Label("Direction: " + trip.getDirection()));
-                infoHolder.getChildren().add(new Label("Cost: $" + trip.calculateCostPerPassenger()));
+                infoHolder.getChildren().add(new Label("Cost: $" +  String.format( "%.2f", trip.calculateCostPerPassenger())));
                 if (trip.getRecurrent()) {
                     SimpleDateFormat formatter=new SimpleDateFormat("dd MMMM yyyy");
                     String days = "";
@@ -284,8 +284,10 @@ public class DriverController implements Initializable {
             boolean success = trip.share(Integer.parseInt(seats.get()), driverUser, LocalDate.now());
             if (!success){
                 Alert ridePassedAlert = new Alert(Alert.AlertType.INFORMATION);
-                ridePassedAlert.setContentText("The ride is too close to the start time of the ride and wasn't made." +
-                        "If it is recurrent then the first ride that is after 1 hour from now will be made");
+                ridePassedAlert.setTitle("Sharing");
+                ridePassedAlert.setTitle("Error in sharing");
+                ridePassedAlert.setContentText("The ride is too close to the start time of the ride \n and wasn't made." +
+                        "\nIf it is recurrent then the first ride that \n is after 1 hour from now will be made");
                 ridePassedAlert.showAndWait();
             }
         }

@@ -1,4 +1,4 @@
-Feature: Nofity User of expiration'
+Feature: Notify User of expiration
   As a ​​driver​​, I want to be ​​notified ​​if my drivers licence, WOF or registration is about to expire so I
   can renew them on time.
 

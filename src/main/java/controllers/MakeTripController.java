@@ -161,7 +161,7 @@ public class MakeTripController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("No expiration date");
                     alert.setHeaderText("You have not chosen a valid expiration date");
-                    alert.setContentText("In order for the tip to be recurrent then a expiration date must be chosen");
+                    alert.setContentText("In order for the tip to be recurrent then a \n expiration date must be chosen");
                     alert.showAndWait();
                 }
 

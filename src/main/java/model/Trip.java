@@ -107,7 +107,7 @@ public class Trip {
 
     @Override
     public String toString() {
-        return  name.getValue();
+        return  name.getValue().toString();
     }
 
     public boolean share(int seats, Driver driver, LocalDate date) {
@@ -165,7 +165,7 @@ public class Trip {
 
         Trip trip = (Trip) o;
 
-        if (shared != trip.shared) return false;
+        if (shared != trip.isShared()) return false;
         if (!route.equals(trip.route)) return false;
         if (!direction.equals(trip.direction)) return false;
         if (recurrent != null ? !recurrent.equals(trip.recurrent) : trip.recurrent != null) return false;

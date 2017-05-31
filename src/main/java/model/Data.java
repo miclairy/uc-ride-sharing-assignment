@@ -48,17 +48,21 @@ public class Data extends Observable {
     public static void save(Object toSave, String fileName) throws IOException {
         gsonBuilder.registerTypeAdapter(ObservableList.class, new DeserializeObservable());
         gson = gsonBuilder.setPrettyPrinting().create();
-        Writer writer = new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8");
+        FileOutputStream outputStream = new FileOutputStream(fileName);
+        Writer writer = new OutputStreamWriter(outputStream, "UTF-8");
         gson.toJson(toSave, writer);
         writer.close();
+        outputStream.close();
 
     }
 
-    public static void load(String fileName) throws UnsupportedEncodingException {
+    public static void load(String fileName) throws IOException {
         gsonBuilder.registerTypeAdapter(ObservableList.class, new DeserializeObservable());
         gson = gsonBuilder.setPrettyPrinting().create();
         Reader reader = new InputStreamReader(Data.class.getResourceAsStream(fileName), "UTF-8");
         Rss loaded = gson.fromJson(reader, Rss.class);
+        reader.close();
+        Data.class.getResourceAsStream(fileName).close();
         drivers.clear();
         passengers.clear();
         stopPointsList.clear();

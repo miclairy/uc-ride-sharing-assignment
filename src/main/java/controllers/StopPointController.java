@@ -36,6 +36,7 @@ public class StopPointController implements Initializable, MapComponentInitializ
     @FXML private Text title;
     @FXML private GoogleMapView mapView;
     @FXML private GoogleMap map;
+
     @FXML private ListView stopPointsList;
     @FXML private Text numberLabel;
     @FXML private Text streetLabel;
