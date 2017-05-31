@@ -42,8 +42,8 @@ public class searchSteps {
         searched = Search.stopPointsSearch(searchString);
     }
 
-    @Then("^the search results should show (\\d+) hare street as a result\\.$")
-    public void theSearchResultsShouldShowHareStreetAsAResult(int arg1) {
+    @Then("^the search results should not show (\\d+) hare street as a result\\.$")
+    public void theSearchResultsShouldNotShowHareStreetAsAResult(int arg1) {
         result.add(stopPoint);
         result.add(stopPoint2);
         assertEquals(result.sorted(), searched);

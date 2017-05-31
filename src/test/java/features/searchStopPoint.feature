@@ -4,4 +4,4 @@ Feature: Search stop point
   Scenario: Search for stop points
     Given there is some stop points
     When when I search for a stop point buy entering "Bear"
-    Then the search results should show 6 hare street as a result.
+    Then the search results should not show 6 hare street as a result.

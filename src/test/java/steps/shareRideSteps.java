@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
 
@@ -42,4 +43,10 @@ public class shareRideSteps {
         assert(trip.isShared());
         assert(jo.getRides().size() > size);
     }
+
+    @Then("^a ride that can be booked is created with the maximum number of seats in the car$")
+    public void aRideThatCanBeBookedIsCreatedWithTheMaximumNumberOfSeatsInTheCar() throws Throwable {
+        assertEquals(5, jo.getRides().get(0).getAvailableSeats());
+    }
+
 }
