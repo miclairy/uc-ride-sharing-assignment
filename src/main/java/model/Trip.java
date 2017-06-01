@@ -60,6 +60,17 @@ public class Trip {
         this.expirationDate = expirationDate;
     }
 
+    public void validateExpirationDate(LocalDate expirationDate) throws InvalidDataException {
+        if (expirationDate != null && expirationDate.isAfter(LocalDate.now()) &&
+                expirationDate.isBefore(car.getWofExpiry()) &&
+                expirationDate.isBefore(car.getRegistrationExpiry()) &&
+                expirationDate.isBefore(Data.getDriverUser().getLicense().getExpiry())) {
+            this.expirationDate = expirationDate;
+        } else {
+            throw new InvalidDataException();
+        }
+    }
+
     public Route getRoute() {
         return route;
     }

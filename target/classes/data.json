@@ -63,6 +63,23 @@
             }
           ],
           "name": "5"
+        },
+        {
+          "stops": [
+            {
+              "streetNumber": 21,
+              "streetName": "Halswell"
+            },
+            {
+              "streetNumber": 5,
+              "streetName": "magic"
+            },
+            {
+              "streetNumber": 6,
+              "streetName": "Hare"
+            }
+          ],
+          "name": "all"
         }
       ],
       "trips": [
@@ -159,6 +176,107 @@
             "valid": true
           },
           "shared": true
+        },
+        {
+          "route": {
+            "stops": [
+              {
+                "streetNumber": 6,
+                "streetName": "Hare"
+              }
+            ],
+            "name": "hare"
+          },
+          "direction": "To University",
+          "recurrent": false,
+          "days": [],
+          "car": {
+            "type": "car",
+            "colour": "Green",
+            "model": "subaru",
+            "plates": "ALN345",
+            "year": 1998,
+            "numSeats": 5,
+            "wofExpiration": {
+              "year": 2018,
+              "month": 5,
+              "day": 17
+            },
+            "registrationExpiry": {
+              "year": 2018,
+              "month": 5,
+              "day": 19
+            },
+            "efficiency": 10.0
+          },
+          "stopTimes": {
+            "6 Hare \n": {
+              "hour": 11,
+              "minute": 5,
+              "second": 0,
+              "nano": 0
+            }
+          },
+          "name": {
+            "name": "",
+            "value": "hgf",
+            "valid": true
+          },
+          "shared": false
+        },
+        {
+          "route": {
+            "stops": [
+              {
+                "streetNumber": 6,
+                "streetName": "Hare"
+              }
+            ],
+            "name": "hare"
+          },
+          "direction": "To University",
+          "recurrent": true,
+          "days": [
+            "TUESDAY"
+          ],
+          "car": {
+            "type": "car",
+            "colour": "Green",
+            "model": "subaru",
+            "plates": "ALN345",
+            "year": 1998,
+            "numSeats": 5,
+            "wofExpiration": {
+              "year": 2018,
+              "month": 5,
+              "day": 17
+            },
+            "registrationExpiry": {
+              "year": 2018,
+              "month": 5,
+              "day": 19
+            },
+            "efficiency": 10.0
+          },
+          "stopTimes": {
+            "6 Hare \n": {
+              "hour": 1,
+              "minute": 5,
+              "second": 0,
+              "nano": 0
+            }
+          },
+          "expirationDate": {
+            "year": 2017,
+            "month": 6,
+            "day": 2
+          },
+          "name": {
+            "name": "",
+            "value": "hgf",
+            "valid": true
+          },
+          "shared": false
         }
       ],
       "rides": [
@@ -672,6 +790,10 @@
     {
       "streetNumber": 5,
       "streetName": "magic"
+    },
+    {
+      "streetNumber": 21,
+      "streetName": "Halswell"
     }
   ]
 }

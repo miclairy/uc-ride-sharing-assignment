@@ -79,7 +79,7 @@ public class RideTest {
     }
 
     @Test
-    public void recurrentRideTest(){
+    public void recurrentRideTest() throws InvalidDataException {
         jo.getRides().clear();
         trip.setExpirationDate(LocalDate.of(2017, 4, 30)); //30th may 2017
         Set<DayOfWeek> days = new HashSet<>();
@@ -99,7 +99,7 @@ public class RideTest {
     }
 
     @Test
-    public void RideAlreadyPassedTest(){
+    public void RideAlreadyPassedTest() throws InvalidDataException {
         jo.getRides().clear();
         trip.setExpirationDate(LocalDate.now().plusWeeks(3)); //30th may 2017
         Set<DayOfWeek> days = new HashSet<>();

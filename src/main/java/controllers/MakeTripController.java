@@ -152,19 +152,6 @@ public class MakeTripController implements Initializable {
 
             if (trip.getRecurrent()) {
 
-                if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now()) &&
-                        expiration.getValue().isBefore(carCombo.getValue().getWofExpiry()) &&
-                        expiration.getValue().isBefore(carCombo.getValue().getRegistrationExpiry()) &&
-                        expiration.getValue().isBefore(Data.getDriverUser().getLicense().getExpiry())) {
-                    trip.setExpirationDate(expiration.getValue());
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("No expiration date");
-                    alert.setHeaderText("You have not chosen a valid expiration date");
-                    alert.setContentText("In order for the tip to be recurrent then a \n expiration date must be chosen");
-                    alert.showAndWait();
-                }
-
                 if (days.isEmpty()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("No recurring day");
@@ -175,12 +162,18 @@ public class MakeTripController implements Initializable {
                     for (String day : days) {
                         trip.getDays().add(DayOfWeek.valueOf(day.toUpperCase()));
                     }
-                    if (expiration.getValue() != null && expiration.getValue().isAfter(LocalDate.now()) &&
-                            expiration.getValue().isBefore(carCombo.getValue().getWofExpiry()) &&
-                            expiration.getValue().isBefore(carCombo.getValue().getRegistrationExpiry()) &&
-                            expiration.getValue().isBefore(Data.getDriverUser().getLicense().getExpiry())) {
+                    try {
+                        trip.validateExpirationDate(expiration.getValue());
                         finishMakingTrip(trip);
+                    } catch (InvalidDataException e){
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("No expiration date");
+                        alert.setHeaderText("You have not chosen a valid expiration date");
+                        alert.setContentText("In order for the tip to be recurrent then a \n expiration date must be chosen");
+                        alert.showAndWait();
                     }
+
+
                 }
             } else {
                 finishMakingTrip(trip);

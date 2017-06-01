@@ -61,7 +61,7 @@ public class makeTripSteps {
     }
 
     @When("^that the trip is recurrent so it repeats every \"([^\"]*)\" until (\\d+)th \"([^\"]*)\"\\.$")
-    public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) {
+    public void thatTheTripIsRecurrentSoItRepeatsEveryUntilTh(String weekday, int day, String month) throws InvalidDataException {
         Set<DayOfWeek> days = new HashSet<>();
         days.add(DayOfWeek.of(day));
         trip.setDays(days);
