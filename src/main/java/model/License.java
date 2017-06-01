@@ -8,7 +8,8 @@ import java.util.Calendar;
  */
 public class License {
 
-    private String type; //todo enum of license types????????
+
+    private String type;
     private String number;
     private LocalDate issued;
     private LocalDate expiry;
